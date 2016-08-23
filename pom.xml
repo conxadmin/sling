@@ -192,7 +192,7 @@
         <module>bundles/extensions/repoinit</module>
 
         <!-- Testing Support -->
-        <module>testing</module>
+        <!-- <module>testing</module> -->
 
         <!-- Installer -->
         <module>installer/core</module>

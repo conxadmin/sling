@@ -1,0 +1,9 @@
+package org.apache.sling.dm.auth.core.impl;
+
+public class Snippet {
+	BundleAuthenticationRequirementImpl.java
+	LoginServlet.java
+	LogoutServlet.java
+	SlingAuthenticator.java
+}
+

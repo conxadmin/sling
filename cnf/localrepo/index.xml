@@ -1,0 +1,1685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<repository increment="1471977623000" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.api"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.14.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="ec94d42608800e67f3fef9873896b4065dc27dc4bea262079618fad97bef33c5"/>
+      <attribute name="url" value="org.apache.sling.api/org.apache.sling.api-2.14.1.jar"/>
+      <attribute name="size" type="Long" value="115591"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.adapter"/>
+      <attribute name="version" type="Version" value="2.2.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.auth"/>
+      <attribute name="version" type="Version" value="1.0.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation,javax.servlet.http,org.apache.sling.api"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api"/>
+      <attribute name="version" type="Version" value="2.3.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation,javax.servlet,javax.servlet.http,org.apache.sling.api.adapter,org.apache.sling.api.request,org.apache.sling.api.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.request"/>
+      <attribute name="version" type="Version" value="2.4.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation,javax.servlet,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.resource"/>
+      <attribute name="version" type="Version" value="2.9.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.adapter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.resource.observation"/>
+      <attribute name="version" type="Version" value="1.1.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.resource.path"/>
+      <attribute name="version" type="Version" value="1.1.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.resource.runtime.dto"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.resource.runtime"/>
+      <attribute name="version" type="Version" value="1.0.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="org.apache.sling.api.resource.runtime.dto"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.scripting"/>
+      <attribute name="version" type="Version" value="2.3.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation,org.apache.sling.api,org.apache.sling.api.request,org.apache.sling.api.resource,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.security"/>
+      <attribute name="version" type="Version" value="1.0.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation,org.apache.sling.api.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.servlets"/>
+      <attribute name="version" type="Version" value="2.1.3"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation,javax.servlet,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.api.wrappers"/>
+      <attribute name="version" type="Version" value="2.5.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.servlet,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.request,org.apache.sling.api.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.spi.resource.provider"/>
+      <attribute name="version" type="Version" value="1.0.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.api"/>
+      <attribute name="bundle-version" type="Version" value="2.14.1.SNAPSHOT"/>
+      <directive name="uses" value="javax.annotation,org.apache.sling.api.resource,org.apache.sling.api.resource.observation,org.apache.sling.api.resource.path"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.annotation)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet)(version&gt;=3.1.0)(!(version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=3.1.0)(!(version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api)(version&gt;=2.3.0)(!(version&gt;=2.4.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.adapter)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.request)(version&gt;=2.4.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.resource)(version&gt;=2.9.0)(!(version&gt;=2.10.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.resource.observation)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.resource.path)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.resource.runtime.dto)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.wrappers)(version&gt;=2.5.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.classloader"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.3.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="70ed8d4eba2b6d7b5df0c323e5791cd5bc4184a009f4d9a983b284a8e9938648"/>
+      <attribute name="url" value="org.apache.sling.commons.classloader/org.apache.sling.commons.classloader-1.3.3.jar"/>
+      <attribute name="size" type="Long" value="24867"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.classloader"/>
+      <attribute name="bundle-version" type="Version" value="1.3.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.classloader"/>
+      <attribute name="bundle-version" type="Version" value="1.3.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.classloader"/>
+      <attribute name="version" type="Version" value="1.3.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.classloader"/>
+      <attribute name="bundle-version" type="Version" value="1.3.3.SNAPSHOT"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.classloader)(version&gt;=1.3.0)(!(version&gt;=1.4.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.8.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.packageadmin)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.compiler"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="094698c158da024c6d5c468b2aa2d4632ead2c6a18f39fa39092d14abf2a5663"/>
+      <attribute name="url" value="org.apache.sling.commons.compiler/org.apache.sling.commons.compiler-2.3.1.jar"/>
+      <attribute name="size" type="Long" value="2319479"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.compiler"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.compiler"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.compiler"/>
+      <attribute name="version" type="Version" value="2.1.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.compiler"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.commons.compiler.JavaCompiler"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <directive name="uses" value="org.apache.sling.commons.compiler"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.annotation.processing)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.lang.model)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.lang.model.element)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.lang.model.type)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.lang.model.util)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.tools)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.classloader)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.compiler)(version&gt;=2.1.0)(!(version&gt;=2.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.classloader.ClassLoaderWriter)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.contentdetection"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="18e816ee2b92d971cd6f3a46cbfd5dcb6dd7cfe8d11b40efc7663bed1c3d4f06"/>
+      <attribute name="url" value="org.apache.sling.commons.contentdetection/org.apache.sling.commons.contentdetection-1.0.3.jar"/>
+      <attribute name="size" type="Long" value="15199"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.contentdetection"/>
+      <attribute name="bundle-version" type="Version" value="1.0.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.contentdetection"/>
+      <attribute name="bundle-version" type="Version" value="1.0.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.contentdetection"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.contentdetection"/>
+      <attribute name="bundle-version" type="Version" value="1.0.3.SNAPSHOT"/>
+      <directive name="uses" value="org.apache.sling.commons.mime"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.commons.contentdetection.FileNameExtractor"/>
+      <attribute name="service.description" value="Apache Sling Filename Extractor Service"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.sling.commons.contentdetection.internal.FileNameExtractorImpl"/>
+      <directive name="uses" value="org.apache.sling.commons.contentdetection"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.commons.contentdetection.ContentAwareMimeTypeService"/>
+      <attribute name="service.description" value="Apache Sling Content Aware MIME Type Service"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="detection.mode" value="tika"/>
+      <attribute name="service.pid" value="org.apache.sling.commons.contentdetection.internal.ContentAwareMimeTypeServiceImpl"/>
+      <directive name="uses" value="org.apache.sling.commons.contentdetection"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.contentdetection)(version&gt;=1.0.0)(!(version&gt;=1.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.mime)(version&gt;=2.1.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.tika.detect)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.tika.io)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.tika.metadata)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.tika.mime)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.tika.detect.Detector)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.mime.MimeTypeService)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.fsclassloader"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="6e84af4172af8329c64ea3eb8502cf7e9b6658132b6166f1e6fd54b48a550e7b"/>
+      <attribute name="url" value="org.apache.sling.commons.fsclassloader/org.apache.sling.commons.fsclassloader-1.0.3.jar"/>
+      <attribute name="size" type="Long" value="32008"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.fsclassloader"/>
+      <attribute name="bundle-version" type="Version" value="1.0.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.fsclassloader"/>
+      <attribute name="bundle-version" type="Version" value="1.0.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.commons.classloader.ClassLoaderWriter"/>
+      <attribute name="service.ranking" type="Long" value="100"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <directive name="uses" value="org.apache.sling.commons.classloader"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="javax.servlet.Servlet,javax.servlet.ServletConfig,java.io.Serializable"/>
+      <attribute name="service.description" value="Web Console for the FileSystem Class Loader"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="felix.webconsole.label" value="fsclassloader"/>
+      <attribute name="felix.webconsole.title" value="File System Class Loader"/>
+      <attribute name="felix.webconsole.css" value="fsclassloader/res/ui/prettify.css"/>
+      <attribute name="felix.webconsole.category" value="Sling"/>
+      <directive name="uses" value="javax.servlet,javax.servlet,java.io"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet)(version&gt;=3.1.0)(!(version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet.http)(version&gt;=3.1.0)(!(version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.commons.io)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.commons.lang3)(version&gt;=3.4.0)(!(version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.felix.webconsole)(version&gt;=3.0.0)(!(version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.classloader)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.8.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.classloader.DynamicClassLoaderManager)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.classloader.ClassLoaderWriter)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.json"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.0.19.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="34339cb4d741e9396689551b18b4e46907a8d418494a0c3164efb44d7eb42547"/>
+      <attribute name="url" value="org.apache.sling.commons.json/org.apache.sling.commons.json-2.0.19.jar"/>
+      <attribute name="size" type="Long" value="65709"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.json.http"/>
+      <attribute name="version" type="Version" value="2.0.4"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+      <directive name="uses" value="org.apache.sling.commons.json"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.json.io"/>
+      <attribute name="version" type="Version" value="2.2.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+      <directive name="uses" value="org.apache.sling.commons.json"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.json.jcr"/>
+      <attribute name="version" type="Version" value="2.0.4"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+      <directive name="uses" value="javax.jcr,org.apache.sling.commons.json,org.apache.sling.commons.json.io"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.json"/>
+      <attribute name="version" type="Version" value="2.0.4"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.json.sling"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+      <directive name="uses" value="org.apache.sling.api.request,org.apache.sling.api.resource,org.apache.sling.commons.json"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.json.util"/>
+      <attribute name="version" type="Version" value="2.0.4"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+      <directive name="uses" value="org.apache.sling.commons.json"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.json.xml"/>
+      <attribute name="version" type="Version" value="2.0.4"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.json"/>
+      <attribute name="bundle-version" type="Version" value="2.0.19.SNAPSHOT"/>
+      <directive name="uses" value="org.apache.sling.commons.json"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.request)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.resource)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.json)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.json.io)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.log"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="4.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="c2349b276db211833a39bc94e29718f44f332f585cb9bdaf24f71dc49cf347ac"/>
+      <attribute name="url" value="org.apache.sling.commons.log/org.apache.sling.commons.log-4.0.7.jar"/>
+      <attribute name="size" type="Long" value="769777"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.log.logback"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="org.xml.sax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.slf4j.impl"/>
+      <attribute name="version" type="Version" value="1.6.4"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="org.slf4j,org.slf4j.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.spi,ch.qos.logback.classic.turbo,ch.qos.logback.core,ch.qos.logback.core.pattern,ch.qos.logback.core.spi,ch.qos.logback.core.status,org.slf4j,org.slf4j.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.boolex"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.spi,ch.qos.logback.core.boolex"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.db"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.db.names,ch.qos.logback.classic.spi,ch.qos.logback.core.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.db.names"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.encoder"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.spi,ch.qos.logback.core.pattern"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.filter"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic,ch.qos.logback.classic.spi,ch.qos.logback.core.filter,ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.gaffer"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic,ch.qos.logback.core,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.helpers"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.html"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.spi,ch.qos.logback.core.html,ch.qos.logback.core.pattern"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.jmx"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic,ch.qos.logback.classic.spi,ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.management"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.joran"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.joran,ch.qos.logback.core.joran.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.joran.action"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.spi,org.xml.sax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.jul"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic,ch.qos.logback.classic.spi,ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.log4j"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.spi,ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.net"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic,ch.qos.logback.classic.spi,ch.qos.logback.core,ch.qos.logback.core.boolex,ch.qos.logback.core.helpers,ch.qos.logback.core.joran.spi,ch.qos.logback.core.net,ch.qos.logback.core.net.ssl,ch.qos.logback.core.pattern,ch.qos.logback.core.spi,javax.naming,javax.net,javax.net.ssl"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.net.server"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.net,ch.qos.logback.classic.spi,ch.qos.logback.core.net.server,ch.qos.logback.core.net.ssl,ch.qos.logback.core.spi,javax.net"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.pattern"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.spi,ch.qos.logback.core.pattern,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.pattern.color"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.spi,ch.qos.logback.core.pattern.color"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.selector"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.selector.servlet"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.sift"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic.spi,ch.qos.logback.core,ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.sift,org.xml.sax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.spi"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic,ch.qos.logback.classic.turbo,ch.qos.logback.core,ch.qos.logback.core.spi,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.turbo"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic,ch.qos.logback.core.spi,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.classic.util"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.classic,ch.qos.logback.classic.selector,ch.qos.logback.classic.spi,ch.qos.logback.core.joran.spi,javax.naming,org.slf4j.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.encoder,ch.qos.logback.core.filter,ch.qos.logback.core.helpers,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.boolex"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.db"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.db.dialect,ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.sql,org.xml.sax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.db.dialect"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.encoder"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.filter"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.boolex,ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.helpers"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.html"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.pattern"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,org.xml.sax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.action"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.joran.spi,ch.qos.logback.core.joran.util,ch.qos.logback.core.spi,ch.qos.logback.core.util,org.xml.sax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.conditional"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,org.xml.sax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.event"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.status,org.xml.sax,org.xml.sax.helpers"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.event.stax"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.xml.stream,javax.xml.stream.events"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.node"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.spi"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.action,ch.qos.logback.core.joran.event,ch.qos.logback.core.spi,ch.qos.logback.core.status,org.xml.sax"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.joran.util"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.layout"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.boolex,ch.qos.logback.core.helpers,ch.qos.logback.core.net.ssl,ch.qos.logback.core.pattern,ch.qos.logback.core.sift,ch.qos.logback.core.spi,ch.qos.logback.core.util,javax.naming,javax.net"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net.server"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.net.ssl,ch.qos.logback.core.spi,javax.net"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.net.ssl"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,javax.net,javax.net.ssl"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.encoder,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.color"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.pattern"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.parser"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.pattern,ch.qos.logback.core.pattern.util,ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.pattern.util"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.property"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.read"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.recovery"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.status"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.rolling"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran.spi,ch.qos.logback.core.rolling.helper,ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.rolling.helper"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.pattern,ch.qos.logback.core.rolling,ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.sift"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.joran,ch.qos.logback.core.joran.event,ch.qos.logback.core.joran.spi,ch.qos.logback.core.spi,ch.qos.logback.core.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.spi"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.filter,ch.qos.logback.core.helpers,ch.qos.logback.core.status"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.status"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.subst"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core.spi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="ch.qos.logback.core.util"/>
+      <attribute name="version" type="Version" value="1.1.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.log"/>
+      <attribute name="bundle-version" type="Version" value="4.0.7.SNAPSHOT"/>
+      <directive name="uses" value="ch.qos.logback.core,ch.qos.logback.core.rolling,ch.qos.logback.core.spi,ch.qos.logback.core.status"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.3.0))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.6.0)(!(version&gt;=1.8.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j.spi)(version&gt;=1.6.0)(!(version&gt;=1.8.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.management)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.naming)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.sql)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.parsers)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax.helpers)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=sun.reflect)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.boolex)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.db.names)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.encoder)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.gaffer)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.jmx)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.joran)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.joran.action)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.jul)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.net)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.pattern)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.pattern.color)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.selector)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.sift)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.spi)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.turbo)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.classic.util)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.boolex)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.db)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.db.dialect)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.encoder)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.filter)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.helpers)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.html)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.joran)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.joran.action)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.joran.conditional)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.joran.event)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.joran.spi)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.joran.util)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.net)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.net.server)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.net.ssl)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.pattern)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.pattern.color)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.pattern.parser)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.pattern.util)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.recovery)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.rolling)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.rolling.helper)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.sift)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.spi)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.status)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.subst)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=ch.qos.logback.core.util)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.net)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.net.ssl)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.namespace)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.stream)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.stream.events)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j.helpers)(version&gt;=1.6.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.logservice"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="fb78bc449134e345b5e6334dc6c084fcdc0786a22a5b342c8ad07ae16c41e371"/>
+      <attribute name="url" value="org.apache.sling.commons.logservice/org.apache.sling.commons.logservice-1.0.7.jar"/>
+      <attribute name="size" type="Long" value="26205"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.logservice"/>
+      <attribute name="bundle-version" type="Version" value="1.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.logservice"/>
+      <attribute name="bundle-version" type="Version" value="1.0.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.osgi.service.log"/>
+      <attribute name="version" type="Version" value="1.3.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.logservice"/>
+      <attribute name="bundle-version" type="Version" value="1.0.7.SNAPSHOT"/>
+      <directive name="uses" value="org.osgi.framework"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=1.4.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.startlevel)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.metrics"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="9cbff7fca46fd6fdc59d5b1385aaac89aeb410fcc91f5f0b0fb62aeef5d9c8bd"/>
+      <attribute name="url" value="org.apache.sling.commons.metrics/org.apache.sling.commons.metrics-1.0.1.jar"/>
+      <attribute name="size" type="Long" value="43413"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.metrics"/>
+      <attribute name="bundle-version" type="Version" value="1.0.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.metrics"/>
+      <attribute name="bundle-version" type="Version" value="1.0.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.metrics"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.metrics"/>
+      <attribute name="bundle-version" type="Version" value="1.0.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.felix.inventory.InventoryPrinter,javax.servlet.Servlet"/>
+      <attribute name="felix.webconsole.label" value="slingmetrics"/>
+      <attribute name="felix.webconsole.title" value="Metrics"/>
+      <attribute name="felix.webconsole.category" value="Sling"/>
+      <attribute name="felix.inventory.printer.format" type="List&lt;String&gt;" value="TEXT,JSON"/>
+      <attribute name="felix.inventory.printer.name" value="slingmetrics"/>
+      <attribute name="felix.inventory.printer.title" value="Sling Metrics"/>
+      <attribute name="felix.inventory.printer.webconsole" value="true"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.sling.commons.metrics.internal.MetricWebConsolePlugin"/>
+      <directive name="uses" value="org.apache.felix.inventory,javax.servlet"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.codahale.metrics)(version&gt;=3.1.0)(!(version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.management)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.servlet.http)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.commons.io.output)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.felix.inventory)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.metrics)(version&gt;=1.0.0)(!(version&gt;=1.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.json)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.6.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=javax.management.MBeanServer)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.mime"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.1.9.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="600821572c0f8dfdeacc33d471fc4afa16b74880c37fdc9c2a41d5503fd8f73d"/>
+      <attribute name="url" value="org.apache.sling.commons.mime/org.apache.sling.commons.mime-2.1.9.jar"/>
+      <attribute name="size" type="Long" value="40485"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.mime"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.mime"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.mime"/>
+      <attribute name="version" type="Version" value="2.1.4"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.mime"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.commons.mime.MimeTypeService"/>
+      <attribute name="service.description" value="Apache Sling MIME Type Service"/>
+      <attribute name="mime.types" type="List&lt;String&gt;" value=""/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.sling.commons.mime.internal.MimeTypeServiceImpl"/>
+      <directive name="uses" value="org.apache.sling.commons.mime"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.servlet.http)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.tika)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.tika.mime)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.mime)(version&gt;=2.1.0)(!(version&gt;=2.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.osgi)(version&gt;=2.1.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.felix.webconsole)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.mime.MimeTypeProvider)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.osgi.service.log.LogService)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.osgi"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.4.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="f973b1eab4ce6f2c1c873547bd6a359f745d5a6229f28fc41025051ce6ddde44"/>
+      <attribute name="url" value="org.apache.sling.commons.osgi/org.apache.sling.commons.osgi-2.4.1.jar"/>
+      <attribute name="size" type="Long" value="33601"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.osgi"/>
+      <attribute name="bundle-version" type="Version" value="2.4.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.osgi"/>
+      <attribute name="bundle-version" type="Version" value="2.4.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.osgi"/>
+      <attribute name="version" type="Version" value="2.4.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.osgi"/>
+      <attribute name="bundle-version" type="Version" value="2.4.1.SNAPSHOT"/>
+      <directive name="uses" value="org.osgi.framework,org.osgi.service.event,org.osgi.util.tracker"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.osgi.bundleversion"/>
+      <attribute name="version" type="Version" value="2.2.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.osgi"/>
+      <attribute name="bundle-version" type="Version" value="2.4.1.SNAPSHOT"/>
+      <directive name="uses" value="org.osgi.framework"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.8.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.event)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.scheduler"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.5.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="7e12f9b09d571f674e5837ae188d635a49441d8a08a1cbdb0d7ba2a4c198ea41"/>
+      <attribute name="url" value="org.apache.sling.commons.scheduler/org.apache.sling.commons.scheduler-2.5.1.jar"/>
+      <attribute name="size" type="Long" value="663480"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.scheduler"/>
+      <attribute name="bundle-version" type="Version" value="2.5.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.scheduler"/>
+      <attribute name="bundle-version" type="Version" value="2.5.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.scheduler"/>
+      <attribute name="version" type="Version" value="2.5.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.scheduler"/>
+      <attribute name="bundle-version" type="Version" value="2.5.1.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.commons.scheduler.impl.WebConsolePrinter"/>
+      <attribute name="service.description" value="Apache Sling Scheduler Configuration Printer"/>
+      <attribute name="felix.webconsole.label" value="slingscheduler"/>
+      <attribute name="felix.webconsole.title" value="Sling Scheduler"/>
+      <attribute name="felix.webconsole.configprinter.modes" value="always"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <directive name="uses" value="org.apache.sling.commons.scheduler.impl"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.commons.scheduler.Scheduler"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <directive name="uses" value="org.apache.sling.commons.scheduler"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.commons.scheduler.impl.QuartzScheduler"/>
+      <attribute name="poolName" type="List&lt;String&gt;" value=""/>
+      <attribute name="allowedPoolNames" type="List&lt;String&gt;" value=""/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <directive name="uses" value="org.apache.sling.commons.scheduler.impl"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.discovery.TopologyEventListener"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <directive name="uses" value="org.apache.sling.discovery"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.discovery)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.settings)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.management)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.management.openmbean)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.naming)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.servlet)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.servlet.http)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.sql)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.transaction)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.bind)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.namespace)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.parsers)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.xpath)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.scheduler)(version&gt;=2.5.0)(!(version&gt;=2.6.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.threads)(version&gt;=3.3.0)(!(version&gt;=4.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.8.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.w3c.dom)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax)"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.scheduler.impl.QuartzScheduler)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.scheduler.impl.QuartzScheduler)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.scheduler.impl.QuartzScheduler)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.commons.threads.ThreadPoolManager)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.threaddump"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="0.2.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="4276478db1681483ef103ae3d6d98ca87331f7c136f9aa16278fba7d917b6020"/>
+      <attribute name="url" value="org.apache.sling.commons.threaddump/org.apache.sling.commons.threaddump-0.2.3.jar"/>
+      <attribute name="size" type="Long" value="16729"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.threaddump"/>
+      <attribute name="bundle-version" type="Version" value="0.2.3.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.threaddump"/>
+      <attribute name="bundle-version" type="Version" value="0.2.3.SNAPSHOT"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.commons.threads"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="3.2.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="86e8dec25b3fb64ab12333e541c962505c9bd0267d2c7553658d560500fcc3a9"/>
+      <attribute name="url" value="org.apache.sling.commons.threads/org.apache.sling.commons.threads-3.2.7.jar"/>
+      <attribute name="size" type="Long" value="42151"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.commons.threads"/>
+      <attribute name="bundle-version" type="Version" value="3.2.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.commons.threads"/>
+      <attribute name="bundle-version" type="Version" value="3.2.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.threads.jmx"/>
+      <attribute name="version" type="Version" value="1.1.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.threads"/>
+      <attribute name="bundle-version" type="Version" value="3.2.7.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.commons.threads"/>
+      <attribute name="version" type="Version" value="3.4.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.commons.threads"/>
+      <attribute name="bundle-version" type="Version" value="3.2.7.SNAPSHOT"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.management)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.threads)(version&gt;=3.4.0)(!(version&gt;=3.5.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.threads.jmx)(version&gt;=1.1.0)(!(version&gt;=1.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.8.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+  </resource>
+</repository>

@@ -1,0 +1,39 @@
+package org.apache.sling.auth.core;
+
+
+import java.util.Properties;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.apache.sling.api.auth.Authenticator;
+import org.apache.sling.auth.core.impl.BundleAuthenticationRequirementImpl;
+import org.apache.sling.auth.core.spi.BundleAuthenticationRequirement;
+import org.apache.felix.dm.Component;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedServiceFactory;
+import org.osgi.service.log.LogService;
+
+public class Activator extends DependencyActivatorBase {
+
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1) throws Exception {
+
+	}
+
+	@Override
+	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		//BundleAuthenticationRequirementImpl
+		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		Component component = dm.createComponent()
+				.setInterface(BundleAuthenticationRequirement.class.getName(), properties)
+				.setImplementation(BundleAuthenticationRequirementImpl.class)
+	            .add(createServiceDependency()
+	                	.setService(Authenticator.class)
+	                	.setRequired(true));
+		 dm.add(component);
+
+	}
+
+}

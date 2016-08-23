@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;osgi-apache-sling-deps&apos;&#x0A;- Original project: &apos;osgi-apache-sling-deps&apos;&#x0A;- Original elements:&#x0A;     osgi-apache-sling-deps/src/org.apache.sling.auth.core.impl&#x0A;     osgi-apache-sling-deps/src/org.apache.sling.auth.core.impl.engine" description="Delete elements" element1="/src&lt;org.apache.sling.auth.core.impl.engine" element2="/src&lt;org.apache.sling.auth.core.impl" element3="/src&lt;org.apache.sling.auth.core" element4="/src&lt;org.apache.sling.auth" element5="/src&lt;org.apache.sling" element6="/src&lt;org.apache" element7="/src&lt;org" elements="7" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1471976604411" subPackages="false" version="1.0"/>
+</session>
