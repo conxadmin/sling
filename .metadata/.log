@@ -1855,3 +1855,23 @@ java.io.IOException: Downloading http://aceobr.myconxclouddev.com/obr/javax/java
 java.lang.NullPointerException
 	at bndtools.views.repository.RepositoriesView$5$1.run(RepositoriesView.java:314)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.egit.core 4 0 2016-08-23 19:38:10.759
+!MESSAGE An exception occurred during push on URI git@github.com:conxadmin/sling.git: git@github.com:conxadmin/sling.git: push not permitted
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: git@github.com:conxadmin/sling.git: push not permitted
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:164)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:228)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI.execute(PushOperationUI.java:167)
+	at org.eclipse.egit.ui.internal.push.PushOperationUI$1.run(PushOperationUI.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.eclipse.jgit.errors.TransportException: git@github.com:conxadmin/sling.git: push not permitted
+	at org.eclipse.jgit.transport.BasePackPushConnection.noRepository(BasePackPushConnection.java:176)
+	at org.eclipse.jgit.transport.BasePackConnection.readAdvertisedRefsImpl(BasePackConnection.java:200)
+	at org.eclipse.jgit.transport.BasePackConnection.readAdvertisedRefs(BasePackConnection.java:178)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:341)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:166)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:154)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1200)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:157)
+	... 4 more
