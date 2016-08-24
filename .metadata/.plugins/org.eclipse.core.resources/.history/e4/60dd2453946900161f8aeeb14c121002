@@ -1,0 +1,8 @@
+Bundle-Version: 2.1.9.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling Adapter Manager Implementation
+Bundle-Vendor: The Apache Software Foundation
+Export-Package: org.apache.sling.adapter
+Private-Package: org.apache.sling.adapter.internal
+Bundle-Activator: org.apache.sling.auth.core.Activator

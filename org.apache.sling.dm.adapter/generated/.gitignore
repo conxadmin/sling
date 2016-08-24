@@ -1,0 +1,5 @@
+/.index
+/buildfiles
+/org.apache.sling.dm.auth.core.jar
+/org.apache.sling.dm.auth.core.mt.jar
+/org.apache.sling.dm.adapter.mt.jar

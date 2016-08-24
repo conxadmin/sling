@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.engine.impl.auth.SlingAuthenticator" name="%auth.name" description="%auth.description">
+        <AD id="auth.sudo.cookie" type="String" default="sling.sudo" name="%auth.sudo.cookie.name" description="%auth.sudo.cookie.description"/>
+        <AD id="auth.sudo.parameter" type="String" default="sudo" name="%auth.sudo.parameter.name" description="%auth.sudo.parameter.description"/>
+        <AD id="auth.annonymous" type="Boolean" default="true" name="%auth.annonymous.name" description="%auth.annonymous.description"/>
+        <AD id="sling.auth.requirements" type="String" name="%sling.auth.requirements.name" description="%sling.auth.requirements.description" cardinality="2147483647"/>
+        <AD id="sling.auth.anonymous.user" type="String" name="%sling.auth.anonymous.user.name" description="%sling.auth.anonymous.user.description"/>
+        <AD id="sling.auth.anonymous.password" type="String" name="%sling.auth.anonymous.password.name" description="%sling.auth.anonymous.password.description"/>
+        <AD id="auth.http" type="String" default="preemptive" name="%auth.http.name" description="%auth.http.description">
+            <Option value="enabled" label="Enabled"/>
+            <Option value="preemptive" label="Enabled (Preemptive)"/>
+            <Option value="disabled" label="Disabled"/>
+        </AD>
+        <AD id="auth.http.realm" type="String" default="Sling\ (Development)" name="%auth.http.realm.name" description="%auth.http.realm.description"/>
+        <AD id="auth.uri.suffix" type="String" default="/j_security_check" name="%auth.uri.suffix.name" description="%auth.uri.suffix.description" cardinality="2147483647"/>
+    </OCD>
+    <Designate pid="org.apache.sling.engine.impl.auth.SlingAuthenticator">
+        <Object ocdref="org.apache.sling.engine.impl.auth.SlingAuthenticator"/>
+    </Designate>
+</metatype:MetaData>

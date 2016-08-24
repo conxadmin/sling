@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<repository increment="1472000144336" name="org.apache.sling.dm.auth.form" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.dm.auth.form.mt"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.1.9.201608240055"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="fc56e89cdfb7a22a253c3d9a471e7708f4943e79a2dbd3e95f6872ffcb240658"/>
+      <attribute name="url" value="generated/org.apache.sling.dm.auth.form.mt.jar"/>
+      <attribute name="size" type="Long" value="2493"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.auth.form.mt"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.201608240055"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.dm.auth.form.mt"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.201608240055"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.adapter"/>
+      <attribute name="version" type="Version" value="2.1.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.form.mt"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.201608240055"/>
+    </capability>
+    <capability namespace="bndtools.workspace">
+      <attribute name="bndtools.workspace" value="file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling"/>
+      <attribute name="project.path" value="/org.apache.sling.dm.auth.form"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.sling.adapter.internal)"/>
+    </requirement>
+  </resource>
+</repository>

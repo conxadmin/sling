@@ -1,5 +1,1160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1471977623000" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1472003534000" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.5.7"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="6c82b61f73060ff03691c9545ce6a84c5ef745ecacee78edcec4388179a2cd00"/>
+      <attribute name="url" value="org.apache.jackrabbit.oak-core/org.apache.jackrabbit.oak-core-1.5.7.jar"/>
+      <attribute name="size" type="Long" value="2846366"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.management,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.index,org.apache.jackrabbit.oak.query,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.lifecycle,org.apache.jackrabbit.oak.spi.query,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.state,org.apache.jackrabbit.oak.spi.whiteboard"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.api"/>
+      <attribute name="version" type="Version" value="3.1.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,javax.security.auth.login"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.api.jmx"/>
+      <attribute name="version" type="Version" value="3.3.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.management.openmbean,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.commons.jmx"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.cache"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.cache,com.google.common.collect,javax.annotation,javax.management.openmbean,org.apache.jackrabbit.oak.api.jmx,org.apache.jackrabbit.oak.commons.jmx"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.stats"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.management.openmbean,org.apache.jackrabbit.api.stats,org.apache.jackrabbit.oak.api.jmx,org.apache.jackrabbit.oak.commons.jmx,org.apache.jackrabbit.oak.spi.whiteboard,org.apache.jackrabbit.stats,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.json"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.commons.json,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.management"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.management.openmbean,org.apache.jackrabbit.oak.api.jmx,org.apache.jackrabbit.oak.commons.jmx,org.apache.jackrabbit.oak.spi.whiteboard"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.util"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.io,javax.annotation,javax.jcr,javax.management.openmbean,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.api.jmx,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.state,org.apache.jackrabbit.oak.spi.whiteboard,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.namepath"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,javax.jcr.nodetype,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.identifier,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.osgi"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.whiteboard,org.osgi.framework,org.osgi.service.component,org.osgi.util.tracker"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.atomic"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.base,javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state,org.apache.jackrabbit.oak.spi.whiteboard,org.osgi.framework"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.blob"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.management.openmbean,org.apache.jackrabbit.core.data,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.cache,org.apache.jackrabbit.oak.commons.jmx,org.apache.jackrabbit.oak.plugins.blob.datastore,org.apache.jackrabbit.oak.spi.blob,org.apache.jackrabbit.oak.spi.blob.stats,org.apache.jackrabbit.oak.stats,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.blob.datastore"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.cache,javax.annotation,javax.jcr,org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.util.db,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.blob.cloud.aws.s3,org.apache.jackrabbit.oak.cache,org.apache.jackrabbit.oak.plugins.blob,org.apache.jackrabbit.oak.plugins.index.fulltext,org.apache.jackrabbit.oak.spi.blob,org.apache.jackrabbit.oak.spi.blob.stats,org.apache.jackrabbit.oak.stats,org.osgi.service.component,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.commit"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.identifier"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.index"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state,org.apache.jackrabbit.oak.spi.whiteboard,org.apache.jackrabbit.oak.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.index.fulltext"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.index.aggregate"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.spi.query,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.index.counter"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.index,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state,org.apache.jackrabbit.oak.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.index.nodetype"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.spi.query,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.index.property"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.index,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.mount,org.apache.jackrabbit.oak.spi.query,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.index.property.jmx"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.management.openmbean,org.apache.jackrabbit.oak.commons.jmx,org.apache.jackrabbit.oak.plugins.index,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.index.reference"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.plugins.index,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.mount,org.apache.jackrabbit.oak.spi.query,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.itemsave"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.lock"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="org.apache.jackrabbit"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.memory"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.hash,javax.annotation,javax.jcr,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.value,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.name"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.nodetype"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.base,javax.annotation,javax.jcr,javax.jcr.nodetype,org.apache.jackrabbit,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.nodetype.write"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,javax.jcr.nodetype,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.nodetype,org.apache.jackrabbit.oak.spi.lifecycle,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.observation"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.observation.filter,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.observation.filter"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.base,javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.security.authorization.permission,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.tree"/>
+      <attribute name="version" type="Version" value="2.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.query,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.query,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.value"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,org.apache.jackrabbit.api,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.plugins.version"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,org.apache.jackrabbit,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.plugins.identifier,org.apache.jackrabbit.oak.plugins.nodetype,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.commit"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.state,org.slf4j"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.gc"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.spi.whiteboard"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.lifecycle"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.plugins.index,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.mount"/>
+      <attribute name="version" type="Version" value="2.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.query"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.plugins.index.aggregate,org.apache.jackrabbit.oak.query,org.apache.jackrabbit.oak.query.fulltext,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security"/>
+      <attribute name="version" type="Version" value="2.1.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.tree,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.lifecycle,org.apache.jackrabbit.oak.spi.xml"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.authentication"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,javax.security.auth,javax.security.auth.callback,javax.security.auth.login,javax.security.auth.spi,org.apache.jackrabbit.api.security.user,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.security.principal,org.apache.jackrabbit.oak.spi.whiteboard"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.authentication.callback"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,javax.security.auth.callback,org.apache.jackrabbit.api.security.user,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.security.authentication.token,org.apache.jackrabbit.oak.spi.security.principal,org.apache.jackrabbit.oak.spi.whiteboard"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.authentication.credentials"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.collect,javax.annotation,javax.jcr"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.authentication.token"/>
+      <attribute name="version" type="Version" value="1.4.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,org.apache.jackrabbit.api.security.authentication.token,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.authorization"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr.security,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.security.authorization.permission,org.apache.jackrabbit.oak.spi.security.authorization.restriction"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.authorization.accesscontrol"/>
+      <attribute name="version" type="Version" value="1.4.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,javax.jcr.security,org.apache.jackrabbit.api.security,org.apache.jackrabbit.api.security.authorization,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.security.authorization,org.apache.jackrabbit.oak.spi.security.authorization.permission,org.apache.jackrabbit.oak.spi.security.authorization.restriction,org.apache.jackrabbit.oak.spi.security.privilege"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.authorization.permission"/>
+      <attribute name="version" type="Version" value="4.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.tree,org.apache.jackrabbit.oak.spi.security.privilege,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.authorization.restriction"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,javax.jcr.security,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.security.authorization.accesscontrol"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.principal"/>
+      <attribute name="version" type="Version" value="1.4.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.api.security.principal,org.apache.jackrabbit.commons.iterator,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.privilege"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr.security,org.apache.jackrabbit.api.security.authorization,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.user"/>
+      <attribute name="version" type="Version" value="2.1.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,org.apache.jackrabbit.api.security.user,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.security.authentication,org.apache.jackrabbit.oak.spi.security.principal"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.user.action"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,org.apache.jackrabbit.api.security.user,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.security.user.util"/>
+      <attribute name="version" type="Version" value="1.2.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.api.security.user,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.security.user"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.state"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.base,javax.annotation,javax.management.openmbean,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.whiteboard"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="com.google.common.base,javax.annotation,javax.jcr,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.plugins.index,org.apache.jackrabbit.oak.spi.commit,org.apache.jackrabbit.oak.spi.query,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.security.authentication,org.apache.jackrabbit.oak.spi.security.authorization.restriction,org.apache.jackrabbit.oak.spi.security.user,org.apache.jackrabbit.oak.spi.security.user.action,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.spi.xml"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr,javax.jcr.nodetype,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.plugins.nodetype,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.query"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.api.jmx,org.apache.jackrabbit.oak.commons.jmx,org.apache.jackrabbit.oak.namepath,org.apache.jackrabbit.oak.spi.query,org.apache.jackrabbit.oak.spi.security.authorization.permission,org.apache.jackrabbit.oak.spi.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.query.fulltext"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.api,org.apache.jackrabbit.oak.query"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.query.facet"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,javax.jcr.query"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.security"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+      <directive name="uses" value="javax.annotation,org.apache.jackrabbit.oak.spi.security,org.apache.jackrabbit.oak.spi.security.authentication,org.apache.jackrabbit.oak.spi.security.authentication.token,org.apache.jackrabbit.oak.spi.security.authorization,org.apache.jackrabbit.oak.spi.security.principal,org.apache.jackrabbit.oak.spi.security.privilege,org.apache.jackrabbit.oak.spi.security.user,org.apache.jackrabbit.oak.spi.whiteboard,org.osgi.framework"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.stats"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.oak.util"/>
+      <attribute name="version" type="Version" value="0.0.0"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.jackrabbit.oak-core"/>
+      <attribute name="bundle-version" type="Version" value="1.5.7"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.query.QueryIndexProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.index.property.PropertyIndexProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.query"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.commit.EditorProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.commit.ConflictValidatorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.plugins.document.DocumentDiscoveryLiteService,org.apache.jackrabbit.oak.spi.commit.Observer"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.document.DocumentDiscoveryLiteService"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.plugins.document,org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.commit.EditorProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.name.NamespaceEditorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.user.UserConfiguration,org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+      <attribute name="usersPath" value="/rep:security/rep:authorizables/rep:users"/>
+      <attribute name="groupsPath" value="/rep:security/rep:authorizables/rep:groups"/>
+      <attribute name="systemRelativePath" value="system"/>
+      <attribute name="defaultDepth" type="Long" value="2"/>
+      <attribute name="importBehavior" value="ignore"/>
+      <attribute name="passwordHashAlgorithm" value="SHA-256"/>
+      <attribute name="passwordHashIterations" type="Long" value="1000"/>
+      <attribute name="passwordSaltSize" type="Long" value="8"/>
+      <attribute name="omitAdminPw" value="false"/>
+      <attribute name="supportAutoSave" value="false"/>
+      <attribute name="passwordMaxAge" type="Long" value="0"/>
+      <attribute name="initialPasswordChange" value="false"/>
+      <attribute name="passwordHistorySize" type="Long" value="0"/>
+      <attribute name="cacheExpiration" type="Long" value="0"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.user.UserConfigurationImpl"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.user,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.plugins.index.IndexEditorProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.index.counter.NodeCounterEditorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.plugins.index"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.query.QueryIndexProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.index.nodetype.NodeTypeIndexProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.query"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.commit.EditorProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.name.NameValidatorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.plugins.index.IndexEditorProvider"/>
+      <attribute name="type" value="reference"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.index.reference.ReferenceEditorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.plugins.index"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.authentication.AuthenticationConfiguration,org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+      <attribute name="org.apache.jackrabbit.oak.authentication.appName" value="jackrabbit.oak"/>
+      <attribute name="org.apache.jackrabbit.oak.authentication.configSpiName" type="List&lt;String&gt;" value=""/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.authentication.AuthenticationConfigurationImpl"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.authentication,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.commit.EditorProvider"/>
+      <attribute name="type" value="atomicCounter"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.atomic.AtomicCounterEditorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.plugins.index.IndexEditorProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexEditorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.plugins.index"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.query.QueryIndexProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.index.property.OrderedPropertyIndexProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.query"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.query.QueryIndexProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.index.reference.ReferenceIndexProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.query"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.user.action.AuthorizableActionProvider"/>
+      <attribute name="enabledActions" type="List&lt;String&gt;" value=""/>
+      <attribute name="userPrivilegeNames" type="List&lt;String&gt;" value=""/>
+      <attribute name="groupPrivilegeNames" type="List&lt;String&gt;" value=""/>
+      <attribute name="constraint" type="List&lt;String&gt;" value=""/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.spi.security.user.action.DefaultAuthorizableActionProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.user.action"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.user.UserAuthenticationFactory"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.user.UserAuthenticationFactoryImpl"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.user"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.commit.EditorProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.itemsave.ItemSaveValidatorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.authentication.token.TokenConfiguration,org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+      <attribute name="tokenExpiration" type="List&lt;String&gt;" value=""/>
+      <attribute name="tokenLength" type="List&lt;String&gt;" value=""/>
+      <attribute name="tokenRefresh" value="true"/>
+      <attribute name="passwordHashAlgorithm" value="SHA-256"/>
+      <attribute name="passwordHashIterations" type="Long" value="1000"/>
+      <attribute name="passwordSaltSize" type="Long" value="8"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.authentication.token.TokenConfigurationImpl"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.authentication.token,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.principal.PrincipalConfiguration,org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.principal.PrincipalConfigurationImpl"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.principal,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.user.AuthorizableNodeName"/>
+      <attribute name="length" type="Long" value="21"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.user.RandomAuthorizableNodeName"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.user"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.privilege.PrivilegeConfiguration,org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.privilege.PrivilegeConfigurationImpl"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.privilege,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.commit.CommitHook"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.version.VersionHook"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.plugins.index.IndexEditorProvider"/>
+      <attribute name="type" value="property"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.index.property.PropertyIndexEditorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.plugins.index"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.authorization.AuthorizationConfiguration,org.apache.jackrabbit.oak.spi.security.SecurityConfiguration"/>
+      <attribute name="permissionsJr2" type="List&lt;String&gt;" value=""/>
+      <attribute name="importBehavior" value="abort"/>
+      <attribute name="readPaths" type="List&lt;String&gt;" value="/jcr:system/rep:namespaces,/jcr:system/jcr:nodeTypes,/jcr:system/rep:privileges"/>
+      <attribute name="administrativePrincipals" type="List&lt;String&gt;" value=""/>
+      <attribute name="configurationRanking" type="Long" value="100"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.authorization.AuthorizationConfigurationImpl"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.authorization,org.apache.jackrabbit.oak.spi.security"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.commit.EditorProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.plugins.nodetype.TypeEditorProvider"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.commit"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionProvider"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.jackrabbit.oak.security.authorization.restriction.RestrictionProviderImpl"/>
+      <directive name="uses" value="org.apache.jackrabbit.oak.spi.security.authorization.restriction"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.codahale.metrics)(version&gt;=3.1.0)(!(version&gt;=4.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.common.base)(version&gt;=15.0.0)(!(version&gt;=16.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.common.cache)(version&gt;=15.0.0)(!(version&gt;=16.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.common.collect)(version&gt;=15.0.0)(!(version&gt;=16.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.common.hash)(version&gt;=15.0.0)(!(version&gt;=16.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.common.io)(version&gt;=15.0.0)(!(version&gt;=16.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.common.primitives)(version&gt;=15.0.0)(!(version&gt;=16.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.common.util.concurrent)(version&gt;=15.0.0)(!(version&gt;=16.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.mongodb)(version&gt;=2.14.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.mongodb.util)(version&gt;=2.14.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.annotation)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.crypto)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.crypto.spec)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr.lock)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr.nodetype)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr.query)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr.security)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr.version)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.management)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.management.openmbean)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.security.auth)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.security.auth.callback)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.security.auth.login)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.security.auth.spi)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.sql)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.commons.codec.binary)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.commons.io)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.commons.io.filefilter)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.api)(version&gt;=2.4.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.api.jmx)(version&gt;=2.1.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.api.security)(version&gt;=2.3.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.api.security.authentication.token)(version&gt;=2.3.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.api.security.authorization)(version&gt;=2.3.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.api.security.principal)(version&gt;=2.3.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.api.security.user)(version&gt;=2.4.0)(!(version&gt;=2.5.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.api.stats)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.commons)(version&gt;=2.4.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.commons.cnd)(version&gt;=2.3.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.commons.iterator)(version&gt;=2.4.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.commons.jackrabbit.authorization)(version&gt;=2.13.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.core.data)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.core.data.db)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.core.util.db)(version&gt;=2.13.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.api)(version&gt;=3.1.0)(!(version&gt;=3.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.api.jmx)(version&gt;=3.3.0)(!(version&gt;=3.4.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.blob.cloud.aws.s3)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.cache)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.commons)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.commons.concurrent)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.commons.jmx)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.commons.json)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.commons.sort)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.json)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.management)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.namepath)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.osgi)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.blob)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.blob.datastore)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.identifier)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.index)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.index.nodetype)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.lock)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.memory)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.name)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.plugins.value)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.spi.blob)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.spi.blob.split)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.spi.blob.stats)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.spi.commit)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.spi.lifecycle)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.mount)(version&gt;=2.0.0)(!(version&gt;=2.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security)(version&gt;=2.1.0)(!(version&gt;=2.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.authentication.callback)(version&gt;=1.0.0)(!(version&gt;=1.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.authentication.token)(version&gt;=1.4.0)(!(version&gt;=1.5.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.authorization)(version&gt;=1.0.0)(!(version&gt;=1.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.authorization.accesscontrol)(version&gt;=1.4.0)(!(version&gt;=1.5.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.authorization.permission)(version&gt;=4.0.0)(!(version&gt;=4.1.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.authorization.restriction)(version&gt;=1.1.0)(!(version&gt;=1.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.principal)(version&gt;=1.4.0)(!(version&gt;=1.5.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.privilege)(version&gt;=1.1.0)(!(version&gt;=1.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.user)(version&gt;=2.1.0)(!(version&gt;=2.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.user.action)(version&gt;=1.1.0)(!(version&gt;=1.2.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.oak.spi.security.user.util)(version&gt;=1.2.0)(!(version&gt;=1.3.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.spi.state)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.spi.whiteboard)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.spi.xml)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.jackrabbit.oak.stats)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.stats)(version&gt;=2.7.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.stats.jmx)(version&gt;=2.13.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.util)(version&gt;=2.4.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.jackrabbit.value)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.bson)(version&gt;=2.14.0)(!(version&gt;=3.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.h2.mvstore)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.h2.mvstore.type)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.jclouds)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.jclouds.blobstore)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.jclouds.blobstore.domain)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.jclouds.blobstore.options)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.jclouds.domain)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.jclouds.io)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.4.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.mount.MountInfoProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.plugins.document.DocumentNodeStore)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=javax.management.MBeanServer)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.state.NodeStore)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.stats.StatisticsProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.mount.MountInfoProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.authorization.AuthorizationConfiguration)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.principal.PrincipalConfiguration)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.authentication.token.TokenConfiguration)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.user.AuthorizableNodeName)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.user.action.AuthorizableActionProvider)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.authorization.restriction.RestrictionProvider)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.user.UserAuthenticationFactory)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="cardinality" value="multiple"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.authentication.AuthenticationConfiguration)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.privilege.PrivilegeConfiguration)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.security.user.UserConfiguration)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.core.util.db.ConnectionFactory)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.stats.StatisticsProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.blob.BlobStore)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=javax.sql.DataSource)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=javax.sql.DataSource)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.plugins.document.DocumentNodeStateCache)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.stats.StatisticsProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.stats.StatisticsProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.state.Clusterable)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.state.NodeStore)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.mount.MountInfoProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.blob.BlobStore)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.state.NodeStore)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.blob.BlobStore)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.state.NodeStoreProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=java.util.concurrent.Executor)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.stats.StatisticsProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.plugins.document.DocumentNodeStore)"/>
+      <directive name="resolution" value="optional"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.stats.StatisticsProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.mount.MountInfoProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.jackrabbit.oak.spi.mount.MountInfoProvider)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.api"/>
