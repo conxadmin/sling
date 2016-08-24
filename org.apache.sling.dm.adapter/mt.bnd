@@ -5,5 +5,12 @@ Bundle-Name: Apache Sling Adapter Manager Implementation
 Bundle-Vendor: The Apache Software Foundation
 Export-Package: org.apache.sling.adapter;version=2.1.0
 Private-Package: org.apache.sling.adapter.internal
-Bundle-Activator: org.apache.sling.adapter.internal.Activator
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Include-Resource: /=resources
+
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.adapter.internal.Activator
+X-MultiTenant-Binding: BOTH
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator

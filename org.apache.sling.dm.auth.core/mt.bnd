@@ -13,5 +13,11 @@ Private-Package: \
 	org.apache.sling.auth.core.impl.engine,\
 	org.apache.sling.engine.auth,\
 	org.apache.felix.dm.impl
-Bundle-Activator: org.apache.sling.auth.core.Activator
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Include-Resource: /=resources
+
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.auth.core.Activator
+X-MultiTenant-Binding: BOTH
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
