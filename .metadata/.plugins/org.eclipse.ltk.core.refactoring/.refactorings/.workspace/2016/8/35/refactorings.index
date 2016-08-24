@@ -9,3 +9,9 @@
 1472000161857	Delete resource 'org.apache.sling.dm.auth.form/resources/res'
 1472000217030	Delete resource 'org.apache.sling.dm.auth.form/resources/OSGI-INF'
 1472000232353	Delete 5 resources
+1472043225106	Rename Java project 'org.apache.sling.dm.bundleresource'
+1472043244843	Delete resource 'org.apache.sling.dm.bundleresource.impl/jars'
+1472043252542	Delete resource 'org.apache.sling.dm.bundleresource.impl/src/org'
+1472054842009	Delete resource 'org.apache.sling.dm.commons.scheduler/src/org'
+1472054847923	Delete 2 resources
+1472054982879	Delete 6 resources

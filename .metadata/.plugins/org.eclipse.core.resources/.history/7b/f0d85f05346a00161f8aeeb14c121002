@@ -1,0 +1,87 @@
+package org.apache.sling.commons.scheduler.impl;
+
+
+import java.util.Properties;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletRequestListener;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.apache.sling.api.auth.Authenticator;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.commons.scheduler.Scheduler;
+import org.apache.sling.commons.threads.ThreadPoolManager;
+import org.apache.sling.discovery.TopologyEventListener;
+import org.apache.felix.dm.Component;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+import org.osgi.service.event.EventAdmin;
+
+public class Activator extends DependencyActivatorBase {
+
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1) throws Exception {
+
+	}
+
+	@Override
+	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		//QuartzScheduler
+		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		Component component = dm.createComponent()
+				.setInterface(QuartzScheduler.class.getName(), properties)
+				.setImplementation(QuartzScheduler.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+	            .add(createServiceDependency()
+	                	.setService(ThreadPoolManager.class)
+	                	.setRequired(true))
+	            .add(createConfigurationDependency().setPid(QuartzScheduler.class.getName()));
+		 dm.add(component);
+		 
+		 //SchedulerServiceFactory
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		component = dm.createComponent()
+				.setInterface(Scheduler.class.getName(), properties)
+				.setImplementation(SchedulerServiceFactory.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createServiceDependency().setService(QuartzScheduler.class).setRequired(true));
+		dm.add(component);	 
+		
+		 //SettingsSupport
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		component = dm.createComponent()
+				.setInterface(Object.class.getName(), properties)
+				.setImplementation(SettingsSupport.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				;
+		dm.add(component);	 
+
+		 //TopologyHandler
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "org.apache.sling.engine.impl.auth.SlingAuthenticator");
+		component = dm.createComponent()
+				.setInterface(TopologyEventListener.class.getName(), properties)
+				.setImplementation(TopologyHandler.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createConfigurationDependency().setPid(SlingAuthenticator.class.getName()))
+				.add(createServiceDependency().setService(ResourceResolverFactory.class).setRequired(true))
+				.add(createServiceDependency().setService(EventAdmin.class).setRequired(true));
+		dm.add(component);	
+		
+		//EngineSlingAuthenticator
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Request Authenticator (Legacy Bridge)");
+		component = dm.createComponent()
+				.setInterface(org.apache.sling.engine.auth.Authenticator.class.getName(), properties)
+				.setImplementation(EngineSlingAuthenticator.class)
+				.add(createServiceDependency().setService(org.apache.sling.api.auth.Authenticator.class).setRequired(true));
+		dm.add(component);	
+	}
+
+}

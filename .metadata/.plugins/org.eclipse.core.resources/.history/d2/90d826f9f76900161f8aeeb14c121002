@@ -1,0 +1,23 @@
+Bundle-Version: 1.3.17.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling Authentication Service
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.3.17.SNAPSHOT
+DynamicImport-Package: javax.jcr
+Export-Package: \
+	org.apache.sling.auth.core;version="1.2.2",\
+	org.apache.sling.auth.core.spi;version="1.3.0"
+Private-Package: \
+	org.apache.sling.auth.core.impl,\
+	org.apache.sling.auth.core.impl.engine,\
+	org.apache.sling.engine.auth,\
+	org.apache.felix.dm.impl
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Include-Resource: /=resources
+
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.auth.core.Activator
+X-MultiTenant-Binding: BOTH
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))

@@ -1,0 +1,16 @@
+Bundle-Version: 2.1.9.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling Adapter Manager Implementation
+Bundle-Vendor: The Apache Software Foundation
+Export-Package: org.apache.sling.commons.scheduler
+Private-Package: org.apache.sling.commons.scheduler.impl
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Include-Resource: /=resources,/=jars
+
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.adapter.internal.Activator
+X-MultiTenant-Binding: BOTH
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
