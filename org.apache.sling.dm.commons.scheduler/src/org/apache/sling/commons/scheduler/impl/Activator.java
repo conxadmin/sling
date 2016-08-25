@@ -3,20 +3,14 @@ package org.apache.sling.commons.scheduler.impl;
 
 import java.util.Properties;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletRequestListener;
-
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
-import org.apache.sling.api.auth.Authenticator;
-import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.commons.scheduler.Scheduler;
 import org.apache.sling.commons.threads.ThreadPoolManager;
 import org.apache.sling.discovery.TopologyEventListener;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
-import org.osgi.service.event.EventAdmin;
 
 public class Activator extends DependencyActivatorBase {
 

@@ -1,0 +1,21 @@
+Bundle-Version: 3.2.7.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling Thread Support
+Bundle-Description: Support for thread handling like pooling.
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Include-Resource: /=resources,/=jars
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.commons.threads.impl.Activator
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Bundle-Category: sling
+Export-Package: org.apache.sling.commons.threads.jmx;version="1.1.1",\
+	org.apache.sling.commons.threads;version="3.4.0"
+Import-Package: javax.management,org.apache.sling.commons.threads;version="[3.4,3.5)",\
+	org.apache.sling.commons.threads.jmx;version="[1.1,1.2)",\
+	org.osgi.framework;version="[1.8,2)",\
+	org.osgi.service.cm;version="[1.5,2)",\
+	org.slf4j;version="[1.7,2)"

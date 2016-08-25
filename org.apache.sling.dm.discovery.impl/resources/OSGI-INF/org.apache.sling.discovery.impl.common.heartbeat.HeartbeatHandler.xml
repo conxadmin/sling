@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.discovery.impl.common.heartbeat.HeartbeatHandler">
+    <implementation class="org.apache.sling.discovery.impl.common.heartbeat.HeartbeatHandler"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.discovery.impl.common.heartbeat.HeartbeatHandler"/>
+    </service>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.discovery.impl.common.heartbeat.HeartbeatHandler"/>
+    <reference interface="org.osgi.service.http.HttpService" cardinality="0..n" policy="dynamic" bind="bindHttpService" unbind="unbindHttpService"/>
+    <reference name="slingSettingsService" interface="org.apache.sling.settings.SlingSettingsService" cardinality="1..1" policy="static" bind="bindSlingSettingsService" unbind="unbindSlingSettingsService"/>
+    <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory"/>
+    <reference name="connectorRegistry" interface="org.apache.sling.discovery.base.connectors.ping.ConnectorRegistry" cardinality="1..1" policy="static" bind="bindConnectorRegistry" unbind="unbindConnectorRegistry"/>
+    <reference name="announcementRegistry" interface="org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistry" cardinality="1..1" policy="static" bind="bindAnnouncementRegistry" unbind="unbindAnnouncementRegistry"/>
+    <reference name="scheduler" interface="org.apache.sling.commons.scheduler.Scheduler" cardinality="1..1" policy="static" bind="bindScheduler" unbind="unbindScheduler"/>
+    <reference name="config" interface="org.apache.sling.discovery.impl.Config" cardinality="1..1" policy="static" bind="bindConfig" unbind="unbindConfig"/>
+    <reference name="votingHandler" interface="org.apache.sling.discovery.impl.cluster.voting.VotingHandler" cardinality="1..1" policy="static" bind="bindVotingHandler" unbind="unbindVotingHandler"/>
+</scr:component>

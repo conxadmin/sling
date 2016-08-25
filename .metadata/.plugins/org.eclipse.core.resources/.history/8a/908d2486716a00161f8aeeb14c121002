@@ -1,0 +1,75 @@
+package org.apache.sling.discovery.commons;
+
+
+import java.util.Properties;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.commons.threads.ThreadPoolManager;
+import org.apache.sling.discovery.TopologyEventListener;
+import org.apache.sling.discovery.commons.providers.spi.ClusterSyncService;
+import org.apache.sling.discovery.commons.providers.spi.base.DiscoveryLiteConfig;
+import org.apache.sling.discovery.commons.providers.spi.base.IdMapService;
+import org.apache.sling.discovery.commons.providers.spi.base.OakBacklogClusterSyncService;
+import org.apache.sling.discovery.commons.providers.spi.base.Reference;
+import org.apache.sling.settings.SlingSettingsService;
+import org.apache.felix.dm.Component;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+
+public class Activator extends DependencyActivatorBase {
+
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1) throws Exception {
+
+	}
+
+	@Override
+	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		//QuartzScheduler
+		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		Component component = dm.createComponent()
+				.setInterface(IdMapService.class.getName(), properties)
+				.setImplementation(IdMapService.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createServiceDependency()
+	                	.setService(ResourceResolverFactory.class)
+	                	.setRequired(true))
+	             .add(createServiceDependency()
+	                	.setService(SlingSettingsService.class)
+	                	.setRequired(true))
+		        .add(createServiceDependency()
+		            	.setService(DiscoveryLiteConfig.class)
+		            	.setRequired(true));
+		 dm.add(component);
+		 
+		 //OakBacklogClusterSyncService
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		component = dm.createComponent()
+				.setInterface(new String[]{ ClusterSyncService.class.getName(), OakBacklogClusterSyncService.class.getName() }, properties)
+				.setImplementation(OakBacklogClusterSyncService.class)
+				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
+				.add(createServiceDependency().setService(IdMapService.class).setRequired(true))
+				.add(createServiceDependency().setService(DiscoveryLiteConfig.class).setRequired(true))
+				.add(createServiceDependency().setService(ResourceResolverFactory.class).setRequired(true))
+				.add(createServiceDependency().setService(SlingSettingsService.class).setRequired(true));
+		dm.add(component);	
+		
+		 //OakBacklogClusterSyncService
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		component = dm.createComponent()
+				.setInterface(new String[]{ ClusterSyncService.class.getName(), OakBacklogClusterSyncService.class.getName() }, properties)
+				.setImplementation(OakBacklogClusterSyncService.class)
+				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
+				.add(createServiceDependency().setService(IdMapService.class).setRequired(true))
+				.add(createServiceDependency().setService(DiscoveryLiteConfig.class).setRequired(true))
+				.add(createServiceDependency().setService(ResourceResolverFactory.class).setRequired(true))
+				.add(createServiceDependency().setService(SlingSettingsService.class).setRequired(true));
+		dm.add(component);		
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Activator.java&apos; to &apos;org.apache.sling.dm.discovery.base/src/org.apache.sling.discovery.base.commons&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.commons.threads&apos;&#x0A;- Destination element: &apos;org.apache.sling.dm.discovery.base/src/org.apache.sling.discovery.base.commons&apos;&#x0A;- Original element: &apos;org.apache.sling.commons.threads.impl.Activator.java&apos;" description="Copy compilation unit" destination="=org.apache.sling.dm.discovery.base/src&lt;org.apache.sling.discovery.base.commons" element1="/src&lt;org.apache.sling.commons.threads.impl{Activator.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472090914720" units="1" version="1.0"/>
+</session>

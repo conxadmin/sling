@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1472055319000" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1472093341000" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.jackrabbit.oak-core"/>
@@ -2835,6 +2835,62 @@
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.conxworks.library.findbugs.jsr305"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.0.3.201608250247"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="dc7b052bf3d40bfa276cd343fb0e99964a40dd93ea9faeb52704ad439ccbd9a0"/>
+      <attribute name="url" value="org.conxworks.library.findbugs.jsr305/org.conxworks.library.findbugs.jsr305-2.0.3.jar"/>
+      <attribute name="size" type="Long" value="34353"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.conxworks.library.findbugs.jsr305"/>
+      <attribute name="bundle-version" type="Version" value="2.0.3.201608250247"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.conxworks.library.findbugs.jsr305"/>
+      <attribute name="bundle-version" type="Version" value="2.0.3.201608250247"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="javax.annotation"/>
+      <attribute name="version" type="Version" value="2.0.3"/>
+      <attribute name="bundle-symbolic-name" value="org.conxworks.library.findbugs.jsr305"/>
+      <attribute name="bundle-version" type="Version" value="2.0.3.201608250247"/>
+      <directive name="uses" value="javax.annotation.meta"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="javax.annotation.concurrent"/>
+      <attribute name="version" type="Version" value="2.0.3"/>
+      <attribute name="bundle-symbolic-name" value="org.conxworks.library.findbugs.jsr305"/>
+      <attribute name="bundle-version" type="Version" value="2.0.3.201608250247"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="javax.annotation.meta"/>
+      <attribute name="version" type="Version" value="2.0.3"/>
+      <attribute name="bundle-symbolic-name" value="org.conxworks.library.findbugs.jsr305"/>
+      <attribute name="bundle-version" type="Version" value="2.0.3.201608250247"/>
+      <directive name="uses" value="javax.annotation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="javax"/>
+      <attribute name="version" type="Version" value="2.0.3"/>
+      <attribute name="bundle-symbolic-name" value="org.conxworks.library.findbugs.jsr305"/>
+      <attribute name="bundle-version" type="Version" value="2.0.3.201608250247"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.annotation)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=javax.annotation.meta)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
     </requirement>
   </resource>
   <resource>
