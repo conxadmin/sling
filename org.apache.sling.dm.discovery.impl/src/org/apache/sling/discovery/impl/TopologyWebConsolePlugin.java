@@ -37,15 +37,6 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Deactivate;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.ReferenceCardinality;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.felix.webconsole.AbstractWebConsolePlugin;
 import org.apache.felix.webconsole.WebConsoleConstants;
 import org.apache.sling.discovery.ClusterView;
@@ -71,16 +62,6 @@ import org.slf4j.LoggerFactory;
  * Simple webconsole which gives an overview of the topology visible by the
  * discovery service
  */
-@Component
-@Service(value = { TopologyEventListener.class, Servlet.class })
-@Properties({
-    @Property(name=org.osgi.framework.Constants.SERVICE_DESCRIPTION,
-            value="Apache Sling Web Console Plugin to display Background servlets and ExecutionEngine status"),
-    @Property(name=WebConsoleConstants.PLUGIN_LABEL, value=TopologyWebConsolePlugin.LABEL),
-    @Property(name=WebConsoleConstants.PLUGIN_TITLE, value=TopologyWebConsolePlugin.TITLE),
-    @Property(name="felix.webconsole.category", value="Sling"),
-    @Property(name="felix.webconsole.configprinter.modes", value={"zip"})
-})
 @SuppressWarnings("serial")
 public class TopologyWebConsolePlugin extends AbstractWebConsolePlugin implements TopologyEventListener {
 
@@ -98,20 +79,15 @@ public class TopologyWebConsolePlugin extends AbstractWebConsolePlugin implement
     /** the date format used in the truncated log of topology events **/
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
 
-    @Reference
-    private ClusterViewService clusterViewService;
+    private volatile ClusterViewService clusterViewService;
 
-    @Reference
-    private AnnouncementRegistry announcementRegistry;
+    private volatile AnnouncementRegistry announcementRegistry;
 
-    @Reference
-    private ConnectorRegistry connectorRegistry;
+    private volatile ConnectorRegistry connectorRegistry;
 
-    @Reference
-    private SyncTokenService syncTokenService;
+    private volatile SyncTokenService syncTokenService;
 
-    @Reference
-    private Config config;
+    private volatile Config config;
 
     private TopologyView currentView;
 
@@ -125,13 +101,11 @@ public class TopologyWebConsolePlugin extends AbstractWebConsolePlugin implement
         return TITLE;
     }
 
-    @Activate
     @Override
     public void activate(final BundleContext bundleContext) {
         super.activate(bundleContext);
     }
 
-    @Deactivate
     @Override
     public void deactivate() {
         super.deactivate();

@@ -27,11 +27,6 @@ import java.util.UUID;
 
 import javax.jcr.Session;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.ReferenceCardinality;
-import org.apache.felix.scr.annotations.ReferencePolicy;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.PersistenceException;
@@ -63,35 +58,26 @@ import org.osgi.service.http.HttpService;
  * Local heartbeats are stored in the repository. Remote heartbeats are POSTs to
  * remote TopologyConnectorServlets.
  */
-@Component
-@Service(value = HeartbeatHandler.class)
-@Reference(referenceInterface=HttpService.class,
+/*@TODO: Reference(referenceInterface=HttpService.class,
            cardinality=ReferenceCardinality.OPTIONAL_MULTIPLE,
-           policy=ReferencePolicy.DYNAMIC)
+           policy=ReferencePolicy.DYNAMIC)*/
 public class HeartbeatHandler extends BaseViewChecker {
 
     private static final String PROPERTY_ID_LAST_HEARTBEAT = "lastHeartbeat";
 
-    @Reference
-    protected SlingSettingsService slingSettingsService;
+    protected volatile SlingSettingsService slingSettingsService;
 
-    @Reference
-    protected ResourceResolverFactory resourceResolverFactory;
+    protected volatile ResourceResolverFactory resourceResolverFactory;
 
-    @Reference
-    protected ConnectorRegistry connectorRegistry;
+    protected volatile ConnectorRegistry connectorRegistry;
 
-    @Reference
-    protected AnnouncementRegistry announcementRegistry;
+    protected volatile AnnouncementRegistry announcementRegistry;
 
-    @Reference
-    protected Scheduler scheduler;
+    protected volatile Scheduler scheduler;
 
-    @Reference
-    private Config config;
+    private volatile Config config;
 
-    @Reference
-    private VotingHandler votingHandler;
+    private volatile VotingHandler votingHandler;
 
     /** the id which is to be used for the next voting **/
     private String nextVotingId = UUID.randomUUID().toString();

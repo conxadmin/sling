@@ -4,3 +4,4 @@
 /org.apache.sling.dm.auth.core.mt.jar
 /org.apache.sling.dm.adapter.mt.jar
 /org.apache.sling.dm.commons.scheduler.mt.jar
+/org.apache.sling.dm.discovery.impl.mt.jar

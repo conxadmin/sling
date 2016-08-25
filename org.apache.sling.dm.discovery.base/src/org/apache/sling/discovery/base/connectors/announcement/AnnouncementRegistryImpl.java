@@ -25,10 +25,6 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
@@ -49,22 +45,17 @@ import org.slf4j.LoggerFactory;
  * handles JSON-backed announcements and does so by storing
  * them in a local like /var/discovery/impl/clusterNodes/$slingId/announcement.
  */
-@Component
-@Service(value = AnnouncementRegistry.class)
 public class AnnouncementRegistryImpl implements AnnouncementRegistry {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Reference
-    private ResourceResolverFactory resourceResolverFactory;
+    private volatile ResourceResolverFactory resourceResolverFactory;
 
-    @Reference
-    private SlingSettingsService settingsService;
+    private volatile SlingSettingsService settingsService;
 
     private String slingId;
     
-    @Reference
-    private BaseConfig config;
+    private volatile BaseConfig config;
     
     public static AnnouncementRegistryImpl testConstructorAndActivate(ResourceResolverFactory resourceResolverFactory,
             SlingSettingsService slingSettingsService, BaseConfig config) {
@@ -82,7 +73,6 @@ public class AnnouncementRegistryImpl implements AnnouncementRegistry {
         return registry;
     }
     
-    @Activate
     protected void activate() {
         slingId = settingsService.getSlingId();
     }

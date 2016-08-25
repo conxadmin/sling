@@ -17,5 +17,11 @@
 	org.apache.sling.commons.threads;version=3.2,\
 	org.apache.sling.discovery.api;version=1.0,\
 	org.amdatu.multitenant;version=1.0,\
-	org.amdatu.multitenant.adapter;version=1.0
+	org.amdatu.multitenant.adapter;version=1.0,\
+	org.apache.httpcomponents.httpclient,\
+	org.apache.httpcomponents.httpcore,\
+	org.apache.sling.dm.discovery.commons.mt;version=latest,\
+	org.apache.sling.dm.discovery.base.mt;version=latest,\
+	org.apache.sling.dm.commons.scheduler.mt;version=latest,\
+	org.apache.felix.webconsole;version=4.2
 -sub: *.bnd

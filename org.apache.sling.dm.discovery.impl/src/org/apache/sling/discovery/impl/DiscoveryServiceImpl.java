@@ -34,13 +34,6 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Deactivate;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.ReferenceCardinality;
-import org.apache.felix.scr.annotations.ReferencePolicy;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.PersistenceException;
@@ -85,8 +78,6 @@ import org.slf4j.LoggerFactory;
  * implementation for detecting changes in a cluster and only supports one
  * cluster (of which this instance is part of).
  */
-@Component(immediate = true)
-@Service(value = { DiscoveryService.class, DiscoveryServiceImpl.class })
 public class DiscoveryServiceImpl extends BaseDiscoveryService {
 
     private final static Logger logger = LoggerFactory.getLogger(DiscoveryServiceImpl.class);
@@ -110,17 +101,14 @@ public class DiscoveryServiceImpl extends BaseDiscoveryService {
         }
     };
 
-    @Reference
-    private SlingSettingsService settingsService;
+    private volatile SlingSettingsService settingsService;
 
-    @Reference(cardinality = ReferenceCardinality.OPTIONAL_MULTIPLE, policy = ReferencePolicy.DYNAMIC, referenceInterface = TopologyEventListener.class)
     private TopologyEventListener[] eventListeners = new TopologyEventListener[0];
     
     /**
      * All property providers.
      */
-    @Reference(cardinality = ReferenceCardinality.OPTIONAL_MULTIPLE, policy = ReferencePolicy.DYNAMIC, referenceInterface = PropertyProvider.class, updated = "updatedPropertyProvider")
-    private List<ProviderInfo> providerInfos = new ArrayList<ProviderInfo>();
+    private volatile List<ProviderInfo> providerInfos = new ArrayList<ProviderInfo>();
 
     /** lock object used for synching bind/unbind and topology event sending **/
     private final Object lock = new Object();
@@ -131,29 +119,22 @@ public class DiscoveryServiceImpl extends BaseDiscoveryService {
      **/
     private boolean activated = false;
 
-    @Reference
-    private ResourceResolverFactory resourceResolverFactory;
+    private volatile ResourceResolverFactory resourceResolverFactory;
 
-    @Reference
-    private Scheduler scheduler;
+    private volatile Scheduler scheduler;
 
-    @Reference
-    private HeartbeatHandler heartbeatHandler;
+    private volatile HeartbeatHandler heartbeatHandler;
 
-    @Reference
-    private AnnouncementRegistry announcementRegistry;
+    private volatile AnnouncementRegistry announcementRegistry;
 
-    @Reference
-    private ConnectorRegistry connectorRegistry;
+    private volatile ConnectorRegistry connectorRegistry;
 
-    @Reference
-    private ClusterViewServiceImpl clusterViewService;
+    private volatile ClusterViewServiceImpl clusterViewService;
 
-    @Reference
-    private Config config;
+    private volatile Config config;
     
-    @Reference
-    private SyncTokenService syncTokenService;
+    private volatile SyncTokenService syncTokenService;
+
 
     /** the slingId of the local instance **/
     private String slingId;
@@ -248,7 +229,6 @@ public class DiscoveryServiceImpl extends BaseDiscoveryService {
     /**
      * Activate this service
      */
-    @Activate
     protected void activate(final BundleContext bundleContext) {
         logger.debug("DiscoveryServiceImpl activating...");
 
@@ -358,7 +338,6 @@ public class DiscoveryServiceImpl extends BaseDiscoveryService {
     /**
      * Deactivate this service
      */
-    @Deactivate
     protected void deactivate() {
         logger.debug("DiscoveryServiceImpl deactivated.");
         viewStateManagerLock.lock();

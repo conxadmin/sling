@@ -24,10 +24,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.discovery.base.connectors.BaseConfig;
 import org.apache.sling.discovery.commons.providers.spi.base.DiscoveryLiteConfig;
@@ -40,8 +36,6 @@ import org.slf4j.LoggerFactory;
  * <p>
  * The properties are described below under.
  */
-@Component(metatype = true, label="%config.name", description="%config.description")
-@Service(value = { Config.class, BaseConfig.class, DiscoveryLiteConfig.class })
 public class Config implements BaseConfig, DiscoveryLiteConfig {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -66,121 +60,102 @@ public class Config implements BaseConfig, DiscoveryLiteConfig {
 
     /** Configure the timeout (in seconds) after which an instance is considered dead/crashed. */
     public static final long DEFAULT_HEARTBEAT_TIMEOUT = 120;
-    @Property(longValue=DEFAULT_HEARTBEAT_TIMEOUT)
     public static final String HEARTBEAT_TIMEOUT_KEY = "heartbeatTimeout";
     protected long heartbeatTimeout = DEFAULT_HEARTBEAT_TIMEOUT;
 
     /** Configure the interval (in seconds) according to which the heartbeats are exchanged in the topology. */
     public static final long DEFAULT_HEARTBEAT_INTERVAL = 30;
-    @Property(longValue=DEFAULT_HEARTBEAT_INTERVAL)
     public static final String HEARTBEAT_INTERVAL_KEY = "heartbeatInterval";
     protected long heartbeatInterval = DEFAULT_HEARTBEAT_INTERVAL;
 
     /** Configure the time (in seconds) which must be passed at minimum between sending TOPOLOGY_CHANGING/_CHANGED (avoid flooding). */
     public static final int DEFAULT_MIN_EVENT_DELAY = 3;
-    @Property(intValue=DEFAULT_MIN_EVENT_DELAY)
     public static final String MIN_EVENT_DELAY_KEY = "minEventDelay";
     protected int minEventDelay = DEFAULT_MIN_EVENT_DELAY;
 
     /** Configure the socket connect timeout for topology connectors. */
     public static final int DEFAULT_CONNECTION_TIMEOUT = 10;
-    @Property(intValue=DEFAULT_CONNECTION_TIMEOUT)
     public static final String CONNECTION_TIMEOUT_KEY = "connectionTimeout";
     private int connectionTimeout = DEFAULT_CONNECTION_TIMEOUT;
 
     /** Configure the socket read timeout (SO_TIMEOUT) for topology connectors. */
     public static final int DEFAULT_SO_TIMEOUT = 10;
-    @Property(intValue=DEFAULT_SO_TIMEOUT)
     public static final String SO_TIMEOUT_KEY = "soTimeout";
     private int soTimeout = DEFAULT_SO_TIMEOUT;
-
+    
     /** Name of the repository descriptor to be taken into account for leader election:
-        those instances have preference to become leader which have the corresponding descriptor value of 'false' */
-    @Property
-    public static final String LEADER_ELECTION_REPOSITORY_DESCRIPTOR_NAME_KEY = "leaderElectionRepositoryDescriptor";
-    
-    /**
-     * Whether or not (default false) the leaderElectionRepositoryDescriptor should be inverted (if that one
-     * is configured at all).
-     */
-    @Property(boolValue=false)
-    public static final String INVERT_REPOSITORY_DESCRIPTOR_NAME_KEY = "invertRepositoryDescriptor";
-    
-    /** URLs where to join a topology, eg http://localhost:4502/libs/sling/topology/connector */
-    @Property(cardinality=1024)
-    public static final String TOPOLOGY_CONNECTOR_URLS_KEY = "topologyConnectorUrls";
-    private URL[] topologyConnectorUrls = {null};
-
-    /** list of ips and/or hostnames which are allowed to connect to /libs/sling/topology/connector */
-    private static final String[] DEFAULT_TOPOLOGY_CONNECTOR_WHITELIST = {"localhost","127.0.0.1"};
-    @Property(value={"localhost","127.0.0.1"})
-    public static final String TOPOLOGY_CONNECTOR_WHITELIST_KEY = "topologyConnectorWhitelist";
-    private String[] topologyConnectorWhitelist = DEFAULT_TOPOLOGY_CONNECTOR_WHITELIST;
-
-    /** Path of resource where to keep discovery information, e.g /var/discovery/impl/ */
-    private static final String DEFAULT_DISCOVERY_RESOURCE_PATH = "/var/discovery/impl/";
-    @Property(value=DEFAULT_DISCOVERY_RESOURCE_PATH, propertyPrivate=true)
-    public static final String DISCOVERY_RESOURCE_PATH_KEY = "discoveryResourcePath";
-    private String discoveryResourcePath = DEFAULT_DISCOVERY_RESOURCE_PATH;
-
-    /**
-     * If set to true, local-loops of topology connectors are automatically stopped when detected so.
-     */
-    @Property(boolValue=false)
-    private static final String AUTO_STOP_LOCAL_LOOP_ENABLED = "autoStopLocalLoopEnabled";
-
-    /**
-     * If set to true, request body will be gzipped - only works if counter-part accepts gzip-requests!
-     */
-    @Property(boolValue=false)
-    private static final String GZIP_CONNECTOR_REQUESTS_ENABLED = "gzipConnectorRequestsEnabled";
-
-    /**
-     * If set to true, hmac is enabled and the white list is disabled.
-     */
-    @Property(boolValue=false)
-    private static final String HMAC_ENABLED = "hmacEnabled";
-
-    /**
-     * If set to true, and the whitelist is disabled, messages will be encrypted.
-     */
-    @Property(boolValue=false)
-    private static final String ENCRYPTION_ENABLED = "enableEncryption";
-
-    /**
-     * The value fo the shared key, shared amongst all instances in the same cluster.
-     */
-    @Property
-    private static final String SHARED_KEY = "sharedKey";
-
-    /**
-     * The default lifetime of a HMAC shared key in ms. (4h)
-     */
-    private static final long DEFAULT_SHARED_KEY_INTERVAL = 3600*1000*4;
-
-    @Property(longValue=DEFAULT_SHARED_KEY_INTERVAL)
-    private static final String SHARED_KEY_INTERVAL = "hmacSharedKeyTTL";
+	    those instances have preference to become leader which have the corresponding descriptor value of 'false' */
+	public static final String LEADER_ELECTION_REPOSITORY_DESCRIPTOR_NAME_KEY = "leaderElectionRepositoryDescriptor";
+	
+	/**
+	 * Whether or not (default false) the leaderElectionRepositoryDescriptor should be inverted (if that one
+	 * is configured at all).
+	 */
+	public static final String INVERT_REPOSITORY_DESCRIPTOR_NAME_KEY = "invertRepositoryDescriptor";
+	
+	/** URLs where to join a topology, eg http://localhost:4502/libs/sling/topology/connector */
+	public static final String TOPOLOGY_CONNECTOR_URLS_KEY = "topologyConnectorUrls";
+	private URL[] topologyConnectorUrls = {null};
+	
+	/** list of ips and/or hostnames which are allowed to connect to /libs/sling/topology/connector */
+	public static final String[] DEFAULT_TOPOLOGY_CONNECTOR_WHITELIST = {"localhost","127.0.0.1"};
+	public static final String TOPOLOGY_CONNECTOR_WHITELIST_KEY = "topologyConnectorWhitelist";
+	private String[] topologyConnectorWhitelist = DEFAULT_TOPOLOGY_CONNECTOR_WHITELIST;
+	
+	/** Path of resource where to keep discovery information, e.g /var/discovery/impl/ */
+	public static final String DEFAULT_DISCOVERY_RESOURCE_PATH = "/var/discovery/impl/";
+	public static final String DISCOVERY_RESOURCE_PATH_KEY = "discoveryResourcePath";
+	private String discoveryResourcePath = DEFAULT_DISCOVERY_RESOURCE_PATH;
+	
+	/**
+	 * If set to true, local-loops of topology connectors are automatically stopped when detected so.
+	 */
+	public static final String AUTO_STOP_LOCAL_LOOP_ENABLED = "autoStopLocalLoopEnabled";
+	
+	/**
+	 * If set to true, request body will be gzipped - only works if counter-part accepts gzip-requests!
+	 */
+	public static final String GZIP_CONNECTOR_REQUESTS_ENABLED = "gzipConnectorRequestsEnabled";
+	
+	/**
+	 * If set to true, hmac is enabled and the white list is disabled.
+	 */
+	public static final String HMAC_ENABLED = "hmacEnabled";
+	
+	/**
+	 * If set to true, and the whitelist is disabled, messages will be encrypted.
+	 */
+	public static final String ENCRYPTION_ENABLED = "enableEncryption";
+	
+	/**
+	 * The value fo the shared key, shared amongst all instances in the same cluster.
+	 */
+	public static final String SHARED_KEY = "sharedKey";
+	
+	/**
+	 * The default lifetime of a HMAC shared key in ms. (4h)
+	 */
+	public static final long DEFAULT_SHARED_KEY_INTERVAL = 3600*1000*4;
+	
+	public static final String SHARED_KEY_INTERVAL = "hmacSharedKeyTTL";
     
     /**
      * The property for defining the backoff factor for standby (loop) connectors
      */
-    @Property
-    private static final String BACKOFF_STANDBY_FACTOR = "backoffStandbyFactor";
-    private static final int DEFAULT_BACKOFF_STANDBY_FACTOR = 5;
+    public static final String BACKOFF_STANDBY_FACTOR = "backoffStandbyFactor";
+    public static final int DEFAULT_BACKOFF_STANDBY_FACTOR = 5;
     
     /**
      * The property for defining the maximum backoff factor for stable connectors
      */
-    @Property
-    private static final String BACKOFF_STABLE_FACTOR = "backoffStableFactor";
-    private static final int DEFAULT_BACKOFF_STABLE_FACTOR = 5;
+    public static final String BACKOFF_STABLE_FACTOR = "backoffStableFactor";
+    public static final int DEFAULT_BACKOFF_STABLE_FACTOR = 5;
     
     /**
      * when set to true and the syncTokenService (of discovery.commons) is available,
      * then it is used
      */
-    @Property(boolValue=true)
-    private static final String USE_SYNC_TOKEN_SERVICE_ENABLED = "useSyncTokenService";
+    public static final String USE_SYNC_TOKEN_SERVICE_ENABLED = "useSyncTokenService";
 
     private String leaderElectionRepositoryDescriptor ;
 
@@ -226,7 +201,6 @@ public class Config implements BaseConfig, DiscoveryLiteConfig {
      */
     private boolean useSyncTokenService = true;
     
-    @Activate
     protected void activate(final Map<String, Object> properties) {
 		logger.debug("activate: config activated.");
         configure(properties);

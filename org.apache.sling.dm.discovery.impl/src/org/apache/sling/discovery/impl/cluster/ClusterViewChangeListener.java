@@ -20,11 +20,6 @@ package org.apache.sling.discovery.impl.cluster;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
-
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Deactivate;
-import org.apache.felix.scr.annotations.Reference;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.discovery.impl.Config;
@@ -44,22 +39,17 @@ import org.slf4j.LoggerFactory;
  * osgi event handler which takes note when the established view changes in the
  * repository - or when an announcement changed in one of the instances
  */
-@Component(immediate = true)
 public class ClusterViewChangeListener implements EventHandler {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Reference
-    private SlingSettingsService slingSettingsService;
+    private volatile SlingSettingsService slingSettingsService;
 
-    @Reference
-    private ResourceResolverFactory resolverFactory;
+    private volatile ResourceResolverFactory resolverFactory;
 
-    @Reference
-    private DiscoveryServiceImpl discoveryService;
+    private volatile DiscoveryServiceImpl discoveryService;
     
-    @Reference
-    private Config config;
+    private volatile Config config;
 
     /** the sling id of the local instance **/
     private String slingId;
@@ -68,7 +58,6 @@ public class ClusterViewChangeListener implements EventHandler {
 
     private ServiceRegistration eventHandlerRegistration;
 
-    @Activate
     protected void activate(final ComponentContext context) {
         this.slingId = slingSettingsService.getSlingId();
         this.context = context;
@@ -103,7 +92,6 @@ public class ClusterViewChangeListener implements EventHandler {
         logger.info("registerEventHandler: ClusterViewChangeHandler registered as EventHandler");
     }
 
-    @Deactivate
     protected void deactivate() {
         if (eventHandlerRegistration != null) {
             eventHandlerRegistration.unregister();

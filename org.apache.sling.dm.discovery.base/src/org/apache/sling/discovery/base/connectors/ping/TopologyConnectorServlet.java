@@ -33,11 +33,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Deactivate;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.discovery.ClusterView;
 import org.apache.sling.discovery.base.commons.ClusterViewHelper;
@@ -63,8 +58,6 @@ import org.slf4j.LoggerFactory;
  * hmac-signature with a shared key or via a flexible whitelist)
  */
 @SuppressWarnings("serial")
-@Component(immediate = true)
-@Service(value=TopologyConnectorServlet.class)
 public class TopologyConnectorServlet extends HttpServlet {
 
     /** 
@@ -75,17 +68,13 @@ public class TopologyConnectorServlet extends HttpServlet {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Reference
-    private AnnouncementRegistry announcementRegistry;
+    private volatile AnnouncementRegistry announcementRegistry;
 
-    @Reference
-    private ClusterViewService clusterViewService;
+    private volatile ClusterViewService clusterViewService;
 
-    @Reference
-    private HttpService httpService;
+    private volatile HttpService httpService;
     
-    @Reference
-    private BaseConfig config;
+    private volatile BaseConfig config;
 
     /** 
      * This list contains WhitelistEntry (ips/hostnames, cidr, wildcards),
@@ -98,7 +87,6 @@ public class TopologyConnectorServlet extends HttpServlet {
 
     private TopologyRequestValidator requestValidator;
 
-    @Activate
     protected void activate(final ComponentContext context) {
         whitelist.clear();
         if (!config.isHmacEnabled()) {
@@ -119,7 +107,6 @@ public class TopologyConnectorServlet extends HttpServlet {
         }
     }
     
-    @Deactivate
     protected void deactivate() {
         httpService.unregister(TOPOLOGY_CONNECTOR_PREFIX);
     }

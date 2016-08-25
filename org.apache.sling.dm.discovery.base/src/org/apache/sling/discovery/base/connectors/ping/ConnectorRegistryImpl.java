@@ -28,11 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Deactivate;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.discovery.base.commons.ClusterViewService;
 import org.apache.sling.discovery.base.connectors.BaseConfig;
 import org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistry;
@@ -45,8 +40,6 @@ import org.slf4j.LoggerFactory;
  * keeps a list of outgoing connectors and is capable of
  * pinging them.
  */
-@Component
-@Service(value = ConnectorRegistry.class)
 public class ConnectorRegistryImpl implements ConnectorRegistry {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -54,11 +47,9 @@ public class ConnectorRegistryImpl implements ConnectorRegistry {
     /** A map of id-> topology connector clients currently registered/activate **/
     private final Map<String, TopologyConnectorClient> outgoingClientsMap = new HashMap<String, TopologyConnectorClient>();
 
-    @Reference
-    private AnnouncementRegistry announcementRegistry;
+    private volatile AnnouncementRegistry announcementRegistry;
 
-    @Reference
-    private BaseConfig config;
+    private volatile BaseConfig config;
 
     /** the local port is added to the announcement as the serverInfo object **/
     private String port = "";
@@ -73,12 +64,10 @@ public class ConnectorRegistryImpl implements ConnectorRegistry {
         return registry;
     }
     
-    @Activate
     protected void activate(final ComponentContext cc) {
         port = cc.getBundleContext().getProperty("org.osgi.service.http.port");
     }
     
-    @Deactivate
     protected void deactivate() {
         synchronized (outgoingClientsMap) {
             for (Iterator<TopologyConnectorClient> it = outgoingClientsMap.values().iterator(); it.hasNext();) {

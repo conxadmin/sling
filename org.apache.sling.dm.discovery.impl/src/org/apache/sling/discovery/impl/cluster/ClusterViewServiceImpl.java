@@ -18,9 +18,6 @@
  */
 package org.apache.sling.discovery.impl.cluster;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -43,20 +40,15 @@ import org.slf4j.LoggerFactory;
  * This class is a reader only - it accesses the repository to read the
  * currently established view
  */
-@Component
-@Service(value = {ClusterViewService.class, ClusterViewServiceImpl.class})
 public class ClusterViewServiceImpl implements ClusterViewService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Reference
-    private SlingSettingsService settingsService;
+    private volatile SlingSettingsService settingsService;
 
-    @Reference
-    private ResourceResolverFactory resourceResolverFactory;
+    private volatile ResourceResolverFactory resourceResolverFactory;
 
-    @Reference
-    private Config config;
+    private volatile Config config;
 
     private String failedEstablishedViewId;
 
