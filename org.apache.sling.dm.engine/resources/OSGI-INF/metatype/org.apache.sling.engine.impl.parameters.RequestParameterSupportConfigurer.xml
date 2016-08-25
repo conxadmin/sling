@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.engine.impl.parameters.RequestParameterSupportConfigurer">
+    <OCD id="org.apache.sling.engine.parameters" name="%org.apache.sling.engine.parameters.name" description="%org.apache.sling.engine.parameters.description">
+        <AD id="sling.default.parameter.encoding" type="String" default="ISO-8859-1" name="%org.apache.sling.engine.parameters.sling.default.parameter.encoding.name" description="%org.apache.sling.engine.parameters.sling.default.parameter.encoding.description"/>
+        <AD id="sling.default.max.parameters" type="Integer" default="10000" name="%org.apache.sling.engine.parameters.sling.default.max.parameters.name" description="%org.apache.sling.engine.parameters.sling.default.max.parameters.description"/>
+        <AD id="file.location" type="String" name="%org.apache.sling.engine.parameters.file.location.name" description="%org.apache.sling.engine.parameters.file.location.description"/>
+        <AD id="file.threshold" type="Long" default="256000" name="%org.apache.sling.engine.parameters.file.threshold.name" description="%org.apache.sling.engine.parameters.file.threshold.description"/>
+        <AD id="file.max" type="Long" default="-1" name="%org.apache.sling.engine.parameters.file.max.name" description="%org.apache.sling.engine.parameters.file.max.description"/>
+        <AD id="request.max" type="Long" default="-1" name="%org.apache.sling.engine.parameters.request.max.name" description="%org.apache.sling.engine.parameters.request.max.description"/>
+        <AD id="sling.default.parameter.checkForAdditionalContainerParameters" type="Boolean" default="false" name="%org.apache.sling.engine.parameters.sling.default.parameter.checkForAdditionalContainerParameters.name" description="%org.apache.sling.engine.parameters.sling.default.parameter.checkForAdditionalContainerParameters.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.engine.parameters">
+        <Object ocdref="org.apache.sling.engine.parameters"/>
+    </Designate>
+</metatype:MetaData>

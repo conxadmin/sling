@@ -1,2 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.apache.sling.auth.core.impl.BundleAuthenticationRequirementImpl"/>
+<fullyQualifiedTypeName name="org.apache.sling.api.auth.Authenticator"/>
+<fullyQualifiedTypeName name="javax.servlet.Servlet"/>
+<fullyQualifiedTypeName name="org.apache.sling.auth.core.impl.LoginServlet"/>
+<fullyQualifiedTypeName name="org.osgi.service.event.EventAdmin"/>
+<fullyQualifiedTypeName name="org.apache.sling.auth.core.impl.SlingAuthenticator"/>
+<fullyQualifiedTypeName name="org.apache.sling.auth.core.impl.LogoutServlet"/>
+<fullyQualifiedTypeName name="org.apache.sling.auth.core.impl.engine.EngineSlingAuthenticator"/>
+<fullyQualifiedTypeName name="org.apache.sling.adapter.internal.AdapterManagerImpl"/>
+<fullyQualifiedTypeName name="org.apache.sling.api.adapter.AdapterManager"/>
+<fullyQualifiedTypeName name="org.osgi.service.packageadmin.PackageAdmin"/>
+<fullyQualifiedTypeName name="org.apache.sling.api.adapter.AdapterFactory"/>
+<fullyQualifiedTypeName name="org.apache.sling.adapter.internal.AdapterWebConsolePlugin"/>
+<fullyQualifiedTypeName name="java.util.Dictionary"/>
+<fullyQualifiedTypeName name="org.apache.sling.commons.scheduler.impl.QuartzScheduler"/>
+<fullyQualifiedTypeName name="org.apache.sling.commons.threads.ThreadPoolManager"/>
+<fullyQualifiedTypeName name="org.apache.sling.discovery.TopologyEventListener"/>
+<fullyQualifiedTypeName name="org.apache.sling.discovery.commons.providers.spi.base.IdMapService"/>
+<fullyQualifiedTypeName name="org.apache.sling.api.resource.ResourceResolverFactory"/>
+<fullyQualifiedTypeName name="org.apache.sling.discovery.commons.providers.spi.base.DiscoveryLiteConfig"/>
+<fullyQualifiedTypeName name="org.apache.sling.settings.SlingSettingsService"/>
+<fullyQualifiedTypeName name="org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistryImpl"/>
+<fullyQualifiedTypeName name="org.apache.sling.commons.scheduler.Scheduler"/>
+<fullyQualifiedTypeName name="org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistry"/>
+<fullyQualifiedTypeName name="org.apache.sling.discovery.impl.cluster.ClusterViewChangeListener"/>
+<fullyQualifiedTypeName name="org.apache.sling.discovery.impl.cluster.voting.VotingHandler"/>
+<fullyQualifiedTypeName name="org.osgi.service.event.EventHandler"/>
+<fullyQualifiedTypeName name="java.lang.invoke.VolatileCallSite"/>
+</qualifiedTypeNameHistroy>

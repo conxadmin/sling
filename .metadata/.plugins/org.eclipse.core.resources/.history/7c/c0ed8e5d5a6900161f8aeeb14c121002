@@ -1,8 +1,0 @@
-package org.apache.sling.dm.auth.core.impl.engine;
-
-public class Snippet {
-	public static void main(String[] args) {
-		EngineSlingAuthenticator.java
-	}
-}
-

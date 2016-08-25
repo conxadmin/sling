@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.engine.impl.SlingMainServlet" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.engine.impl.SlingMainServlet"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.description" value="Sling Servlet"/>
+    <property name="sling.max.calls" type="Integer" value="1000"/>
+    <property name="sling.max.inclusions" type="Integer" value="50"/>
+    <property name="sling.trace.allow" type="Boolean" value="false"/>
+    <property name="sling.max.record.requests" type="Integer" value="20"/>
+    <property name="sling.store.pattern.requests"/>
+    <property name="sling.serverinfo"/>
+    <property name="sling.additional.response.headers">
+        X-Content-Type-Options=nosniff
+        X-Frame-Options=SAMEORIGIN
+    </property>
+    <reference name="ErrorHandler" interface="org.apache.sling.engine.servlets.ErrorHandler" cardinality="0..1" policy="dynamic" bind="setErrorHandler" unbind="unsetErrorHandler"/>
+    <reference name="ServletResolver" interface="org.apache.sling.api.servlets.ServletResolver" cardinality="0..1" policy="dynamic" bind="setServletResolver" unbind="unsetServletResolver"/>
+    <reference name="MimeTypeService" interface="org.apache.sling.commons.mime.MimeTypeService" cardinality="0..1" policy="dynamic" bind="setMimeTypeService" unbind="unsetMimeTypeService"/>
+    <reference name="AuthenticationSupport" interface="org.apache.sling.auth.core.AuthenticationSupport" cardinality="0..1" policy="dynamic" bind="setAuthenticationSupport" unbind="unsetAuthenticationSupport"/>
+    <reference name="adapterManager" interface="org.apache.sling.api.adapter.AdapterManager" cardinality="0..1" policy="dynamic" bind="bindAdapterManager" unbind="unbindAdapterManager"/>
+</scr:component>

@@ -26,3 +26,5 @@
 1472090802308	Delete resource 'org.apache.sling.dm.discovery.base/resources/OSGI-INF'
 1472091206681	Delete resource 'org.apache.sling.dm.discovery.commons/src/org'
 1472091319162	Delete resource 'org.apache.sling.dm.discovery.commons/src/org'
+1472149046505	Delete resource 'org.apache.sling.dm.engine/src/org'
+1472149051544	Delete resource 'org.apache.sling.dm.engine/resources/OSGI-INF'

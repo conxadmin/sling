@@ -1,0 +1,4 @@
+-buildpath: \
+	osgi.core;version=5.0,\
+	osgi.cmpn;version=4.3
+-sub: *.bnd
