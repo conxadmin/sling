@@ -1,0 +1,11 @@
+#Tue Aug 23 12:08:49 EDT 2016
+org.apache.sling.event.impl.jobs.DefaultJobManager.queue.retries.name=Maximum Retries
+org.apache.sling.event.impl.jobs.DefaultJobManager.queue.retries.description=The maximum number of times a failed job slated for retries is actually retried. If a job has been retried this number of times and still fails, it is not rescheduled and assumed to have failed. The default value is 10.
+org.apache.sling.event.impl.jobs.DefaultJobManager.queue.maxparallel.description=The maximum number of parallel jobs started for this queue. A value of -1 is substituted with the number of available processors.
+org.apache.sling.event.impl.jobs.DefaultJobManager.queue.retrydelay.name=Retry Delay
+org.apache.sling.event.impl.jobs.DefaultJobManager.name=Apache Sling Job Default Queue
+org.apache.sling.event.impl.jobs.DefaultJobManager.queue.maxparallel.name=Maximum Parallel Jobs
+org.apache.sling.event.impl.jobs.DefaultJobManager.queue.retrydelay.description=The number of milliseconds to sleep between two consecutive retries of a job which failed and was set to be retried. The default value is 2 seconds. This value is only relevant if there is a single failed job in the queue. If there are multiple failed jobs, each job is retried in turn without an intervening delay.
+org.apache.sling.event.impl.jobs.DefaultJobManager.queue.priority.description=The priority for the threads used by this queue. Default is norm.
+org.apache.sling.event.impl.jobs.DefaultJobManager.description=The configuration of the default job queue.
+org.apache.sling.event.impl.jobs.DefaultJobManager.queue.priority.name=Priority

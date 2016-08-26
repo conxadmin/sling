@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.event.impl.jobs.JobConsumerManager" activate="activate" deactivate="deactivate" modified="modified">
+    <implementation class="org.apache.sling.event.impl.jobs.JobConsumerManager"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.event.impl.jobs.JobConsumerManager"/>
+    </service>
+    <property name="org.apache.sling.installer.configuration.persist" type="Boolean" value="false"/>
+    <property name="job.consumermanager.whitelist">
+        *
+    </property>
+    <property name="job.consumermanager.blacklist"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.event.impl.jobs.JobConsumerManager"/>
+    <reference interface="org.apache.sling.event.jobs.consumer.JobConsumer" cardinality="0..n" policy="dynamic" bind="bindJobConsumer" unbind="unbindJobConsumer"/>
+    <reference interface="org.apache.sling.event.jobs.consumer.JobExecutor" cardinality="0..n" policy="dynamic" bind="bindJobExecutor" unbind="unbindJobExecutor"/>
+</scr:component>

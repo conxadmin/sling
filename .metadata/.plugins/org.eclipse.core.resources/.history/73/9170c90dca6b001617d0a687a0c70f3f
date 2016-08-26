@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.event.impl.jobs.console.WebConsolePlugin">
+    <implementation class="org.apache.sling.event.impl.jobs.console.WebConsolePlugin"/>
+    <service servicefactory="false">
+        <provide interface="javax.servlet.Servlet"/>
+        <provide interface="org.apache.sling.event.jobs.consumer.JobConsumer"/>
+    </service>
+    <property name="felix.webconsole.label" value="slingevent"/>
+    <property name="felix.webconsole.title" value="Jobs"/>
+    <property name="felix.webconsole.category" value="Sling"/>
+    <property name="job.topics" value="sling/webconsole/test"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.event.impl.jobs.console.WebConsolePlugin"/>
+    <reference name="jobManager" interface="org.apache.sling.event.jobs.JobManager" cardinality="1..1" policy="static" bind="bindJobManager" unbind="unbindJobManager"/>
+    <reference name="configuration" interface="org.apache.sling.event.impl.jobs.config.JobManagerConfiguration" cardinality="1..1" policy="static" bind="bindConfiguration" unbind="unbindConfiguration"/>
+    <reference name="jobConsumerManager" interface="org.apache.sling.event.impl.jobs.JobConsumerManager" cardinality="1..1" policy="static" bind="bindJobConsumerManager" unbind="unbindJobConsumerManager"/>
+</scr:component>

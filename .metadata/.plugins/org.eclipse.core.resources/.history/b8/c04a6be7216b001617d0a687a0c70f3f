@@ -1,0 +1,17 @@
+#Tue Aug 23 12:07:06 EDT 2016
+org.apache.sling.engine.parameters.name=Apache Sling Request Parameter Handling
+org.apache.sling.engine.parameters.sling.default.parameter.encoding.description=The default request parameter encoding used to decode request parameters into strings. If this property is not set the default encoding is 'ISO-8859-1' as mandated by the Servlet API spec. This default encoding is used if the '_charset_' request parameter is not set to another (supported) character encoding. Applications being sure to always use the same encoding (e.g. UTF-8) can set this default here and may omit the '_charset_' request parameter
+org.apache.sling.engine.parameters.file.location.name=Temporary File Location
+org.apache.sling.engine.parameters.file.max.description=The maximum size allowed for uploaded files. The default is -1, which means unlimited.
+org.apache.sling.engine.parameters.sling.default.parameter.checkForAdditionalContainerParameters.description=Enable this if you want to include request parameters added through the container, e.g through a valve.
+org.apache.sling.engine.parameters.file.threshold.name=File Save Threshold
+org.apache.sling.engine.parameters.description=Configures Sling's request parameter handling.
+org.apache.sling.engine.parameters.sling.default.max.parameters.description=The maximum number of parameters supported. To prevent a DOS-style attack with an overrunning number of parameters the number of parameters supported can be limited. This includes all of the query string as well as application/x-www-form-urlencoded and multipart/form-data parameters. The default value is 10000.
+org.apache.sling.engine.parameters.sling.default.parameter.checkForAdditionalContainerParameters.name=Check Additional Parameters
+org.apache.sling.engine.parameters.file.threshold.description=The size threshold after which the file will be written to disk. The default is 256KB.
+org.apache.sling.engine.parameters.sling.default.max.parameters.name=Maximum POST Parameters
+org.apache.sling.engine.parameters.request.max.description=The maximum size allowed for multipart/form-data requests. The default is -1, which means unlimited.
+org.apache.sling.engine.parameters.file.location.description=The size threshold after which the file will be written to disk. The default is null, which means the directory given by the 'java.io.tmpdir' system property.
+org.apache.sling.engine.parameters.request.max.name=Maximum Request Size
+org.apache.sling.engine.parameters.sling.default.parameter.encoding.name=Default Parameter Encoding
+org.apache.sling.engine.parameters.file.max.name=Maximum File Size

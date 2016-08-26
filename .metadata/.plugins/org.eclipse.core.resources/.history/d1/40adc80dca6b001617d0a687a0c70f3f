@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.event.impl.jobs.queues.QueueManager" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.event.impl.jobs.queues.QueueManager"/>
+    <service servicefactory="false">
+        <provide interface="java.lang.Runnable"/>
+        <provide interface="org.apache.sling.event.impl.jobs.queues.QueueManager"/>
+        <provide interface="org.osgi.service.event.EventHandler"/>
+    </service>
+    <property name="scheduler.period" type="Long" value="60"/>
+    <property name="scheduler.concurrent" type="Boolean" value="false"/>
+    <property name="event.topics" value="org/apache/sling/event/notification/job/ADDED"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.event.impl.jobs.queues.QueueManager"/>
+    <reference name="eventAdmin" interface="org.osgi.service.event.EventAdmin" cardinality="1..1" policy="static" bind="bindEventAdmin" unbind="unbindEventAdmin"/>
+    <reference name="scheduler" interface="org.apache.sling.commons.scheduler.Scheduler" cardinality="1..1" policy="static" bind="bindScheduler" unbind="unbindScheduler"/>
+    <reference name="jobConsumerManager" interface="org.apache.sling.event.impl.jobs.JobConsumerManager" cardinality="1..1" policy="static" bind="bindJobConsumerManager" unbind="unbindJobConsumerManager"/>
+    <reference name="queuesMBean" interface="org.apache.sling.event.jobs.jmx.QueuesMBean" cardinality="1..1" policy="static" bind="bindQueuesMBean" unbind="unbindQueuesMBean"/>
+    <reference name="threadPoolManager" interface="org.apache.sling.commons.threads.ThreadPoolManager" cardinality="1..1" policy="static" bind="bindThreadPoolManager" unbind="unbindThreadPoolManager"/>
+    <reference name="threadPool" interface="org.apache.sling.event.impl.EventingThreadPool" cardinality="1..1" policy="static" bind="bindThreadPool" unbind="unbindThreadPool"/>
+    <reference name="configuration" interface="org.apache.sling.event.impl.jobs.config.JobManagerConfiguration" cardinality="1..1" policy="static" bind="bindConfiguration" unbind="unbindConfiguration"/>
+    <reference name="statisticsManager" interface="org.apache.sling.event.impl.jobs.stats.StatisticsManager" cardinality="1..1" policy="static" bind="bindStatisticsManager" unbind="unbindStatisticsManager"/>
+</scr:component>

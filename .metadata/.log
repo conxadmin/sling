@@ -4015,3 +4015,60 @@ java.lang.ClassCastException: org.eclipse.jdt.internal.compiler.ast.FieldDeclara
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.104
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.107
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.109
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.111
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.112
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.114
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.115
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.117
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:15.119
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.401
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.403
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.405
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.406
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.408
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.410
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.411
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.413
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY org.testng.eclipse 1 0 2016-08-25 18:44:46.415
+!MESSAGE Could not resolve supertype of ServletResolverConstants
+
+!ENTRY net.resheim.eclipse.launcher.core 1 0 2016-08-25 23:17:16.236
+!MESSAGE Launching new Eclipse instance with "open -n /Applications/devtools/EclipseMars.app --args -vm /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin/../jre/lib/server/libjvm.dylib -os macosx -ws cocoa -arch x86_64 -showsplash -launcher /Applications/devtools/EclipseMars.app/Contents/MacOS/eclipse -name Eclipse --launcher.library /Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.300.v20150602-1417/eclipse_1611.so -startup /Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar --launcher.appendVmargs -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation -data /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/conxworks-platform -vmargs -Dosgi.requiredJavaVersion=1.7 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -XX:MaxPermSize=384m -Xms384m -Xmx1024m -Xdock:icon=../Resources/Eclipse.icns -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -Djava.class.path=/Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar "

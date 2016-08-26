@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.event.impl.EnvironmentComponent" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.event.impl.EnvironmentComponent"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.event.impl.EnvironmentComponent"/>
+    </service>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.event.impl.EnvironmentComponent"/>
+    <reference name="threadPool" interface="org.apache.sling.event.impl.EventingThreadPool" cardinality="1..1" policy="static" bind="bindThreadPool" unbind="unbindThreadPool"/>
+    <reference name="settingsService" interface="org.apache.sling.settings.SlingSettingsService" cardinality="1..1" policy="static" bind="bindSettingsService" unbind="unbindSettingsService"/>
+</scr:component>

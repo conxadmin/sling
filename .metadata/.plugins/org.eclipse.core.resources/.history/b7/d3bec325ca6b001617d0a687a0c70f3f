@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.event.impl.jobs.console.InventoryPlugin">
+    <implementation class="org.apache.sling.event.impl.jobs.console.InventoryPlugin"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.felix.inventory.InventoryPrinter"/>
+    </service>
+    <property name="felix.inventory.printer.name" value="slingjobs"/>
+    <property name="felix.inventory.printer.title" value="Sling Jobs"/>
+    <property name="felix.inventory.printer.format">
+        TEXT
+        JSON
+    </property>
+    <property name="felix.inventory.printer.webconsole" type="Boolean" value="false"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.event.impl.jobs.console.InventoryPlugin"/>
+    <reference name="jobManager" interface="org.apache.sling.event.jobs.JobManager" cardinality="1..1" policy="static" bind="bindJobManager" unbind="unbindJobManager"/>
+    <reference name="configuration" interface="org.apache.sling.event.impl.jobs.config.JobManagerConfiguration" cardinality="1..1" policy="static" bind="bindConfiguration" unbind="unbindConfiguration"/>
+    <reference name="jobConsumerManager" interface="org.apache.sling.event.impl.jobs.JobConsumerManager" cardinality="1..1" policy="static" bind="bindJobConsumerManager" unbind="unbindJobConsumerManager"/>
+</scr:component>

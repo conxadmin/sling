@@ -1,0 +1,134 @@
+package org.apache.sling.engine.impl;
+
+
+import java.util.Properties;
+
+import javax.servlet.GenericServlet;
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.apache.sling.api.servlets.ServletResolver;
+import org.apache.sling.auth.core.AuthenticationSupport;
+import org.apache.sling.commons.mime.MimeTypeService;
+import org.apache.sling.engine.impl.log.RequestLogger;
+import org.apache.sling.engine.impl.log.RequestLoggerService;
+import org.apache.sling.engine.impl.parameters.RequestParameterSupportConfigurer;
+import org.apache.sling.engine.impl.parameters.Util;
+import org.apache.sling.engine.impl.request.RequestData;
+import org.apache.sling.engine.impl.request.RequestHistoryConsolePlugin;
+import org.apache.sling.engine.servlets.ErrorHandler;
+import org.apache.sling.settings.SlingSettingsService;
+import org.apache.felix.dm.Component;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+
+public class Activator extends DependencyActivatorBase {
+
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1) throws Exception {
+
+	}
+
+	@Override
+	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		//SlingMainServlet
+		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Sling Servlet");
+		properties.put(SlingMainServlet.PROP_MAX_CALL_COUNTER, RequestData.DEFAULT_MAX_CALL_COUNTER);
+		properties.put(SlingMainServlet.PROP_MAX_INCLUSION_COUNTER, RequestData.DEFAULT_MAX_INCLUSION_COUNTER);
+		properties.put(SlingMainServlet.PROP_ALLOW_TRACE, SlingMainServlet.DEFAULT_ALLOW_TRACE);
+		properties.put(SlingMainServlet.PROP_MAX_RECORD_REQUESTS, RequestHistoryConsolePlugin.STORED_REQUESTS_COUNT);
+		properties.put(SlingMainServlet.PROP_ADDITIONAL_RESPONSE_HEADERS, new String[] {"X-Content-Type-Options=nosniff", "X-Frame-Options=SAMEORIGIN"});
+		
+		    
+		Component component = dm.createComponent()
+				.setInterface(GenericServlet.class.getName(), properties)
+				.setImplementation(SlingMainServlet.class)
+				.add(createConfigurationDependency()
+	                	.setPid(SlingMainServlet.class.getName()))
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createServiceDependency().setService(ErrorHandler.class)
+						 .setCallbacks("setErrorHandler", "unsetErrorHandler").setRequired(true))
+				.add(createServiceDependency().setService(ServletResolver.class)
+						 .setCallbacks("setServletResolver", "unsetServletResolver").setRequired(true))
+				.add(createServiceDependency().setService(MimeTypeService.class)
+						 .setCallbacks("setMimeTypeService", "unsetMimeTypeService").setRequired(true))
+				.add(createServiceDependency().setService(AuthenticationSupport.class)
+						 .setCallbacks("setAuthenticationSupport", "unsetAuthenticationSupport").setRequired(true))				
+	            .add(createConfigurationDependency()
+	                	.setPid(SlingMainServlet.class.getName()))
+	            ;
+		dm.add(component);
+
+
+		//SlingSettingsServiceImpl
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		component = dm.createComponent()
+				.setInterface(SlingSettingsService.class.getName(), properties)
+				.setImplementation(SlingSettingsServiceImpl.class)
+	            ;
+		dm.add(component);	
+
+		//RequestLogger
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Request Logger");
+		properties.put(RequestLogger.PROP_REQUEST_LOG_OUTPUT, "logs/request.log");
+	    properties.put(RequestLogger.PROP_REQUEST_LOG_OUTPUT_TYPE, 0);	
+	    properties.put(RequestLogger.PROP_REQUEST_LOG_ENABLED, true);	
+	    properties.put(RequestLogger.PROP_ACCESS_LOG_OUTPUT, "logs/access.log");
+	    properties.put(RequestLogger.PROP_ACCESS_LOG_OUTPUT_TYPE, 0);
+/*        @PropertyOption(name = "0", value = "Logger Name"), @PropertyOption(name = "1", value = "File Name"),
+        @PropertyOption(name = "2", value = "RequestLog Service")*/
+	    properties.put(RequestLogger.PROP_ACCESS_LOG_ENABLED, true);
+		component = dm.createComponent()
+				.setInterface(Object.class.getName(), properties)
+				.setImplementation(RequestLogger.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+	            .add(createConfigurationDependency()
+	                	.setPid(RequestLogger.class.getName()));
+		dm.add(component);		
+		
+		//RequestLoggerService
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Factory for configuration based request/access loggers");
+		properties.put(RequestLoggerService.PARAM_OUTPUT,  "request.log");
+		properties.put(RequestLoggerService.PARAM_OUTPUT_TYPE,  0);
+/*        @PropertyOption(name = "0", value = "Logger Name"), @PropertyOption(name = "1", value = "File Name"),
+        @PropertyOption(name = "2", value = "RequestLog Service")*/
+		properties.put(RequestLoggerService.PARAM_ON_ENTRY,  false);
+		component = dm.createComponent()
+				.setInterface(RequestLoggerService.class.getName(), properties)
+				.setImplementation(RequestLoggerService.class)
+				.setCallbacks(null,"activate","shutdown", null)//init, start, stop and destroy.
+	            ;
+		dm.add(component);	
+		
+		//RequestParameterSupportConfigurer
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Configures Sling's request parameter handling.");
+		properties.put(RequestParameterSupportConfigurer.PROP_FIX_ENCODING,  Util.ENCODING_DIRECT);
+		properties.put(RequestParameterSupportConfigurer.PROP_MAX_PARAMS, 10000);
+		properties.put(RequestParameterSupportConfigurer.PROP_FILE_SIZE_THRESHOLD, 256000L);
+		properties.put(RequestParameterSupportConfigurer.PROP_FILE_SIZE_MAX, -1L);
+		properties.put(RequestParameterSupportConfigurer.PROP_MAX_REQUEST_SIZE, -1L);
+		properties.put(RequestParameterSupportConfigurer.PROP_CHECK_ADDITIONAL_PARAMETERS, false);
+	    
+		component = dm.createComponent()
+				.setInterface(RequestParameterSupportConfigurer.class.getName(), properties)
+				.setImplementation(RequestParameterSupportConfigurer.class)
+				.setCallbacks(null,"configure","configure", null)//init, start, stop and destroy.
+				.add(createConfigurationDependency()
+	                	.setPid(RequestParameterSupportConfigurer.class.getName()))
+	            .add(createServiceDependency()
+	                	.setService(SlingSettingsService.class)
+	                	.setRequired(true))				
+	            ;
+		dm.add(component);	
+	
+	}
+
+}

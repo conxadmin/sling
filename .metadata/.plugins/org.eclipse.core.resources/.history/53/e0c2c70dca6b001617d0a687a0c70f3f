@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.event.impl.jobs.DefaultJobManager" activate="activate" modified="update">
+    <implementation class="org.apache.sling.event.impl.jobs.config.MainQueueConfiguration"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.event.impl.jobs.config.MainQueueConfiguration"/>
+    </service>
+    <property name="queue.priority" value="NORM"/>
+    <property name="queue.retries" type="Integer" value="10"/>
+    <property name="queue.retrydelay" type="Long" value="2000"/>
+    <property name="queue.maxparallel" type="Integer" value="15"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.event.impl.jobs.DefaultJobManager"/>
+</scr:component>
