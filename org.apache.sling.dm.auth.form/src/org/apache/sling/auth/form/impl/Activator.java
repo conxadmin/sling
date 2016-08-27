@@ -33,7 +33,7 @@ public class Activator extends DependencyActivatorBase {
 		//AdapterManagerImpl
 		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-		properties.put(Constants.SERVICE_DESCRIPTION, "Default Login Form for Form Based Authentication");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Form Based Authentication Handler");
 		properties.put("sling.servlet.paths","/system/sling/form/login");
 		properties.put("sling.auth.requirements","-" + AuthenticationFormServlet.SERVLET_PATH);
 		Component component = dm.createComponent()
@@ -45,32 +45,17 @@ public class Activator extends DependencyActivatorBase {
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Form Based Authentication Handler");
-	    properties.put(AuthenticationHandler.PATH_PROPERTY, "/");
-	    properties.put(AuthenticationHandler.TYPE_PROPERTY, HttpServletRequest.FORM_AUTH);
-	    properties.put(Constants.SERVICE_RANKING,0);
-
-	    properties.put(LoginModuleFactory.JAAS_CONTROL_FLAG, "sufficient");
-	    properties.put(LoginModuleFactory.JAAS_REALM_NAME,"jackrabbit.oak");
-	    properties.put(LoginModuleFactory.JAAS_RANKING, 1000);
-	    
-	    properties.put(FormAuthenticationHandler.PAR_LOGIN_FORM, AuthenticationFormServlet.SERVLET_PATH);
-	    properties.put(FormAuthenticationHandler.PAR_AUTH_STORAGE, FormAuthenticationHandler.DEFAULT_AUTH_STORAGE);
-	    properties.put(FormAuthenticationHandler.PAR_AUTH_NAME, FormAuthenticationHandler.DEFAULT_AUTH_NAME);
-	    properties.put(FormAuthenticationHandler.PAR_CREDENTIALS_ATTRIBUTE_NAME, FormAuthenticationHandler.DEFAULT_CREDENTIALS_ATTRIBUTE_NAME);
-	    properties.put(FormAuthenticationHandler.PAR_AUTH_TIMEOUT, FormAuthenticationHandler.DEFAULT_AUTH_TIMEOUT);
-	    properties.put(FormAuthenticationHandler.PAR_TOKEN_FILE, FormAuthenticationHandler.DEFAULT_TOKEN_FILE);
-	    properties.put(FormAuthenticationHandler.PAR_TOKEN_FAST_SEED, FormAuthenticationHandler.DEFAULT_TOKEN_FAST_SEED);
-	    properties.put(FormAuthenticationHandler.PAR_LOGIN_AFTER_EXPIRE, FormAuthenticationHandler.DEFAULT_LOGIN_AFTER_EXPIRE);
-	    properties.put(FormAuthenticationHandler.PAR_AUTH_NAME, FormAuthenticationHandler.DEFAULT_AUTH_NAME);
-	    properties.put(FormAuthenticationHandler.PAR_AUTH_NAME, FormAuthenticationHandler.DEFAULT_AUTH_NAME);
 	    
 		component = dm.createComponent()
 				.setInterface(Servlet.class.getName(), properties)
 				.setImplementation(FormAuthenticationHandler.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-	            .add(createServiceDependency()
+	            .add(createConfigurationDependency()
+	            		.setPid(FormAuthenticationHandler.class.getName()))
+				.add(createServiceDependency()
 	                	.setService(ResourceResolverFactory.class)
-	                	.setRequired(true));
+	                	.setRequired(true))
+	            ;
 		dm.add(component);
 	}
 

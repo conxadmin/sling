@@ -54,6 +54,8 @@ import org.apache.sling.commons.osgi.OsgiUtil;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,7 +64,7 @@ import org.slf4j.LoggerFactory;
  * The <code>FormAuthenticationHandler</code> class implements the authorization
  * steps based on a cookie.
  */
-public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHandler implements AuthenticationHandler {
+public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHandler implements AuthenticationHandler, ManagedService {
 
     /**
      * The name of the parameter providing the login form URL.
@@ -270,6 +272,10 @@ public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHand
     private boolean loginAfterExpire;
 
     private JaasHelper jaasHelper;
+
+	private Dictionary<String, ?> properties;
+	
+	private BundleContext componentContext;
 
     /**
      * Extracts cookie/session based credentials from the request. Returns
@@ -649,9 +655,13 @@ public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHand
         // no authdata, not valid
         return false;
     }
-
-    // ---------- SCR Integration ----------------------------------------------
-
+    
+    //----------- DM Integration -----------------------------------------------
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.properties = properties;
+	}
+	
     /**
      * Called by SCR to activate the authentication handler.
      *
@@ -660,77 +670,79 @@ public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHand
      * @throws IllegalStateException
      * @throws UnsupportedEncodingException
      */
-    protected void activate(ComponentContext componentContext)
+    protected void activate()
             throws InvalidKeyException, NoSuchAlgorithmException,
             IllegalStateException, UnsupportedEncodingException {
-
-        Dictionary<?, ?> properties = componentContext.getProperties();
-
-        this.jaasHelper = new JaasHelper(this, componentContext.getBundleContext(), properties);
-        this.loginForm = OsgiUtil.toString(properties.get(PAR_LOGIN_FORM),
-            AuthenticationFormServlet.SERVLET_PATH);
-        log.info("Login Form URL {}", loginForm);
-
-        final String authName = OsgiUtil.toString(
-            properties.get(PAR_AUTH_NAME), DEFAULT_AUTH_NAME);
-
-        String defaultCookieDomain = OsgiUtil.toString(
-            properties.get(PAR_DEFAULT_COOKIE_DOMAIN), "");
-        if (defaultCookieDomain.length() == 0) {
-            defaultCookieDomain = null;
-        }
-
-        final String authStorage = OsgiUtil.toString(
-            properties.get(PAR_AUTH_STORAGE), DEFAULT_AUTH_STORAGE);
-        if (AUTH_STORAGE_SESSION_ATTRIBUTE.equals(authStorage)) {
-
-            this.authStorage = new SessionStorage(authName);
-            log.info("Using HTTP Session store with attribute name {}",
-                authName);
-
-        } else {
-
-            this.authStorage = new CookieStorage(authName, defaultCookieDomain);
-            log.info("Using Cookie store with name {}", authName);
-
-        }
-
-        this.attrCookieAuthData = OsgiUtil.toString(
-            properties.get(PAR_CREDENTIALS_ATTRIBUTE_NAME),
-            DEFAULT_CREDENTIALS_ATTRIBUTE_NAME);
-        log.info("Setting Auth Data attribute name {}", attrCookieAuthData);
-
-        int timeoutMinutes = OsgiUtil.toInteger(
-            properties.get(PAR_AUTH_TIMEOUT), DEFAULT_AUTH_TIMEOUT);
-        if (timeoutMinutes < 1) {
-            timeoutMinutes = DEFAULT_AUTH_TIMEOUT;
-        }
-        log.info("Setting session timeout {} minutes", timeoutMinutes);
-        this.sessionTimeout = MINUTES * timeoutMinutes;
-
-        final String tokenFileName = OsgiUtil.toString(
-            properties.get(PAR_TOKEN_FILE), DEFAULT_TOKEN_FILE);
-        final File tokenFile = getTokenFile(tokenFileName,
-            componentContext.getBundleContext());
-        final boolean fastSeed = OsgiUtil.toBoolean(
-            properties.get(PAR_TOKEN_FAST_SEED), DEFAULT_TOKEN_FAST_SEED);
-        log.info("Storing tokens in {}", tokenFile.getAbsolutePath());
-        this.tokenStore = new TokenStore(tokenFile, sessionTimeout, fastSeed);
-
-        this.loginModule = null;
-        if (!jaasHelper.enabled()) {
-            try {
-                this.loginModule = FormLoginModulePlugin.register(this,
-                        componentContext.getBundleContext());
-            } catch (Throwable t) {
-                log.info("Cannot register FormLoginModulePlugin. This is expected if Sling LoginModulePlugin services are not supported");
-                log.debug("dump", t);
-            }
-        }
-
-        this.includeLoginForm = OsgiUtil.toBoolean(properties.get(PAR_INCLUDE_FORM), DEFAULT_INCLUDE_FORM);
-
-        this.loginAfterExpire = OsgiUtil.toBoolean(properties.get(PAR_LOGIN_AFTER_EXPIRE), DEFAULT_LOGIN_AFTER_EXPIRE);
+    	if (this.properties != null) {
+	        this.jaasHelper = new JaasHelper(this, componentContext, properties);
+	        this.loginForm = OsgiUtil.toString(properties.get(PAR_LOGIN_FORM),
+	            AuthenticationFormServlet.SERVLET_PATH);
+	        log.info("Login Form URL {}", loginForm);
+	
+	        final String authName = OsgiUtil.toString(
+	            properties.get(PAR_AUTH_NAME), DEFAULT_AUTH_NAME);
+	
+	        String defaultCookieDomain = OsgiUtil.toString(
+	            properties.get(PAR_DEFAULT_COOKIE_DOMAIN), "");
+	        if (defaultCookieDomain.length() == 0) {
+	            defaultCookieDomain = null;
+	        }
+	
+	        final String authStorage = OsgiUtil.toString(
+	            properties.get(PAR_AUTH_STORAGE), DEFAULT_AUTH_STORAGE);
+	        if (AUTH_STORAGE_SESSION_ATTRIBUTE.equals(authStorage)) {
+	
+	            this.authStorage = new SessionStorage(authName);
+	            log.info("Using HTTP Session store with attribute name {}",
+	                authName);
+	
+	        } else {
+	
+	            this.authStorage = new CookieStorage(authName, defaultCookieDomain);
+	            log.info("Using Cookie store with name {}", authName);
+	
+	        }
+	
+	        this.attrCookieAuthData = OsgiUtil.toString(
+	            properties.get(PAR_CREDENTIALS_ATTRIBUTE_NAME),
+	            DEFAULT_CREDENTIALS_ATTRIBUTE_NAME);
+	        log.info("Setting Auth Data attribute name {}", attrCookieAuthData);
+	
+	        int timeoutMinutes = OsgiUtil.toInteger(
+	            properties.get(PAR_AUTH_TIMEOUT), DEFAULT_AUTH_TIMEOUT);
+	        if (timeoutMinutes < 1) {
+	            timeoutMinutes = DEFAULT_AUTH_TIMEOUT;
+	        }
+	        log.info("Setting session timeout {} minutes", timeoutMinutes);
+	        this.sessionTimeout = MINUTES * timeoutMinutes;
+	
+	        final String tokenFileName = OsgiUtil.toString(
+	            properties.get(PAR_TOKEN_FILE), DEFAULT_TOKEN_FILE);
+	        final File tokenFile = getTokenFile(tokenFileName,
+	            componentContext);
+	        final boolean fastSeed = OsgiUtil.toBoolean(
+	            properties.get(PAR_TOKEN_FAST_SEED), DEFAULT_TOKEN_FAST_SEED);
+	        log.info("Storing tokens in {}", tokenFile.getAbsolutePath());
+	        this.tokenStore = new TokenStore(tokenFile, sessionTimeout, fastSeed);
+	
+	        this.loginModule = null;
+	        if (!jaasHelper.enabled()) {
+	            try {
+	                this.loginModule = FormLoginModulePlugin.register(this,
+	                        componentContext);
+	            } catch (Throwable t) {
+	                log.info("Cannot register FormLoginModulePlugin. This is expected if Sling LoginModulePlugin services are not supported");
+	                log.debug("dump", t);
+	            }
+	        }
+	
+	        this.includeLoginForm = OsgiUtil.toBoolean(properties.get(PAR_INCLUDE_FORM), DEFAULT_INCLUDE_FORM);
+	
+	        this.loginAfterExpire = OsgiUtil.toBoolean(properties.get(PAR_LOGIN_AFTER_EXPIRE), DEFAULT_LOGIN_AFTER_EXPIRE);
+    	}
+    	else {
+    		log.warn("Properties is NULL");
+    	}
     }
 
     protected void deactivate() {
@@ -1023,4 +1035,5 @@ public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHand
         }
 
     }
+
 }

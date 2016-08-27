@@ -18,6 +18,8 @@
  */
 package org.apache.sling.auth.core.impl;
 
+import java.util.Dictionary;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -25,6 +27,8 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.auth.core.AuthUtil;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,7 +36,7 @@ import org.slf4j.LoggerFactory;
  * The <code>LogoutServlet</code> lets the Authenticator
  * do the logout.
  */
-public class LogoutServlet extends SlingAllMethodsServlet {
+public class LogoutServlet extends SlingAllMethodsServlet implements ManagedService {
 
     /** serialization UID */
     private static final long serialVersionUID = -1L;
@@ -46,6 +50,12 @@ public class LogoutServlet extends SlingAllMethodsServlet {
      * The servlet is registered on this path.
      */
     public static final String SERVLET_PATH = "/system/sling/logout";
+    
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
 
     @Override
     protected void service(SlingHttpServletRequest request,
@@ -68,4 +78,5 @@ public class LogoutServlet extends SlingAllMethodsServlet {
         // well, we don't really have something to say here, do we ?
         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
     }
+
 }

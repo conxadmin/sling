@@ -63,9 +63,7 @@ public class Activator extends DependencyActivatorBase {
 	            .add(createServiceDependency()
 	                	.setService(PackageAdmin.class)
 	                	.setRequired(true))
-	            .add(createServiceDependency()
-	                	.setService(EventAdmin.class)
-	                	.setRequired(true));
+	            ;
 		dm.add(component);
 	}
 
