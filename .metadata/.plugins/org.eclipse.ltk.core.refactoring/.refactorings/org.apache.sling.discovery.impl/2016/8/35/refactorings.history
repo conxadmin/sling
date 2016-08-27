@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;metatype.properties&apos; to &apos;metatype&apos;&#x0A;- Original project: &apos;org.apache.sling.discovery.impl&apos;&#x0A;- Destination element: &apos;metatype&apos;&#x0A;- Original element: &apos;metatype.properties&apos;" description="Copy file" element1="src/main/resources/OSGI-INF/metatype/metatype.properties" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472313553753" target="/org.apache.sling.dm.discovery.impl/resources/OSGI-INF/metatype" units="0" version="1.0"/>
+</session>

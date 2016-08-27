@@ -7,7 +7,7 @@ Bundle-Vendor: The Apache Software Foundation
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Include-Resource: /=resources
 X-MultiTenant-Version: 1
-X-MultiTenant-Bundle-Activator: org.apache.sling.commons.threads.impl.Activator
+X-MultiTenant-Bundle-Activator: org.apache.sling.engine.impl.Activator
 X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
 	(objectClass=org.osgi.service.log.LogService))
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
@@ -41,7 +41,6 @@ Import-Package: javax.servlet;version="[2.6,4)",\
 	org.osgi.util.tracker;version="[1.5,2)",\
 	org.slf4j;version="[1.7,2)",\
 	*
-
 Private-Package: \
 	org.apache.sling.engine.impl,\
 	org.apache.sling.engine.impl.adapter,\

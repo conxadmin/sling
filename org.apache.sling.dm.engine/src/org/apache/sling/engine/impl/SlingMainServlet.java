@@ -21,9 +21,11 @@ package org.apache.sling.engine.impl;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.regex.Pattern;
 
 import javax.servlet.GenericServlet;
@@ -54,6 +56,8 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.framework.Version;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.http.context.ServletContextHelper;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.Logger;
@@ -63,7 +67,7 @@ import org.slf4j.LoggerFactory;
  * The <code>SlingMainServlet</code> TODO
  */
 @SuppressWarnings("serial")
-public class SlingMainServlet extends GenericServlet {
+public class SlingMainServlet extends GenericServlet implements ManagedService {
 
     public static final String PROP_MAX_CALL_COUNTER = "sling.max.calls";
 
@@ -150,6 +154,10 @@ public class SlingMainServlet extends GenericServlet {
     private ServiceRegistration<Servlet> servletRegistration;
 
     private String configuredServerInfo;
+
+	private Dictionary<String, ?> componentConfig;
+	
+	private volatile BundleContext bundleContext;
 
     // ---------- Servlet API -------------------------------------------------
 
@@ -301,11 +309,15 @@ public class SlingMainServlet extends GenericServlet {
         }
     }
 
-    // ---------- Property Setter for SCR --------------------------------------
+    // ---------- Property Setter for DM --------------------------------------
 
-    protected void activate(final BundleContext bundleContext,
-            final Map<String, Object> componentConfig) {
-
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.componentConfig = properties;
+	}
+	
+    protected void activate() {
+    	if (this.componentConfig != null) {
         final String[] props = PropertiesUtil.toStringArray(componentConfig.get(PROP_ADDITIONAL_RESPONSE_HEADERS));
 
         final ArrayList<StaticResponseHeader> mappings = new ArrayList<StaticResponseHeader>(props.length);
@@ -327,8 +339,7 @@ public class SlingMainServlet extends GenericServlet {
         setProductInfo(bundleContext);
 
         // prepare the servlet configuration from the component config
-        final Hashtable<String, Object> configuration = new Hashtable<String, Object>(
-            componentConfig);
+        final Hashtable<String, Object> configuration = valueOf(componentConfig);
 
         // ensure the servlet name
         if (!(configuration.get("servlet-name") instanceof String)) {
@@ -431,6 +442,9 @@ public class SlingMainServlet extends GenericServlet {
         srpProps.put(Constants.SERVICE_DESCRIPTION, "Sling Request Processor");
         requestProcessorRegistration = bundleContext.registerService(
             SlingRequestProcessor.class, requestProcessor, srpProps);
+    	}
+    	else
+    		log.warn("Properties is NULL");
     }
 
     @Override
@@ -588,4 +602,18 @@ public class SlingMainServlet extends GenericServlet {
         // return the previous thread name
         return oldThreadName;
     }
+    
+    public static Hashtable<String, Object> valueOf(Dictionary<String, ?> dictionary) {
+    	  if (dictionary == null) {
+    	    return null;
+    	  }
+    	  Hashtable<String, Object> map = new Hashtable<String, Object>(dictionary.size());
+    	  Enumeration<String> keys = dictionary.keys();
+    	  while (keys.hasMoreElements()) {
+    	    String key = keys.nextElement();
+    	    map.put(key, dictionary.get(key));
+    	  }
+    	  return map;
+    	}
+
 }

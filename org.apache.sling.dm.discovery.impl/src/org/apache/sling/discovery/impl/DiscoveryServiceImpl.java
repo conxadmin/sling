@@ -147,6 +147,8 @@ public class DiscoveryServiceImpl extends BaseDiscoveryService {
     
     private final List<TopologyEventListener> pendingListeners = new LinkedList<TopologyEventListener>();
 
+    private volatile BundleContext bundleContext;
+    
     private TopologyEventListener changePropagationListener = new TopologyEventListener() {
 
         public void handleTopologyEvent(TopologyEvent event) {
@@ -229,7 +231,7 @@ public class DiscoveryServiceImpl extends BaseDiscoveryService {
     /**
      * Activate this service
      */
-    protected void activate(final BundleContext bundleContext) {
+    protected void activate() {
         logger.debug("DiscoveryServiceImpl activating...");
 
         if (settingsService == null) {

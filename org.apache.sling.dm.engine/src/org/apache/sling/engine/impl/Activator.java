@@ -3,12 +3,14 @@ package org.apache.sling.engine.impl;
 
 import java.util.Properties;
 
+import javax.servlet.Filter;
 import javax.servlet.GenericServlet;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.api.servlets.ServletResolver;
 import org.apache.sling.auth.core.AuthenticationSupport;
 import org.apache.sling.commons.mime.MimeTypeService;
+import org.apache.sling.engine.EngineConstants;
 import org.apache.sling.engine.impl.log.RequestLogger;
 import org.apache.sling.engine.impl.log.RequestLoggerService;
 import org.apache.sling.engine.impl.parameters.RequestParameterSupportConfigurer;
@@ -34,13 +36,7 @@ public class Activator extends DependencyActivatorBase {
 		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Sling Servlet");
-		properties.put(SlingMainServlet.PROP_MAX_CALL_COUNTER, RequestData.DEFAULT_MAX_CALL_COUNTER);
-		properties.put(SlingMainServlet.PROP_MAX_INCLUSION_COUNTER, RequestData.DEFAULT_MAX_INCLUSION_COUNTER);
-		properties.put(SlingMainServlet.PROP_ALLOW_TRACE, SlingMainServlet.DEFAULT_ALLOW_TRACE);
-		properties.put(SlingMainServlet.PROP_MAX_RECORD_REQUESTS, RequestHistoryConsolePlugin.STORED_REQUESTS_COUNT);
-		properties.put(SlingMainServlet.PROP_ADDITIONAL_RESPONSE_HEADERS, new String[] {"X-Content-Type-Options=nosniff", "X-Frame-Options=SAMEORIGIN"});
-		
-		    
+
 		Component component = dm.createComponent()
 				.setInterface(GenericServlet.class.getName(), properties)
 				.setImplementation(SlingMainServlet.class)
@@ -74,13 +70,6 @@ public class Activator extends DependencyActivatorBase {
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Request Logger");
-		properties.put(RequestLogger.PROP_REQUEST_LOG_OUTPUT, "logs/request.log");
-	    properties.put(RequestLogger.PROP_REQUEST_LOG_OUTPUT_TYPE, 0);	
-	    properties.put(RequestLogger.PROP_REQUEST_LOG_ENABLED, true);	
-	    properties.put(RequestLogger.PROP_ACCESS_LOG_OUTPUT, "logs/access.log");
-	    properties.put(RequestLogger.PROP_ACCESS_LOG_OUTPUT_TYPE, 0);
-/*        @PropertyOption(name = "0", value = "Logger Name"), @PropertyOption(name = "1", value = "File Name"),
-        @PropertyOption(name = "2", value = "RequestLog Service")*/
 	    properties.put(RequestLogger.PROP_ACCESS_LOG_ENABLED, true);
 		component = dm.createComponent()
 				.setInterface(Object.class.getName(), properties)
@@ -94,15 +83,11 @@ public class Activator extends DependencyActivatorBase {
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Factory for configuration based request/access loggers");
-		properties.put(RequestLoggerService.PARAM_OUTPUT,  "request.log");
-		properties.put(RequestLoggerService.PARAM_OUTPUT_TYPE,  0);
-/*        @PropertyOption(name = "0", value = "Logger Name"), @PropertyOption(name = "1", value = "File Name"),
-        @PropertyOption(name = "2", value = "RequestLog Service")*/
-		properties.put(RequestLoggerService.PARAM_ON_ENTRY,  false);
 		component = dm.createComponent()
 				.setInterface(RequestLoggerService.class.getName(), properties)
 				.setImplementation(RequestLoggerService.class)
-				.setCallbacks(null,"activate","shutdown", null)//init, start, stop and destroy.
+				.setCallbacks(null,"setup","shutdown", null)//init, start, stop and destroy.
+				.add(createConfigurationDependency().setPid(RequestLoggerService.class.getName()))
 	            ;
 		dm.add(component);	
 		
@@ -110,13 +95,6 @@ public class Activator extends DependencyActivatorBase {
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Configures Sling's request parameter handling.");
-		properties.put(RequestParameterSupportConfigurer.PROP_FIX_ENCODING,  Util.ENCODING_DIRECT);
-		properties.put(RequestParameterSupportConfigurer.PROP_MAX_PARAMS, 10000);
-		properties.put(RequestParameterSupportConfigurer.PROP_FILE_SIZE_THRESHOLD, 256000L);
-		properties.put(RequestParameterSupportConfigurer.PROP_FILE_SIZE_MAX, -1L);
-		properties.put(RequestParameterSupportConfigurer.PROP_MAX_REQUEST_SIZE, -1L);
-		properties.put(RequestParameterSupportConfigurer.PROP_CHECK_ADDITIONAL_PARAMETERS, false);
-	    
 		component = dm.createComponent()
 				.setInterface(RequestParameterSupportConfigurer.class.getName(), properties)
 				.setImplementation(RequestParameterSupportConfigurer.class)
@@ -128,7 +106,20 @@ public class Activator extends DependencyActivatorBase {
 	                	.setRequired(true))				
 	            ;
 		dm.add(component);	
-	
+		
+		//RequestProgressTrackerLogFilter
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "RequestProgressTracker dump filter");
+		properties.put(EngineConstants.SLING_FILTER_SCOPE, "RequestProgressTracker dump filter");
+		properties.put(EngineConstants.SLING_FILTER_SCOPE, EngineConstants.FILTER_SCOPE_REQUEST);
+		component = dm.createComponent()
+				.setInterface(Filter.class.getName(), properties)
+				.setImplementation(RequestParameterSupportConfigurer.class)
+				.setCallbacks(null,"activate", null, null)//init, start, stop and destroy.
+				.add(createConfigurationDependency()
+	                	.setPid(RequestParameterSupportConfigurer.class.getName()))
+	            ;
+		dm.add(component);	
 	}
-
 }

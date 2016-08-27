@@ -36,7 +36,7 @@ public class SlingSettingsServiceImpl
     implements SlingSettingsService {
 
     @Reference
-    private org.apache.sling.settings.SlingSettingsService settingsService;
+    private volatile org.apache.sling.settings.SlingSettingsService settingsService;
 
     /**
      * @see org.apache.sling.engine.SlingSettingsService#getSlingId()

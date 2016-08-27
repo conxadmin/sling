@@ -216,6 +216,8 @@ public class Config implements BaseConfig, DiscoveryLiteConfig, ManagedService {
 		if (this.properties != null) {
 			configure();
 		}
+		else
+			logger.warn("Properties is NULL");
     }
 
     protected void configure() {

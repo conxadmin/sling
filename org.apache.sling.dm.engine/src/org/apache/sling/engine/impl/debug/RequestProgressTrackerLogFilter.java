@@ -19,7 +19,9 @@
 package org.apache.sling.engine.impl.debug;
 
 import java.io.IOException;
+import java.lang.annotation.Annotation;
 import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.Iterator;
 
 import javax.servlet.Filter;
@@ -35,11 +37,8 @@ import org.apache.sling.api.request.RequestProgressTracker;
 import org.apache.sling.engine.EngineConstants;
 import org.apache.sling.engine.impl.request.SlingRequestProgressTracker;
 import org.osgi.framework.Constants;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.metatype.annotations.AttributeDefinition;
-import org.osgi.service.metatype.annotations.Designate;
-import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,42 +47,14 @@ import org.slf4j.LoggerFactory;
  * processing the request.
  *
  */
-@Designate(ocd=RequestProgressTrackerLogFilter.Config.class)
-@Component(service=Filter.class,
-           property={
-                   Constants.SERVICE_DESCRIPTION + "=RequestProgressTracker dump filter",
-                   Constants.SERVICE_VENDOR + "=The Apache Software Foundation",
-                   EngineConstants.SLING_FILTER_SCOPE + "=" + EngineConstants.FILTER_SCOPE_REQUEST
-           })
-public class RequestProgressTrackerLogFilter implements Filter {
-
-    @ObjectClassDefinition(name="Apache Sling Request Progress Tracker Log Filter",
-            description="Filter that enables logging of request progress tracker " +
-                        "information. To enable the log output, the category " +
-                        "org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter needs to be " +
-                        "logged on debug level.")
+public class RequestProgressTrackerLogFilter implements Filter, ManagedService {
     public static @interface Config {
-        @AttributeDefinition(name="Extension filter",
-                             description="Only requests with the listed extensions will be logged. " +
-                                         "If no extensions are configured all requests are logged. Empty by default.")
         String[] extensions() default {};
 
-        @AttributeDefinition(name="Min duration (ms)",
-                description="Only requests that take at least the minimum duration " +
-                            "in milliseconds are logged. Default is 0.")
         int minDurationMs() default 0;
 
-        @AttributeDefinition(name="Max duration (ms)",
-                             description="Only requests that take at most the maximum duration " +
-                                         "in milliseconds are logged. Default is 2147483647, i.e. Integer.MAX_VALUE.")
         int maxDurationMs() default Integer.MAX_VALUE;
 
-        @AttributeDefinition(name="Compact Log Format",
-                description="Whether or not to use the compact format. In compact " +
-                            "one log entry is logged per request, detailing the request progress tracker " +
-                            "information in individual lines, like stack-traces. This keeps log files smaller " +
-                            "and makes them more readable. In the older (non-compact) format, one log entry is " +
-                            "printed per line, thus potentially containing more noise. Default is false.")
         boolean compactLogFormat() default false;
     }
 
@@ -94,6 +65,8 @@ public class RequestProgressTrackerLogFilter implements Filter {
     private Config configuration;
 
     private String[] extensions;
+
+	private Dictionary<String, ?> properties;
 
     @Override
     public void init(final FilterConfig filterConfig) throws ServletException {
@@ -197,12 +170,48 @@ public class RequestProgressTrackerLogFilter implements Filter {
         return skip == 0 ? strings : Arrays.copyOfRange(strings, skip, strings.length);
     }
 
-    @Activate
-    private void activate(final Config config) {
-        this.configuration = config;
-        // extensions needs to be sorted for Arrays.binarySearch() to work
-        this.extensions = sortAndClean(this.configuration.extensions());
-        log.debug("activated: extensions = {}, min = {}, max = {}, compact = {}",
-                new Object[]{extensions, configuration.minDurationMs(), configuration.maxDurationMs(), configuration.compactLogFormat()});
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.properties = properties;
+	}
+	
+    private void activate() {
+    	if (this.properties != null) {
+	        this.configuration = new Config() {
+				@Override
+				public Class<? extends Annotation> annotationType() {
+					// TODO Auto-generated method stub
+					return null;
+				}
+	
+				@Override
+				public String[] extensions() {
+					return (String[]) RequestProgressTrackerLogFilter.this.properties.get("extensions");
+				}
+	
+				@Override
+				public int minDurationMs() {
+					return (int) RequestProgressTrackerLogFilter.this.properties.get("minDurationMs");
+				}
+	
+				@Override
+				public int maxDurationMs() {
+					return (int) RequestProgressTrackerLogFilter.this.properties.get("maxDurationMs");
+				}
+	
+				@Override
+				public boolean compactLogFormat() {
+					return (boolean) RequestProgressTrackerLogFilter.this.properties.get("compactLogFormat");
+				}
+	        	
+	        };
+	        // extensions needs to be sorted for Arrays.binarySearch() to work
+	        this.extensions = sortAndClean(this.configuration.extensions());
+	        log.debug("activated: extensions = {}, min = {}, max = {}, compact = {}",
+	                new Object[]{extensions, configuration.minDurationMs(), configuration.maxDurationMs(), configuration.compactLogFormat()});
+    	}
+    	else
+    		log.warn("Properties is NULL");
     }
+
 }

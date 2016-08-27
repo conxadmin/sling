@@ -23,11 +23,14 @@ import java.util.Dictionary;
 
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.settings.SlingSettingsService;
+import org.osgi.framework.BundleContext;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.component.ComponentContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RequestParameterSupportConfigurer {
+public class RequestParameterSupportConfigurer implements ManagedService {
 
     static final String PID = "org.apache.sling.engine.parameters";
 
@@ -49,16 +52,24 @@ public class RequestParameterSupportConfigurer {
     public static final String PROP_CHECK_ADDITIONAL_PARAMETERS = "sling.default.parameter.checkForAdditionalContainerParameters";
 
     private SlingSettingsService settignsService;
+    
+    private volatile BundleContext context;
 
-    private void configure(ComponentContext context) {
+	private Dictionary<String, ?> properties;
+    
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.properties = properties;
+	}
+
+    private void configure() {
         @SuppressWarnings("unchecked")
-        Dictionary<String, Object> props = context.getProperties();
+        Dictionary<String, Object> props = (Dictionary<String, Object>) this.properties;
 
         final String fixEncoding = PropertiesUtil.toString(props.get(PROP_FIX_ENCODING), Util.ENCODING_DIRECT);
         final int maxParams = PropertiesUtil.toInteger(props.get(PROP_MAX_PARAMS), ParameterMap.DEFAULT_MAX_PARAMS);
         final long maxRequestSize = PropertiesUtil.toLong(props.get(PROP_MAX_REQUEST_SIZE), -1);
-        final String fileLocation = getFileLocation(context,
-            PropertiesUtil.toString(props.get(PROP_FILE_LOCATION), null));
+        final String fileLocation = getFileLocation(PropertiesUtil.toString(props.get(PROP_FILE_LOCATION), null));
         final long maxFileSize = PropertiesUtil.toLong(props.get(PROP_FILE_SIZE_MAX), -1);
         final int fileSizeThreshold = PropertiesUtil.toInteger(props.get(PROP_FILE_SIZE_THRESHOLD), -1);
         final boolean checkAddParameters = PropertiesUtil.toBoolean(props.get(PROP_CHECK_ADDITIONAL_PARAMETERS), false);
@@ -79,7 +90,7 @@ public class RequestParameterSupportConfigurer {
                 fileSizeThreshold, checkAddParameters);
     }
 
-    private String getFileLocation(final ComponentContext context, String fileLocation) {
+    private String getFileLocation(String fileLocation) {
         if (fileLocation != null) {
             File file = new File(fileLocation);
             if (!file.isAbsolute()) {

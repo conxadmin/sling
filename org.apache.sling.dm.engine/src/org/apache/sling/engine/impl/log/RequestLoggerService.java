@@ -20,17 +20,21 @@ package org.apache.sling.engine.impl.log;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Map;
 
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.engine.RequestLog;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 
 /**
  * The <code>RequestLoggerService</code> is a factory component which gets
  * configuration to register loggers for the {@link RequestLogger}.
  */
-public class RequestLoggerService {
+public class RequestLoggerService implements ManagedService {
 
     public static final String PARAM_FORMAT = "request.log.service.format";
 
@@ -52,32 +56,51 @@ public class RequestLoggerService {
 
     private RequestLog log;
 
+	private Dictionary<String, ?> properties;
+	
+	private volatile BundleContext bundleContext;
+
     /**
      * Public default constructor for SCR integration
      */
     public RequestLoggerService() {
     }
+    
+
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.properties = properties;
+	}
 
     RequestLoggerService(BundleContext bundleContext, Map<String, Object> configuration) {
-        this.setup(bundleContext, configuration);
+    	this.properties = new Hashtable<>();
+    	((Hashtable)this.properties).putAll(configuration);
+    	
+    	this.bundleContext = bundleContext;
+    	
+        this.setup();
     }
 
-    void setup(BundleContext bundleContext, Map<String, Object> configuration) {
-        // whether to log on request entry or request exit
-        this.onEntry = PropertiesUtil.toBoolean(configuration.get(PARAM_ON_ENTRY), false);
-
-        // shared or private CustomLogFormat
-        final String format = PropertiesUtil.toString(configuration.get(PARAM_FORMAT), null);
-        if (format != null) {
-            this.logFormat = new CustomLogFormat(format);
-        }
-
-        // where to log to
-        final String output = PropertiesUtil.toString(configuration.get(PARAM_OUTPUT), null);
-        if (output != null) {
-            final int outputType = PropertiesUtil.toInteger(configuration.get(PARAM_OUTPUT_TYPE), OUTPUT_TYPE_LOGGER);
-            this.log = this.getLog(bundleContext, output, outputType);
-        }
+    void setup() {
+    	if (this.properties != null) {
+	        // whether to log on request entry or request exit
+	        this.onEntry = PropertiesUtil.toBoolean(this.properties.get(PARAM_ON_ENTRY), false);
+	
+	        // shared or private CustomLogFormat
+	        final String format = PropertiesUtil.toString(this.properties.get(PARAM_FORMAT), null);
+	        if (format != null) {
+	            this.logFormat = new CustomLogFormat(format);
+	        }
+	
+	        // where to log to
+	        final String output = PropertiesUtil.toString(this.properties.get(PARAM_OUTPUT), null);
+	        if (output != null) {
+	            final int outputType = PropertiesUtil.toInteger(this.properties.get(PARAM_OUTPUT_TYPE), OUTPUT_TYPE_LOGGER);
+	            this.log = this.getLog(bundleContext, output, outputType);
+	        }
+    	}
+    	else
+    		System.out.println("Properties is NULL");
     }
 
     void shutdown() {
