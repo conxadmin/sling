@@ -1,0 +1,5 @@
+#Tue Aug 23 12:08:49 EDT 2016
+org.apache.sling.event.impl.EventingThreadPool.name=Apache Sling Job Thread Pool
+org.apache.sling.event.impl.EventingThreadPool.minPoolSize.description=The size of the thread pool. This pool is used to execute jobs and therefore limits the maximum number of jobs executed in parallel.
+org.apache.sling.event.impl.EventingThreadPool.description=This is the thread pool used by the Apache Sling job handling. The threads from this pool are merely used for executing jobs. By limiting this pool, it is possible to limit the maximum number of parallel processed jobs - regardless of the queue configuration.
+org.apache.sling.event.impl.EventingThreadPool.minPoolSize.name=Pool Size
