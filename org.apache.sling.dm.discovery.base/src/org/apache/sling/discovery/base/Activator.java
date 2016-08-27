@@ -12,6 +12,7 @@ import org.apache.sling.discovery.base.connectors.BaseConfig;
 import org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistry;
 import org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistryImpl;
 import org.apache.sling.discovery.base.connectors.ping.ConnectorRegistry;
+import org.apache.sling.discovery.base.connectors.ping.ConnectorRegistryImpl;
 import org.apache.sling.discovery.base.connectors.ping.TopologyConnectorServlet;
 import org.apache.sling.settings.SlingSettingsService;
 import org.apache.felix.dm.Component;
@@ -51,8 +52,8 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(ConnectorRegistry.class.getName(), properties)
-				.setImplementation(ConnectorRegistry.class)
-				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
+				.setImplementation(ConnectorRegistryImpl.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 	            .add(createServiceDependency()
 	                	.setService(AnnouncementRegistry.class)
 	                	.setRequired(true))
@@ -61,36 +62,7 @@ public class Activator extends DependencyActivatorBase {
 	                	.setRequired(true));
 		dm.add(component);	
 		
-		//ConnectorRegistry
-		properties = new Properties();
-		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-		component = dm.createComponent()
-				.setInterface(ConnectorRegistry.class.getName(), properties)
-				.setImplementation(ConnectorRegistry.class)
-				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
-	            .add(createServiceDependency()
-	                	.setService(AnnouncementRegistry.class)
-	                	.setRequired(true))
-	            .add(createServiceDependency()
-	                	.setService(BaseConfig.class)
-	                	.setRequired(true));
-		dm.add(component);		
-		
-		//ConnectorRegistry
-		properties = new Properties();
-		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-		component = dm.createComponent()
-				.setInterface(ConnectorRegistry.class.getName(), properties)
-				.setImplementation(ConnectorRegistry.class)
-				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
-	            .add(createServiceDependency()
-	                	.setService(AnnouncementRegistry.class)
-	                	.setRequired(true))
-	            .add(createServiceDependency()
-	                	.setService(BaseConfig.class)
-	                	.setRequired(true));
-		dm.add(component);	
-		
+
 		//TopologyConnectorServlet
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");

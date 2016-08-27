@@ -87,7 +87,7 @@ public class TopologyConnectorServlet extends HttpServlet {
 
     private TopologyRequestValidator requestValidator;
 
-    protected void activate(final ComponentContext context) {
+    protected void activate() {
         whitelist.clear();
         if (!config.isHmacEnabled()) {
             String[] whitelistConfig = config.getTopologyConnectorWhitelist();
