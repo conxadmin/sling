@@ -99,27 +99,6 @@ public class Activator extends DependencyActivatorBase {
 		//Config
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-		properties.put(Config.HEARTBEAT_TIMEOUT_KEY,Config.DEFAULT_HEARTBEAT_TIMEOUT);
-		properties.put(Config.HEARTBEAT_INTERVAL_KEY,Config.DEFAULT_HEARTBEAT_INTERVAL);
-		properties.put(Config.MIN_EVENT_DELAY_KEY,Config.DEFAULT_MIN_EVENT_DELAY);
-		properties.put(Config.CONNECTION_TIMEOUT_KEY,Config.DEFAULT_CONNECTION_TIMEOUT);
-		properties.put(Config.SO_TIMEOUT_KEY,Config.DEFAULT_SO_TIMEOUT);
-		properties.put(Config.LEADER_ELECTION_REPOSITORY_DESCRIPTOR_NAME_KEY,null);
-		properties.put(Config.TOPOLOGY_CONNECTOR_URLS_KEY,new URL[]{});
-		properties.put(Config.TOPOLOGY_CONNECTOR_WHITELIST_KEY,Config.DEFAULT_TOPOLOGY_CONNECTOR_WHITELIST);
-		properties.put(Config.DISCOVERY_RESOURCE_PATH_KEY,Config.DEFAULT_DISCOVERY_RESOURCE_PATH);
-		
-		properties.put(Config.AUTO_STOP_LOCAL_LOOP_ENABLED,false);
-		properties.put(Config.GZIP_CONNECTOR_REQUESTS_ENABLED,false);
-		properties.put(Config.HMAC_ENABLED,false);
-		properties.put(Config.ENCRYPTION_ENABLED,false);
-		properties.put(Config.SHARED_KEY,null);
-		properties.put(Config.SHARED_KEY_INTERVAL,Config.DEFAULT_SHARED_KEY_INTERVAL);
-		
-		properties.put(Config.BACKOFF_STANDBY_FACTOR,Config.DEFAULT_BACKOFF_STANDBY_FACTOR);
-		properties.put(Config.BACKOFF_STABLE_FACTOR,Config.DEFAULT_BACKOFF_STABLE_FACTOR);
-		properties.put(Config.USE_SYNC_TOKEN_SERVICE_ENABLED,true);
-	    
 		component = dm.createComponent()
 				.setInterface(new String[]{ Config.class.getName(), BaseConfig.class.getName(), DiscoveryLiteConfig.class.getName() }, properties)
 				.setImplementation(Config.class)

@@ -20,6 +20,7 @@ package org.apache.sling.discovery.impl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Dictionary;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,8 @@ import java.util.Map;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.discovery.base.connectors.BaseConfig;
 import org.apache.sling.discovery.commons.providers.spi.base.DiscoveryLiteConfig;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +39,7 @@ import org.slf4j.LoggerFactory;
  * <p>
  * The properties are described below under.
  */
-public class Config implements BaseConfig, DiscoveryLiteConfig {
+public class Config implements BaseConfig, DiscoveryLiteConfig, ManagedService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -200,13 +203,22 @@ public class Config implements BaseConfig, DiscoveryLiteConfig {
      * then it is used.
      */
     private boolean useSyncTokenService = true;
+
+	private Dictionary<String, ?> properties;
     
-    protected void activate(final Map<String, Object> properties) {
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.properties = properties;
+	}
+    
+    protected void activate() {
 		logger.debug("activate: config activated.");
-        configure(properties);
+		if (this.properties != null) {
+			configure();
+		}
     }
 
-    protected void configure(final Map<String, Object> properties) {
+    protected void configure() {
         this.heartbeatTimeout = PropertiesUtil.toLong(
                 properties.get(HEARTBEAT_TIMEOUT_KEY),
                 DEFAULT_HEARTBEAT_TIMEOUT);
@@ -550,5 +562,4 @@ public class Config implements BaseConfig, DiscoveryLiteConfig {
     public boolean useSyncTokenService() {
         return useSyncTokenService;
     }
-
 }
