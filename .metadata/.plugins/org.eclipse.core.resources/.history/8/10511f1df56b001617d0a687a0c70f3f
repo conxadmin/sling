@@ -1,0 +1,7 @@
+#Tue Aug 23 12:07:00 EDT 2016
+org.apache.sling.commons.scheduler.impl.QuartzScheduler.name=Apache Sling Scheduler
+org.apache.sling.commons.scheduler.impl.QuartzScheduler.poolName.description=The name of a configured thread pool - if no name is configured the default pool is used.
+org.apache.sling.commons.scheduler.impl.QuartzScheduler.poolName.name=Thread Pool Name
+org.apache.sling.commons.scheduler.impl.QuartzScheduler.allowedPoolNames.name=Allowed Thread Pools
+org.apache.sling.commons.scheduler.impl.QuartzScheduler.description=The scheduler is able to run services and jobs at specific times or periodically based on cron expressions.
+org.apache.sling.commons.scheduler.impl.QuartzScheduler.allowedPoolNames.description=The names of thread pools that are allowed to be used by jobs. If a job is using a pool not in this list, the default pool is used.

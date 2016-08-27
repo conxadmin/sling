@@ -23,6 +23,7 @@ import java.util.NoSuchElementException;
 
 import org.apache.sling.commons.scheduler.ScheduleOptions;
 import org.apache.sling.commons.scheduler.Scheduler;
+import org.osgi.framework.BundleContext;
 import org.osgi.service.component.ComponentContext;
 
 /**
@@ -36,9 +37,11 @@ public class SchedulerServiceFactory implements Scheduler {
     private long bundleId;
 
     private volatile QuartzScheduler scheduler;
+    
+    private volatile BundleContext ctx;
 
-    protected void activate(final ComponentContext ctx) {
-        this.bundleId = ctx.getUsingBundle().getBundleId();
+    protected void activate() {
+        this.bundleId = ctx.getBundle().getBundleId();
     }
 
     /**

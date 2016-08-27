@@ -19,6 +19,7 @@ package org.apache.sling.commons.scheduler.impl;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,8 @@ import org.apache.sling.commons.threads.ThreadPoolManager;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleListener;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.quartz.CronExpression;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
@@ -51,7 +54,7 @@ import org.slf4j.LoggerFactory;
  * The quartz based implementation of the scheduler.
  *
  */
-public class QuartzScheduler implements BundleListener {
+public class QuartzScheduler implements BundleListener, ManagedService {
 
     /** Map key for the job object */
     static final String DATA_MAP_OBJECT = "QuartzJobScheduler.Object";
@@ -91,49 +94,62 @@ public class QuartzScheduler implements BundleListener {
     private volatile String[] allowedPoolNames;
 
     private volatile boolean active;
+    
+    private volatile BundleContext ctx;
+
+	private Dictionary<String, ?> props;
+    
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.props = properties;
+	}
 
     /**
      * Activate this component.
      * Start the scheduler.
      * @throws Exception
      */
-    protected void activate(final BundleContext ctx, final Map<String, Object> props) {
-        // SLING-2261 Prevent Quartz from checking for updates
-        System.setProperty("org.terracotta.quartz.skipUpdateCheck", Boolean.TRUE.toString());
-
-        final Object poolNameObj = props.get(PROPERTY_POOL_NAME);
-        if ( poolNameObj != null && poolNameObj.toString().trim().length() > 0 ) {
-            this.defaultPoolName = poolNameObj.toString().trim();
-        } else {
-            this.defaultPoolName = ThreadPoolManager.DEFAULT_THREADPOOL_NAME;
-        }
-        final Object value = props.get(PROPERTY_ALLOWED_POOLS);
-        if ( value instanceof String[] ) {
-            this.allowedPoolNames = (String[])value;
-        } else if ( value != null ) {
-            this.allowedPoolNames = new String[] {value.toString()};
-        }
-        if ( this.allowedPoolNames == null ) {
-            this.allowedPoolNames = new String[0];
-        } else {
-            for(int i=0;i<this.allowedPoolNames.length;i++) {
-                if ( this.allowedPoolNames[i] == null ) {
-                    this.allowedPoolNames[i] = "";
-                } else {
-                    this.allowedPoolNames[i] = this.allowedPoolNames[i].trim();
-                }
-            }
-        }
-        ctx.addBundleListener(this);
-
-        this.active = true;
+    protected void activate() {
+    	if (this.props != null) {
+	        // SLING-2261 Prevent Quartz from checking for updates
+	        System.setProperty("org.terracotta.quartz.skipUpdateCheck", Boolean.TRUE.toString());
+	
+	        final Object poolNameObj = props.get(PROPERTY_POOL_NAME);
+	        if ( poolNameObj != null && poolNameObj.toString().trim().length() > 0 ) {
+	            this.defaultPoolName = poolNameObj.toString().trim();
+	        } else {
+	            this.defaultPoolName = ThreadPoolManager.DEFAULT_THREADPOOL_NAME;
+	        }
+	        final Object value = props.get(PROPERTY_ALLOWED_POOLS);
+	        if ( value instanceof String[] ) {
+	            this.allowedPoolNames = (String[])value;
+	        } else if ( value != null ) {
+	            this.allowedPoolNames = new String[] {value.toString()};
+	        }
+	        if ( this.allowedPoolNames == null ) {
+	            this.allowedPoolNames = new String[0];
+	        } else {
+	            for(int i=0;i<this.allowedPoolNames.length;i++) {
+	                if ( this.allowedPoolNames[i] == null ) {
+	                    this.allowedPoolNames[i] = "";
+	                } else {
+	                    this.allowedPoolNames[i] = this.allowedPoolNames[i].trim();
+	                }
+	            }
+	        }
+	        ctx.addBundleListener(this);
+	
+	        this.active = true;
+    	}
+    	else
+    		logger.warn("Properties is NULL");
     }
 
     /**
      * Deactivate this component.
      * Stop the scheduler.
      */
-    protected void deactivate(final BundleContext ctx) {
+    protected void deactivate() {
         ctx.removeBundleListener(this);
 
         final Map<String, SchedulerProxy> proxies;

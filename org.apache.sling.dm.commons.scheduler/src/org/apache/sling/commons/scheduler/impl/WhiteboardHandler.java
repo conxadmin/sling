@@ -46,6 +46,8 @@ public class WhiteboardHandler {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private volatile QuartzScheduler scheduler;
+    
+    private volatile BundleContext ctx;
 
     private ServiceTracker serviceTracker;
 
@@ -55,15 +57,15 @@ public class WhiteboardHandler {
      * Activate this component.
      * @throws InvalidSyntaxException
      */
-    protected void activate(final BundleContext btx) throws InvalidSyntaxException {
-        this.serviceTracker = new ServiceTracker(btx,
-                btx.createFilter(SCHEDULED_JOB_FILTER),
+    protected void activate() throws InvalidSyntaxException {
+        this.serviceTracker = new ServiceTracker(ctx,
+                ctx.createFilter(SCHEDULED_JOB_FILTER),
                 new ServiceTrackerCustomizer() {
 
             @Override
             public void  removedService(final ServiceReference reference, final Object service) {
                 unregister(reference);
-                btx.ungetService(reference);
+                ctx.ungetService(reference);
             }
 
             @Override
@@ -74,7 +76,7 @@ public class WhiteboardHandler {
 
             @Override
             public Object addingService(final ServiceReference reference) {
-                final Object obj = btx.getService(reference);
+                final Object obj = ctx.getService(reference);
                 if ( obj != null ) {
                     register(reference, obj);
                 }

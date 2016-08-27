@@ -37,13 +37,15 @@ public class SettingsSupport {
 
     /** The listener for the settings service. */
     private volatile Listener settingsListener;
+    
+    private volatile BundleContext ctx;
 
     /**
      * Start the component.
      * @param bc Bundle context
      */
-    protected void activate(final BundleContext bc) {
-        this.settingsListener = new Listener(bc);
+    protected void activate() {
+        this.settingsListener = new Listener(ctx);
         this.settingsListener.start();
     }
 

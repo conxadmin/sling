@@ -35,6 +35,7 @@ public class Activator extends DependencyActivatorBase {
 		 dm.add(component);
 		 
 		 //SchedulerServiceFactory
+		 //TODO: implement prototype scope to support serviceFactory=true
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
@@ -64,7 +65,7 @@ public class Activator extends DependencyActivatorBase {
 				;
 		dm.add(component);	
 		
-		//EngineSlingAuthenticator
+		//WebConsolePrinter
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Scheduler Configuration Printer");
