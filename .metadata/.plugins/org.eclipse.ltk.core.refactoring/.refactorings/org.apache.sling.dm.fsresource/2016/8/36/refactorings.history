@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 5 elements from project &apos;org.apache.sling.dm.fsresource&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.fsresource&apos;&#x0A;- Original elements:&#x0A;     buildfiles&#x0A;     org.apache.sling.dm.engine.mt.jar&#x0A;     org.apache.sling.dm.event.mt.jar&#x0A;     org.apache.sling.dm.extensions.webconsolesecurityprovider.mt.jar&#x0A;     org.apache.sling.dm.fsresource.mt.jar" description="Delete elements" element1="generated/buildfiles" element2="generated/org.apache.sling.dm.fsresource.mt.jar" element3="generated/org.apache.sling.dm.event.mt.jar" element4="generated/org.apache.sling.dm.extensions.webconsolesecurityprovider.mt.jar" element5="generated/org.apache.sling.dm.engine.mt.jar" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="5" stamp="1472352167582" subPackages="false" version="1.0"/>
+</session>

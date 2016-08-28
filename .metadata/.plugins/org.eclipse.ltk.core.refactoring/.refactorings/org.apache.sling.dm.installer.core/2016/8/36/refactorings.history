@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;org.apache.sling.dm.installer.core/resources/org.apache&apos; to &apos;org&apos;" description="Rename resource &apos;org.apache&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="resources/org.apache" name="org" stamp="1472392369843" updateReferences="true"/>
+</session>

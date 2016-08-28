@@ -1,0 +1,5 @@
+/.index
+/buildfiles
+/org.apache.sling.dm.engine.mt.jar
+/org.apache.sling.dm.extensions.webconsolesecurityprovider.mt.jar
+/org.apache.sling.dm.fsresource.mt.jar

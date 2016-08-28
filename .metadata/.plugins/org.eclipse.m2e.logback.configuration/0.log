@@ -6934,3 +6934,10 @@ In the future this error will break the build.
 2016-08-27 15:58:33,269 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2016-08-27 15:58:33,414 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-08-27 15:58:33,414 [Worker-534] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-08-27 22:12:30,746 [Worker-598] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/sling/adapter-annotations/1.0.0/adapter-annotations-1.0.0-sources.jar
+2016-08-27 22:12:30,768 [Worker-598] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/sling/adapter-annotations/1.0.0/adapter-annotations-1.0.0-sources.jar
+2016-08-27 22:12:30,790 [Worker-598] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.sling:adapter-annotations:1.0.0
+2016-08-27 22:12:31,213 [Worker-597] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-08-27 22:12:31,214 [Worker-597] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
+2016-08-27 22:12:31,220 [Worker-597] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-08-27 22:12:31,221 [Worker-597] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/tooling/maven/maven-sling-plugin/src/test/resources

@@ -1,0 +1,7 @@
+{"org.apache.sling.api.resource.Resource": {
+    "If the adaptable is a FsResource.": [
+        "java.io.File",
+        "java.net.URL"
+    ],
+    "If the resource is an FsResource and is a readable file.": "java.io.InputStream"
+}}
