@@ -29,3 +29,5 @@
 1472476195810	Delete resource 'org.apache.sling.dm.scripting.core/resources/OSGI-INF/.DS_Store'
 1472479368700	Delete resource 'org.apache.sling.dm.scripting.javascript/src/org'
 1472479374771	Delete 2 resources
+1472482251824	Delete resource 'org.apache.sling.dm.scripting.jsp/src/org'
+1472482261562	Delete resource 'org.apache.sling.dm.scripting.jsp/resources/OSGI-INF'

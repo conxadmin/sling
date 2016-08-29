@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory">
+    <OCD id="org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory" name="%org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory.name" description="%org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory.description">
+        <AD id="org.apache.sling.scripting.javascript.rhino.optLevel" type="Integer" default="9" name="%org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory.org.apache.sling.scripting.javascript.rhino.optLevel.name" description="%org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory.org.apache.sling.scripting.javascript.rhino.optLevel.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory">
+        <Object ocdref="org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory"/>
+    </Designate>
+</metatype:MetaData>

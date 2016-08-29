@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.scripting.jsp.JspScriptEngineFactory" name="%jsphandler.name" description="%jsphandler.description">
+        <AD id="jasper.compilerTargetVM" type="String" default="auto" name="%jasper.compilerTargetVM.name" description="%jasper.compilerTargetVM.description"/>
+        <AD id="jasper.compilerSourceVM" type="String" default="auto" name="%jasper.compilerSourceVM.name" description="%jasper.compilerSourceVM.description"/>
+        <AD id="jasper.classdebuginfo" type="Boolean" default="true" name="%jasper.classdebuginfo.name" description="%jasper.classdebuginfo.description"/>
+        <AD id="jasper.enablePooling" type="Boolean" default="true" name="%jasper.enablePooling.name" description="%jasper.enablePooling.description"/>
+        <AD id="jasper.ieClassId" type="String" default="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93" name="%jasper.ieClassId.name" description="%jasper.ieClassId.description"/>
+        <AD id="jasper.genStringAsCharArray" type="Boolean" default="false" name="%jasper.genStringAsCharArray.name" description="%jasper.genStringAsCharArray.description"/>
+        <AD id="jasper.keepgenerated" type="Boolean" default="true" name="%jasper.keepgenerated.name" description="%jasper.keepgenerated.description"/>
+        <AD id="jasper.mappedfile" type="Boolean" default="true" name="%jasper.mappedfile.name" description="%jasper.mappedfile.description"/>
+        <AD id="jasper.trimSpaces" type="Boolean" default="false" name="%jasper.trimSpaces.name" description="%jasper.trimSpaces.description"/>
+        <AD id="jasper.displaySourceFragments" type="Boolean" default="false" name="%jasper.displaySourceFragments.name" description="%jasper.displaySourceFragments.description"/>
+        <AD id="default.is.session" type="Boolean" default="true" name="%default.is.session.name" description="%default.is.session.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.scripting.jsp.JspScriptEngineFactory">
+        <Object ocdref="org.apache.sling.scripting.jsp.JspScriptEngineFactory"/>
+    </Designate>
+</metatype:MetaData>
