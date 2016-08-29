@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Activator.java&apos; to &apos;org.apache.sling.dm.scripting.javascript/src/org.apache.sling.scripting.javascript.internal&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.auth.core&apos;&#x0A;- Destination element: &apos;org.apache.sling.dm.scripting.javascript/src/org.apache.sling.scripting.javascript.internal&apos;&#x0A;- Original element: &apos;org.apache.sling.auth.core.impl.Activator.java&apos;" description="Copy compilation unit" destination="=org.apache.sling.dm.scripting.javascript/src&lt;org.apache.sling.scripting.javascript.internal" element1="/src&lt;org.apache.sling.auth.core.impl{Activator.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472479486523" units="1" version="1.0"/>
+</session>

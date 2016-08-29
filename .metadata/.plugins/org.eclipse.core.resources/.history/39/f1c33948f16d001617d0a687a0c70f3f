@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.scripting.core.impl.ScriptCacheImpl">
+    <OCD id="org.apache.sling.scripting.core.impl.ScriptCacheImpl" name="%org.apache.sling.scripting.core.impl.ScriptCacheImpl.name" description="%org.apache.sling.scripting.core.impl.ScriptCacheImpl.description">
+        <AD id="org.apache.sling.scripting.cache.size" type="Integer" default="65536" name="%org.apache.sling.scripting.core.impl.ScriptCacheImpl.org.apache.sling.scripting.cache.size.name" description="%org.apache.sling.scripting.core.impl.ScriptCacheImpl.org.apache.sling.scripting.cache.size.description"/>
+        <AD id="org.apache.sling.scripting.cache.additional_extensions" type="String" default="" name="%org.apache.sling.scripting.core.impl.ScriptCacheImpl.org.apache.sling.scripting.cache.additional_extensions.name" description="%org.apache.sling.scripting.core.impl.ScriptCacheImpl.org.apache.sling.scripting.cache.additional_extensions.description" cardinality="2147483647"/>
+    </OCD>
+    <Designate pid="org.apache.sling.scripting.core.impl.ScriptCacheImpl">
+        <Object ocdref="org.apache.sling.scripting.core.impl.ScriptCacheImpl"/>
+    </Designate>
+</metatype:MetaData>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.event.impl.jobs.config.JobManagerConfiguration">
+    <OCD id="org.apache.sling.event.impl.jobs.jcr.PersistenceHandler" name="%org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.name" description="%org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.description">
+        <AD id="job.consumermanager.disableDistribution" type="Boolean" default="false" name="%org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.job.consumermanager.disableDistribution.name" description="%org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.job.consumermanager.disableDistribution.description"/>
+        <AD id="job.log.deprecation" type="Boolean" default="true" name="%org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.job.log.deprecation.name" description="%org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.job.log.deprecation.description"/>
+        <AD id="startup.delay" type="Long" default="30" name="%org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.startup.delay.name" description="%org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.startup.delay.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.event.impl.jobs.jcr.PersistenceHandler">
+        <Object ocdref="org.apache.sling.event.impl.jobs.jcr.PersistenceHandler"/>
+    </Designate>
+</metatype:MetaData>

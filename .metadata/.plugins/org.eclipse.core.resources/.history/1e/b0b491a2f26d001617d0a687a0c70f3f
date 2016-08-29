@@ -1,0 +1,96 @@
+package org.apache.sling.scripting.javascript.internal;
+
+
+import java.util.Properties;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletRequestListener;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.apache.sling.api.auth.Authenticator;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.auth.core.AuthenticationSupport;
+import org.apache.sling.auth.core.impl.engine.EngineSlingAuthenticator;
+import org.apache.sling.auth.core.spi.BundleAuthenticationRequirement;
+import org.apache.felix.dm.Component;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+import org.osgi.service.event.EventAdmin;
+
+public class Activator extends DependencyActivatorBase {
+
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1) throws Exception {
+
+	}
+
+	@Override
+	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		//BundleAuthenticationRequirementImpl
+		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Authenticator Logout Servlet");
+		properties.put("sling.servlet.methods",  new String[]{ "GET", "POST" });
+		Component component = dm.createComponent()
+				.setInterface(BundleAuthenticationRequirement.class.getName(), properties)
+				.setImplementation(BundleAuthenticationRequirementImpl.class)
+	            .add(createServiceDependency()
+	                	.setService(Authenticator.class)
+	                	.setRequired(true))
+	            .add(createConfigurationDependency()
+	            		.setPid(LogoutServlet.class.getName()))
+	            ;
+		 dm.add(component);
+
+		 
+		 //LoginServlet
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Servlet for logging in users through the authenticator service.");
+		properties.put("sling.servlet.methods", new String[]{ "GET", "POST" });
+		properties.put("sling.servlet.paths", LoginServlet.SERVLET_PATH);
+		component = dm.createComponent()
+				.setInterface(Servlet.class.getName(), properties)
+				.setImplementation(LoginServlet.class)
+				.add(createServiceDependency().setService(Authenticator.class).setRequired(true));
+		dm.add(component);	 
+		
+		 //LogoutServlet
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Servlet for logging out users through the authenticator service.");
+		properties.put("sling.servlet.methods", new String[]{ "GET", "POST" });
+		properties.put("sling.servlet.paths", LogoutServlet.SERVLET_PATH);
+		component = dm.createComponent()
+				.setInterface(Servlet.class.getName(), properties)
+				.setImplementation(LogoutServlet.class)
+				.add(createConfigurationDependency().setPid(LogoutServlet.class.getName()))
+				.add(createServiceDependency().setService(Authenticator.class).setRequired(true));
+		dm.add(component);	 
+
+		 //SlingAuthenticator
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "org.apache.sling.engine.impl.auth.SlingAuthenticator");
+		component = dm.createComponent()
+				.setInterface(new String[]{Authenticator.class.getName(), AuthenticationSupport.class.getName(), ServletRequestListener.class.getName()}, properties)
+				.setImplementation(SlingAuthenticator.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createConfigurationDependency().setPid(SlingAuthenticator.class.getName()))
+				.add(createServiceDependency().setService(ResourceResolverFactory.class).setRequired(true))
+				.add(createServiceDependency().setService(EventAdmin.class).setRequired(true));
+		dm.add(component);	
+		
+		//EngineSlingAuthenticator
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Request Authenticator (Legacy Bridge)");
+		component = dm.createComponent()
+				.setInterface(org.apache.sling.engine.auth.Authenticator.class.getName(), properties)
+				.setImplementation(EngineSlingAuthenticator.class)
+				.add(createServiceDependency().setService(org.apache.sling.api.auth.Authenticator.class).setRequired(true));
+		dm.add(component);	
+	}
+
+}

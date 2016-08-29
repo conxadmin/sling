@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory"/>
+    <service servicefactory="false">
+        <provide interface="javax.script.ScriptEngineFactory"/>
+    </service>
+    <property name="org.apache.sling.scripting.javascript.rhino.optLevel" type="Integer" value="9"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory"/>
+    <reference name="HostObjectProvider" interface="org.apache.sling.scripting.javascript.RhinoHostObjectProvider" cardinality="0..n" policy="dynamic" bind="addHostObjectProvider" unbind="removeHostObjectProvider"/>
+    <reference name="dynamicClassLoaderManager" interface="org.apache.sling.commons.classloader.DynamicClassLoaderManager" cardinality="1..1" policy="static" bind="bindDynamicClassLoaderManager" unbind="unbindDynamicClassLoaderManager"/>
+    <reference name="scriptCache" interface="org.apache.sling.scripting.api.ScriptCache" cardinality="1..1" policy="static" bind="bindScriptCache" unbind="unbindScriptCache"/>
+</scr:component>

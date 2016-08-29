@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.models.impl.ModelAdapterFactory">
+    <OCD id="org.apache.sling.models.impl.ModelAdapterFactory" name="%org.apache.sling.models.impl.ModelAdapterFactory.name" description="%org.apache.sling.models.impl.ModelAdapterFactory.description">
+        <AD id="max.recursion.depth" type="Integer" default="20" name="%org.apache.sling.models.impl.ModelAdapterFactory.max.recursion.depth.name" description="%org.apache.sling.models.impl.ModelAdapterFactory.max.recursion.depth.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.models.impl.ModelAdapterFactory">
+        <Object ocdref="org.apache.sling.models.impl.ModelAdapterFactory"/>
+    </Designate>
+</metatype:MetaData>

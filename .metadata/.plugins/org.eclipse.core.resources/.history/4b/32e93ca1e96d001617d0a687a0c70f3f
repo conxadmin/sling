@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge" configuration-policy="require">
+    <implementation class="org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.api.resource.observation.ResourceChangeListener"/>
+    </service>
+    <property name="resource.change.types">
+        ADDED
+        CHANGED
+        REMOVED
+    </property>
+    <property name="resource.paths" value="/"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <reference name="eventAdmin" interface="org.osgi.service.event.EventAdmin" cardinality="1..1" policy="static" bind="bindEventAdmin" unbind="unbindEventAdmin"/>
+    <reference name="resolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResolverFactory" unbind="unbindResolverFactory"/>
+</scr:component>

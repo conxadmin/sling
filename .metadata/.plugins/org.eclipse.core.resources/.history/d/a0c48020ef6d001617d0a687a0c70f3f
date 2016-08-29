@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.scripting.core.impl.ScriptCacheImpl" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.scripting.core.impl.ScriptCacheImpl"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.scripting.api.ScriptCache"/>
+    </service>
+    <property name="org.apache.sling.scripting.cache.size" type="Integer" value="65536"/>
+    <property name="org.apache.sling.scripting.cache.additional_extensions">
+        
+    </property>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.scripting.core.impl.ScriptCacheImpl"/>
+    
+    <reference name="scriptEngineFactory" interface="javax.script.ScriptEngineFactory" cardinality="0..n" policy="dynamic" bind="bindScriptEngineFactory" unbind="unbindScriptEngineFactory"/>
+    <reference name="rrf" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindRrf" unbind="unbindRrf"/>
+    <reference name="threadPoolManager" interface="org.apache.sling.commons.threads.ThreadPoolManager" cardinality="1..1" policy="static" bind="bindThreadPoolManager" unbind="unbindThreadPoolManager"/>
+</scr:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.2.0" immediate="true" name="org.apache.sling.models.impl.ModelAdapterFactory" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.models.impl.ModelAdapterFactory"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.models.factory.ModelFactory"/>
+    </service>
+    <property name="max.recursion.depth" type="Integer" value="20"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.models.impl.ModelAdapterFactory"/>
+    <reference name="injector" interface="org.apache.sling.models.spi.Injector" cardinality="0..n" policy="dynamic" bind="bindInjector" unbind="unbindInjector"/>
+    <reference name="injectAnnotationProcessorFactory" interface="org.apache.sling.models.spi.injectorspecific.InjectAnnotationProcessorFactory" cardinality="0..n" policy="dynamic" bind="bindInjectAnnotationProcessorFactory" unbind="unbindInjectAnnotationProcessorFactory"/>
+    <reference name="injectAnnotationProcessorFactory2" interface="org.apache.sling.models.spi.injectorspecific.InjectAnnotationProcessorFactory2" cardinality="0..n" policy="dynamic" bind="bindInjectAnnotationProcessorFactory2" unbind="unbindInjectAnnotationProcessorFactory2"/>
+    <reference name="staticInjectAnnotationProcessorFactory" interface="org.apache.sling.models.spi.injectorspecific.StaticInjectAnnotationProcessorFactory" cardinality="0..n" policy="dynamic" bind="bindStaticInjectAnnotationProcessorFactory" unbind="unbindStaticInjectAnnotationProcessorFactory"/>
+    <reference name="implementationPicker" interface="org.apache.sling.models.spi.ImplementationPicker" cardinality="0..n" policy="dynamic" bind="bindImplementationPicker" unbind="unbindImplementationPicker"/>
+    <reference name="modelValidation" interface="org.apache.sling.models.spi.ModelValidation" cardinality="0..1" policy="static" bind="bindModelValidation" unbind="unbindModelValidation" policy-option="greedy"/>
+</scr:component>

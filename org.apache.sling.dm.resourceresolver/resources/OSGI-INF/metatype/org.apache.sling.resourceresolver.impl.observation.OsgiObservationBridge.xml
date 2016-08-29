@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge">
+    <OCD id="org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge" name="%org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.name" description="%org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.description">
+        <AD id="resource.change.types" type="String" default="ADDED,CHANGED,REMOVED" name="%org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.resource.change.types.name" description="%org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.resource.change.types.description" cardinality="2147483647"/>
+        <AD id="resource.paths" type="String" default="/" name="%org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.resource.paths.name" description="%org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.resource.paths.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge">
+        <Object ocdref="org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge"/>
+    </Designate>
+</metatype:MetaData>
