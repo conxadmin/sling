@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask" activate="activate">
+    <implementation class="org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask"/>
+    <service servicefactory="false">
+        <provide interface="java.lang.Runnable"/>
+    </service>
+    <property name="scheduler.expression" value="31 41 0/12 * * ?"/>
+    <property name="service.description" value="Periodic Chunk Cleanup Job"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="scheduler.concurrent" type="Boolean" value="false"/>
+    <property name="chunk.cleanup.age" type="Integer" value="360"/>
+    <reference name="repository" interface="org.apache.sling.jcr.api.SlingRepository" cardinality="1..1" policy="static" bind="bindRepository" unbind="unbindRepository"/>
+</scr:component>

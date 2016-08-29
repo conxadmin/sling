@@ -1,0 +1,10 @@
+{
+    "org.apache.sling.api.resource.ResourceResolver": {"If the adaptable is a ResourceResolverImpl.": "javax.jcr.Session"},
+    "org.apache.sling.api.resource.Resource": {
+        "If the adaptable is a RedirectResource.": [
+            "java.util.Map",
+            "org.apache.sling.api.resource.ValueMap"
+        ],
+        "If the adaptable is a StarResource.": "java.lang.String"
+        }
+    }

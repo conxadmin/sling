@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.servlets.get.impl.version.VersionInfoServlet" name="%servlet.version.name" description="%servlet.version.description">
+        <AD id="sling.servlet.selectors" type="String" default="V" name="%sling.servlet.selectors.name" description="%sling.servlet.selectors.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.servlets.get.impl.version.VersionInfoServlet">
+        <Object ocdref="org.apache.sling.servlets.get.impl.version.VersionInfoServlet"/>
+    </Designate>
+</metatype:MetaData>

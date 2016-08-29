@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0" immediate="true" name="org.apache.sling.servlets.get.DefaultGetServlet">
+    <implementation class="org.apache.sling.servlets.get.impl.DefaultGetServlet"/>
+    <service servicefactory="false">
+        <provide interface="javax.servlet.Servlet"/>
+    </service>
+    <property name="service.description" value="Default GET Servlet"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="sling.servlet.resourceTypes" value="sling/servlet/default"/>
+    <property name="sling.servlet.prefix" type="Integer" value="-1"/>
+    <property name="sling.servlet.methods">
+        GET
+        HEAD
+    </property>
+    <property name="aliases"/>
+    <property name="index" type="Boolean" value="false"/>
+    <property name="index.files">
+        index
+        index.html
+    </property>
+    <property name="enable.html" type="Boolean" value="true"/>
+    <property name="enable.txt" type="Boolean" value="true"/>
+    <property name="enable.json" type="Boolean" value="true"/>
+    <property name="enable.xml" type="Boolean" value="true"/>
+    <property name="json.maximumresults" type="Integer" value="200"/>
+    <property name="service.pid" value="org.apache.sling.servlets.get.DefaultGetServlet"/>
+</scr:component>

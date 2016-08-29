@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Activator.java&apos; to &apos;org.apache.sling.dm.servlets.post/src/org.apache.sling.servlets.post.impl&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.servlets.get&apos;&#x0A;- Destination element: &apos;org.apache.sling.dm.servlets.post/src/org.apache.sling.servlets.post.impl&apos;&#x0A;- Original element: &apos;Activator.java&apos;" description="Copy file" destination="=org.apache.sling.dm.servlets.post/src&lt;org.apache.sling.servlets.post.impl" element1="src/org/apache/sling/servlets/get/impl/Activator.java" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472504449490" units="0" version="1.0"/>
+</session>

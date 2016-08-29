@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0" immediate="true" name="org.apache.sling.servlets.get.impl.impl.info.SlingInfoServlet">
+    <implementation class="org.apache.sling.servlets.get.impl.impl.info.SlingInfoServlet"/>
+    <service servicefactory="false">
+        <provide interface="javax.servlet.Servlet"/>
+    </service>
+    <property name="service.description" value="Sling Info Servlet"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="sling.servlet.paths" value="/system/sling/info"/>
+    <property name="service.pid" value="org.apache.sling.servlets.get.impl.impl.info.SlingInfoServlet"/>
+</scr:component>
