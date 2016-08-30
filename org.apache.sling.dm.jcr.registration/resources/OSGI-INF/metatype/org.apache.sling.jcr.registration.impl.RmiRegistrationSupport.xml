@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.jcr.jackrabbit.server.RmiRegistrationSupport" name="%rmi.name" description="%rmi.description">
+        <AD id="port" type="Integer" default="1099" name="%rmi.port.name" description="%rmi.port.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.jcr.jackrabbit.server.RmiRegistrationSupport">
+        <Object ocdref="org.apache.sling.jcr.jackrabbit.server.RmiRegistrationSupport"/>
+    </Designate>
+</metatype:MetaData>

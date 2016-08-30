@@ -1,0 +1,9 @@
+{"org.apache.sling.api.resource.Resource": {
+    "If the adaptable is a AuthorizableResource.": [
+        "java.util.Map",
+        "org.apache.sling.api.resource.ValueMap",
+        "org.apache.jackrabbit.api.security.user.Authorizable"
+    ],
+    "If the resource is an AuthorizableResource and represents a JCR User": "org.apache.jackrabbit.api.security.user.User",
+    "If the resource is an AuthorizableResource and represents a JCR Group": "org.apache.jackrabbit.api.security.user.Group"
+}}

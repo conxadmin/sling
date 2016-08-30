@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.jcr.jackrabbit.server.RmiRegistrationSupport" configuration-policy="require">
+    <implementation class="org.apache.sling.jcr.registration.impl.RmiRegistrationSupport"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.description" value="RMI based Repository Registration"/>
+    <property name="port" type="Integer" value="1099"/>
+    <property name="service.pid" value="org.apache.sling.jcr.jackrabbit.server.RmiRegistrationSupport"/>
+    <reference name="Repository" interface="javax.jcr.Repository" cardinality="0..n" policy="dynamic" bind="bindRepository" unbind="unbindRepository"/>
+    <reference interface="org.osgi.service.log.LogService" cardinality="0..1" policy="dynamic" bind="bindLog" unbind="unbindLog"/>
+</scr:component>
