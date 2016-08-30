@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.servlets.resolver.SlingServletResolver" name="%servletresolver.name" description="%servletresolver.description">
+        <AD id="servletresolver.servletRoot" type="String" default="0" name="%servletresolver.servletRoot.name" description="%servletresolver.servletRoot.description"/>
+        <AD id="servletresolver.scriptUser" type="String" name="%servletresolver.scriptUser.name" description="%servletresolver.scriptUser.description"/>
+        <AD id="servletresolver.cacheSize" type="Integer" default="200" name="%servletresolver.cacheSize.name" description="%servletresolver.cacheSize.description"/>
+        <AD id="servletresolver.paths" type="String" default="/" name="%servletresolver.paths.name" description="%servletresolver.paths.description" cardinality="2147483647"/>
+        <AD id="servletresolver.defaultExtensions" type="String" default="html" name="%servletresolver.defaultExtensions.name" description="%servletresolver.defaultExtensions.description" cardinality="2147483647"/>
+    </OCD>
+    <Designate pid="org.apache.sling.servlets.resolver.SlingServletResolver">
+        <Object ocdref="org.apache.sling.servlets.resolver.SlingServletResolver"/>
+    </Designate>
+</metatype:MetaData>

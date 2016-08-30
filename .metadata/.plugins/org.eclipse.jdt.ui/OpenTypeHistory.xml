@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+<typeInfo handle="=maven-sling-plugin/\/Users\/mduduzikeswa\/.m2\/repository\/org\/apache\/sling\/adapter-annotations\/1.0.0\/adapter-annotations-1.0.0.jar&lt;org.apache.sling.adapter.annotations(Adaptable.class[Adaptable" modifiers="9729" timestamp="1455736209000"/>
+<typeInfo handle="=org.apache.sling.dm.servlets.resolver/src&lt;org.apache.sling.servlets.resolver.internal.helper{SlingServletConfig.java[SlingServletConfig" modifiers="1" timestamp="1471964573000"/>
+</typeInfoHistroy>

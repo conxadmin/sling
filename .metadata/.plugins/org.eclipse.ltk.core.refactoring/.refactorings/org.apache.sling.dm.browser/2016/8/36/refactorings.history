@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private void register(DependencyManager dm, Properties properties)&apos; from &apos;org.apache.sling.dm.browser.internal.Activator.init()&apos; to &apos;org.apache.sling.dm.browser.internal.Activator&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.browser&apos;&#x0A;- Method name: &apos;register&apos;&#x0A;- Destination type: &apos;org.apache.sling.dm.browser.internal.Activator&apos;&#x0A;- Declared visibility: &apos;private&apos;" comments="false" description="Extract method &apos;register&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;org.apache.sling.dm.browser.internal{Activator.java" name="register" replace="false" selection="1514 705" stamp="1472566347325" version="1.0" visibility="2"/>
+</session>

@@ -1,0 +1,62 @@
+package org.apache.sling.dm.browser.internal;
+
+
+import java.io.Serializable;
+import java.util.Properties;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletRequestListener;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.apache.felix.jaas.LoginModuleFactory;
+import org.apache.sling.api.adapter.AdapterFactory;
+import org.apache.sling.api.adapter.AdapterManager;
+import org.apache.sling.api.auth.Authenticator;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.auth.core.spi.AuthenticationHandler;
+import org.apache.sling.browser.servlet.BrowserServlet;
+import org.apache.sling.commons.mime.MimeTypeService;
+import org.apache.felix.dm.Component;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+import org.osgi.service.event.EventAdmin;
+import org.osgi.service.packageadmin.PackageAdmin;
+
+public class Activator extends DependencyActivatorBase {
+
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1) throws Exception {
+
+	}
+
+	@Override
+	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		//AdapterManagerImpl
+		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "JCR Browser");
+		properties.put(Constants.SERVICE_DESCRIPTION, "JCR Browser Servlet");
+		properties.put("sling.servlet.paths","/services/browser");
+		register(dm, properties);
+	}
+
+	private void register(DependencyManager dm, Properties properties) {
+		Component component = dm.createComponent()
+				.setInterface(new String[]{Serializable.class.getName(),ServletConfig.class.getName(),Servlet.class.getName()}, properties)
+				.setImplementation(BrowserServlet.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+	            .add(createConfigurationDependency()
+	            		.setPid(BrowserServlet.class.getName()))
+				.add(createServiceDependency()
+	                	.setService(ResourceResolverFactory.class)
+	                	.setRequired(true))
+				.add(createServiceDependency()
+	                	.setService(MimeTypeService.class)
+	                	.setRequired(true))
+	            ;
+		dm.add(component);
+	}
+
+}

@@ -1,0 +1,42 @@
+Bundle-Version:  2.4.1.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling JCR Base Bundle
+Bundle-Description: The JCR base bundle provides JCR utility classes
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Include-Resource: /=resources
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.jcr.base.internal.Activator
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Bundle-Category: sling
+Export-Package: org.apache.sling.jcr.base;version="3.0";\
+		uses:="javax.jcr,\
+			org.apache.sling.jcr.api,\
+			org.apache.sling.serviceusermapping,\
+			org.osgi.framework",\
+	org.apache.sling.jcr.base.util;version="2.1";\
+		uses:="javax.jcr,\
+			javax.jcr.security,\
+			org.apache.jackrabbit.api.security.principal,\
+			org.apache.jackrabbit.api.security.user,\
+			org.apache.jackrabbit.rmi.client"
+Import-Package: javax.jcr;version="[2.0,3)",\
+	javax.jcr.nodetype;version="[2.0,3)",\
+	javax.jcr.security;version="[2.0,3)",\
+	javax.naming,org.apache.jackrabbit.api;version="[2.0,3)",\
+	org.apache.jackrabbit.api.security;version="[2.0,3)",\
+	org.apache.jackrabbit.api.security.principal;version="[2.0,3)",\
+	org.apache.jackrabbit.api.security.user;version="[2.0,3)",\
+	org.apache.jackrabbit.commons.cnd;version="[2.0,3)",\
+	org.apache.jackrabbit.rmi.client;version="[2.0,3)",\
+	org.apache.jackrabbit.rmi.remote;version="[2.0,3)",\
+	org.apache.sling.jcr.api;version="[2.4,2.5)",\
+	org.apache.sling.serviceusermapping;version="[1.0,2)",\
+	org.osgi.framework;version="[1.4,2)",\
+	org.osgi.util.tracker;version="[1.4,2)",\
+	org.slf4j;version="[1.5,2)",\
+	*
+Private-Package: org.apache.sling.jcr.webconsole.internal

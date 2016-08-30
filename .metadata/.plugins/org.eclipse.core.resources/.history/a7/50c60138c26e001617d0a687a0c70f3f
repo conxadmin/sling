@@ -1,0 +1,54 @@
+Bundle-Version: 0.5.1.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Sling Browser
+Bundle-Description: Browse/Edit JCR Content
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Include-Resource: /=resources
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.settings.impl.Activator
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Bundle-Category: sling
+DynamicImport-Package: org.osgi.service.cm,\
+	org.apache.felix.shell
+Export-Package: org.apache.sling.settings;version="1.3.0"
+Import-Package: org.osgi.service.cm;resolution:=optional;version="[1.2,2)",\
+	org.apache.felix.shell;resolution:=optional;version="[1.0,2)",\
+	org.apache.sling.settings;version="[1.3,2)",\
+	org.osgi.framework;version="[1.4,2)",\
+	org.slf4j;version="[1.5,2)",\
+	*	
+Private-Package: org.apache.sling.settings.impl
+
+Manifest-Version: 1.0
+Bnd-LastModified: 1472563671496
+Build-Jdk: 1.8.0_25
+Built-By: mduduzikeswa
+Bundle-Description: Browse/Edit JCR Content
+Bundle-ManifestVersion: 2
+Bundle-Name: Sling Browser
+Bundle-SymbolicName: org.apache.sling.org.apache.sling.browser
+Bundle-Version: 0.5.1.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.sling.browser.servlet;uses:="org.slf4j,org.ap
+ ache.sling.commons.mime,org.apache.sling.api,org.apache.sling.api.reque
+ st,org.apache.sling.api.servlets,javax.servlet,org.json,org.apache.slin
+ g.api.resource,org.apache.sling.browser.resource,javax.jcr";version="0.
+ 5.1.SNAPSHOT",org.apache.sling.browser.util;uses:="org.apache.sling.api
+ .adapter";version="0.5.1.SNAPSHOT",org.apache.sling.browser.resource;us
+ es:="org.apache.jackrabbit,org.apache.sling.api.resource,org.apache.com
+ mons.codec.digest,javax.jcr";version="0.5.1.SNAPSHOT"
+Import-Package: javax.jcr;version="[2.0,3)",javax.servlet,org.apache.com
+ mons.codec.digest;version="[1.9,2)",org.apache.jackrabbit;version="[2.2
+ ,3)",org.apache.sling.api;version="[2.3,3)",org.apache.sling.api.adapte
+ r;version="[2.2,3)",org.apache.sling.api.request;version="[2.4,3)",org.
+ apache.sling.api.resource;version="[2.9,3)",org.apache.sling.api.servle
+ ts;version="[2.1,3)",org.apache.sling.commons.mime;version="[2.1,3)",or
+ g.json,org.slf4j;version="[1.5,2)"
+Service-Component: OSGI-INF/org.apache.sling.browser.servlet.BrowserServ
+ let.xml
+Sling-Initial-Content: SLING-CONTENT/;path:=/
+Tool: Bnd-1.50.0

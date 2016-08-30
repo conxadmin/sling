@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.jcr.resource.internal.JcrSystemUserValidator" activate="activate">
+    <implementation class="org.apache.sling.jcr.resource.internal.JcrSystemUserValidator"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.serviceusermapping.ServiceUserValidator"/>
+    </service>
+    <property name="allow.only.system.user" type="Boolean" value="true"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.jcr.resource.internal.JcrSystemUserValidator"/>
+    <reference name="repository" interface="org.apache.sling.jcr.api.SlingRepository" cardinality="1..1" policy="static" bind="bindRepository" unbind="unbindRepository"/>
+</scr:component>
