@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.jackrabbit.usermanager.impl.resource.AuthorizableResourceProvider" name="%authorizable.resourceprovider.name" description="%authorizable.resourceprovider.description">
+        <AD id="provider.roots" type="String" default="/system/userManager/" name="%provider.roots.name" description="%provider.roots.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.jackrabbit.usermanager.impl.resource.AuthorizableResourceProvider">
+        <Object ocdref="org.apache.sling.jackrabbit.usermanager.impl.resource.AuthorizableResourceProvider"/>
+    </Designate>
+</metatype:MetaData>

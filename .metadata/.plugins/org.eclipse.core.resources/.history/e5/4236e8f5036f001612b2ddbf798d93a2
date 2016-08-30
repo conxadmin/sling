@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0" immediate="true" name="org.apache.sling.jackrabbit.usermanager.impl.resource.AuthorizableResourceProvider">
+    <implementation class="org.apache.sling.jackrabbit.usermanager.impl.resource.AuthorizableResourceProvider"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.api.resource.ResourceProvider"/>
+    </service>
+    <property name="service.description" value="Resource provider implementation for UserManager resources"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="provider.roots" value="/system/userManager/"/>
+    <property name="service.pid" value="org.apache.sling.jackrabbit.usermanager.impl.resource.AuthorizableResourceProvider"/>
+</scr:component>
