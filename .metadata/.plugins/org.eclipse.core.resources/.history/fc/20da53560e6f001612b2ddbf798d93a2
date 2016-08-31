@@ -1,0 +1,47 @@
+package org.apache.sling.jcr.davex.impl.servlets;
+
+
+import java.util.Properties;
+
+import javax.servlet.Servlet;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.apache.sling.api.resource.ResourceProvider;
+import org.apache.sling.jcr.jackrabbit.accessmanager.DeleteAces;
+import org.apache.sling.jcr.jackrabbit.accessmanager.GetAcl;
+import org.apache.sling.jcr.jackrabbit.accessmanager.GetEffectiveAcl;
+import org.apache.sling.jcr.jackrabbit.accessmanager.ModifyAce;
+import org.apache.sling.jcr.jackrabbit.accessmanager.post.DeleteAcesServlet;
+import org.apache.sling.jcr.jackrabbit.accessmanager.post.GetAclServlet;
+import org.apache.sling.jcr.jackrabbit.accessmanager.post.GetEffectiveAclServlet;
+import org.apache.sling.jcr.jackrabbit.accessmanager.post.ModifyAceServlet;
+import org.apache.sling.jcr.resource.JcrResourceResolverFactory;
+import org.apache.felix.dm.Component;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+
+public class Activator extends DependencyActivatorBase {
+
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1) throws Exception {
+
+	}
+
+	@Override
+	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		//DeleteAcesServlet
+		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
+	    properties.put("sling.servlet.methods","POST");
+	    properties.put("sling.servlet.selectors","deleteAce");
+		Component component = dm.createComponent()
+				.setInterface(new String[]{Servlet.class.getName(),DeleteAces.class.getName()}, properties)
+				.setImplementation(DeleteAcesServlet.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+	            ;
+		dm.add(component);
+	}
+
+}

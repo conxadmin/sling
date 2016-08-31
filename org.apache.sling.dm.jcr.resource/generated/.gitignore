@@ -4,3 +4,4 @@
 /org.apache.sling.dm.event.mt.jar
 /org.apache.sling.dm.servlets.resolver.mt.jar
 /org.apache.sling.dm.jcr.base.mt.jar
+/org.apache.sling.dm.jcr.resource.mt.jar

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Activator.java&apos; to &apos;org.apache.sling.dm.jcr.davex/src/org.apache.sling.jcr.davex.impl.servlets&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.jcr.jackrabbit.accessmanager&apos;&#x0A;- Destination element: &apos;org.apache.sling.dm.jcr.davex/src/org.apache.sling.jcr.davex.impl.servlets&apos;&#x0A;- Original element: &apos;org.apache.sling.jcr.jackrabbit.accessmanager.internal.Activator.java&apos;" description="Copy compilation unit" destination="=org.apache.sling.dm.jcr.davex/src&lt;org.apache.sling.jcr.davex.impl.servlets" element1="/src&lt;org.apache.sling.jcr.jackrabbit.accessmanager.internal{Activator.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472601690840" units="1" version="1.0"/>
+</session>

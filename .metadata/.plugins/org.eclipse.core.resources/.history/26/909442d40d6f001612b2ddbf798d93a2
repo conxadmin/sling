@@ -1,0 +1,5 @@
+#Tue Aug 23 12:07:18 EDT 2016
+org.apache.sling.jcr.resource.internal.helper.jcr.PathMapper.path.mapping.description=Defines an obtional path mapping for a path.Each mapping entry is expressed as follow\: <JCRPath>\:<resourcePath>. As an example\: /foo\:/libs, this maps the JCR node /foo to the resource /libs. If the resource path is specified as '.',  the JCR tree is not visible in the resource tree. This should not be considered a security feature  as the nodes are still accessible through the JCR api. Mapping a JCR path to the root is not allowed. The mappings are evaluated as ordered in the configuration.
+org.apache.sling.jcr.resource.internal.helper.jcr.PathMapper.path.mapping.name=Path mapping
+org.apache.sling.jcr.resource.internal.helper.jcr.PathMapper.name=Apache Sling JCR Resource Provider Path Mapper
+org.apache.sling.jcr.resource.internal.helper.jcr.PathMapper.description=This service provides path mappings for JCR nodes.
