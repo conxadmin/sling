@@ -1,0 +1,74 @@
+package org.apache.sling.jcr.webdav.impl;
+
+
+import java.util.Properties;
+
+import javax.jcr.Repository;
+import javax.swing.plaf.basic.BasicColorChooserUI.PropertyHandler;
+
+import org.apache.felix.dm.DependencyActivatorBase;
+import org.apache.felix.dm.DependencyManager;
+import org.apache.felix.webconsole.ConfigurationPrinter;
+import org.apache.jackrabbit.server.io.CopyMoveHandler;
+import org.apache.jackrabbit.server.io.DeleteHandler;
+import org.apache.jackrabbit.server.io.IOHandler;
+import org.apache.sling.jcr.api.SlingRepository;
+import org.apache.sling.jcr.webdav.impl.handler.DefaultHandlerService;
+import org.apache.sling.jcr.webdav.impl.handler.Property;
+import org.apache.sling.jcr.webdav.impl.servlets.SlingWebDavServlet;
+import org.apache.felix.dm.Component;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+
+public class Activator extends DependencyActivatorBase {
+
+	@Override
+	public void destroy(BundleContext arg0, DependencyManager arg1) throws Exception {
+
+	}
+
+	@Override
+	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		//DescriptorsConfigurationPrinter
+		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+	    properties.put(Constants.SERVICE_RANKING, 1000);
+	    properties.put(SlingWebDavServlet.TYPE_COLLECTIONS,SlingWebDavServlet.TYPE_COLLECTIONS_DEFAULT);
+	    properties.put(SlingWebDavServlet.TYPE_NONCOLLECTIONS, SlingWebDavServlet.TYPE_NONCOLLECTIONS_DEFAULT);
+	    properties.put(SlingWebDavServlet.TYPE_CONTENT, SlingWebDavServlet.TYPE_CONTENT_DEFAULT);
+		Component component = dm.createComponent()
+				.setInterface(new String[]{IOHandler.class.getName(),PropertyHandler.class.getName(),CopyMoveHandler.class.getName(),DeleteHandler.class.getName()}, properties)
+				.setImplementation(DefaultHandlerService.class)
+				.add(createServiceDependency().setService(SlingRepository.class)
+						.setRequired(true))
+	            ;
+		dm.add(component);
+		
+		//NamespaceConfigurationPrinter
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION,"JCR Namespace Configuration Printer");
+		component = dm.createComponent()
+				.setInterface(ConfigurationPrinter.class.getName(), properties)
+				.setImplementation(NamespaceConfigurationPrinter.class)
+				.add(createServiceDependency().setService(SlingRepository.class)
+						.setRequired(true))
+	            ;
+		dm.add(component);
+		
+		//NodeTypeConfigurationPrinter
+		properties = new Properties();
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION,"JCR Nodetype Configuration Printer");
+		properties.put("felix.webconsole.configprinter.web.unescaped",true);
+		component = dm.createComponent()
+				.setInterface(ConfigurationPrinter.class.getName(), properties)
+				.setImplementation(NodeTypeConfigurationPrinter.class)
+				.add(createServiceDependency().setService(SlingRepository.class)
+						.setRequired(true))
+	            ;
+		dm.add(component);
+
+	}
+
+}

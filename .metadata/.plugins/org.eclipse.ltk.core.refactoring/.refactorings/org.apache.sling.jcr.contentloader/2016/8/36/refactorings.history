@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;org&apos; to &apos;resources&apos;&#x0A;- Original project: &apos;org.apache.sling.jcr.contentloader&apos;&#x0A;- Destination element: &apos;resources&apos;&#x0A;- Original element: &apos;org&apos;" description="Copy folder" element1="src/main/java/org" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472606551262" target="/org.apache.sling.dm.jcr.contentloader/resources" units="0" version="1.0"/>
+</session>
