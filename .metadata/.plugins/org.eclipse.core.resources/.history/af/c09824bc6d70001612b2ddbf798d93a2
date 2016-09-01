@@ -1,0 +1,15 @@
+package org.apache.sling.dm.jcr.jackrabbit.server.impl;
+
+
+import aQute.bnd.annotation.metatype.Meta.AD;
+import aQute.bnd.annotation.metatype.Meta.OCD;
+import aQute.bnd.annotation.metatype.Meta.Type;
+
+
+
+@OCD(description = "SlingServerRepositoryManager configuration")
+public interface SlingServerRepositoryManagerConfiguration {
+	public static final String REPOSITORY_DATASOURCE_PROPERTY_NAME = "repository.dataSource.property.name";
+    @AD
+    public String repositoryDataSourcePropertyName();
+}

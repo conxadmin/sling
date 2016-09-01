@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.dm.jcr.jackrabbit.server.impl.SlingServerRepositoryManagerConfiguration" name="SlingServerManager Conf" description="%dav.description">
+        <AD id="repositoryJTADataSourcePropertyName" type="String" default="jta-cnxwks" name="repositoryJTADataSourcePropertyName" description="repository JTA DataSource Property Name"/>
+        <AD id="repositoryNonJTADataSourcePropertyName" type="String" default="nonjta-cnxwks" name="repositoryNonJTADataSourcePropertyName" description="repository Non JTA DataSource Property Name"/>
+    </OCD>
+    <Designate pid="org.apache.sling.dm.jcr.jackrabbit.server.impl.SlingServerRepositoryManagerConfiguration">
+        <Object ocdref="org.apache.sling.dm.jcr.jackrabbit.server.impl.SlingServerRepositoryManagerConfiguration"/>
+    </Designate>
+</metatype:MetaData>
+
+
+	public static final String CNX_DS_JTA = "jta-cnxwks";
+	public static final String CNX_DS_NON_JTA = "nonjta-cnxwks";

@@ -1,0 +1,10 @@
+1472749636561	Rename resource 'server.platform.bnd'
+1472749778427	Rename package 'org.conxworks.contentrepository.sling.jcr.jackrabbit.api'
+1472749814592	Rename package 'org.conxworks.contentrepository.sling.jcr.jackrabbit.server.impl'
+1472749827233	Rename package 'org.conxworks.contentrepository.sling.jcr.jackrabbit.server.osgi'
+1472749844339	Rename package 'org.conxworks.contentrepository.sling.jcr.jackrabbit.server.plugins.security'
+1472750903787	Rename type 'InstallerMetaTypeConfiguration'
+1472752337117	Delete elements
+1472752432372	Rename resource 'org.apache.sling.jcr.davex.impl.servlets.SlingDavExServlet.xml'
+1472752449725	Rename resource 'org.apache.sling.dm.jcr.jackrabbit.server.impl.SlingDavExServlet.xml'
+1472752940458	Delete elements
