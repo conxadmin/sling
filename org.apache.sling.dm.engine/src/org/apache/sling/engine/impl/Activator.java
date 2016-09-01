@@ -11,6 +11,7 @@ import org.apache.sling.api.servlets.ServletResolver;
 import org.apache.sling.auth.core.AuthenticationSupport;
 import org.apache.sling.commons.mime.MimeTypeService;
 import org.apache.sling.engine.EngineConstants;
+import org.apache.sling.engine.SlingSettingsService;
 import org.apache.sling.engine.impl.log.RequestLogger;
 import org.apache.sling.engine.impl.log.RequestLoggerService;
 import org.apache.sling.engine.impl.parameters.RequestParameterSupportConfigurer;
@@ -18,7 +19,6 @@ import org.apache.sling.engine.impl.parameters.Util;
 import org.apache.sling.engine.impl.request.RequestData;
 import org.apache.sling.engine.impl.request.RequestHistoryConsolePlugin;
 import org.apache.sling.engine.servlets.ErrorHandler;
-import org.apache.sling.settings.SlingSettingsService;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -102,7 +102,7 @@ public class Activator extends DependencyActivatorBase {
 				.add(createConfigurationDependency()
 	                	.setPid(RequestParameterSupportConfigurer.class.getName()))
 	            .add(createServiceDependency()
-	                	.setService(SlingSettingsService.class)
+	                	.setService(org.apache.sling.settings.SlingSettingsService.class)
 	                	.setRequired(true))				
 	            ;
 		dm.add(component);	

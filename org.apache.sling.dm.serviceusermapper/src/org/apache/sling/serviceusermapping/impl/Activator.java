@@ -57,7 +57,7 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(InventoryPrinter.class.getName(), properties)
 				.setImplementation(MappingInventoryPrinter.class)
 				.add(createConfigurationDependency().setPid(MappingInventoryPrinter.class.getName()))
-				.add(createServiceDependency().setService(ServiceUserMapperImpl.class.getName()).setRequired(true))
+				.add(createServiceDependency().setService(ServiceUserMapperImpl.class).setRequired(true))
 	            ;
 		 dm.add(component);
 		 
@@ -72,7 +72,7 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(InventoryPrinter.class.getName(), properties)
 				.setImplementation(MappingInventoryPrinter.class)
 				.add(createConfigurationDependency().setPid(MappingInventoryPrinter.class.getName()))
-				.add(createServiceDependency().setService(ServiceUserMapperImpl.class.getName()).setRequired(true))
+				.add(createServiceDependency().setService(ServiceUserMapperImpl.class).setRequired(true))
 	            ;
 		 dm.add(component);
 		 
@@ -95,10 +95,10 @@ public class Activator extends DependencyActivatorBase {
 				.setImplementation(ServiceUserMapperImpl.class)
 				.setCallbacks(null,"configure","deactivate", null)//init, start, stop and destroy.
 				.add(createConfigurationDependency().setPid(ServiceUserMapperImpl.class.getName()))
-				.add(createServiceDependency().setService(MappingConfigAmendment.class.getName())
+				.add(createServiceDependency().setService(MappingConfigAmendment.class)
 						.setCallbacks("bindAmendment", "unbindAmendment")
 						.setRequired(false))
-				.add(createServiceDependency().setService(ServiceUserValidator.class.getName())						
+				.add(createServiceDependency().setService(ServiceUserValidator.class)						
 						.setCallbacks("bindServiceUserValidator", "unbindServiceUserValidator")
 						.setRequired(false))
 				;

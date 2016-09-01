@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1472739448797" name="org.apache.sling.dm.browser" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1472764901021" name="org.apache.sling.dm.browser" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.browser.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="0.5.1.201609011417"/>
+      <attribute name="version" type="Version" value="0.5.1.201609012121"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="52620e71b8c44403d5e47d263f940b40c31fe81b5e870881e71bc4ddd191911e"/>
+      <attribute name="osgi.content" value="684346c5a6f701dc36dc94eea247df0ac8d34bad8d1ae06313cd7b7c30485f99"/>
       <attribute name="url" value="generated/org.apache.sling.dm.browser.mt.jar"/>
       <attribute name="size" type="Long" value="2585292"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201609011417"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201609012121"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201609011417"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201609012121"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.browser.servlet"/>
       <attribute name="version" type="Version" value="0.5.1.SNAPSHOT"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201609011417"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201609012121"/>
       <directive name="uses" value="org.slf4j,org.apache.sling.commons.mime,org.apache.sling.api,org.apache.sling.api.request,org.apache.sling.api.servlets,javax.servlet,org.json,org.apache.sling.api.resource,org.apache.sling.browser.resource,javax.jcr"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.browser.util"/>
       <attribute name="version" type="Version" value="0.5.1.SNAPSHOT"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201609011417"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201609012121"/>
       <directive name="uses" value="org.apache.sling.api.adapter"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.browser.resource"/>
       <attribute name="version" type="Version" value="0.5.1.SNAPSHOT"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201609011417"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201609012121"/>
       <directive name="uses" value="org.apache.jackrabbit,org.apache.sling.api.resource,org.apache.commons.codec.digest,javax.jcr"/>
     </capability>
     <capability namespace="bndtools.workspace">
