@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.discovery.impl.support.StandardPropertyProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <implementation class="org.apache.sling.discovery.impl.support.StandardPropertyProvider"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.discovery.impl.support.StandardPropertyProvider"/>
+    <reference interface="org.osgi.service.http.HttpService" cardinality="0..n" policy="dynamic" bind="bindHttpService" unbind="unbindHttpService"/>
+    <reference name="settings" interface="org.apache.sling.settings.SlingSettingsService" cardinality="1..1" policy="static" bind="bindSettings" unbind="unbindSettings"/>
+</scr:component>

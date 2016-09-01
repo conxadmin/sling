@@ -1,8 +1,8 @@
 Bundle-Version: 1.1.5.${tstamp}
 Bundle-DocURL: http://sling.apache.org/site/authentication.html
 Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
-Bundle-Name: Apache Sling Thread Support
-Bundle-Description: Contains Connector and Properties support that some 
+Bundle-Name: Apache Sling Discovery Base
+Bundle-Description: Contains Connector and Properties support that some implementations might choose to build upon
 Bundle-Vendor: The Apache Software Foundation
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Include-Resource: /=resources
@@ -12,14 +12,6 @@ X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
 	(objectClass=org.osgi.service.log.LogService))
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Bundle-Category: sling
-Export-Package: org.apache.sling.commons.threads.jmx;version="1.1.1",\
-	org.apache.sling.commons.threads;version="3.4.0"
-Import-Package: javax.management,org.apache.sling.commons.threads;version="[3.4,3.5)",\
-	org.apache.sling.commons.threads.jmx;version="[1.1,1.2)",\
-	org.osgi.framework;version="[1.8,2)",\
-	org.osgi.service.cm;version="[1.5,2)",\
-	org.slf4j;version="[1.7,2)",\
-	*
 Private-Package: org.apache.sling.discovery.base
 Embed-Dependency: commons-net;inline=org/apache/commons/net/util/SubnetUtils*
 Export-Package: org.apache.sling.discovery.base.commons;version="2.0.0";\
@@ -78,3 +70,4 @@ Import-Package: \
 	org.osgi.service.http;version="[1.2,2)",\
 	org.slf4j;version="[1.6,2)",\
 	*
+	

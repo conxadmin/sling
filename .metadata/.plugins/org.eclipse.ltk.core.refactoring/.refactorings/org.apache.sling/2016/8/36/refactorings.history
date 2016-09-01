@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;jcr.jackrabbit.server.libs.bnd&apos; to &apos;jcr.jackrabbit.server.libs.bnd&apos;&#x0A;- Original project: &apos;org.apache.sling&apos;&#x0A;- Destination element: &apos;jcr.jackrabbit.server.libs.bnd&apos;&#x0A;- Original element: &apos;jcr.jackrabbit.server.libs.bnd&apos;" description="Copy file" element1="jcr.jackrabbit.server.libs.bnd" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472672550889" target="/org.apache.sling/jcr.jackrabbit.server.libs.bnd" units="0" version="1.0"/>
+</session>

@@ -13,7 +13,8 @@ X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Bundle-Category: sling
 Embed-Dependency: jackrabbit-jcr-commons;inline=org/apache/jackrabbit/util/ISO8601.class|org/apache/jackrabbit/util/Text.class
-Export-Package: org.apache.sling.servlets.post;version="2.3.0";uses:="javax.jcr,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.resource,org.apache.sling.api.servlets,org.slf4j"
+Export-Package: org.apache.sling.servlets.post;version="2.3.0";uses:="javax.jcr,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.resource,org.apache.sling.api.servlets,org.slf4j",\
+	 org.apache.sling.servlets.post.impl.helper
 Import-Package: javax.jcr;version="[2.0,3)",\
 	javax.jcr.nodetype;version="[2.0,3)",\
 	javax.jcr.query;version="[2.0,3)",\
@@ -39,5 +40,4 @@ Sling-Namespaces: sling=http://sling.apache.org/jcr/sling/1.0
 Sling-Nodetypes: SLING-INF/nodetypes/chunk.cnd,
 Private-Package: \
 	org.apache.sling.servlets.post.impl,\
-	org.apache.sling.servlets.post.impl.helper,\
 	org.apache.sling.servlets.post.impl.operations

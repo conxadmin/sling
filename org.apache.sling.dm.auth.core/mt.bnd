@@ -16,8 +16,7 @@ Export-Package: \
 Private-Package: \
 	org.apache.sling.auth.core.impl,\
 	org.apache.sling.auth.core.impl.engine,\
-	org.apache.sling.engine.auth,\
-	org.apache.felix.dm.impl
+	org.apache.sling.engine.auth
 	
 Embed-Dependency: org.apache.sling.commons.osgi;inline=org/apache/sling/commons/osgi/PropertiesUtil.class,\
 	commons-codec;inline="org/apache/commons/codec/binary/Base64.*|\

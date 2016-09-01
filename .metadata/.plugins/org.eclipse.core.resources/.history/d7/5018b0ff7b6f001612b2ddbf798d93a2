@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.jcr.webdav.impl.handler.DefaultHandlerService" name="%defaulthandler.name" description="%defaulthandler.description">
+        <AD id="service.ranking" type="Integer" default="1000" name="%service.ranking.name" description="%service.ranking.description"/>
+        <AD id="type.collections" type="String" default="sling:Folder" name="%type.collections.name" description="%type.collections.description"/>
+        <AD id="type.noncollections" type="String" default="nt:file" name="%type.noncollections.name" description="%type.noncollections.description"/>
+        <AD id="type.content" type="String" default="nt:resource" name="%type.content.name" description="%type.content.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.jcr.webdav.impl.handler.DefaultHandlerService">
+        <Object ocdref="org.apache.sling.jcr.webdav.impl.handler.DefaultHandlerService"/>
+    </Designate>
+</metatype:MetaData>

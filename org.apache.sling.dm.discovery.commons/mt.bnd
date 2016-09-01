@@ -30,7 +30,7 @@ Import-Package: \
 	org.apache.sling.discovery;version="[1.0,2)",\
 	org.apache.sling.discovery.commons.providers;version="[1.0,2)",\
 	org.apache.sling.discovery.commons.providers.spi;version="[1.0,2)",\
-	org.apache.sling.discovery.commons.provide.util;version="[1.0,2)",\
+	org.apache.sling.discovery.commons.providers.util;version="[1.0,2)",\
 	org.apache.sling.settings;version="[1.2,2)",\
 	org.osgi.framework;version="[1.4,2)",\
 	org.osgi.service.event;version="[1.1,2)",\

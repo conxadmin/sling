@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<repository increment="1472649597701" name="org.apache.sling" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="b7c76411728989c0f23c7bcd6a7cf1b87c47cbfd8dce87ca00c0658938eed951"/>
+      <attribute name="url" value="generated/org.apache.sling.jcr.jackrabbit.server.jar"/>
+      <attribute name="size" type="Long" value="4286749"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.impl"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.sling.jcr.jackrabbit.server,org.apache.sling.jcr.jackrabbit.server.impl.security,org.apache.sling.jcr.jackrabbit.server.security,org.apache.sling.jcr.jackrabbit.server.security.accessmanager"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.impl.security"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.security,org.apache.jackrabbit.core.security.authentication,org.apache.jackrabbit.core.security.authorization,org.apache.sling.jcr.jackrabbit.server.impl,org.apache.sling.jcr.jackrabbit.server.security,org.apache.sling.jcr.jackrabbit.server.security.accessmanager"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.impl.jmx"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.security"/>
+      <attribute name="version" type="Version" value="2.0.6"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.security.accessmanager"/>
+      <attribute name="version" type="Version" value="2.0.6"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.cache,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.gc,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.lock,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.query,org.apache.jackrabbit.core.retention,org.apache.jackrabbit.core.security,org.apache.jackrabbit.core.security.authentication,org.apache.jackrabbit.core.security.authorization,org.apache.jackrabbit.core.security.principal,org.apache.jackrabbit.core.security.user,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.stats,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.value,org.apache.jackrabbit.core.version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.cache"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.cluster"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.journal,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.xml"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.config"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.journal,org.apache.jackrabbit.core.query,org.apache.jackrabbit.core.security.user.action,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.util.db,org.apache.jackrabbit.core.xml"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.data"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.data.db"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.util.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.data.util"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.fs"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.fs.db"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.util.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.fs.local"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.fs.mem"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.gc"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.persistence"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.id"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.jndi"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.jndi.provider"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.journal"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.util.db,org.apache.jackrabbit.core.version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.lock"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.session"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.nodetype"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.nodetype.virtual"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.virtual"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.nodetype.xml"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.nodetype"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.observation"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.journal,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.bundle"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.cache,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.persistence.check,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.check"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.cluster"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.db"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.mem"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.persistence.bundle,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.obj"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.pool"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.persistence.bundle,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.util.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.util"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.xml"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.query,org.apache.jackrabbit.core.query.lucene.constraint,org.apache.jackrabbit.core.query.lucene.directory,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.value,org.apache.lucene.analysis,org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.queryParser,org.apache.lucene.search,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.constraint"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.query.lucene,org.apache.jackrabbit.core.state,org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.directory"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.query.lucene,org.apache.lucene.store"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.hits"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.join"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.query.lucene,org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.sort"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.query.lucene,org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.retention"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.observation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.security.authentication,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authentication"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.security.principal"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authentication.token"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.security.authentication"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authorization"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.observation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authorization.acl"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authorization.combined"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authorization.principalbased"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.principal"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.security.user"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.simple"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.security,org.apache.jackrabbit.core.security.authentication,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.user"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.security.authorization,org.apache.jackrabbit.core.security.user.action,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.xml"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.user.action"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.session"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.security,org.apache.jackrabbit.core.security.authorization,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.state"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cache,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.value,org.apache.jackrabbit.core.virtual"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.stats"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.util"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.util.db"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.config"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.value"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.version"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.value,org.apache.jackrabbit.core.virtual"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.virtual"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.xml"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis.tokenattributes,org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis.standard"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.analysis.tokenattributes,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis.standard.std31"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis.standard,org.apache.lucene.analysis.tokenattributes"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis.standard.std34"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis.standard,org.apache.lucene.analysis.tokenattributes"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis.tokenattributes"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.collation"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.document"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.index"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.index"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.document,org.apache.lucene.search,org.apache.lucene.store,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.queryParser"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.search"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.search.spans,org.apache.lucene.store,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.search.function"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.search.payloads"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.search.spans"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.search.spans"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.store"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.util"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.store"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.util.fst"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.store,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.util.packed"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.store"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="org.apache.sling.jcr.jackrabbit.server.TestContentLoader"/>
+      <attribute name="service.description" value="Test Content Loader"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="service.pid" value="org.apache.sling.jcr.jackrabbit.server.impl.TestContentLoaderImpl"/>
+      <directive name="uses" value="org.apache.sling.jcr.jackrabbit.server"/>
+    </capability>
+    <capability namespace="bndtools.workspace">
+      <attribute name="bndtools.workspace" value="file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling"/>
+      <attribute name="project.path" value="/org.apache.sling"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=com.microsoft.sqlserver.jdbc)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=oracle.jdbc)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.derby.jdbc)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.gjt.mm.mysql)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.h2)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.postgresql)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.jcr.api.SlingRepository)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.service">
+      <directive name="filter" value="(objectClass=org.apache.sling.serviceusermapping.ServiceUserMapper)"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="a0d787b5936cc403aaedd0f71f08bff72cee3fdea46b39bb09ad52ce6cbc11e6"/>
+      <attribute name="url" value="generated/org.apache.sling.jcr.jackrabbit.server.libs.jar"/>
+      <attribute name="size" type="Long" value="4286661"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.impl"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.sling.jcr.jackrabbit.server,org.apache.sling.jcr.jackrabbit.server.impl.security,org.apache.sling.jcr.jackrabbit.server.security,org.apache.sling.jcr.jackrabbit.server.security.accessmanager"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.impl.security"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.security,org.apache.jackrabbit.core.security.authentication,org.apache.jackrabbit.core.security.authorization,org.apache.sling.jcr.jackrabbit.server.impl,org.apache.sling.jcr.jackrabbit.server.security,org.apache.sling.jcr.jackrabbit.server.security.accessmanager"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.impl.jmx"/>
+      <attribute name="version" type="Version" value="2.3.1.SNAPSHOT"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.security"/>
+      <attribute name="version" type="Version" value="2.0.6"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.jackrabbit.server.security.accessmanager"/>
+      <attribute name="version" type="Version" value="2.0.6"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.cache,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.gc,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.lock,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.query,org.apache.jackrabbit.core.retention,org.apache.jackrabbit.core.security,org.apache.jackrabbit.core.security.authentication,org.apache.jackrabbit.core.security.authorization,org.apache.jackrabbit.core.security.principal,org.apache.jackrabbit.core.security.user,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.stats,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.value,org.apache.jackrabbit.core.version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.cache"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.cluster"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.journal,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.xml"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.config"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.journal,org.apache.jackrabbit.core.query,org.apache.jackrabbit.core.security.user.action,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.util.db,org.apache.jackrabbit.core.xml"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.data"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.data.db"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.util.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.data.util"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.fs"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.fs.db"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.util.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.fs.local"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.fs.mem"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.gc"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.persistence"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.id"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.jndi"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.jndi.provider"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.journal"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.util.db,org.apache.jackrabbit.core.version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.lock"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.session"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.nodetype"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.nodetype.virtual"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.virtual"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.nodetype.xml"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.nodetype"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.observation"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.journal,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.bundle"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.cache,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.persistence.check,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.check"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.cluster"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.db"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.mem"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.persistence.bundle,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.obj"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.pool"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.persistence.bundle,org.apache.jackrabbit.core.persistence.util,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.util.db"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.util"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.persistence.xml"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.query,org.apache.jackrabbit.core.query.lucene.constraint,org.apache.jackrabbit.core.query.lucene.directory,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.value,org.apache.lucene.analysis,org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.queryParser,org.apache.lucene.search,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.constraint"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.query.lucene,org.apache.jackrabbit.core.state,org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.directory"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.query.lucene,org.apache.lucene.store"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.hits"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.join"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.query.lucene,org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.query.lucene.sort"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.query.lucene,org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.retention"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.observation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.security.authentication,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authentication"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.security.principal"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authentication.token"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.security.authentication"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authorization"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.observation"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authorization.acl"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authorization.combined"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.authorization.principalbased"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.principal"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.security.user"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.simple"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.security,org.apache.jackrabbit.core.security.authentication,org.apache.jackrabbit.core.security.authorization"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.user"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.security.authorization,org.apache.jackrabbit.core.security.user.action,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.xml"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.security.user.action"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.session"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.security,org.apache.jackrabbit.core.security.authorization,org.apache.jackrabbit.core.state"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.state"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cache,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.value,org.apache.jackrabbit.core.virtual"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.stats"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.util"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.util.db"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.config"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.value"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.data,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.version"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.cluster,org.apache.jackrabbit.core.fs,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.observation,org.apache.jackrabbit.core.persistence,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.value,org.apache.jackrabbit.core.virtual"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.virtual"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.jackrabbit.core.xml"/>
+      <attribute name="version" type="Version" value="2.11.1"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.jackrabbit.core,org.apache.jackrabbit.core.config,org.apache.jackrabbit.core.id,org.apache.jackrabbit.core.nodetype,org.apache.jackrabbit.core.session,org.apache.jackrabbit.core.state,org.apache.jackrabbit.core.util,org.apache.jackrabbit.core.value"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis.tokenattributes,org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis.standard"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.analysis.tokenattributes,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis.standard.std31"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis.standard,org.apache.lucene.analysis.tokenattributes"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis.standard.std34"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis.standard,org.apache.lucene.analysis.tokenattributes"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.analysis.tokenattributes"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.collation"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.document"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.index"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.index"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.document,org.apache.lucene.search,org.apache.lucene.store,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.queryParser"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.search"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.analysis,org.apache.lucene.document,org.apache.lucene.index,org.apache.lucene.search.spans,org.apache.lucene.store,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.search.function"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.search.payloads"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.search.spans"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.search.spans"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.store"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.util"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.index,org.apache.lucene.search,org.apache.lucene.store"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.util.fst"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.store,org.apache.lucene.util"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.apache.lucene.util.packed"/>
+      <attribute name="version" type="Version" value="3.6.2"/>
+      <attribute name="bundle-symbolic-name" value="org.apache.sling.jcr.jackrabbit.server.libs"/>
+      <attribute name="bundle-version" type="Version" value="2.3.1.201608311319"/>
+      <directive name="uses" value="org.apache.lucene.store"/>
+    </capability>
+    <capability namespace="bndtools.workspace">
+      <attribute name="bndtools.workspace" value="file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling"/>
+      <attribute name="project.path" value="/org.apache.sling"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=com.microsoft.sqlserver.jdbc)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=oracle.jdbc)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.apache.derby.jdbc)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.gjt.mm.mysql)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.h2)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.postgresql)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+</repository>

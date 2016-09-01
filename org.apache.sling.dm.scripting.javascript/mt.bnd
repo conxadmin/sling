@@ -54,7 +54,6 @@ Import-Package: javax.jcr;version="2.0",\
 	org.w3c.dom,org.xml.sax,\
 	*
 Private-Package: \
-	org.apache.sling.scripting.javascript.helper,\
-	org.apache.sling.scripting.javascript.internal,\
-	org.apache.sling.scripting.javascript.io,\
-	org.apache.sling.scripting.javascript.wrapper
+    org.apache.sling.scripting.javascript.*,\
+    !org.mozilla.javascript.xml.impl.xmlbeans,\
+    org.mozilla.javascript.*

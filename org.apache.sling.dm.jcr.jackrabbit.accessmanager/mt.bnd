@@ -1,4 +1,4 @@
-Bundle-Version:  1.3.5.${tstamp}
+Bundle-Version:  2.1.3.${tstamp}
 Bundle-DocURL: http://sling.apache.org/site/authentication.html
 Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
 Bundle-Name: Apache Sling DavEx Access to repositories
@@ -47,7 +47,8 @@ Private-Package: org.apache.sling.jcr.jackrabbit.accessmanager.internal
 
 Embed-Dependency: jackrabbit-jcr-server;inline=org/apache/jackrabbit/server/io/IOUtil*.class,org.apache.sling.commons.osgi;inline=org/apache/sling/commons/osgi/OsgiUtil.class
 Import-Package: javax.jcr;version="[2.0,3)",\
-	javax.jcr.lock;version="[2.0,3)",javax.jcr.nodetype;version="[2.0,3)",\
+	javax.jcr.lock;version="[2.0,3)",\
+	javax.jcr.nodetype;version="[2.0,3)",\
 	javax.jcr.observation;version ="[2.0,3)",\
 	javax.jcr.query;version="[2.0,3)",\
 	javax.jcr.security;version ="[2.0,3)",\
@@ -64,7 +65,7 @@ Import-Package: javax.jcr;version="[2.0,3)",\
 	org.apache.commons.fileupload.disk;version="[1.2,2)",\
 	org.apache.commons.fileupload.servlet;version="[1.2,2)",\
 	org.apache.jackrabbit.commons.cnd;version="[2.3,3)",\
-	org .apache.jackrabbit.commons.iterator;version="[2.4,3)",\
+	org.apache.jackrabbit.commons.iterator;version="[2.4,3)",\
 	org.apache.jackrabbit.commons.json;version="[2.2,3)",\
 	org.apache.jackrabbit.commons.webdav;version="[2.5,3)",\
 	org.apache.jackrabbit.commons.xml;version="[2.2,3)",\
@@ -72,12 +73,12 @@ Import-Package: javax.jcr;version="[2.0,3)",\
 	org.apache.jackrabbit.spi.commons;version="[2.4,3)",\
 	org.apache.jackrabbit.util;version="[2.4,3)",\
 	org.apache.jackrabbit.value;version="[2.2,3)",\
-	org.apache.jackrabbit.web dav;version="[1.0,2)",\
+	org.apache.jackrabbit.webdav;version="[1.0,2)",\
 	org.apache.jackrabbit.webdav.header;version="[1.0,2)",\
 	org.apache.jackrabbit.webdav.io;version="[1.0,2)",\
 	org.apache.jackrabbit.webdav.lock;version="[1.0,2)",\
-	org.apache.jackrabbit.webdav.observ ation;version="[1.0,2)",\
-	org.apache.jackrabbit.webdav.ordering;version=" [1.0,2)",\
+	org.apache.jackrabbit.webdav.observation;version="[1.0,2)",\
+	org.apache.jackrabbit.webdav.ordering;version="[1.0,2)",\
 	org.apache.jackrabbit.webdav.property;version="[1.0,2)",\
 	org.apache.jackrabbit.webdav.search;version="[1.0,2)",\
 	org.apache.jackrabbit.webdav.security;version="[1.0,2)",\
@@ -86,13 +87,13 @@ Import-Package: javax.jcr;version="[2.0,3)",\
 	org.apache.jackrabbit.webdav.util;version="[1.0,2)",\
 	org.apache.jackrabbit.webdav.version;version="[1.0,2)",\
 	org.apache.jackrabbit.webdav.version.report;version="[1.0,2)",\
-	org.apache.jackrabbit.webdav.xml;version ="[1.1,2)",\
+	org.apache.jackrabbit.webdav.xml;version="[1.1,2)",\
 	org.apache.sling.api.resource;version="[2.1,3)",\
 	org.apache.sling.auth.core;version="[1.0,2)",\
 	org.apache.sling.jcr.api;version="[2.0 ,3)",\
 	org.osgi.framework;version="[1.4,2)",\
 	org.osgi.service.event;version="[1.1,2)",\
-	rg.osgi.service.http;version="[1.2,2)",\
+	org.osgi.service.http;version="[1.2,2)",\
 	org.slf4j;version="[1.5,2)",\
 	org.w3c.dom,\
 	org.xml.sax,\
