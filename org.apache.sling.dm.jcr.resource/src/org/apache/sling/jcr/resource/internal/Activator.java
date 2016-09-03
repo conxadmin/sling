@@ -8,6 +8,7 @@ import javax.jcr.Repository;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.commons.classloader.DynamicClassLoaderManager;
+import org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter;
 import org.apache.sling.jcr.resource.JcrResourceResolverFactory;
 import org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProvider;
 import org.apache.sling.jcr.resource.internal.helper.jcr.PathMapper;
@@ -30,6 +31,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//JcrResourceProvider
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,JcrResourceProvider.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "This provider adds JCR resources to the resource tree");
 		properties.put(ResourceProvider.PROPERTY_NAME,"JCR");
@@ -44,16 +46,15 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(ResourceProvider.class.getName(), properties)
 				.setImplementation(JcrResourceProvider.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency()
-						.setPid(JcrResourceProvider.class.getName()))
 				.add(createServiceDependency().setService(Repository.class)
 						.setCallbacks("bindRepository", "unbindRepository")
 						.setRequired(false))
 	            ;
 		dm.add(component);
 		
-		//JcrResourceProvider
+		//PathMapper
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,PathMapper.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "This service provides path mappings for JCR nodes.");
 	    
@@ -61,13 +62,12 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(PathMapper.class.getName(), properties)
 				.setImplementation(PathMapper.class)
 				.setCallbacks(null,"activate", null, null)//init, start, stop and destroy.
-				.add(createConfigurationDependency()
-						.setPid(JcrResourceProvider.class.getName()))
 	            ;
 		dm.add(component);
 		
 		//JcrObjectsBindingsValuesProvider
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,JcrObjectsBindingsValuesProvider.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling CurrentNode BindingsValuesProvider");
 	    
@@ -79,6 +79,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//JcrResourceResolverFactoryImpl
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,JcrResourceResolverFactoryImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling JcrResourceResolverFactory Implementation");
 	    
@@ -91,15 +92,13 @@ public class Activator extends DependencyActivatorBase {
 		
 		//JcrSystemUserValidator
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,JcrSystemUserValidator.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Enforces the usage of JCR system users for all user mappings being used in the 'Sling Service User Mapper Service'");
-	    
 		component = dm.createComponent()
 				.setInterface(ServiceUserValidator.class.getName(), properties)
 				.setImplementation(JcrSystemUserValidator.class)
 				.add(createServiceDependency().setService(DynamicClassLoaderManager.class).setRequired(true))
-				.add(createConfigurationDependency()
-						.setPid(JcrSystemUserValidator.class.getName()))
 	            ;
 		dm.add(component);
 

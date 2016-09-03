@@ -18,6 +18,7 @@ package org.apache.sling.jcr.resource.internal;
 
 import java.lang.reflect.Method;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -82,8 +83,10 @@ public class JcrSystemUserValidator implements ServiceUserValidator, ManagedServ
 	}
 
     public void activate() {
-    	if (this.properties != null)
-    		allowOnlySystemUsers = PropertiesUtil.toBoolean(this.properties.get(PROP_ALLOW_ONLY_SYSTEM_USERS),PROP_ALLOW_ONLY_SYSTEM_USERS_DEFAULT);
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
+    	allowOnlySystemUsers = PropertiesUtil.toBoolean(this.properties.get(PROP_ALLOW_ONLY_SYSTEM_USERS),PROP_ALLOW_ONLY_SYSTEM_USERS_DEFAULT);
     }
 
     public boolean isValid(final String serviceUserId, final String serviceName, final String subServiceName) {

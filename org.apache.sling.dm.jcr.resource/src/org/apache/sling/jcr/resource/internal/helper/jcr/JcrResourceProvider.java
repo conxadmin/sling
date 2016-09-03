@@ -24,6 +24,7 @@ import java.security.Principal;
 import java.util.Collection;
 import java.util.Dictionary;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -126,24 +127,25 @@ public class JcrResourceProvider extends ResourceProvider<JcrProviderState> impl
 	}
 	
     protected void activate() throws RepositoryException {
-    	if (this.properties != null) {
-	        SlingRepository repository = (SlingRepository) context.getService(this.repositoryReference);
-	        if (repository == null) {
-	            // concurrent unregistration of SlingRepository service
-	            // don't care, this component is going to be deactivated
-	            // so we just stop working
-	            logger.warn("activate: Activation failed because SlingRepository may have been unregistered concurrently");
-	            return;
-	        }
-	
-	        this.repository = repository;
-	        this.observationQueueLength = PropertiesUtil.toInteger(this.properties.get(OBSERVATION_QUEUE_LENGTH), DEFAULT_OBSERVATION_QUEUE_LENGTH);
-	        this.optimizeForOak = PropertiesUtil.toBoolean(this.properties.get(PROPERTY_OPTIMIZE_FOR_OAK), DEFAULT_OPTIMIZE_FOR_OAK);
-	        this.root = PropertiesUtil.toString(this.properties.get(ResourceProvider.PROPERTY_ROOT), "/");
-	        this.bundleCtx = context;
-	
-	        this.stateFactory = new JcrProviderStateFactory(repositoryReference, repository, classLoaderManagerReference, pathMapper);
-	    }
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
+        SlingRepository repository = (SlingRepository) context.getService(this.repositoryReference);
+        if (repository == null) {
+            // concurrent unregistration of SlingRepository service
+            // don't care, this component is going to be deactivated
+            // so we just stop working
+            logger.warn("activate: Activation failed because SlingRepository may have been unregistered concurrently");
+            return;
+        }
+
+        this.repository = repository;
+        this.observationQueueLength = PropertiesUtil.toInteger(this.properties.get(OBSERVATION_QUEUE_LENGTH), DEFAULT_OBSERVATION_QUEUE_LENGTH);
+        this.optimizeForOak = PropertiesUtil.toBoolean(this.properties.get(PROPERTY_OPTIMIZE_FOR_OAK), DEFAULT_OPTIMIZE_FOR_OAK);
+        this.root = PropertiesUtil.toString(this.properties.get(ResourceProvider.PROPERTY_ROOT), "/");
+        this.bundleCtx = context;
+
+        this.stateFactory = new JcrProviderStateFactory(repositoryReference, repository, classLoaderManagerReference, pathMapper);
     }
 
     protected void deactivate() {

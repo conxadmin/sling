@@ -72,35 +72,36 @@ public class PathMapper implements ManagedService {
 	}
 
     private void activate() {
-    	if (this.properties != null) {
-	        mappings.clear();
-	        final String[] config = PropertiesUtil.toStringArray(this.properties.get(PATH_MAPPING), null);
-	        if ( config != null ) {
-	            for (final String mapping : config) {
-	                boolean valid = false;
-	                final String[] parts = mapping.split(":");
-	                if (parts.length == 2) {
-	                    parts[0] = parts[0].trim();
-	                    parts[1] = parts[1].trim();
-	                    if ( parts[0].startsWith("/") && (parts[1].startsWith("/") || parts[1].equals(".")) ) {
-	                        if ( parts[0].endsWith("/") ) {
-	                            parts[0] = parts[0].substring(0, parts[1].length() - 1);
-	                        }
-	                        if ( parts[1].endsWith("/") ) {
-	                            parts[1] = parts[1].substring(0, parts[1].length() - 1);
-	                        }
-	                        if ( parts[0].length() > 1 && (parts[1].length() > 1 || parts[1].equals(".")) ) {
-	                            mappings.add(new Mapping(parts[0], parts[1]));
-	                            valid = true;
-	                        }
-	                    }
-	                }
-	                if ( !valid ) {
-	                    log.warn("Invalid mapping configuration (skipping): {}", mapping);
-	                }
-	            }
-	        }
-    	}
+    	if (this.properties == null)
+    		this.properties = properties;
+    	
+        mappings.clear();
+        final String[] config = PropertiesUtil.toStringArray(this.properties.get(PATH_MAPPING), null);
+        if ( config != null ) {
+            for (final String mapping : config) {
+                boolean valid = false;
+                final String[] parts = mapping.split(":");
+                if (parts.length == 2) {
+                    parts[0] = parts[0].trim();
+                    parts[1] = parts[1].trim();
+                    if ( parts[0].startsWith("/") && (parts[1].startsWith("/") || parts[1].equals(".")) ) {
+                        if ( parts[0].endsWith("/") ) {
+                            parts[0] = parts[0].substring(0, parts[1].length() - 1);
+                        }
+                        if ( parts[1].endsWith("/") ) {
+                            parts[1] = parts[1].substring(0, parts[1].length() - 1);
+                        }
+                        if ( parts[0].length() > 1 && (parts[1].length() > 1 || parts[1].equals(".")) ) {
+                            mappings.add(new Mapping(parts[0], parts[1]));
+                            valid = true;
+                        }
+                    }
+                }
+                if ( !valid ) {
+                    log.warn("Invalid mapping configuration (skipping): {}", mapping);
+                }
+            }
+        }
     }
 
     /**
