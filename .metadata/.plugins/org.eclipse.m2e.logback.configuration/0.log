@@ -8414,3 +8414,7 @@ In the future this error will break the build.
 2016-09-01 22:54:06,431 [Worker-1173] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/launchpad/builder/src/main/resources
 2016-09-01 22:54:06,433 [Worker-1173] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-09-01 22:54:06,433 [Worker-1173] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/launchpad/builder/src/test/resources
+2016-09-03 16:41:58,714 [Worker-1454] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-03 16:41:58,714 [Worker-1454] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/launchpad/builder/src/main/resources
+2016-09-03 16:41:58,715 [Worker-1454] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-03 16:41:58,716 [Worker-1454] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/launchpad/builder/src/test/resources
