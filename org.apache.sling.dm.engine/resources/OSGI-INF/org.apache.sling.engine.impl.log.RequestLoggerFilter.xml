@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.engine.impl.log.RequestLoggerFilter" configuration-policy="ignore">
+  <implementation class="org.apache.sling.engine.impl.log.RequestLoggerFilter"/>
+  <service>
+    <provide interface="javax.servlet.Filter"/>
+  </service>
+  <reference name="RequestLoggerService" cardinality="1..n" policy="dynamic" interface="org.apache.sling.engine.impl.log.RequestLoggerService" bind="bindRequestLoggerService" unbind="unbindRequestLoggerService"/>
+  <property name="service.vendor" type="String" value="The Apache Software Foundation"/>
+  <property name="osgi.http.whiteboard.filter.pattern" type="String" value="/"/>
+  <property name="osgi.http.whiteboard.context.select" type="String" value="(osgi.http.whiteboard.context.name=org.apache.sling)"/>
+  <property name="service.description" type="String" value="Request Logger Filter"/>
+  <property name="service.ranking" type="Integer" value="32768"/>
+</scr:component>

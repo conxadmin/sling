@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Subsystem-Localization: OSGI-INF/l10n/subsystem
+Subsystem-Version: 1.0.0
+Subsystem-SymbolicName: org.osgi.service.subsystem.root
+Subsystem-Type: osgi.subsystem.application;provision-policy:=acceptDep
+ endencies
+

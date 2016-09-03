@@ -21,7 +21,9 @@ package org.apache.sling.event.impl.jobs;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -95,11 +97,15 @@ public class JobManagerImpl
     /** Job Scheduler. */
     private org.apache.sling.event.impl.jobs.scheduling.JobSchedulerImpl jobScheduler;
 
+	private Dictionary<String,?> props;
+
     /**
      * Activate this component.
      * @param props Configuration properties
      */
-    protected void activate(final Map<String, Object> props) throws LoginException {
+    protected void activate() throws LoginException {
+    	if (this.props == null)
+    		this.props = new Hashtable<>();
         this.jobScheduler = new org.apache.sling.event.impl.jobs.scheduling.JobSchedulerImpl(this.configuration, this.scheduler, this);
         this.maintenanceTask = new CleanUpTask(this.configuration, this.jobScheduler);
 

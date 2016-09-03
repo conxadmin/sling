@@ -12,6 +12,7 @@ import org.apache.sling.commons.threads.ThreadPool;
 import org.apache.sling.commons.threads.ThreadPoolManager;
 import org.apache.sling.discovery.TopologyEventListener;
 import org.apache.sling.event.impl.jobs.JobConsumerManager;
+import org.apache.sling.event.impl.jobs.JobManagerImpl;
 import org.apache.sling.event.impl.jobs.config.InternalQueueConfiguration;
 import org.apache.sling.event.impl.jobs.config.JobManagerConfiguration;
 import org.apache.sling.event.impl.jobs.config.MainQueueConfiguration;
@@ -20,6 +21,7 @@ import org.apache.sling.event.impl.jobs.config.TopologyHandler;
 import org.apache.sling.event.impl.jobs.console.InventoryPlugin;
 import org.apache.sling.event.impl.jobs.console.WebConsolePlugin;
 import org.apache.sling.event.impl.jobs.jmx.AllJobStatisticsMBean;
+import org.apache.sling.event.impl.jobs.jmx.QueuesMBeanImpl;
 import org.apache.sling.event.impl.jobs.notifications.NewJobSender;
 import org.apache.sling.event.impl.jobs.queues.QueueManager;
 import org.apache.sling.event.impl.jobs.stats.StatisticsManager;
@@ -34,6 +36,7 @@ import org.apache.sling.settings.SlingSettingsService;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
@@ -49,9 +52,10 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//EnvironmentComponent
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,EnvironmentComponent.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
-				.setInterface(EnvironmentComponent.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),EnvironmentComponent.class.getName()}, properties)
 				.setImplementation(EnvironmentComponent.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(EventingThreadPool.class)
@@ -63,27 +67,39 @@ public class Activator extends DependencyActivatorBase {
 
 		//EventingThreadPool
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,EventingThreadPool.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"Apache Sling Job Thread Pool");
 		component = dm.createComponent()
-				.setInterface(EventingThreadPool.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),EventingThreadPool.class.getName()}, properties)
 				.setImplementation(EventingThreadPool.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(EventingThreadPool.class.getName()))
 				.add(createServiceDependency().setService(ThreadPoolManager.class).setRequired(true))
 	            ;
 		dm.add(component);	
+		
+		//InternalQueueConfiguration
+		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,InternalQueueConfiguration.class.getName());
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		component = dm.createComponent()
+				.setInterface(new String[]{ManagedService.class.getName(),InternalQueueConfiguration.class.getName()}, properties)
+				.setImplementation(InternalQueueConfiguration.class)
+				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
+	            ;
+		dm.add(component);
+		
 
 		//JobManagerConfiguration
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,JobManagerConfiguration.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "This is the central service of the job handling.");
 
 		component = dm.createComponent()
-				.setInterface(JobManagerConfiguration.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),JobManagerConfiguration.class.getName()}, properties)
 				.setImplementation(JobManagerConfiguration.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(JobManagerConfiguration.class.getName()))
 				.add(createServiceDependency().setService(EnvironmentComponent.class).setRequired(true))
 				.add(createServiceDependency().setService(ResourceResolverFactory.class).setRequired(true))
 				.add(createServiceDependency().setService(QueueConfigurationManager.class).setRequired(true))
@@ -93,11 +109,11 @@ public class Activator extends DependencyActivatorBase {
 
 		//MainQueueConfiguration
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,MainQueueConfiguration.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "The configuration of the default job queue.");
-
 		component = dm.createComponent()
-				.setInterface(MainQueueConfiguration.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),MainQueueConfiguration.class.getName()}, properties)
 				.setImplementation(JobManagerConfiguration.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createConfigurationDependency().setPid(JobManagerConfiguration.class.getName()))
@@ -110,6 +126,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//QueueConfigurationManager
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,QueueConfigurationManager.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(QueueConfigurationManager.class.getName(), properties)
@@ -124,6 +141,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//TopologyEventListener
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,TopologyHandler.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(TopologyEventListener.class.getName(), properties)
@@ -133,8 +151,9 @@ public class Activator extends DependencyActivatorBase {
 	            ;
 		dm.add(component);
 		
-		//InventoryPrinter
+		//InventoryPlugin
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,InventoryPlugin.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(InventoryPrinter.NAME, "slingjobs");
 		properties.put(InventoryPrinter.TITLE, "Sling Jobs");
@@ -143,22 +162,20 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(InventoryPrinter.class.getName(), properties)
 				.setImplementation(InventoryPlugin.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(JobManager.class).setRequired(true))
 				.add(createServiceDependency().setService(JobManagerConfiguration.class).setRequired(true))
 				.add(createServiceDependency().setService(JobConsumerManager.class).setRequired(true))
 	            ;
 		dm.add(component);
 		
-		//InventoryPrinter
+		//WebConsolePlugin
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,WebConsolePlugin.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-
 		properties.put("felix.webconsole.label","slingevent");
 		properties.put("felix.webconsole.title","Jobs");
 		properties.put("felix.webconsole.category","Sling");
 		properties.put(JobConsumer.PROPERTY_TOPICS, new String[]{"sling/webconsole/test"});
-	    
 		component = dm.createComponent()
 				.setInterface(new String[]{javax.servlet.Servlet.class.getName(), JobConsumer.class.getName()}, properties)
 				.setImplementation(WebConsolePlugin.class)
@@ -168,8 +185,9 @@ public class Activator extends DependencyActivatorBase {
 	            ;
 		dm.add(component);
 		
-		//StatisticsMBean
+		//AllJobStatisticsMBean
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,AllJobStatisticsMBean.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put("jmx.objectname","org.apache.sling:type=queues,name=AllQueues");
 	    
@@ -180,11 +198,70 @@ public class Activator extends DependencyActivatorBase {
 	            ;
 		dm.add(component);
 		
-		//QueuesMBean
+		//QueuesMBeanImpl
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,QueuesMBeanImpl.class.getName());
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put("jmx.objectname","org.apache.sling:type=queues,name=QueueNames");
+		component = dm.createComponent()
+				.setInterface(QueuesMBean.class.getName(), properties)
+				.setImplementation(QueuesMBeanImpl.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+	            ;
+		dm.add(component);
+		
+		//JobConsumerManager
+		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,JobConsumerManager.class.getName());
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put("org.apache.sling.installer.configuration.persist",false);
+		properties.put("job.consumermanager.whitelist","*");
+	    properties.put("job.consumermanager.blacklist",null);
+		component = dm.createComponent()
+				.setInterface(new String[]{ManagedService.class.getName(),JobConsumerManager.class.getName()}, properties)
+				.setImplementation(JobConsumerManager.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createServiceDependency().setService(JobConsumer.class)
+						 .setCallbacks("bindJobConsumer", "unbindJobConsumer")//(java.lang.String add, java.lang.String change, java.lang.String remove)
+						 .setRequired(false))
+				.add(createServiceDependency().setService(JobExecutor.class)
+						 .setCallbacks("bindJobExecutor", "unbindJobExecutor")//(java.lang.String add, java.lang.String change, java.lang.String remove)
+						 .setRequired(false))
+	            ;
+		dm.add(component);
+		
+		//JobManagerImpl
+		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,JobManagerImpl.class.getName());
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put("scheduler.period",60);
+		properties.put("scheduler.concurrent",false);
+	    properties.put("event.topics","org/apache/sling/api/resource/Resource/ADDED\n"
+	        +"org/apache/sling/api/resource/Resource/CHANGED\n"
+	        +"org/apache/sling/api/resource/Resource/REMOVED\n"
+	        +"org/osgi/framework/BundleEvent/STARTED\n"
+	        +"org/osgi/framework/BundleEvent/UPDATED");
+		component = dm.createComponent()
+				.setInterface(new String[]{JobManager.class.getName(),EventHandler.class.getName(),Runnable.class.getName()}, properties)
+				.setImplementation(JobManagerImpl.class)
+				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createServiceDependency().setService(EventAdmin.class).setRequired(true))
+				.add(createServiceDependency().setService(Scheduler.class).setRequired(true))
+				.add(createServiceDependency().setService(JobConsumerManager.class).setRequired(true))
+				.add(createServiceDependency().setService(QueuesMBean.class).setRequired(true))
+				.add(createServiceDependency().setService(ThreadPoolManager.class).setRequired(true))
+				.add(createServiceDependency().setService(JobManagerConfiguration.class).setRequired(true))
+				.add(createServiceDependency().setService(StatisticsManager.class).setRequired(true))
+				.add(createServiceDependency().setService(QueueManager.class).setRequired(true))
+	            ;
+		dm.add(component);
+		
+		//NewJobSender
+		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,NewJobSender.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
-				.setInterface(EventHandler.class.getName(), properties)
+				.setInterface(NewJobSender.class.getName(), properties)
 				.setImplementation(NewJobSender.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(JobManagerConfiguration.class).setRequired(true))
@@ -194,6 +271,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//QueueManager
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,QueueManager.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Scheduler.PROPERTY_SCHEDULER_PERIOD,60L);
 		properties.put(Scheduler.PROPERTY_SCHEDULER_CONCURRENT,false);
@@ -216,6 +294,7 @@ public class Activator extends DependencyActivatorBase {
 		dm.add(component);
 		
 		//StatisticsManager
+		properties.put(Constants.SERVICE_PID,StatisticsManager.class.getName());
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
@@ -227,6 +306,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//HistoryCleanUpTask
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,HistoryCleanUpTask.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(JobExecutor.PROPERTY_TOPICS,"org/apache/sling/event/impl/jobs/tasks/HistoryCleanUpTask");
 		component = dm.createComponent()

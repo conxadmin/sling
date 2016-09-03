@@ -26,12 +26,8 @@ import java.util.Set;
 import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.auth.core.spi.BundleAuthenticationRequirement;
 import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
-import org.osgi.service.component.ComponentContext;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.service.component.annotations.Reference;
 
 public class BundleAuthenticationRequirementImpl implements BundleAuthenticationRequirement {
 
@@ -46,10 +42,11 @@ public class BundleAuthenticationRequirementImpl implements BundleAuthentication
     private PathBasedHolderCache<AuthenticationRequirementHolder> authRequiredCache;
 
     private volatile Authenticator slingAuthenticator;
+    
+    private volatile BundleContext context;
 
-    @Activate
-    private void activate(final ComponentContext componentCtx) {
-        final Bundle bundle = componentCtx.getUsingBundle();
+    private void activate() {
+        final Bundle bundle = context.getBundle();
         this.bundleId = bundle.getBundleId();
         this.provider = PREFIX +
                 bundle.getSymbolicName() +
@@ -61,7 +58,6 @@ public class BundleAuthenticationRequirementImpl implements BundleAuthentication
         this.authRequiredCache = ((SlingAuthenticator)slingAuthenticator).authRequiredCache;
     }
 
-    @Deactivate
     private void deactivate() {
         clearRequirements();
     }

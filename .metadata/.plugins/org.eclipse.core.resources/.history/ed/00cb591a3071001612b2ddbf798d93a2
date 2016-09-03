@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter$Config">
+  <OCD id="org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter$Config" name="Apache Sling Request Progress Tracker Log Filter" description="Filter that enables logging of request progress tracker information. To enable the log output, the category org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter needs to be logged on debug level.">
+    <AD id="extensions" type="String" cardinality="2147483647" name="Extension filter" description="Only requests with the listed extensions will be logged. If no extensions are configured all requests are logged. Empty by default." default=""/>
+    <AD id="minDurationMs" type="Integer" name="Min duration (ms)" description="Only requests that take at least the minimum duration in milliseconds are logged. Default is 0." default="0"/>
+    <AD id="maxDurationMs" type="Integer" name="Max duration (ms)" description="Only requests that take at most the maximum duration in milliseconds are logged. Default is 2147483647, i.e. Integer.MAX_VALUE." default="2147483647"/>
+    <AD id="compactLogFormat" type="Boolean" name="Compact Log Format" description="Whether or not to use the compact format. In compact one log entry is logged per request, detailing the request progress tracker information in individual lines, like stack-traces. This keeps log files smaller and makes them more readable. In the older (non-compact) format, one log entry is printed per line, thus potentially containing more noise. Default is false." default="false"/>
+  </OCD>
+  <Designate pid="org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter">
+    <Object ocdref="org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter$Config"/>
+  </Designate>
+</metatype:MetaData>

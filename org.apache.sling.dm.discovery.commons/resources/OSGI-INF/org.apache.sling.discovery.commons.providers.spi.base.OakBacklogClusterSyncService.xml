@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="false" name="org.apache.sling.discovery.commons.providers.spi.base.OakBacklogClusterSyncService" activate="activate">
+    <implementation class="org.apache.sling.discovery.commons.providers.spi.base.OakBacklogClusterSyncService"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.discovery.commons.providers.spi.ClusterSyncService"/>
+        <provide interface="org.apache.sling.discovery.commons.providers.spi.base.OakBacklogClusterSyncService"/>
+    </service>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.discovery.commons.providers.spi.base.OakBacklogClusterSyncService"/>
+    <reference name="idMapService" interface="org.apache.sling.discovery.commons.providers.spi.base.IdMapService" cardinality="1..1" policy="static" bind="bindIdMapService" unbind="unbindIdMapService"/>
+    <reference name="commonsConfig" interface="org.apache.sling.discovery.commons.providers.spi.base.DiscoveryLiteConfig" cardinality="1..1" policy="static" bind="bindCommonsConfig" unbind="unbindCommonsConfig"/>
+    <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory"/>
+    <reference name="settingsService" interface="org.apache.sling.settings.SlingSettingsService" cardinality="1..1" policy="static" bind="bindSettingsService" unbind="unbindSettingsService"/>
+</scr:component>

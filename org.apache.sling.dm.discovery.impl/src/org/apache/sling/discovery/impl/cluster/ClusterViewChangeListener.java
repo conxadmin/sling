@@ -28,7 +28,6 @@ import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
-import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
@@ -54,13 +53,12 @@ public class ClusterViewChangeListener implements EventHandler {
     /** the sling id of the local instance **/
     private String slingId;
 
-    private ComponentContext context;
+    private volatile BundleContext context;
 
     private ServiceRegistration eventHandlerRegistration;
 
-    protected void activate(final ComponentContext context) {
+    protected void activate() {
         this.slingId = slingSettingsService.getSlingId();
-        this.context = context;
     	if (logger.isDebugEnabled()) {
 	        logger.debug("activated. slingid=" + slingId + ", discoveryservice="
 	                + discoveryService);
@@ -69,7 +67,7 @@ public class ClusterViewChangeListener implements EventHandler {
     }
     
     private void registerEventHandler() {
-        BundleContext bundleContext = context == null ? null : context.getBundleContext();
+        BundleContext bundleContext = context;
         if (bundleContext == null) {
             logger.info("registerEventHandler: context or bundleContext is null - cannot register");
             return;

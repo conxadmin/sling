@@ -40,6 +40,7 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(ScriptEngineFactory.class.getName(), properties)
 				.setImplementation(RhinoJavaScriptEngineFactory.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createConfigurationDependency().setPid(RhinoJavaScriptEngineFactory.class.getName()))
 	            .add(createServiceDependency()
 	                	.setService(RhinoHostObjectProvider.class)
 	                	.setCallbacks("addHostObjectProvider", "removeHostObjectProvider")

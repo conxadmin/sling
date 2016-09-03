@@ -49,16 +49,21 @@ public class NewJobSender implements EventHandler {
 
     /** The event admin. */
     private volatile EventAdmin eventAdmin;
+    
+    private volatile BundleContext bundleContext;
 
     /** Service registration for the event handler. */
     private volatile ServiceRegistration eventHandlerRegistration;
+
+	private Hashtable<String,Object> properties;
 
     /**
      * Activate this component.
      * Register an event handler.
      */
-    protected void activate(final BundleContext bundleContext) {
-        final Dictionary<String, Object> properties = new Hashtable<String, Object>();
+    protected void activate() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
         properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Job Topic Manager Event Handler");
         properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
         properties.put(EventConstants.EVENT_TOPIC, SlingConstants.TOPIC_RESOURCE_ADDED);

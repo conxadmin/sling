@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.2.0" immediate="true" name="org.apache.sling.discovery.impl.DiscoveryServiceImpl" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.discovery.impl.DiscoveryServiceImpl"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.discovery.DiscoveryService"/>
+        <provide interface="org.apache.sling.discovery.impl.DiscoveryServiceImpl"/>
+    </service>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.discovery.impl.DiscoveryServiceImpl"/>
+    <reference name="settingsService" interface="org.apache.sling.settings.SlingSettingsService" cardinality="1..1" policy="static" bind="bindSettingsService" unbind="unbindSettingsService"/>
+    <reference name="eventListeners" interface="org.apache.sling.discovery.TopologyEventListener" cardinality="0..n" policy="dynamic" bind="bindTopologyEventListener" unbind="unbindTopologyEventListener"/>
+    <reference name="providerInfos" interface="org.apache.sling.discovery.PropertyProvider" cardinality="0..n" policy="dynamic" bind="bindPropertyProvider" unbind="unbindPropertyProvider" updated="updatedPropertyProvider"/>
+    <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory"/>
+    <reference name="scheduler" interface="org.apache.sling.commons.scheduler.Scheduler" cardinality="1..1" policy="static" bind="bindScheduler" unbind="unbindScheduler"/>
+    <reference name="heartbeatHandler" interface="org.apache.sling.discovery.impl.common.heartbeat.HeartbeatHandler" cardinality="1..1" policy="static" bind="bindHeartbeatHandler" unbind="unbindHeartbeatHandler"/>
+    <reference name="announcementRegistry" interface="org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistry" cardinality="1..1" policy="static" bind="bindAnnouncementRegistry" unbind="unbindAnnouncementRegistry"/>
+    <reference name="connectorRegistry" interface="org.apache.sling.discovery.base.connectors.ping.ConnectorRegistry" cardinality="1..1" policy="static" bind="bindConnectorRegistry" unbind="unbindConnectorRegistry"/>
+    <reference name="clusterViewService" interface="org.apache.sling.discovery.impl.cluster.ClusterViewServiceImpl" cardinality="1..1" policy="static" bind="bindClusterViewService" unbind="unbindClusterViewService"/>
+    <reference name="config" interface="org.apache.sling.discovery.impl.Config" cardinality="1..1" policy="static" bind="bindConfig" unbind="unbindConfig"/>
+    <reference name="syncTokenService" interface="org.apache.sling.discovery.commons.providers.spi.base.SyncTokenService" cardinality="1..1" policy="static" bind="bindSyncTokenService" unbind="unbindSyncTokenService"/>
+</scr:component>

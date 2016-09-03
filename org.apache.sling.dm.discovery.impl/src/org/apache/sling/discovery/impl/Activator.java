@@ -27,6 +27,7 @@ import org.apache.sling.settings.SlingSettingsService;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.EventHandler;
 
 public class Activator extends DependencyActivatorBase {
@@ -40,6 +41,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//DiscoveryServiceImpl
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,DiscoveryServiceImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
 				.setInterface(new String[]{ DiscoveryService.class.getName(), DiscoveryServiceImpl.class.getName() }, properties)
@@ -78,6 +80,7 @@ public class Activator extends DependencyActivatorBase {
 
 		//TopologyWebConsolePlugin
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,TopologyWebConsolePlugin.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Web Console Plugin to display Background servlets and ExecutionEngine status");
 		properties.put(WebConsoleConstants.PLUGIN_LABEL, TopologyWebConsolePlugin.LABEL);
@@ -98,17 +101,18 @@ public class Activator extends DependencyActivatorBase {
 
 		//Config
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,Config.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
-				.setInterface(new String[]{ Config.class.getName(), BaseConfig.class.getName(), DiscoveryLiteConfig.class.getName() }, properties)
+				.setInterface(new String[]{ ManagedService.class.getName(), Config.class.getName(), BaseConfig.class.getName(), DiscoveryLiteConfig.class.getName() }, properties)
 				.setImplementation(Config.class)
 				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
-	            .add(createConfigurationDependency()
-	                	.setPid(Config.class.getName()));
+	            ;
 		dm.add(component);		
 		
 		//ClusterViewChangeListener
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ClusterViewChangeListener.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(EventHandler.class.getName(), properties)
@@ -123,6 +127,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//ClusterViewServiceImpl
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ClusterViewServiceImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(new String[]{ClusterViewService.class.getName(), ClusterViewServiceImpl.class.getName()}, properties)
@@ -140,6 +145,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//VotingHandler
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,VotingHandler.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(EventHandler.class.getName(), properties)
@@ -159,6 +165,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//HeartbeatHandler
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,HeartbeatHandler.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(HeartbeatHandler.class.getName(), properties)

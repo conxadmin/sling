@@ -70,8 +70,7 @@ public class QueuesMBeanImpl extends StandardEmitterMBean implements QueuesMBean
                         "Notifications about queues")));
     }
 
-    public void activate(final BundleContext bc) {
-        bundleContext = bc;
+    public void activate() {
     }
 
     public void deactivate() {

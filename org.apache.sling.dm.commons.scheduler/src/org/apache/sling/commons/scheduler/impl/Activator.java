@@ -11,6 +11,7 @@ import org.apache.sling.discovery.TopologyEventListener;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 
 public class Activator extends DependencyActivatorBase {
 
@@ -23,15 +24,16 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//QuartzScheduler
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,QuartzScheduler.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
-				.setInterface(QuartzScheduler.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),QuartzScheduler.class.getName()}, properties)
 				.setImplementation(QuartzScheduler.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 	            .add(createServiceDependency()
 	                	.setService(ThreadPoolManager.class)
 	                	.setRequired(true))
-	            .add(createConfigurationDependency().setPid(QuartzScheduler.class.getName()));
+	            ;
 		 dm.add(component);
 		 
 		 //SchedulerServiceFactory

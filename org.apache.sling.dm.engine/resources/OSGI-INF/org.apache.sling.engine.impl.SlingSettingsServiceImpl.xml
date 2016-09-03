@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.engine.impl.SlingSettingsServiceImpl">
+    <implementation class="org.apache.sling.engine.impl.SlingSettingsServiceImpl"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.engine.SlingSettingsService"/>
+    </service>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <reference name="settingsService" interface="org.apache.sling.settings.SlingSettingsService" cardinality="1..1" policy="static" bind="bindSettingsService" unbind="unbindSettingsService"/>
+</scr:component>

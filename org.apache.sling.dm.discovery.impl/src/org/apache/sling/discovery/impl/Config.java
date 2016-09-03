@@ -21,6 +21,7 @@ package org.apache.sling.discovery.impl;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -213,11 +214,8 @@ public class Config implements BaseConfig, DiscoveryLiteConfig, ManagedService {
     
     protected void activate() {
 		logger.debug("activate: config activated.");
-		if (this.properties != null) {
-			configure();
-		}
-		else
-			logger.warn("Properties is NULL");
+		if (this.properties == null)
+			this.properties = new Hashtable<>();
     }
 
     protected void configure() {

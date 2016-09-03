@@ -31,6 +31,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//AnnouncementRegistryImpl
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID, AnnouncementRegistryImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
 				.setInterface(AnnouncementRegistry.class.getName(), properties)
@@ -49,6 +50,7 @@ public class Activator extends DependencyActivatorBase {
 	
 		//ConnectorRegistry
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID, ConnectorRegistryImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(ConnectorRegistry.class.getName(), properties)
@@ -65,6 +67,7 @@ public class Activator extends DependencyActivatorBase {
 
 		//TopologyConnectorServlet
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID, TopologyConnectorServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(TopologyConnectorServlet.class.getName(), properties)

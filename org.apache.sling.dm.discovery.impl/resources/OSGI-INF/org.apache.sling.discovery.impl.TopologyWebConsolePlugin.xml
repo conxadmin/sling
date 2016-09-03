@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.discovery.impl.TopologyWebConsolePlugin" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.discovery.impl.TopologyWebConsolePlugin"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.discovery.TopologyEventListener"/>
+        <provide interface="javax.servlet.Servlet"/>
+    </service>
+    <property name="service.description" value="Apache Sling Web Console Plugin to display Background servlets and ExecutionEngine status"/>
+    <property name="felix.webconsole.label" value="topology"/>
+    <property name="felix.webconsole.title" value="Topology Management"/>
+    <property name="felix.webconsole.category" value="Sling"/>
+    <property name="felix.webconsole.configprinter.modes" value="zip"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.discovery.impl.TopologyWebConsolePlugin"/>
+    <reference name="clusterViewService" interface="org.apache.sling.discovery.base.commons.ClusterViewService" cardinality="1..1" policy="static" bind="bindClusterViewService" unbind="unbindClusterViewService"/>
+    <reference name="announcementRegistry" interface="org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistry" cardinality="1..1" policy="static" bind="bindAnnouncementRegistry" unbind="unbindAnnouncementRegistry"/>
+    <reference name="connectorRegistry" interface="org.apache.sling.discovery.base.connectors.ping.ConnectorRegistry" cardinality="1..1" policy="static" bind="bindConnectorRegistry" unbind="unbindConnectorRegistry"/>
+    <reference name="syncTokenService" interface="org.apache.sling.discovery.commons.providers.spi.base.SyncTokenService" cardinality="1..1" policy="static" bind="bindSyncTokenService" unbind="unbindSyncTokenService"/>
+    <reference name="config" interface="org.apache.sling.discovery.impl.Config" cardinality="1..1" policy="static" bind="bindConfig" unbind="unbindConfig"/>
+</scr:component>

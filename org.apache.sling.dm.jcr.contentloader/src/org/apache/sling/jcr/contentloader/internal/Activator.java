@@ -6,6 +6,7 @@ import java.util.Properties;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.commons.mime.MimeTypeService;
+import org.apache.sling.engine.impl.log.RequestLoggerService;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.sling.jcr.contentloader.ContentImporter;
 import org.apache.sling.jcr.contentloader.ContentReader;
@@ -29,6 +30,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//ContentLoaderService
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ContentLoaderService.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Content Loader Implementation");
 		Component component = dm.createComponent()
@@ -44,6 +46,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//ContentReaderWhiteboard
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ContentReaderWhiteboard.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(ContentReaderWhiteboard.class.getName(), properties)
@@ -56,32 +59,32 @@ public class Activator extends DependencyActivatorBase {
 		
 		//DefaultContentImporter
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,DefaultContentImporter.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling JCR Content Import Service");
+		properties.put(Constants.SERVICE_DESCRIPTION,"Apache Sling JCR Content Import Service");
 		component = dm.createComponent()
 				.setInterface(ContentImporter.class.getName(), properties)
 				.setImplementation(DefaultContentImporter.class)
-				.add(createServiceDependency().setService(ContentReaderWhiteboard.class)
-						.setCallbacks("bindContentReaderWhiteboard", "unbindContentReaderWhiteboard")
-						.setRequired(false))
+				.add(createServiceDependency().setService(ContentReaderWhiteboard.class).setRequired(true))
 				.add(createServiceDependency().setService(MimeTypeService.class).setRequired(true))
 	            ;
 		dm.add(component);
 		
-		//DefaultContentImporter
+		//JsonReader
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,JsonReader.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(ContentReader.PROPERTY_EXTENSIONS,"json");
 		properties.put(ContentReader.PROPERTY_TYPES, "application/json");
 		component = dm.createComponent()
 				.setInterface(ContentReader.class.getName(), properties)
 				.setImplementation(JsonReader.class)
-				.add(createServiceDependency().setService(MimeTypeService.class).setRequired(true))
 	            ;
 		dm.add(component);
 		
 		//OrderedJsonReader
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,OrderedJsonReader.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(ContentReader.PROPERTY_EXTENSIONS,"ordered-json");
 		properties.put(ContentReader.PROPERTY_TYPES, "application/json");
@@ -94,6 +97,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//XmlReader
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,XmlReader.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(ContentReader.PROPERTY_EXTENSIONS,"xml");
 		properties.put(ContentReader.PROPERTY_TYPES, new String[]{"application/xml", "text/xml"});
@@ -105,6 +109,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//ZipReader
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ZipReader.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(ContentReader.PROPERTY_EXTENSIONS,new String[]{"zip", "jar"});
 		properties.put(ContentReader.PROPERTY_TYPES, new String[]{"application/zip", "application/java-archive"});

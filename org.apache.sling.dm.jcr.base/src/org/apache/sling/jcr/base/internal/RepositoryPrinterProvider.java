@@ -42,7 +42,7 @@ public class RepositoryPrinterProvider {
 
     private final Map<Long, ServiceRegistration> registrations = new HashMap<Long, ServiceRegistration>();
 
-    private BundleContext bundleContext;
+    private volatile BundleContext bundleContext;
 
     /** List of services which are bound before activate is called. */
     private final List<PendingService> pendingServices = new ArrayList<PendingService>();
@@ -50,10 +50,9 @@ public class RepositoryPrinterProvider {
     /**
      * Activate this component.
      */
-    protected void activate(final BundleContext ctx) {
+    protected void activate() {
         final List<PendingService> copyList;
         synchronized ( pendingServices ) {
-            this.bundleContext = ctx;
             copyList = new ArrayList<PendingService>(this.pendingServices);
             this.pendingServices.clear();
         }

@@ -20,6 +20,7 @@ package org.apache.sling.engine.impl.parameters;
 
 import java.io.File;
 import java.util.Dictionary;
+import java.util.Hashtable;
 
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.settings.SlingSettingsService;
@@ -63,6 +64,9 @@ public class RequestParameterSupportConfigurer implements ManagedService {
 	}
 
     private void configure() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         @SuppressWarnings("unchecked")
         Dictionary<String, Object> props = (Dictionary<String, Object>) this.properties;
 

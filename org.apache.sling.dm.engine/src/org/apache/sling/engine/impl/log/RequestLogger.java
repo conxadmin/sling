@@ -90,29 +90,27 @@ public class RequestLogger implements ManagedService {
 	}
     
     protected void activate() {
-    	if (this.props != null) {
-	    	// prepare the request loggers if a name is configured and the
-	        // request loggers are enabled
-	        final String requestLogName = PropertiesUtil.toString(props.get(PROP_REQUEST_LOG_OUTPUT), null);
-	        final boolean requestLogEnabled = PropertiesUtil.toBoolean(props.get(PROP_REQUEST_LOG_ENABLED), false);
-	        if (requestLogName != null && requestLogEnabled) {
-	            final int requestLogType = PropertiesUtil.toInteger(props.get(PROP_REQUEST_LOG_OUTPUT_TYPE), 0);
-	            createRequestLoggerService(services, bundleContext, true, REQUEST_LOG_ENTRY_FORMAT, requestLogName, requestLogType);
-	            createRequestLoggerService(services, bundleContext, false, REQUEST_LOG_EXIT_FORMAT, requestLogName, requestLogType);
-	        }
-	
-	        // prepare the access logger if a name is configured and the
-	        // access logger is enabled
-	        final String accessLogName = PropertiesUtil.toString(props.get(PROP_ACCESS_LOG_OUTPUT), null);
-	        final boolean accessLogEnabled = PropertiesUtil.toBoolean(props.get(PROP_ACCESS_LOG_ENABLED), false);
-	        if (accessLogName != null && accessLogEnabled) {
-	            final int accessLogType = PropertiesUtil.toInteger(props.get(PROP_ACCESS_LOG_OUTPUT_TYPE), 0);
-	            createRequestLoggerService(services, bundleContext, false, ACCESS_LOG_FORMAT, accessLogName, accessLogType);
-	        }
-    	}
-    	else
-    		log.warn("Properties is NULL");
-    		
+    	if (this.props == null)
+    		this.props = new Hashtable<>();
+    	
+    	// prepare the request loggers if a name is configured and the
+        // request loggers are enabled
+        final String requestLogName = PropertiesUtil.toString(props.get(PROP_REQUEST_LOG_OUTPUT), null);
+        final boolean requestLogEnabled = PropertiesUtil.toBoolean(props.get(PROP_REQUEST_LOG_ENABLED), false);
+        if (requestLogName != null && requestLogEnabled) {
+            final int requestLogType = PropertiesUtil.toInteger(props.get(PROP_REQUEST_LOG_OUTPUT_TYPE), 0);
+            createRequestLoggerService(services, bundleContext, true, REQUEST_LOG_ENTRY_FORMAT, requestLogName, requestLogType);
+            createRequestLoggerService(services, bundleContext, false, REQUEST_LOG_EXIT_FORMAT, requestLogName, requestLogType);
+        }
+
+        // prepare the access logger if a name is configured and the
+        // access logger is enabled
+        final String accessLogName = PropertiesUtil.toString(props.get(PROP_ACCESS_LOG_OUTPUT), null);
+        final boolean accessLogEnabled = PropertiesUtil.toBoolean(props.get(PROP_ACCESS_LOG_ENABLED), false);
+        if (accessLogName != null && accessLogEnabled) {
+            final int accessLogType = PropertiesUtil.toInteger(props.get(PROP_ACCESS_LOG_OUTPUT_TYPE), 0);
+            createRequestLoggerService(services, bundleContext, false, ACCESS_LOG_FORMAT, accessLogName, accessLogType);
+        }
     }
 
     protected void deactivate() {

@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Iterator;
 
 import javax.servlet.Filter;
@@ -176,42 +177,41 @@ public class RequestProgressTrackerLogFilter implements Filter, ManagedService {
 	}
 	
     private void activate() {
-    	if (this.properties != null) {
-	        this.configuration = new Config() {
-				@Override
-				public Class<? extends Annotation> annotationType() {
-					// TODO Auto-generated method stub
-					return null;
-				}
-	
-				@Override
-				public String[] extensions() {
-					return (String[]) RequestProgressTrackerLogFilter.this.properties.get("extensions");
-				}
-	
-				@Override
-				public int minDurationMs() {
-					return (int) RequestProgressTrackerLogFilter.this.properties.get("minDurationMs");
-				}
-	
-				@Override
-				public int maxDurationMs() {
-					return (int) RequestProgressTrackerLogFilter.this.properties.get("maxDurationMs");
-				}
-	
-				@Override
-				public boolean compactLogFormat() {
-					return (boolean) RequestProgressTrackerLogFilter.this.properties.get("compactLogFormat");
-				}
-	        	
-	        };
-	        // extensions needs to be sorted for Arrays.binarySearch() to work
-	        this.extensions = sortAndClean(this.configuration.extensions());
-	        log.debug("activated: extensions = {}, min = {}, max = {}, compact = {}",
-	                new Object[]{extensions, configuration.minDurationMs(), configuration.maxDurationMs(), configuration.compactLogFormat()});
-    	}
-    	else
-    		log.warn("Properties is NULL");
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
+        this.configuration = new Config() {
+			@Override
+			public Class<? extends Annotation> annotationType() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public String[] extensions() {
+				return (String[]) RequestProgressTrackerLogFilter.this.properties.get("extensions");
+			}
+
+			@Override
+			public int minDurationMs() {
+				return (int) RequestProgressTrackerLogFilter.this.properties.get("minDurationMs");
+			}
+
+			@Override
+			public int maxDurationMs() {
+				return (int) RequestProgressTrackerLogFilter.this.properties.get("maxDurationMs");
+			}
+
+			@Override
+			public boolean compactLogFormat() {
+				return (boolean) RequestProgressTrackerLogFilter.this.properties.get("compactLogFormat");
+			}
+        	
+        };
+        // extensions needs to be sorted for Arrays.binarySearch() to work
+        this.extensions = sortAndClean(this.configuration.extensions());
+        log.debug("activated: extensions = {}, min = {}, max = {}, compact = {}",
+                new Object[]{extensions, configuration.minDurationMs(), configuration.maxDurationMs(), configuration.compactLogFormat()});
     }
 
 }

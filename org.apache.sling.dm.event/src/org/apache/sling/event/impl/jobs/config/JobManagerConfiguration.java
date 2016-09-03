@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -172,57 +173,56 @@ public class JobManagerConfiguration implements ManagedService {
      * @throws RuntimeException If the default paths can't be created
      */
     protected void activate() {
-    	if (this.props != null) {
-	        this.update();
-	        this.jobsBasePathWithSlash = PropertiesUtil.toString(props.get(PROPERTY_REPOSITORY_PATH),
-	                DEFAULT_REPOSITORY_PATH) + '/';
-	
-	        // create initial resources
-	        this.assignedJobsPath = this.jobsBasePathWithSlash + "assigned";
-	        this.unassignedJobsPath = this.jobsBasePathWithSlash + "unassigned";
-	
-	        this.localJobsPath = this.assignedJobsPath.concat("/").concat(Environment.APPLICATION_ID);
-	        this.localJobsPathWithSlash = this.localJobsPath.concat("/");
-	
-	        this.previousVersionAnonPath = this.jobsBasePathWithSlash + "anon";
-	        this.previousVersionIdentifiedPath = this.jobsBasePathWithSlash + "identified";
-	
-	        this.storedCancelledJobsPath = this.jobsBasePathWithSlash + "cancelled";
-	        this.storedSuccessfulJobsPath = this.jobsBasePathWithSlash + "finished";
-	
-	        this.scheduledJobsPath = PropertiesUtil.toString(props.get(PROPERTY_SCHEDULED_JOBS_PATH),
-	            DEFAULT_SCHEDULED_JOBS_PATH);
-	        this.scheduledJobsPathWithSlash = this.scheduledJobsPath + "/";
-	
-	        // create initial resources
-	        final ResourceResolver resolver = this.createResourceResolver();
-	        try {
-	            ResourceHelper.getOrCreateBasePath(resolver, this.getLocalJobsPath());
-	            ResourceHelper.getOrCreateBasePath(resolver, this.getUnassignedJobsPath());
-	        } catch ( final PersistenceException pe ) {
-	            logger.error("Unable to create default paths: " + pe.getMessage(), pe);
-	            throw new RuntimeException(pe);
-	        } finally {
-	            resolver.close();
-	        }
-	        this.active.set(true);
-	        
-	        // SLING-5560 : use an InitDelayingTopologyEventListener
-	        if (this.startupDelay > 0) {
-	            logger.debug("activate: job manager will start in {} sec. ({})", this.startupDelay, PROPERTY_STARTUP_DELAY);
-	            this.startupDelayListener = new InitDelayingTopologyEventListener(startupDelay, new TopologyEventListener() {
-	
-	                @Override
-	                public void handleTopologyEvent(TopologyEvent event) {
-	                    doHandleTopologyEvent(event);
-	                }
-	            }, this.scheduler, logger);
-	        } else {
-	            logger.debug("activate: job manager will start without delay. ({}:{})", PROPERTY_STARTUP_DELAY, this.startupDelay);
-	        }
-    	}
-    	else
-            logger.debug("Properties is NULL");
+    	if (this.props == null)
+    		this.props = new Hashtable<>();
+    	
+        this.update();
+        this.jobsBasePathWithSlash = PropertiesUtil.toString(props.get(PROPERTY_REPOSITORY_PATH),
+                DEFAULT_REPOSITORY_PATH) + '/';
+
+        // create initial resources
+        this.assignedJobsPath = this.jobsBasePathWithSlash + "assigned";
+        this.unassignedJobsPath = this.jobsBasePathWithSlash + "unassigned";
+
+        this.localJobsPath = this.assignedJobsPath.concat("/").concat(Environment.APPLICATION_ID);
+        this.localJobsPathWithSlash = this.localJobsPath.concat("/");
+
+        this.previousVersionAnonPath = this.jobsBasePathWithSlash + "anon";
+        this.previousVersionIdentifiedPath = this.jobsBasePathWithSlash + "identified";
+
+        this.storedCancelledJobsPath = this.jobsBasePathWithSlash + "cancelled";
+        this.storedSuccessfulJobsPath = this.jobsBasePathWithSlash + "finished";
+
+        this.scheduledJobsPath = PropertiesUtil.toString(props.get(PROPERTY_SCHEDULED_JOBS_PATH),
+            DEFAULT_SCHEDULED_JOBS_PATH);
+        this.scheduledJobsPathWithSlash = this.scheduledJobsPath + "/";
+
+        // create initial resources
+        final ResourceResolver resolver = this.createResourceResolver();
+        try {
+            ResourceHelper.getOrCreateBasePath(resolver, this.getLocalJobsPath());
+            ResourceHelper.getOrCreateBasePath(resolver, this.getUnassignedJobsPath());
+        } catch ( final PersistenceException pe ) {
+            logger.error("Unable to create default paths: " + pe.getMessage(), pe);
+            throw new RuntimeException(pe);
+        } finally {
+            resolver.close();
+        }
+        this.active.set(true);
+        
+        // SLING-5560 : use an InitDelayingTopologyEventListener
+        if (this.startupDelay > 0) {
+            logger.debug("activate: job manager will start in {} sec. ({})", this.startupDelay, PROPERTY_STARTUP_DELAY);
+            this.startupDelayListener = new InitDelayingTopologyEventListener(startupDelay, new TopologyEventListener() {
+
+                @Override
+                public void handleTopologyEvent(TopologyEvent event) {
+                    doHandleTopologyEvent(event);
+                }
+            }, this.scheduler, logger);
+        } else {
+            logger.debug("activate: job manager will start without delay. ({}:{})", PROPERTY_STARTUP_DELAY, this.startupDelay);
+        }
     }
 
     /**

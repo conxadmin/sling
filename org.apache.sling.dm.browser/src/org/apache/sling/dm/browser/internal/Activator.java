@@ -26,6 +26,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//AdapterManagerImpl
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,BrowserServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "JCR Browser");
 		properties.put(Constants.SERVICE_DESCRIPTION, "JCR Browser Servlet");
 		properties.put("sling.servlet.paths","/services/browser");

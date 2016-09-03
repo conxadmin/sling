@@ -19,6 +19,8 @@
 package org.apache.sling.event.impl.jobs.config;
 
 import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Map;
 
 import org.apache.sling.commons.osgi.PropertiesUtil;
@@ -26,11 +28,13 @@ import org.apache.sling.event.impl.support.TopicMatcher;
 import org.apache.sling.event.impl.support.TopicMatcherHelper;
 import org.apache.sling.event.jobs.QueueConfiguration;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class InternalQueueConfiguration
-    implements QueueConfiguration, Comparable<InternalQueueConfiguration> {
+    implements QueueConfiguration, Comparable<InternalQueueConfiguration>, ManagedService {
 
     /** Logger. */
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -76,12 +80,14 @@ public class InternalQueueConfiguration
 
     private String pid;
 
+	private Hashtable params;
+
     /**
      * Create a new configuration from a config
      */
     public static InternalQueueConfiguration fromConfiguration(final Map<String, Object> params) {
         final InternalQueueConfiguration c = new InternalQueueConfiguration();
-        c.activate(params);
+        c.activate();
         return c;
     }
 
@@ -92,7 +98,16 @@ public class InternalQueueConfiguration
     /**
      * Create a new queue configuration
      */
-    protected void activate(final Map<String, Object> params) {
+
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.params = new Hashtable<>();
+	}
+	
+    protected void activate() {
+    	if (this.params == null)
+    		this.params = new Hashtable<>();
+    	
         this.name = PropertiesUtil.toString(params.get(ConfigurationConstants.PROP_NAME), null);
         try {
             this.priority = ThreadPriority.valueOf(ThreadPriority.class,PropertiesUtil.toString(params.get(ConfigurationConstants.PROP_PRIORITY), ConfigurationConstants.DEFAULT_PRIORITY));

@@ -25,8 +25,9 @@ public class Activator extends DependencyActivatorBase {
 
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
-		//QuartzScheduler
+		//IdMapService
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,IdMapService.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
 				.setInterface(IdMapService.class.getName(), properties)
@@ -45,6 +46,7 @@ public class Activator extends DependencyActivatorBase {
 		 
 		 //OakBacklogClusterSyncService
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,OakBacklogClusterSyncService.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(new String[]{ ClusterSyncService.class.getName(), OakBacklogClusterSyncService.class.getName() }, properties)
@@ -58,6 +60,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		 //SyncTokenService
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,SyncTokenService.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
 				.setInterface(new String[]{ ClusterSyncService.class.getName(), SyncTokenService.class.getName() }, properties)

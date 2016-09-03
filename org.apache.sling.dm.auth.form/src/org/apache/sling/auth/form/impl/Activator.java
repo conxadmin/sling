@@ -18,6 +18,7 @@ import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.service.packageadmin.PackageAdmin;
 
@@ -30,8 +31,9 @@ public class Activator extends DependencyActivatorBase {
 
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
-		//AdapterManagerImpl
+		//AuthenticationFormServlet
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,AuthenticationFormServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Form Based Authentication Handler");
 		properties.put("sling.servlet.paths","/system/sling/form/login");
@@ -43,15 +45,13 @@ public class Activator extends DependencyActivatorBase {
 		 
 		//FormAuthenticationHandler
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,FormAuthenticationHandler.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Form Based Authentication Handler");
-	    
 		component = dm.createComponent()
-				.setInterface(Servlet.class.getName(), properties)
+				.setInterface(new String[] {ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(FormAuthenticationHandler.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-	            .add(createConfigurationDependency()
-	            		.setPid(FormAuthenticationHandler.class.getName()))
 				.add(createServiceDependency()
 	                	.setService(ResourceResolverFactory.class)
 	                	.setRequired(true))

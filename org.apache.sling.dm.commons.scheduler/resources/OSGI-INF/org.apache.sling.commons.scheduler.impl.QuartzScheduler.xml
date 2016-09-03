@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.commons.scheduler.impl.QuartzScheduler" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.commons.scheduler.impl.QuartzScheduler"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.commons.scheduler.impl.QuartzScheduler"/>
+    </service>
+    <property name="poolName"/>
+    <property name="allowedPoolNames"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <reference name="threadPoolManager" interface="org.apache.sling.commons.threads.ThreadPoolManager" cardinality="1..1" policy="static" bind="bindThreadPoolManager" unbind="unbindThreadPoolManager"/>
+</scr:component>

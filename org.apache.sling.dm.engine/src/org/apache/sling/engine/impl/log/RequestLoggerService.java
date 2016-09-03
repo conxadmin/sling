@@ -82,25 +82,24 @@ public class RequestLoggerService implements ManagedService {
     }
 
     void setup() {
-    	if (this.properties != null) {
-	        // whether to log on request entry or request exit
-	        this.onEntry = PropertiesUtil.toBoolean(this.properties.get(PARAM_ON_ENTRY), false);
-	
-	        // shared or private CustomLogFormat
-	        final String format = PropertiesUtil.toString(this.properties.get(PARAM_FORMAT), null);
-	        if (format != null) {
-	            this.logFormat = new CustomLogFormat(format);
-	        }
-	
-	        // where to log to
-	        final String output = PropertiesUtil.toString(this.properties.get(PARAM_OUTPUT), null);
-	        if (output != null) {
-	            final int outputType = PropertiesUtil.toInteger(this.properties.get(PARAM_OUTPUT_TYPE), OUTPUT_TYPE_LOGGER);
-	            this.log = this.getLog(bundleContext, output, outputType);
-	        }
-    	}
-    	else
-    		System.out.println("Properties is NULL");
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
+        // whether to log on request entry or request exit
+        this.onEntry = PropertiesUtil.toBoolean(this.properties.get(PARAM_ON_ENTRY), false);
+
+        // shared or private CustomLogFormat
+        final String format = PropertiesUtil.toString(this.properties.get(PARAM_FORMAT), null);
+        if (format != null) {
+            this.logFormat = new CustomLogFormat(format);
+        }
+
+        // where to log to
+        final String output = PropertiesUtil.toString(this.properties.get(PARAM_OUTPUT), null);
+        if (output != null) {
+            final int outputType = PropertiesUtil.toInteger(this.properties.get(PARAM_OUTPUT_TYPE), OUTPUT_TYPE_LOGGER);
+            this.log = this.getLog(bundleContext, output, outputType);
+        }
     }
 
     void shutdown() {

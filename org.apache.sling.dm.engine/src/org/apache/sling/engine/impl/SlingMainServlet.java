@@ -317,7 +317,9 @@ public class SlingMainServlet extends GenericServlet implements ManagedService {
 	}
 	
     protected void activate() {
-    	if (this.componentConfig != null) {
+    	if (this.componentConfig == null)
+    		this.componentConfig = new Hashtable<>();
+    	
         final String[] props = PropertiesUtil.toStringArray(componentConfig.get(PROP_ADDITIONAL_RESPONSE_HEADERS));
 
         final ArrayList<StaticResponseHeader> mappings = new ArrayList<StaticResponseHeader>(props.length);
@@ -442,9 +444,6 @@ public class SlingMainServlet extends GenericServlet implements ManagedService {
         srpProps.put(Constants.SERVICE_DESCRIPTION, "Sling Request Processor");
         requestProcessorRegistration = bundleContext.registerService(
             SlingRequestProcessor.class, requestProcessor, srpProps);
-    	}
-    	else
-    		log.warn("Properties is NULL");
     }
 
     @Override

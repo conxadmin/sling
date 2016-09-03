@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.discovery.impl.cluster.ClusterViewChangeListener" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.discovery.impl.cluster.ClusterViewChangeListener"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.discovery.impl.cluster.ClusterViewChangeListener"/>
+    <reference name="slingSettingsService" interface="org.apache.sling.settings.SlingSettingsService" cardinality="1..1" policy="static" bind="bindSlingSettingsService" unbind="unbindSlingSettingsService"/>
+    <reference name="resolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResolverFactory" unbind="unbindResolverFactory"/>
+    <reference name="discoveryService" interface="org.apache.sling.discovery.impl.DiscoveryServiceImpl" cardinality="1..1" policy="static" bind="bindDiscoveryService" unbind="unbindDiscoveryService"/>
+    <reference name="config" interface="org.apache.sling.discovery.impl.Config" cardinality="1..1" policy="static" bind="bindConfig" unbind="unbindConfig"/>
+</scr:component>

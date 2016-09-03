@@ -22,6 +22,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//JcrInstaller
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,RepositoryPrinterProvider.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    
 		Component component = dm.createComponent()

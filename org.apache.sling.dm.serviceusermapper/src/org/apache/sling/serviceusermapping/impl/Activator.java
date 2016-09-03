@@ -81,7 +81,7 @@ public class Activator extends DependencyActivatorBase {
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
-				.setInterface(new String[]{EventListenerHook.class.getName(),FindHook.class.getName()}, properties)
+				.setInterface(new String[]{org.osgi.framework.hooks.service.EventListenerHook.class.getName(),org.osgi.framework.hooks.service.FindHook.class.getName()}, properties)
 				.setImplementation(ServiceUserMappedBundleFilter.class)
 	            ;
 		 dm.add(component);

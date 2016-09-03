@@ -1,7 +1,7 @@
 Bundle-Version: 2.3.1.${tstamp}
 Include-Resource: /=resources/
 X-MultiTenant-Version: 1
-X-MultiTenant-Bundle-Activator: org.conxworks.contentrepository.sling.jcr.jackrabbit.server.osgi.MTActivator
+X-MultiTenant-Bundle-Activator: org.apache.sling.dm.jcr.jackrabbit.server.osgi.MTActivator
 X-MultiTenant-Binding: TENANTS
 X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
 	(objectClass=org.osgi.service.log.LogService)\

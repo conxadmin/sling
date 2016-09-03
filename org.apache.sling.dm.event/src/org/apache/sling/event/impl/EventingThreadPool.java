@@ -19,6 +19,7 @@
 package org.apache.sling.event.impl;
 
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Map;
 
 import org.apache.sling.commons.osgi.PropertiesUtil;
@@ -70,6 +71,9 @@ public class EventingThreadPool implements ThreadPool, ManagedService {
      * Activate this component.
      */
     protected void activate() {
+    	if (this.props == null)
+    		this.props = new Hashtable<>();
+    	
         final int maxPoolSize = PropertiesUtil.toInteger(props.get(PROPERTY_POOL_SIZE), DEFAULT_POOL_SIZE);
         this.configure(maxPoolSize);
     }

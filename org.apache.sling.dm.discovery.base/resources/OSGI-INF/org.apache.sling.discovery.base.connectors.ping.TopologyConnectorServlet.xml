@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.discovery.base.connectors.ping.TopologyConnectorServlet" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.discovery.base.connectors.ping.TopologyConnectorServlet"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.discovery.base.connectors.ping.TopologyConnectorServlet"/>
+    </service>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.discovery.base.connectors.ping.TopologyConnectorServlet"/>
+    <reference name="announcementRegistry" interface="org.apache.sling.discovery.base.connectors.announcement.AnnouncementRegistry" cardinality="1..1" policy="static" bind="bindAnnouncementRegistry" unbind="unbindAnnouncementRegistry"/>
+    <reference name="clusterViewService" interface="org.apache.sling.discovery.base.commons.ClusterViewService" cardinality="1..1" policy="static" bind="bindClusterViewService" unbind="unbindClusterViewService"/>
+    <reference name="httpService" interface="org.osgi.service.http.HttpService" cardinality="1..1" policy="static" bind="bindHttpService" unbind="unbindHttpService"/>
+    <reference name="config" interface="org.apache.sling.discovery.base.connectors.BaseConfig" cardinality="1..1" policy="static" bind="bindConfig" unbind="unbindConfig"/>
+</scr:component>

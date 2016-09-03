@@ -126,43 +126,44 @@ public class SlingDavExServlet extends JcrRemotingServlet implements ManagedServ
 	}
     
     protected void activate() {
-    	if (this.properties != null) {
-	        final String davRoot = OsgiUtil.toString(this.properties.get(PROP_DAV_ROOT), DEFAULT_DAV_ROOT);
-	        final boolean createAbsoluteUri = OsgiUtil.toBoolean(this.properties.get(PROP_CREATE_ABSOLUTE_URI), DEFAULT_CREATE_ABSOLUTE_URI);
-	        final String protectedHandlers = OsgiUtil.toString(this.properties.get(PROP_PROTECTED_HANDLERS), DEFAULT_PROTECTED_HANDLERS);
-	
-	        final AuthHttpContext context = new AuthHttpContext(davRoot);
-	        context.setAuthenticationSupport(authSupport);
-	
-	        // prepare DavEx servlet config
-	        final Dictionary<String, String> initProps = new Hashtable<String, String>();
-	
-	        // prefix to the servlet
-	        initProps.put(INIT_PARAM_RESOURCE_PATH_PREFIX, davRoot);
-	
-	        // create absolute URIs (or absolute paths)
-	        initProps.put(INIT_PARAM_CREATE_ABSOLUTE_URI, Boolean.toString(createAbsoluteUri));
-	
-	        // disable CSRF checks for now (should be handled by Sling)
-	        initProps.put(INIT_PARAM_CSRF_PROTECTION, CSRFUtil.DISABLED);
-	        
-	        initProps.put(INIT_PARAM_PROTECTED_HANDLERS_CONFIG, protectedHandlers);
-	
-	        // register and handle registration failure
-	        try {
-	            this.httpService.registerServlet(davRoot, this, initProps, context);
-	            this.servletAlias = davRoot;
-	
-	            Hashtable<String, Object> dummyServiceProperties = new Hashtable();
-	            dummyServiceProperties.put(Constants.SERVICE_VENDOR, this.properties.get(Constants.SERVICE_VENDOR));
-	            dummyServiceProperties.put(Constants.SERVICE_DESCRIPTION,
-	                "Helper for " + this.properties.get(Constants.SERVICE_DESCRIPTION));
-	            dummyServiceProperties.put(PAR_AUTH_REQ, "-" + davRoot);
-	            this.dummyService = bundleContext.registerService("java.lang.Object", new Object(), dummyServiceProperties);
-	        } catch (Exception e) {
-	            log.error("activate: Failed registering DavEx Servlet at " + davRoot, e);
-	        }
-    	}
+    	if (this.properties != null)
+    		this.properties = new Hashtable<>();
+
+        final String davRoot = OsgiUtil.toString(this.properties.get(PROP_DAV_ROOT), DEFAULT_DAV_ROOT);
+        final boolean createAbsoluteUri = OsgiUtil.toBoolean(this.properties.get(PROP_CREATE_ABSOLUTE_URI), DEFAULT_CREATE_ABSOLUTE_URI);
+        final String protectedHandlers = OsgiUtil.toString(this.properties.get(PROP_PROTECTED_HANDLERS), DEFAULT_PROTECTED_HANDLERS);
+
+        final AuthHttpContext context = new AuthHttpContext(davRoot);
+        context.setAuthenticationSupport(authSupport);
+
+        // prepare DavEx servlet config
+        final Dictionary<String, String> initProps = new Hashtable<String, String>();
+
+        // prefix to the servlet
+        initProps.put(INIT_PARAM_RESOURCE_PATH_PREFIX, davRoot);
+
+        // create absolute URIs (or absolute paths)
+        initProps.put(INIT_PARAM_CREATE_ABSOLUTE_URI, Boolean.toString(createAbsoluteUri));
+
+        // disable CSRF checks for now (should be handled by Sling)
+        initProps.put(INIT_PARAM_CSRF_PROTECTION, CSRFUtil.DISABLED);
+        
+        initProps.put(INIT_PARAM_PROTECTED_HANDLERS_CONFIG, protectedHandlers);
+
+        // register and handle registration failure
+        try {
+            this.httpService.registerServlet(davRoot, this, initProps, context);
+            this.servletAlias = davRoot;
+
+            Hashtable<String, Object> dummyServiceProperties = new Hashtable();
+            dummyServiceProperties.put(Constants.SERVICE_VENDOR, this.properties.get(Constants.SERVICE_VENDOR));
+            dummyServiceProperties.put(Constants.SERVICE_DESCRIPTION,
+                "Helper for " + this.properties.get(Constants.SERVICE_DESCRIPTION));
+            dummyServiceProperties.put(PAR_AUTH_REQ, "-" + davRoot);
+            this.dummyService = bundleContext.registerService("java.lang.Object", new Object(), dummyServiceProperties);
+        } catch (Exception e) {
+            log.error("activate: Failed registering DavEx Servlet at " + davRoot, e);
+        }
     }
 
     protected void deactivate() {

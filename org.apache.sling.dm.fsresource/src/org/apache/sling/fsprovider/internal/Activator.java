@@ -30,6 +30,7 @@ import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.EventAdmin;
 
 public class Activator  extends DependencyActivatorBase {
@@ -43,10 +44,11 @@ public class Activator  extends DependencyActivatorBase {
 	public void init(BundleContext context, DependencyManager dm) throws Exception {
 		//QuartzScheduler
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,FsResourceProvider.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put("service.description", "Sling Filesystem Resource Provider");
 		Component component = dm.createComponent()
-				.setInterface(ResourceProvider.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),ResourceProvider.class.getName()}, properties)
 				.setImplementation(FsResourceProvider.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency()

@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
+import org.apache.sling.discovery.impl.DiscoveryServiceImpl;
 import org.apache.sling.settings.SlingSettingsService;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
@@ -22,6 +23,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//StandardPropertyProvider
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,StandardPropertyProvider.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
 				.setInterface(StandardPropertyProvider.class.getName(), properties)

@@ -22,10 +22,14 @@ public class Activator extends DependencyActivatorBase {
 
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
-		//DeleteAcesServlet
+		//SlingDavExServlet
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,SlingDavExServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION ,"Sling JcrRemoting Servlet");
+		properties.put("alias","/server");
+		properties.put("dav.create-absolute-uri",true);
+		properties.put("dav.protectedhandlers","org.apache.jackrabbit.server.remoting.davex.AclRemoveHandler");
 		Component component = dm.createComponent()
 				.setInterface(SlingDavExServlet.class.getName(), properties)
 				.setImplementation(SlingDavExServlet.class)

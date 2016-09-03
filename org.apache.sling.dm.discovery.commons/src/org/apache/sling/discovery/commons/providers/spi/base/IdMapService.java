@@ -81,12 +81,11 @@ public class IdMapService extends AbstractServiceWithBackgroundCheck implements 
         service.commonsConfig = commonsConfig;
         service.settingsService = settingsService;
         service.resourceResolverFactory = resourceResolverFactory;
-        service.activate(null);
+        service.activate();
         return service;
     }
 
-    protected void activate(BundleContext bundleContext) {
-        this.bundleContext = bundleContext;
+    protected void activate() {
         registerEventHandler();
         
         startBackgroundCheck("IdMapService-initializer", new BackgroundCheck() {

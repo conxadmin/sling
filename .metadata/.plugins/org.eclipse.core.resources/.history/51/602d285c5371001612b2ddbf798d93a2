@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.fsprovider.internal.FsResourceProvider" name="%resource.resolver.name" description="%resource.resolver.description">
+        <AD id="provider.roots" type="String" name="%provider.roots.name" description="%provider.roots.description"/>
+        <AD id="webconsole.configurationFactory.nameHint" type="String" default="Root\ paths:\ {provider.roots}" name="%webconsole.configurationFactory.nameHint.name" description="%webconsole.configurationFactory.nameHint.description"/>
+        <AD id="provider.file" type="String" name="%provider.file.name" description="%provider.file.description"/>
+        <AD id="provider.checkinterval" type="Long" default="1000" name="%provider.checkinterval.name" description="%provider.checkinterval.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.fsprovider.internal.FsResourceProvider" factoryPid="org.apache.sling.fsprovider.internal.FsResourceProvider">
+        <Object ocdref="org.apache.sling.fsprovider.internal.FsResourceProvider"/>
+    </Designate>
+</metatype:MetaData>

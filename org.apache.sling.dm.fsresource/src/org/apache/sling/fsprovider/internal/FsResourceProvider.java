@@ -21,6 +21,7 @@ package org.apache.sling.fsprovider.internal;
 import java.io.File;
 import java.util.Collections;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -189,42 +190,39 @@ public class FsResourceProvider implements ResourceProvider, ManagedService {
         return null;
     }
 
-    // ---------- SCR Integration
-    
-
+    // ---------- DM Integration
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
 
     protected void activate() {
-    	if (this.properties != null) {
-	        String providerRoot = (String) properties.get(ROOTS);
-	        if (providerRoot == null || providerRoot.length() == 0) {
-	            throw new IllegalArgumentException(ROOTS + " property must be set");
-	        }
-	
-	        String providerFileName = (String) properties.get(PROP_PROVIDER_FILE);
-	        if (providerFileName == null || providerFileName.length() == 0) {
-	            throw new IllegalArgumentException(PROP_PROVIDER_FILE
-	                    + " property must be set");
-	        }
-	
-	        this.providerRoot = providerRoot;
-	        this.providerRootPrefix = providerRoot.concat("/");
-	        this.providerFile = getProviderFile(providerFileName, ctx);
-	        // start background monitor if check interval is higher than 100
-	        long checkInterval = DEFAULT_CHECKINTERVAL;
-	        final Object interval = properties.get(PROP_PROVIDER_CHECKINTERVAL);
-	        if ( interval != null && interval instanceof Long ) {
-	            checkInterval = (Long)interval;
-	        }
-	        if ( checkInterval > 100 ) {
-	            this.monitor = new FileMonitor(this, checkInterval);
-	        }
-    	}
-    	else
-    		System.out.println("Properties is NULL");
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
+        String providerRoot = (String) properties.get(ROOTS);
+        if (providerRoot == null || providerRoot.length() == 0) {
+            throw new IllegalArgumentException(ROOTS + " property must be set");
+        }
+
+        String providerFileName = (String) properties.get(PROP_PROVIDER_FILE);
+        if (providerFileName == null || providerFileName.length() == 0) {
+            throw new IllegalArgumentException(PROP_PROVIDER_FILE
+                    + " property must be set");
+        }
+
+        this.providerRoot = providerRoot;
+        this.providerRootPrefix = providerRoot.concat("/");
+        this.providerFile = getProviderFile(providerFileName, ctx);
+        // start background monitor if check interval is higher than 100
+        long checkInterval = DEFAULT_CHECKINTERVAL;
+        final Object interval = properties.get(PROP_PROVIDER_CHECKINTERVAL);
+        if ( interval != null && interval instanceof Long ) {
+            checkInterval = (Long)interval;
+        }
+        if ( checkInterval > 100 ) {
+            this.monitor = new FileMonitor(this, checkInterval);
+        }
     }
 
     protected void deactivate() {

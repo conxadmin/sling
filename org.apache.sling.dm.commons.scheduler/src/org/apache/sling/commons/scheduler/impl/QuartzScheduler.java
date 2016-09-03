@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -110,39 +111,39 @@ public class QuartzScheduler implements BundleListener, ManagedService {
      * @throws Exception
      */
     protected void activate() {
-    	if (this.props != null) {
-	        // SLING-2261 Prevent Quartz from checking for updates
-	        System.setProperty("org.terracotta.quartz.skipUpdateCheck", Boolean.TRUE.toString());
-	
-	        final Object poolNameObj = props.get(PROPERTY_POOL_NAME);
-	        if ( poolNameObj != null && poolNameObj.toString().trim().length() > 0 ) {
-	            this.defaultPoolName = poolNameObj.toString().trim();
-	        } else {
-	            this.defaultPoolName = ThreadPoolManager.DEFAULT_THREADPOOL_NAME;
-	        }
-	        final Object value = props.get(PROPERTY_ALLOWED_POOLS);
-	        if ( value instanceof String[] ) {
-	            this.allowedPoolNames = (String[])value;
-	        } else if ( value != null ) {
-	            this.allowedPoolNames = new String[] {value.toString()};
-	        }
-	        if ( this.allowedPoolNames == null ) {
-	            this.allowedPoolNames = new String[0];
-	        } else {
-	            for(int i=0;i<this.allowedPoolNames.length;i++) {
-	                if ( this.allowedPoolNames[i] == null ) {
-	                    this.allowedPoolNames[i] = "";
-	                } else {
-	                    this.allowedPoolNames[i] = this.allowedPoolNames[i].trim();
-	                }
-	            }
-	        }
-	        ctx.addBundleListener(this);
-	
-	        this.active = true;
-    	}
-    	else
-    		logger.warn("Properties is NULL");
+    	if (this.props != null)
+    		this.props = new Hashtable<>();
+    	
+    	
+        // SLING-2261 Prevent Quartz from checking for updates
+        System.setProperty("org.terracotta.quartz.skipUpdateCheck", Boolean.TRUE.toString());
+
+        final Object poolNameObj = props.get(PROPERTY_POOL_NAME);
+        if ( poolNameObj != null && poolNameObj.toString().trim().length() > 0 ) {
+            this.defaultPoolName = poolNameObj.toString().trim();
+        } else {
+            this.defaultPoolName = ThreadPoolManager.DEFAULT_THREADPOOL_NAME;
+        }
+        final Object value = props.get(PROPERTY_ALLOWED_POOLS);
+        if ( value instanceof String[] ) {
+            this.allowedPoolNames = (String[])value;
+        } else if ( value != null ) {
+            this.allowedPoolNames = new String[] {value.toString()};
+        }
+        if ( this.allowedPoolNames == null ) {
+            this.allowedPoolNames = new String[0];
+        } else {
+            for(int i=0;i<this.allowedPoolNames.length;i++) {
+                if ( this.allowedPoolNames[i] == null ) {
+                    this.allowedPoolNames[i] = "";
+                } else {
+                    this.allowedPoolNames[i] = this.allowedPoolNames[i].trim();
+                }
+            }
+        }
+        ctx.addBundleListener(this);
+
+        this.active = true;
     }
 
     /**

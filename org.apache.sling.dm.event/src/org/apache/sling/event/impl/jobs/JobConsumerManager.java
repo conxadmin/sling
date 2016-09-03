@@ -73,6 +73,8 @@ public class JobConsumerManager {
 
     private final Map<String, Object[]> listenerMap = new HashMap<String, Object[]>();
 
+	private Dictionary<String,?> props;
+
     private Dictionary<String, Object> getRegistrationProperties() {
         final Dictionary<String, Object> serviceProps = new Hashtable<String, Object>();
         serviceProps.put(PropertyProvider.PROPERTY_PROPERTIES, TopologyCapabilities.PROPERTY_TOPICS);
@@ -84,12 +86,13 @@ public class JobConsumerManager {
         return serviceProps;
     }
 
-    protected void activate(final BundleContext bc, final Map<String, Object> props) {
-        this.bundleContext = bc;
-        this.modified(bc, props);
+    protected void activate() {
+    	if (this.props == null)
+    		this.props = new Hashtable<>();
+        this.modified();
     }
 
-    protected void modified(final BundleContext bc, final Map<String, Object> props) {
+    protected void modified() {
         final boolean wasEnabled = this.propagationService != null;
         this.whitelistMatchers = TopicMatcherHelper.buildMatchers(PropertiesUtil.toStringArray(props.get(PROPERTY_WHITELIST)));
         this.blacklistMatchers = TopicMatcherHelper.buildMatchers(PropertiesUtil.toStringArray(props.get(PROPERTY_BLACKLIST)));
@@ -101,7 +104,7 @@ public class JobConsumerManager {
             }
             if ( enable ) {
                 logger.debug("Registering property provider with: {}", this.topics);
-                this.propagationService = bc.registerService(PropertyProvider.class.getName(),
+                this.propagationService = bundleContext.registerService(PropertyProvider.class.getName(),
                         new PropertyProvider() {
 
                             @Override

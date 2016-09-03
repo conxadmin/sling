@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.installer.core.impl.console.OsgiInstallerWebConsolePlugin">
+    <implementation class="org.apache.sling.installer.core.impl.console.OsgiInstallerWebConsolePlugin"/>
+    <service servicefactory="false">
+        <provide interface="javax.servlet.Servlet"/>
+    </service>
+    <property name="service.description" value="Apache Sling OSGi Installer Web Console Plugin"/>
+    <property name="felix.webconsole.label" value="osgi-installer"/>
+    <property name="felix.webconsole.title" value="OSGi Installer"/>
+    <property name="felix.webconsole.category" value="OSGi"/>
+    <property name="felix.webconsole.configprinter.modes">
+        zip
+        txt
+    </property>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.installer.core.impl.console.OsgiInstallerWebConsolePlugin"/>
+    <reference name="installer" interface="org.apache.sling.installer.api.info.InfoProvider" cardinality="1..1" policy="static" bind="bindInstaller" unbind="unbindInstaller"/>
+</scr:component>

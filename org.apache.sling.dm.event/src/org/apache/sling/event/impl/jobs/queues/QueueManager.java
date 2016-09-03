@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -112,11 +113,16 @@ public class QueueManager
     /** The queue services. */
     private volatile QueueServices queueServices;
 
+	private Hashtable props;
+
     /**
      * Activate this component.
      * @param props Configuration properties
      */
-    protected void activate(final Map<String, Object> props) {
+    protected void activate() {
+    	if (this.props == null)
+    		this.props = new Hashtable<>();
+    	
         logger.info("Apache Sling Queue Manager started on instance {}", Environment.APPLICATION_ID);
         this.queueServices = new QueueServices();
         queueServices.configuration = this.configuration;

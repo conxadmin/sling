@@ -1,4 +1,4 @@
-Bundle-Version: 5.19.${tstamp}
+Bundle-Version: 2.3.1.${tstamp}
 Include-Resource: /=resources/
 X-MultiTenant-Version: 1
 X-MultiTenant-Bundle-Activator: org.conxworks.contentrepository.sling.jcr.jackrabbit.server.osgi.MTActivator

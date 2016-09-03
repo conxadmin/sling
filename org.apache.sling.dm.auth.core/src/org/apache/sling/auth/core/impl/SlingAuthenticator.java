@@ -65,6 +65,8 @@ import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceEvent;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.service.http.HttpContext;
@@ -85,7 +87,7 @@ import org.slf4j.LoggerFactory;
  * URL.
  */
 public class SlingAuthenticator implements Authenticator,
-        AuthenticationSupport, ServletRequestListener {
+        AuthenticationSupport, ServletRequestListener, ManagedService {
 
     /** default log */
     private final Logger log = LoggerFactory.getLogger(SlingAuthenticator.class);
@@ -248,42 +250,51 @@ public class SlingAuthenticator implements Authenticator,
      * The event admin service.
      */
     private volatile EventAdmin eventAdmin;
+    
+    private volatile BundleContext bundleContext;
 
-    // ---------- SCR integration
+	private Dictionary<String, ?> properties;
+
+    // ---------- DM integration
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.properties = properties;
+	}
 
     @SuppressWarnings("unused")
-    private void activate(final BundleContext bundleContext,
-            final Map<String, Object> properties) {
-        modified(properties);
-
-        AuthenticatorWebConsolePlugin plugin = new AuthenticatorWebConsolePlugin(
-            this);
-        Hashtable<String, Object> props = new Hashtable<String, Object>();
-        props.put("felix.webconsole.label", plugin.getLabel());
-        props.put("felix.webconsole.title", plugin.getTitle());
-        props.put("felix.webconsole.category", "Sling");
-        props.put(Constants.SERVICE_DESCRIPTION,
-            "Sling Request Authenticator WebConsole Plugin");
-        props.put(Constants.SERVICE_VENDOR,
-            properties.get(Constants.SERVICE_VENDOR));
-
-        webConsolePlugin = bundleContext.registerService(
-            "javax.servlet.Servlet", plugin, props);
-
-        serviceListener = SlingAuthenticatorServiceListener.createListener(
-            bundleContext, this);
-
-        authHandlerTracker = new AuthenticationHandlerTracker(bundleContext,
-            authHandlerCache);
-        engineAuthHandlerTracker = new EngineAuthenticationHandlerTracker(
-            bundleContext, authHandlerCache);
-        authInfoPostProcessorTracker = new ServiceTracker(bundleContext, AuthenticationInfoPostProcessor.SERVICE_NAME, null);
-        authInfoPostProcessorTracker.open();
+    private void activate() {
+    	if (this.properties != null) {
+	        modified();
+	
+	        AuthenticatorWebConsolePlugin plugin = new AuthenticatorWebConsolePlugin(
+	            this);
+	        Hashtable<String, Object> props = new Hashtable<String, Object>();
+	        props.put("felix.webconsole.label", plugin.getLabel());
+	        props.put("felix.webconsole.title", plugin.getTitle());
+	        props.put("felix.webconsole.category", "Sling");
+	        props.put(Constants.SERVICE_DESCRIPTION,
+	            "Sling Request Authenticator WebConsole Plugin");
+	        props.put(Constants.SERVICE_VENDOR,
+	            properties.get(Constants.SERVICE_VENDOR));
+	
+	        webConsolePlugin = bundleContext.registerService(
+	            "javax.servlet.Servlet", plugin, props);
+	
+	        serviceListener = SlingAuthenticatorServiceListener.createListener(
+	            bundleContext, this);
+	
+	        authHandlerTracker = new AuthenticationHandlerTracker(bundleContext,
+	            authHandlerCache);
+	        engineAuthHandlerTracker = new EngineAuthenticationHandlerTracker(
+	            bundleContext, authHandlerCache);
+	        authInfoPostProcessorTracker = new ServiceTracker(bundleContext, AuthenticationInfoPostProcessor.SERVICE_NAME, null);
+	        authInfoPostProcessorTracker.open();
+    	}
     }
 
-    private void modified(Map<String, Object> properties) {
+    private void modified() {
         if (properties == null) {
-            properties = new HashMap<String, Object>();
+            properties = new Hashtable<>();
         }
 
         String newCookie = (String) properties.get(PAR_IMPERSONATION_COOKIE_NAME);
