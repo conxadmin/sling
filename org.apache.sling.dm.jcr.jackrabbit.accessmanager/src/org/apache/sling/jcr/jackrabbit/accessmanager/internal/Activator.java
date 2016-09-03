@@ -32,6 +32,8 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//DeleteAcesServlet
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID, DeleteAcesServlet.class.getName());
+		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Content Loader Implementation");
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
 	    properties.put("sling.servlet.methods","POST");
@@ -39,12 +41,12 @@ public class Activator extends DependencyActivatorBase {
 		Component component = dm.createComponent()
 				.setInterface(new String[]{Servlet.class.getName(),DeleteAces.class.getName()}, properties)
 				.setImplementation(DeleteAcesServlet.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 	            ;
 		dm.add(component);
 
 		//GetAclServlet
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID, GetAclServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
 	    properties.put("sling.servlet.methods","GET");
@@ -53,12 +55,12 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{Servlet.class.getName(),GetAcl.class.getName()}, properties)
 				.setImplementation(GetAclServlet.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 	            ;
 		dm.add(component);
 		
 		//GetEffectiveAclServlet
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID, GetEffectiveAclServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
 	    properties.put("sling.servlet.methods","GET");
@@ -67,12 +69,12 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{Servlet.class.getName(),GetEffectiveAcl.class.getName()}, properties)
 				.setImplementation(GetEffectiveAclServlet.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 	            ;
 		dm.add(component);
 		
 		//ModifyAceServlet
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID, ModifyAceServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
 	    properties.put("sling.servlet.methods","POST");
@@ -80,7 +82,6 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{Servlet.class.getName(),ModifyAce.class.getName()}, properties)
 				.setImplementation(ModifyAceServlet.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 	            ;
 		dm.add(component);
 	}

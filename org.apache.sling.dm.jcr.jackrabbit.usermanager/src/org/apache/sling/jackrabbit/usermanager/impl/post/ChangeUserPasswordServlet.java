@@ -18,6 +18,7 @@ package org.apache.sling.jackrabbit.usermanager.impl.post;
 
 import java.lang.reflect.Method;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 
 import javax.jcr.Credentials;
@@ -122,14 +123,14 @@ public class ChangeUserPasswordServlet extends AbstractUserPostServlet implement
      */
     @Override
     protected void activate() {
-    	if (super.properties != null) {
+    	if (super.properties == null)
+    		this.properties = new Hashtable<>();
 	        super.activate();
-	        Dictionary<?, ?> props = this.properties;
-	
-	        this.userAdminGroupName = OsgiUtil.toString(props.get(PAR_USER_ADMIN_GROUP_NAME),
-	                DEFAULT_USER_ADMIN_GROUP_NAME);
-	        log.info("User Admin Group Name {}", this.userAdminGroupName);
-    	}
+        Dictionary<?, ?> props = this.properties;
+
+        this.userAdminGroupName = OsgiUtil.toString(props.get(PAR_USER_ADMIN_GROUP_NAME),
+                DEFAULT_USER_ADMIN_GROUP_NAME);
+        log.info("User Admin Group Name {}", this.userAdminGroupName);
     }
 
     @Override

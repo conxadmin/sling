@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory" activate="activate" deactivate="deactivate">
+    <implementation class="org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProvider"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.spi.resource.provider.ResourceProvider"/>
+    </service>
+    <property name="provider.name" value="JCR"/>
+    <property name="provider.root" value="/"/>
+    <property name="provider.modifiable" type="Boolean" value="true"/>
+    <property name="provider.adaptable" type="Boolean" value="true"/>
+    <property name="provider.authenticate" value="required"/>
+    <property name="provider.attributable" type="Boolean" value="true"/>
+    <property name="provider.refreshable" type="Boolean" value="true"/>
+    <property name="optimize.oak" type="Boolean" value="true"/>
+    <property name="oak.observation.queue-length" type="Integer" value="1000"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory"/>
+    <reference name="dynamicClassLoaderManager" interface="org.apache.sling.commons.classloader.DynamicClassLoaderManager" cardinality="0..1" policy="dynamic" bind="bindDynamicClassLoaderManager" unbind="unbindDynamicClassLoaderManager"/>
+    <reference name="repository" interface="org.apache.sling.jcr.api.SlingRepository" cardinality="1..1" policy="static" bind="bindRepository" unbind="unbindRepository"/>
+    <reference name="pathMapper" interface="org.apache.sling.jcr.resource.internal.helper.jcr.PathMapper" cardinality="1..1" policy="static" bind="bindPathMapper" unbind="unbindPathMapper"/>
+    <reference name="executor" interface="java.util.concurrent.Executor" cardinality="0..1" policy="static" bind="bindExecutor" unbind="unbindExecutor"/>
+</scr:component>

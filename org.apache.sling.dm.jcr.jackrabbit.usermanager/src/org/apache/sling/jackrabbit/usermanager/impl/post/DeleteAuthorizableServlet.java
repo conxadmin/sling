@@ -16,6 +16,7 @@
  */
 package org.apache.sling.jackrabbit.usermanager.impl.post;
 
+import java.util.Dictionary;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -42,6 +43,8 @@ import org.apache.sling.jcr.base.util.AccessControlUtil;
 import org.apache.sling.servlets.post.AbstractPostResponse;
 import org.apache.sling.servlets.post.Modification;
 import org.apache.sling.servlets.post.SlingPostConstants;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 
 /**
  
@@ -78,9 +81,16 @@ import org.apache.sling.servlets.post.SlingPostConstants;
  * </code>
  */
 public class DeleteAuthorizableServlet extends AbstractPostServlet
-        implements DeleteUser, DeleteGroup, DeleteAuthorizables {
+        implements DeleteUser, DeleteGroup, DeleteAuthorizables, ManagedService {
     private static final long serialVersionUID = 5874621724096106496L;
+	private Dictionary<String, ?> properties;
 
+
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.properties = properties;
+	}
+	
     /*
      * (non-Javadoc)
      * @see
@@ -238,5 +248,4 @@ public class DeleteAuthorizableServlet extends AbstractPostServlet
             return null;
         }
     }
-
 }
