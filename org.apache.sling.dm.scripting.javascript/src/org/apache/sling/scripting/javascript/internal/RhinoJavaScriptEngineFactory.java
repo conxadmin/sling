@@ -20,6 +20,7 @@ package org.apache.sling.scripting.javascript.internal;
 
 import java.util.Dictionary;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Set;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
@@ -191,6 +192,9 @@ public class RhinoJavaScriptEngineFactory extends AbstractScriptEngineFactory im
 	}
 	
     protected void activate() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         boolean debugging = getProperty("org.apache.sling.scripting.javascript.debug", properties, context, false);
 
         optimizationLevel = readOptimizationLevel(properties);

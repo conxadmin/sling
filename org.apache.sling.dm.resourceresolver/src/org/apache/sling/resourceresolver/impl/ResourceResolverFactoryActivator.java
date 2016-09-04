@@ -319,6 +319,9 @@ public class ResourceResolverFactoryActivator implements ManagedService {
      * Activates this component (called by SCR before)
      */
     protected void activate() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         final BidiMap virtuals = new TreeBidiMap();
         final String[] virtualList = PropertiesUtil.toStringArray(properties.get(PROP_VIRTUAL));
         for (int i = 0; virtualList != null && i < virtualList.length; i++) {

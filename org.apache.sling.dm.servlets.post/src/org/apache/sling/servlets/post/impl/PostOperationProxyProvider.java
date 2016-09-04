@@ -74,9 +74,7 @@ public class PostOperationProxyProvider implements ServiceListener {
      */
     @SuppressWarnings("unused")
     private void activate() {
-        this.bundleContext = bundleContext;
-
-        try {
+    	try {
             bundleContext.addServiceListener(this, REFERENCE_FILTER);
             final ServiceReference[] serviceReferences = bundleContext.getServiceReferences(
                 SlingPostOperation.SERVICE_NAME, null);

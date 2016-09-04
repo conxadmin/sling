@@ -774,6 +774,9 @@ public class SlingServletResolver
      */
     @SuppressWarnings("unchecked")
     protected void activate() throws LoginException {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         // from configuration if available
         final Dictionary<String, ?> properties = this.properties;
         Object servletRoot = properties.get(PROP_SERVLET_ROOT);

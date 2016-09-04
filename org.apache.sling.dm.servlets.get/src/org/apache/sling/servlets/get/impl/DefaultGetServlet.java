@@ -19,6 +19,7 @@ package org.apache.sling.servlets.get.impl;
 import java.io.IOException;
 import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -114,6 +115,9 @@ public class DefaultGetServlet extends SlingSafeMethodsServlet implements Manage
 	}
 
     protected void activate() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         Dictionary<String, ?> props = this.properties;
         this.aliases = OsgiUtil.toStringArray(props.get(ALIAS_PROPERTY));
         this.index = OsgiUtil.toBoolean(props.get(INDEX_PROPERTY),

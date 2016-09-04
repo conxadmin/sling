@@ -25,6 +25,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.util.Dictionary;
+import java.util.Hashtable;
 
 import javax.script.Bindings;
 import javax.script.ScriptContext;
@@ -310,6 +311,9 @@ public class JspScriptEngineFactory
      * Activate this component
      */
     protected void activate() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         this.defaultIsSession = PropertiesUtil.toBoolean(properties.get(PROP_DEFAULT_IS_SESSION), true);
 
         // set the current class loader as the thread context loader for

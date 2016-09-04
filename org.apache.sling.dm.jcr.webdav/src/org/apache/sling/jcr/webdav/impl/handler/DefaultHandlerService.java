@@ -40,6 +40,7 @@ import org.osgi.service.cm.ManagedService;
 
 import java.io.IOException;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Map;
 
 import javax.jcr.RepositoryException;
@@ -54,8 +55,6 @@ public class DefaultHandlerService implements IOHandler, PropertyHandler, CopyMo
     private DefaultHandler delegatee;
 	private Dictionary<String, ?> properties;
 
-  
-
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
@@ -63,20 +62,21 @@ public class DefaultHandlerService implements IOHandler, PropertyHandler, CopyMo
 	
     @SuppressWarnings("unused")
     private void activate() {
-    	if (this.properties != null) {
-	        final String collectionType = OsgiUtil.toString(
-	            properties.get(SlingWebDavServlet.TYPE_COLLECTIONS),
-	            SlingWebDavServlet.TYPE_COLLECTIONS_DEFAULT);
-	        final String nonCollectionType = OsgiUtil.toString(
-	            properties.get(SlingWebDavServlet.TYPE_NONCOLLECTIONS),
-	            SlingWebDavServlet.TYPE_NONCOLLECTIONS_DEFAULT);
-	        final String contentType = OsgiUtil.toString(
-	            properties.get(SlingWebDavServlet.TYPE_CONTENT),
-	            SlingWebDavServlet.TYPE_CONTENT_DEFAULT);
-	
-	        this.delegatee = new DefaultHandler(null, collectionType,
-	            nonCollectionType, contentType);
-    	}
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
+        final String collectionType = OsgiUtil.toString(
+            properties.get(SlingWebDavServlet.TYPE_COLLECTIONS),
+            SlingWebDavServlet.TYPE_COLLECTIONS_DEFAULT);
+        final String nonCollectionType = OsgiUtil.toString(
+            properties.get(SlingWebDavServlet.TYPE_NONCOLLECTIONS),
+            SlingWebDavServlet.TYPE_NONCOLLECTIONS_DEFAULT);
+        final String contentType = OsgiUtil.toString(
+            properties.get(SlingWebDavServlet.TYPE_CONTENT),
+            SlingWebDavServlet.TYPE_CONTENT_DEFAULT);
+
+        this.delegatee = new DefaultHandler(null, collectionType,
+            nonCollectionType, contentType);
     }
 
     @SuppressWarnings("unused")

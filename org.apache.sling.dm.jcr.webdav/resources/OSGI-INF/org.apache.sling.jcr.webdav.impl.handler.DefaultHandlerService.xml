@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.jcr.webdav.impl.handler.DefaultHandlerService" activate="activate" deactivate="deactivate" modified="activate">
+    <implementation class="org.apache.sling.jcr.webdav.impl.handler.DefaultHandlerService"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.jackrabbit.server.io.IOHandler"/>
+        <provide interface="org.apache.jackrabbit.server.io.PropertyHandler"/>
+        <provide interface="org.apache.jackrabbit.server.io.CopyMoveHandler"/>
+        <provide interface="org.apache.jackrabbit.server.io.DeleteHandler"/>
+    </service>
+    <property name="service.ranking" type="Integer" value="1000"/>
+    <property name="type.collections" value="sling:Folder"/>
+    <property name="type.noncollections" value="nt:file"/>
+    <property name="type.content" value="nt:resource"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.jcr.webdav.impl.handler.DefaultHandlerService"/>
+</scr:component>

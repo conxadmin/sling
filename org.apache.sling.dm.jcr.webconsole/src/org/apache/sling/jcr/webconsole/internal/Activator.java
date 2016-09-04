@@ -8,6 +8,7 @@ import javax.jcr.Repository;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.felix.webconsole.ConfigurationPrinter;
+import org.apache.sling.engine.impl.SlingMainServlet;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
@@ -24,6 +25,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//DescriptorsConfigurationPrinter
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,DescriptorsConfigurationPrinter.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"JCR Descriptors Configuration Printer");
 		Component component = dm.createComponent()
@@ -36,6 +38,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//NamespaceConfigurationPrinter
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,NamespaceConfigurationPrinter.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"JCR Namespace Configuration Printer");
 		component = dm.createComponent()
@@ -48,6 +51,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//NodeTypeConfigurationPrinter
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,NodeTypeConfigurationPrinter.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"JCR Nodetype Configuration Printer");
 		properties.put("felix.webconsole.configprinter.web.unescaped",true);

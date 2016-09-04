@@ -17,6 +17,7 @@
 package org.apache.sling.servlets.post.impl.helper;
 
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Map;
 
 import javax.jcr.InvalidItemStateException;
@@ -169,6 +170,9 @@ public class ChunkCleanUpTask implements Runnable, ManagedService {
 	}
 
     protected void activate() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         chunkCleanUpAge = OsgiUtil.toInteger(
             this.properties.get(CHUNK_CLEANUP_AGE), 1) * 60 * 1000;
         log.info("scheduler config [{}], chunkGarbageTime  [{}] ms",

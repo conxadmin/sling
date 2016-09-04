@@ -1,30 +1,17 @@
 package org.apache.sling.serviceusermapping.impl;
 
 
-import java.beans.EventHandler;
 import java.util.Properties;
-
-import javax.script.ScriptEngineFactory;
-import javax.servlet.Servlet;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletRequestListener;
 
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.felix.inventory.InventoryPrinter;
-import org.apache.sling.api.auth.Authenticator;
-import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.auth.core.AuthenticationSupport;
-import org.apache.sling.auth.core.impl.engine.EngineSlingAuthenticator;
-import org.apache.sling.auth.core.spi.BundleAuthenticationRequirement;
 import org.apache.sling.serviceusermapping.ServiceUserMapper;
 import org.apache.sling.serviceusermapping.ServiceUserValidator;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
-import org.osgi.framework.hooks.bundle.FindHook;
-import org.osgi.framework.hooks.service.EventListenerHook;
-import org.osgi.service.event.EventAdmin;
+import org.osgi.service.cm.ManagedService;
 
 public class Activator extends DependencyActivatorBase {
 
@@ -37,12 +24,12 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//MappingConfigAmendment
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,MappingConfigAmendment.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
-				.setInterface(MappingConfigAmendment.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),MappingConfigAmendment.class.getName()}, properties)
 				.setImplementation(MappingConfigAmendment.class)
 				.setCallbacks(null,"configure",null, null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(MappingConfigAmendment.class.getName()))
 	            ;
 		 dm.add(component);
 		 
@@ -88,13 +75,13 @@ public class Activator extends DependencyActivatorBase {
 		 
 		//ServiceUserMapperImpl
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ServiceUserMapperImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Configuration for the service mapping service names to names of users.");
 		component = dm.createComponent()
-				.setInterface(new String[]{ServiceUserMapper.class.getName(),ServiceUserMapperImpl.class.getName()}, properties)
+				.setInterface(new String[]{ManagedService.class.getName(),ServiceUserMapper.class.getName(),ServiceUserMapperImpl.class.getName()}, properties)
 				.setImplementation(ServiceUserMapperImpl.class)
 				.setCallbacks(null,"configure","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(ServiceUserMapperImpl.class.getName()))
 				.add(createServiceDependency().setService(MappingConfigAmendment.class)
 						.setCallbacks("bindAmendment", "unbindAmendment")
 						.setRequired(false))

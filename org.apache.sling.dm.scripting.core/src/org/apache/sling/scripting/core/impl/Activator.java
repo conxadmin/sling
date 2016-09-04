@@ -22,6 +22,7 @@ import org.apache.sling.settings.SlingSettingsService;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.EventAdmin;
 
 public class Activator extends DependencyActivatorBase {
@@ -35,6 +36,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//BindingsValuesProvidersByContextImpl
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,BindingsValuesProvidersByContextImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
 				.setInterface(new String[]{BindingsValuesProvidersByContext.class.getName(),ServiceTrackerCustomizer.class.getName()}, properties)
@@ -50,6 +52,7 @@ public class Activator extends DependencyActivatorBase {
 		
 		//ScriptCacheConsolePlugin
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ScriptCacheConsolePlugin.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put(Constants.SERVICE_DESCRIPTION,"Script Cache");
 	    properties.put("service.vendor","The Apache Software Foundation");
@@ -68,13 +71,12 @@ public class Activator extends DependencyActivatorBase {
 		
 		//ScriptCacheImpl
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ScriptCacheImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put(Constants.SERVICE_DESCRIPTION,"Script Cache");
 		component = dm.createComponent()
-				.setInterface(ScriptCache.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),ScriptCache.class.getName()}, properties)
 				.setImplementation(ScriptCacheImpl.class)
-				.add(createConfigurationDependency()
-						.setPid(ScriptCacheImpl.class.getName()))
 				.add(createServiceDependency().setService(ScriptEngineFactory.class)
 						.setCallbacks("bindScriptEngineFactory", "unbindScriptEngineFactory")
 						.setRequired(false))

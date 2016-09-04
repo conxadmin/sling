@@ -20,6 +20,7 @@ package org.apache.sling.jcr.webdav.impl.servlets;
 
 import java.io.IOException;
 import java.util.Dictionary;
+import java.util.Hashtable;
 
 import javax.jcr.Repository;
 import javax.jcr.Session;
@@ -200,27 +201,28 @@ public class SlingWebDavServlet extends SimpleWebdavServlet implements ManagedSe
 
     protected void activate()
             throws NamespaceException, ServletException {
-    	if (this.properties != null) {
-	        this.ioManager.setComponentContext(context);
-	        this.propertyManager.setComponentContext(context);
-	        this.copyMoveManager.setComponentContext(context);
-	        this.deleteManager.setComponentContext(context);
-	
-	        resourceConfig = new SlingResourceConfig(mimeTypeService,
-	            this.properties,
-	            ioManager,
-	            propertyManager,
-	            copyMoveManager,
-	            deleteManager);
-	
-	        // Register servlet, and set the contextPath field to signal successful
-	        // registration
-	        Servlet simpleServlet = new SlingSimpleWebDavServlet(resourceConfig,
-	            getRepository());
-	        httpService.registerServlet(resourceConfig.getServletContextPath(),
-	            simpleServlet, resourceConfig.getServletInitParams(), null);
-	        simpleWebDavServletRegistered = true;
-    	}
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
+        this.ioManager.setComponentContext(context);
+        this.propertyManager.setComponentContext(context);
+        this.copyMoveManager.setComponentContext(context);
+        this.deleteManager.setComponentContext(context);
+
+        resourceConfig = new SlingResourceConfig(mimeTypeService,
+            this.properties,
+            ioManager,
+            propertyManager,
+            copyMoveManager,
+            deleteManager);
+
+        // Register servlet, and set the contextPath field to signal successful
+        // registration
+        Servlet simpleServlet = new SlingSimpleWebDavServlet(resourceConfig,
+            getRepository());
+        httpService.registerServlet(resourceConfig.getServletContextPath(),
+            simpleServlet, resourceConfig.getServletInitParams(), null);
+        simpleWebDavServletRegistered = true;
     }
 
     protected void deactivate(ComponentContext context) {

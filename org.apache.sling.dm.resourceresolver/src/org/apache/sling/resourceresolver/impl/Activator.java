@@ -18,6 +18,7 @@ import org.apache.sling.settings.SlingSettingsService;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.EventAdmin;
 
 public class Activator extends DependencyActivatorBase {
@@ -46,13 +47,13 @@ public class Activator extends DependencyActivatorBase {
 
 		//ResourceResolverFactoryActivator
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ResourceResolverFactoryActivator.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"Apache Sling Resource Resolver Factory");
 		component = dm.createComponent()
-				.setInterface(Object.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Object.class.getName()}, properties)
 				.setImplementation(ResourceResolverFactoryActivator.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(ResourceResolverFactoryActivator.PID))
 				.add(createServiceDependency().setService(ResourceDecorator.class)
 						 .setCallbacks("bindResourceDecorator", "unbindResourceDecorator").setRequired(false))
 				.add(createServiceDependency().setService(EventAdmin.class)
@@ -79,9 +80,10 @@ public class Activator extends DependencyActivatorBase {
 
 		//OsgiObservationBridge
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,OsgiObservationBridge.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
-				.setInterface(ResourceChangeListener.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),ResourceChangeListener.class.getName()}, properties)
 				.setImplementation(OsgiObservationBridge.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(EventAdmin.class).setRequired(true))

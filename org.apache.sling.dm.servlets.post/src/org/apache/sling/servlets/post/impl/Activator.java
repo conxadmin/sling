@@ -17,6 +17,7 @@ import org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 
 public class Activator extends DependencyActivatorBase {
 
@@ -29,13 +30,14 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//SlingPostServlet
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,SlingPostServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR,"The Apache Software Foundation");
 		properties.put("service.description","Sling Post Servlet");
 		properties.put("service.vendor","The Apache Software Foundation");
 		properties.put("sling.servlet.prefix", -1);
 		properties.put("sling.servlet.paths","sling/servlet/default/POST");
 		Component component = dm.createComponent()
-				.setInterface(Servlet.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(SlingPostServlet.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createConfigurationDependency().setPid(SlingPostServlet.class.getName()))
@@ -49,6 +51,7 @@ public class Activator extends DependencyActivatorBase {
 		 
 		//ChunkCleanUpTask
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ChunkCleanUpTask.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("service.description","Default GET Servlet");
 	    properties.put("scheduler.expression","31 41 0/12 * * ?");
@@ -56,9 +59,8 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("service.vendor","The Apache Software Foundation");
 	    properties.put("scheduler.concurrent",false);
 		component = dm.createComponent()
-				.setInterface(Runnable.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Runnable.class.getName()}, properties)
 				.setImplementation(ChunkCleanUpTask.class)
-				.add(createConfigurationDependency().setPid(ChunkCleanUpTask.class.getName()))
 				.add(createServiceDependency().setService(SlingRepository.class).setRequired(true))
 	            ;
 		 dm.add(component);

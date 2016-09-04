@@ -20,6 +20,7 @@ package org.apache.sling.serviceusermapping.impl;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.Map;
 
 import org.apache.sling.commons.osgi.PropertiesUtil;
@@ -49,6 +50,9 @@ public class MappingConfigAmendment implements Comparable<MappingConfigAmendment
 	}
 
     void configure() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         final String[] props = PropertiesUtil.toStringArray(this.properties.get(PROP_SERVICE2USER_MAPPING),
             PROP_SERVICE2USER_MAPPING_DEFAULT);
 

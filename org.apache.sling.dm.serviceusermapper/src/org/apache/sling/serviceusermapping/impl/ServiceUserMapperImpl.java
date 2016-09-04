@@ -86,6 +86,9 @@ public class ServiceUserMapperImpl implements ServiceUserMapper, ManagedService 
 	}
 	
     synchronized void configure() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         if (registerAsync && executorService == null) {
             executorService = Executors.newSingleThreadExecutor();
         }

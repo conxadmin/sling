@@ -15,10 +15,12 @@ import org.apache.sling.auth.core.AuthenticationSupport;
 import org.apache.sling.auth.core.impl.engine.EngineSlingAuthenticator;
 import org.apache.sling.auth.core.spi.BundleAuthenticationRequirement;
 import org.apache.sling.commons.classloader.DynamicClassLoaderManager;
+import org.apache.sling.scripting.core.impl.BindingsValuesProvidersByContextImpl;
 import org.apache.sling.scripting.javascript.RhinoHostObjectProvider;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.EventAdmin;
 
 public class Activator extends DependencyActivatorBase {
@@ -32,15 +34,15 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//RhinoJavaScriptEngineFactory
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,BindingsValuesProvidersByContextImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"Javascript engine based on Rhino");
 
 		
 		Component component = dm.createComponent()
-				.setInterface(ScriptEngineFactory.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),RhinoJavaScriptEngineFactory.class.getName()}, properties)
 				.setImplementation(RhinoJavaScriptEngineFactory.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(RhinoJavaScriptEngineFactory.class.getName()))
 	            .add(createServiceDependency()
 	                	.setService(RhinoHostObjectProvider.class)
 	                	.setCallbacks("addHostObjectProvider", "removeHostObjectProvider")

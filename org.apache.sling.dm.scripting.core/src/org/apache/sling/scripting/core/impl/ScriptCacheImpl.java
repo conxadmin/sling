@@ -187,6 +187,9 @@ public class ScriptCacheImpl implements EventHandler, ScriptCache, ManagedServic
 
     @SuppressWarnings("unused")
     protected void activate() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
         threadPool = threadPoolManager.get("Script Cache Thread Pool");
         bundleContext = componentContext;
         additionalExtensions = PropertiesUtil.toStringArray(properties.get(PROP_ADDITIONAL_EXTENSIONS));

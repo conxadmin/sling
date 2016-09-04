@@ -11,6 +11,7 @@ import org.apache.sling.servlets.get.impl.version.VersionInfoServlet;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 
 public class Activator extends DependencyActivatorBase {
 
@@ -23,13 +24,14 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//DefaultGetServlet
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,DefaultGetServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("service.description","Default GET Servlet");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
 	    properties.put("sling.servlet.prefix", -1);
 	    properties.put("sling.servlet.methods",new String[]{"GET", "HEAD"});
 		Component component = dm.createComponent()
-				.setInterface(Servlet.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(DefaultGetServlet.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createConfigurationDependency().setPid(DefaultGetServlet.class.getName()))
@@ -38,6 +40,7 @@ public class Activator extends DependencyActivatorBase {
 		 
 		//RedirectServlet
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,RedirectServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("service.description","Default GET Servlet");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
@@ -45,7 +48,7 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("sling.servlet.methods",new String[]{"GET"});
 	    properties.put("json.maximumresults",200);
 		component = dm.createComponent()
-				.setInterface(Servlet.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(RedirectServlet.class)
 				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
 				.add(createConfigurationDependency().setPid(DefaultGetServlet.class.getName()))
@@ -54,13 +57,14 @@ public class Activator extends DependencyActivatorBase {
 		 
 		//RedirectServlet
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,VersionInfoServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
 	    properties.put("sling.servlet.selectors","V");
 	    properties.put("sling.servlet.methods","GET");
 	    properties.put("sling.servlet.extensions","json");
 		component = dm.createComponent()
-				.setInterface(Servlet.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(VersionInfoServlet.class)
 				.add(createConfigurationDependency().setPid(VersionInfoServlet.class.getName()))
 	            ;

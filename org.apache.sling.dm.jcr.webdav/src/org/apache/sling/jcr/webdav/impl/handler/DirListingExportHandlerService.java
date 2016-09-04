@@ -35,7 +35,6 @@ public class DirListingExportHandlerService extends DirListingExportHandler impl
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
