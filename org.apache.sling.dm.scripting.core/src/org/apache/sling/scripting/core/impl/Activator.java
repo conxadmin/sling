@@ -89,13 +89,12 @@ public class Activator extends DependencyActivatorBase {
 
 		//ScriptEngineManagerFactory
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ScriptEngineManagerFactory.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		component = dm.createComponent()
-				.setInterface(Object.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Object.class.getName()}, properties)
 				.setImplementation(ScriptEngineManagerFactory.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency()
-						.setPid(ScriptCacheImpl.class.getName()))
 				.add(createServiceDependency().setService(ScriptEngineFactory.class)
 						.setCallbacks("bindScriptEngineFactory", "unbindScriptEngineFactory")
 						.setRequired(false))

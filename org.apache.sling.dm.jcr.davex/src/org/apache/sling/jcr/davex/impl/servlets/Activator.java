@@ -34,7 +34,6 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(SlingDavExServlet.class.getName(), properties)
 				.setImplementation(SlingDavExServlet.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(SlingDavExServlet.class.getName()))
 				.add(createServiceDependency().setService(SlingRepository.class)
 						.setCallbacks("bindRepository", "unbindRepository")
 						.setRequired(false))

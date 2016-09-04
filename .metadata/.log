@@ -5410,3 +5410,6 @@ Binding(ALT+SHIFT+D N,
 
 !ENTRY org.eclipse.jdt.core 4 0 2016-08-31 21:24:09.143
 !MESSAGE Invalid ZIP archive: /org.apache.sling.dm.engine/generated/org.apache.sling.dm.engine.mt.jar [in org.apache.sling.dm.browser]
+
+!ENTRY org.eclipse.jdt.core 4 0 2016-09-03 23:50:42.417
+!MESSAGE Invalid ZIP archive: /org.apache.sling.dm.engine/generated/org.apache.sling.dm.engine.mt.jar [in org.apache.sling.dm.browser]

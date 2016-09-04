@@ -195,7 +195,6 @@ public class ServicesListener implements StartupListener {
         Component component = dm.createComponent()
 				.setInterface(new String[] {ManagedService.class.getName(), WebConsoleSecurityProvider.class.getName()}, props)
 				.setImplementation(new SlingWebConsoleSecurityProvider(repository))
-				.add(dm.createConfigurationDependency().setPid(SlingWebConsoleSecurityProvider.class.getName()))
 	            ;
 		this.providerReg = component.getInstance();
 		dm.add(component);

@@ -41,6 +41,8 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleListener;
 import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
@@ -52,7 +54,7 @@ import org.slf4j.LoggerFactory;
  * Component which exposes a ScriptEngineManager service.
  *
  */
-public class ScriptEngineManagerFactory implements BundleListener {
+public class ScriptEngineManagerFactory implements BundleListener, ManagedService {
 
     private final Logger log = LoggerFactory.getLogger(ScriptEngineManagerFactory.class);
 
@@ -79,6 +81,8 @@ public class ScriptEngineManagerFactory implements BundleListener {
     private ServiceRegistration scriptEngineManagerRegistration;
     
     private volatile BundleContext context;
+
+	private Dictionary<String, ?> properties;
 
     /**
      * Refresh the script engine manager.
@@ -287,4 +291,9 @@ public class ScriptEngineManagerFactory implements BundleListener {
     ScriptEngineManager getScriptEngineManager() {
         return this.scriptEngineManager;
     }
+
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.properties = properties;
+	}
 }

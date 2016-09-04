@@ -60,8 +60,6 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),GenericServlet.class.getName()}, properties)
 				.setImplementation(SlingMainServlet.class)
-				.add(createConfigurationDependency()
-	                	.setPid(SlingMainServlet.class.getName()))
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(ErrorHandler.class)
 						 .setCallbacks("setErrorHandler", "unsetErrorHandler").setRequired(true))
@@ -126,16 +124,15 @@ public class Activator extends DependencyActivatorBase {
 		
 		//RequestLoggerFilter
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,RequestLoggerFilter.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(EngineConstants.SLING_FILTER_SCOPE, EngineConstants.FILTER_SCOPE_REQUEST);
 		properties.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,"(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + SlingMainServlet.SERVLET_CONTEXT_NAME + ")");
 		properties.put(Constants.SERVICE_RANKING ,32768);
 		properties.put(Constants.SERVICE_DESCRIPTION,"Request Logger Filter");
 		component = dm.createComponent()
-				.setInterface(Filter.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Filter.class.getName()}, properties)
 				.setImplementation(RequestLoggerFilter.class)
-				.add(createConfigurationDependency()
-	                	.setPid(RequestParameterSupportConfigurer.class.getName()))
 	            ;
 		dm.add(component);	
 	}

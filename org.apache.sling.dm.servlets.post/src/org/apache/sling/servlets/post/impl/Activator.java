@@ -40,7 +40,6 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(SlingPostServlet.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(SlingPostServlet.class.getName()))
 				.add(createServiceDependency().setService(SlingPostProcessor.class).setRequired(true))
 				.add(createServiceDependency().setService(PostOperation.class).setRequired(true))
 				.add(createServiceDependency().setService(NodeNameGenerator.class).setRequired(true))

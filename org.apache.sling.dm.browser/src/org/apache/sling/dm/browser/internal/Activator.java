@@ -14,6 +14,7 @@ import org.apache.sling.commons.mime.MimeTypeService;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 
 public class Activator extends DependencyActivatorBase {
 
@@ -31,10 +32,8 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_DESCRIPTION, "JCR Browser Servlet");
 		properties.put("sling.servlet.paths","/services/browser");
 		Component component = dm.createComponent()
-				.setInterface(new String[]{Serializable.class.getName(),ServletConfig.class.getName(),Servlet.class.getName()}, properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Serializable.class.getName(),ServletConfig.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(BrowserServlet.class)
-	            .add(dm.createConfigurationDependency()
-	            		.setPid(BrowserServlet.class.getName()))
 				.add(dm.createServiceDependency()
 	                	.setService(ResourceResolverFactory.class)
 	                	.setRequired(true))

@@ -21,6 +21,7 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.util.Dictionary;
 import java.util.Enumeration;
+import java.util.Hashtable;
 import java.util.Properties;
 
 import javax.jcr.Repository;
@@ -58,32 +59,33 @@ public class JndiRegistrationSupport extends AbstractRegistrationSupport impleme
 
     @Override
     protected boolean doActivate() {
-        if (this.properties != null) {
-        	@SuppressWarnings("unchecked")
-	        Dictionary<String, Object> props = this.getComponentContext().getProperties();
-	        Properties env = new Properties();
-	        for (Enumeration<String> pe = props.keys(); pe.hasMoreElements();) {
-	            String key = pe.nextElement();
-	            if (key.startsWith("java.naming.")) {
-	                env.setProperty(key, (String) props.get(key));
-	            }
-	        }
-	
-	        try {
-	            // create the JNDI context for registration
-	            this.jndiContext = this.createInitialContext(env);
-	
-	            this.log(LogService.LOG_INFO, "Using JNDI context "
-	                + this.jndiContext.getEnvironment() + " to register repositories",
-	                null);
-	
-	            return true;
-	        } catch (NamingException ne) {
-	            this.log(
-	                LogService.LOG_ERROR,
-	                "Problem setting up JNDI initial context, repositories will not be registered. Reason: "
-	                    + ne.getMessage(), null);
-	        }
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
+    	@SuppressWarnings("unchecked")
+        Dictionary<String, Object> props = this.getComponentContext().getProperties();
+        Properties env = new Properties();
+        for (Enumeration<String> pe = props.keys(); pe.hasMoreElements();) {
+            String key = pe.nextElement();
+            if (key.startsWith("java.naming.")) {
+                env.setProperty(key, (String) props.get(key));
+            }
+        }
+
+        try {
+            // create the JNDI context for registration
+            this.jndiContext = this.createInitialContext(env);
+
+            this.log(LogService.LOG_INFO, "Using JNDI context "
+                + this.jndiContext.getEnvironment() + " to register repositories",
+                null);
+
+            return true;
+        } catch (NamingException ne) {
+            this.log(
+                LogService.LOG_ERROR,
+                "Problem setting up JNDI initial context, repositories will not be registered. Reason: "
+                    + ne.getMessage(), null);
         }
         // fallback to false
         return false;

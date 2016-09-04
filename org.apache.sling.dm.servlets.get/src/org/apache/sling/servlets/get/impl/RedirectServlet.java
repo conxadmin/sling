@@ -20,6 +20,7 @@ package org.apache.sling.servlets.get.impl;
 
 import java.io.IOException;
 import java.util.Dictionary;
+import java.util.Hashtable;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -88,6 +89,9 @@ public class RedirectServlet extends SlingSafeMethodsServlet implements ManagedS
 
 	
     protected void activate() {
+    	if (this.properties == null)
+    		this.properties = new Hashtable<>();
+    	
       Dictionary<?, ?> props =this.properties;
       this.jsonMaximumResults = OsgiUtil.toInteger(props.get(JSON_RENDERER_MAXIMUM_RESULTS_PROPERTY),
           DEFAULT_JSON_RENDERER_MAXIMUM_RESULTS);

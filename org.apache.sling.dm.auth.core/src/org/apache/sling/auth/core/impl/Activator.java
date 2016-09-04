@@ -30,17 +30,16 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//BundleAuthenticationRequirementImpl
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,BundleAuthenticationRequirementImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Authenticator Logout Servlet");
 		properties.put("sling.servlet.methods",  new String[]{ "GET", "POST" });
 		Component component = dm.createComponent()
-				.setInterface(BundleAuthenticationRequirement.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),BundleAuthenticationRequirement.class.getName()}, properties)
 				.setImplementation(BundleAuthenticationRequirementImpl.class)
 	            .add(createServiceDependency()
 	                	.setService(Authenticator.class)
 	                	.setRequired(true))
-	            .add(createConfigurationDependency()
-	            		.setPid(LogoutServlet.class.getName()))
 	            ;
 		 dm.add(component);
 

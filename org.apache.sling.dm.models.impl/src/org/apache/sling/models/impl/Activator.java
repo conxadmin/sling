@@ -24,6 +24,7 @@ import org.apache.sling.models.spi.injectorspecific.StaticInjectAnnotationProces
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 
 public class Activator extends DependencyActivatorBase {
 
@@ -36,10 +37,11 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//FirstImplementationPicker
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,FirstImplementationPicker.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_RANKING, Integer.MAX_VALUE);
 		Component component = dm.createComponent()
-				.setInterface(ImplementationPicker.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),ImplementationPicker.class.getName()}, properties)
 				.setImplementation(FirstImplementationPicker.class)
 	            ;
 		dm.add(component);
@@ -47,11 +49,12 @@ public class Activator extends DependencyActivatorBase {
 
 		//ModelAdapterFactory
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,ModelAdapterFactory.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Model Adapter Factory");
 		properties.put("max.recursion.depth",20);
 		component = dm.createComponent()
-				.setInterface(ModelFactory.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(), ModelFactory.class.getName()}, properties)
 				.setImplementation(ModelAdapterFactory.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(Injector.class).setRequired(true))
@@ -60,7 +63,6 @@ public class Activator extends DependencyActivatorBase {
 				.add(createServiceDependency().setService(StaticInjectAnnotationProcessorFactory.class).setRequired(true))
 				.add(createServiceDependency().setService(ImplementationPicker.class).setRequired(true))
 				.add(createServiceDependency().setService(ModelValidation.class).setRequired(true))
-				.add(createConfigurationDependency().setPid(ModelAdapterFactory.class.getName()))
 	            ;
 		dm.add(component);	
 

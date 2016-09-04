@@ -35,6 +35,7 @@ public class Activator extends DependencyActivatorBase {
 		 
 		//MappingInventoryPrinter
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,MappingInventoryPrinter.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put("felix.inventory.printer.format",new String[]{"JSON","TEXT"});
 	    properties.put("felix.inventory.printer.name","slingserviceusers");
@@ -43,22 +44,6 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(InventoryPrinter.class.getName(), properties)
 				.setImplementation(MappingInventoryPrinter.class)
-				.add(createConfigurationDependency().setPid(MappingInventoryPrinter.class.getName()))
-				.add(createServiceDependency().setService(ServiceUserMapperImpl.class).setRequired(true))
-	            ;
-		 dm.add(component);
-		 
-		//MappingInventoryPrinter
-		properties = new Properties();
-		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-		properties.put("felix.inventory.printer.format",new String[]{"JSON","TEXT"});
-	    properties.put("felix.inventory.printer.name","slingserviceusers");
-	    properties.put("felix.inventory.printer.title","Sling Service User Mappings");
-	    properties.put("felix.inventory.printer.webconsole","true");
-		component = dm.createComponent()
-				.setInterface(InventoryPrinter.class.getName(), properties)
-				.setImplementation(MappingInventoryPrinter.class)
-				.add(createConfigurationDependency().setPid(MappingInventoryPrinter.class.getName()))
 				.add(createServiceDependency().setService(ServiceUserMapperImpl.class).setRequired(true))
 	            ;
 		 dm.add(component);

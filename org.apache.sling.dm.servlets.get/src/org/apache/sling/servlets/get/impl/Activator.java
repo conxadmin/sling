@@ -34,7 +34,6 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(DefaultGetServlet.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(DefaultGetServlet.class.getName()))
 	            ;
 		 dm.add(component);
 		 
@@ -51,7 +50,6 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(RedirectServlet.class)
 				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(DefaultGetServlet.class.getName()))
 	            ;
 		 dm.add(component);
 		 
@@ -66,19 +64,18 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(VersionInfoServlet.class)
-				.add(createConfigurationDependency().setPid(VersionInfoServlet.class.getName()))
 	            ;
 		 dm.add(component);		 
 		 
 		//SlingInfoServlet
 		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,SlingInfoServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Sling Info Servlet");
 	    properties.put("sling.servlet.paths","/system/sling/info");
 		component = dm.createComponent()
-				.setInterface(Servlet.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(SlingInfoServlet.class)
-				.add(createConfigurationDependency().setPid(VersionInfoServlet.class.getName()))
 	            ;
 		 dm.add(component);	
 	}

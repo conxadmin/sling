@@ -116,7 +116,6 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(new String[]{ManagedService.class.getName(),MainQueueConfiguration.class.getName()}, properties)
 				.setImplementation(JobManagerConfiguration.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createConfigurationDependency().setPid(JobManagerConfiguration.class.getName()))
 				.add(createServiceDependency().setService(EnvironmentComponent.class).setRequired(true))
 				.add(createServiceDependency().setService(ResourceResolverFactory.class).setRequired(true))
 				.add(createServiceDependency().setService(QueueConfigurationManager.class).setRequired(true))
