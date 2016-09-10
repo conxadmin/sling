@@ -59,7 +59,7 @@ import org.slf4j.LoggerFactory;
  * default workspace assuming users are stored in that workspace and the
  * administrative user has full access.
  */
-public class ChunkCleanUpTask implements Runnable, ManagedService {
+public class ChunkCleanUpTask implements ManagedService, Runnable {
 
     /** default log */
     private final Logger log = LoggerFactory.getLogger(getClass());

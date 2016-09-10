@@ -18,6 +18,7 @@ package org.apache.sling.jackrabbit.usermanager.impl.post;
 
 import java.util.Dictionary;
 
+import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.ComponentContext;
 
@@ -32,8 +33,8 @@ public abstract class AbstractUserPostServlet extends
 	// ---------- SCR Integration ----------------------------------------------
 
 	@Override
-    protected void activate() {
-        super.activate();
+    protected void activate(Component component) {
+        super.activate(component);
     }
 
     @Override

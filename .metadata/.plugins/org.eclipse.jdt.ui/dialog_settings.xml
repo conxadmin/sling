@@ -9,7 +9,9 @@
 		<item value="false" key="renameSubpackages"/>
 		<item value="false" key="updateQualifiedNames"/>
 		<item value="*" key="patterns"/>
+		<item value="false" key="updateSimilarElements"/>
 		<item value="false" key="updateTextualMatches"/>
+		<item value="1" key="updateSimilarElementsMatchStrategy"/>
 	</section>
 	<section name="ProblemSeveritiesConfigurationBlock">
 		<item value="false" key="expanded2"/>
@@ -65,10 +67,22 @@
 		<item value="3" key="pageIndex"/>
 	</section>
 	<section name="JavaSearchPage">
-		<item value="3" key="HISTORY_SIZE"/>
+		<item value="6" key="HISTORY_SIZE"/>
 		<item value="false" key="CASE_SENSITIVE"/>
 		<item value="15" key="INCLUDE_MASK"/>
-		<section name="HISTORY2">
+		<section name="HISTORY4">
+			<item value="true" key="isCaseSensitive"/>
+			<item value="=org.apache.sling.installer.core/src\/main\/java&lt;org.apache.sling.installer.api.info{InfoProvider.java[InfoProvider" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="org.apache.sling.installer.api.info.InfoProvider" key="pattern"/>
+			<item value="0" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY5">
 			<item value="false" key="isCaseSensitive"/>
 			<item value="" key="javaElement"/>
 			<item value="0" key="scope"/>
@@ -80,7 +94,19 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY0">
+		<section name="HISTORY2">
+			<item value="true" key="isCaseSensitive"/>
+			<item value="=org.apache.sling.dm.browser/\/cnf\/releaserepo\/org.apache.sling.api\/org.apache.sling.api-2.14.1.jar&lt;org.apache.sling.api.resource(ResourceResolverFactory.class[ResourceResolverFactory" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="org.apache.sling.api.resource.ResourceResolverFactory" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
 			<item value="false" key="isCaseSensitive"/>
 			<item value="" key="javaElement"/>
 			<item value="1" key="scope"/>
@@ -92,13 +118,25 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY1">
-			<item value="true" key="isCaseSensitive"/>
-			<item value="=org.apache.sling.installer.core/src\/main\/java&lt;org.apache.sling.installer.api.info{InfoProvider.java[InfoProvider" key="javaElement"/>
+		<section name="HISTORY0">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="javaElement"/>
 			<item value="0" key="scope"/>
 			<item value="15" key="includeMask"/>
-			<item value="org.apache.sling.installer.api.info.InfoProvider" key="pattern"/>
-			<item value="0" key="limitTo"/>
+			<item value="org.apache.sling.commons.classloader.DynamicClassLoaderManager" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="org.apache.sling.api.resource.ResourceProviderFactory" key="pattern"/>
+			<item value="1" key="limitTo"/>
 			<item value="0" key="matchLocations"/>
 			<item value="0" key="searchFor"/>
 			<list key="workingSets">

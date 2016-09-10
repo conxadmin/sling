@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
-    <OCD id="org.apache.sling.auth.core.impl.LogoutServlet" name="Apache Sling Authentication Logout Servlet" description="Servlet for logging out users through the authenticator service.">
-        <AD id="sling.servlet.methods" type="String" default="GET,POST" name="Method" description="Supported Methdos" cardinality="2147483647"/>
-        <AD id="sling.servlet.paths" type="String" default="/system/sling/logout" name="%sling.servlet.paths.name" description="%sling.servlet.paths.description"/>
-    </OCD>
-    <Designate pid="org.apache.sling.auth.core.impl.LogoutServlet">
-        <Object ocdref="org.apache.sling.auth.core.impl.LogoutServlet"/>
-    </Designate>
-</metatype:MetaData>

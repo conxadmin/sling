@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;org.apache.sling.dm.jcr.davex&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.jcr.davex&apos;&#x0A;- Original elements:&#x0A;     buildfiles&#x0A;     org.apache.sling.dm.jcr.davex.mt.jar" description="Delete elements" element1="generated/org.apache.sling.dm.jcr.davex.mt.jar" element2="generated/buildfiles" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="2" stamp="1473007951063" subPackages="false" version="1.0"/>
+</session>

@@ -114,6 +114,8 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(new String[]{AdapterFactory.class.getName(),MimeTypeProvider.class.getName()}, properties)
 				.setImplementation(SlingScriptAdapterFactory.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.add(createServiceDependency().setService(SlingScriptEngineManager.class).setRequired(true))
+				.add(createServiceDependency().setService(ScriptCache.class).setRequired(true))
 	            ;
 		dm.add(component);
 

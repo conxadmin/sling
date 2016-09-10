@@ -53,7 +53,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Object.class.getName()}, properties)
 				.setImplementation(ResourceResolverFactoryActivator.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(ResourceDecorator.class)
 						 .setCallbacks("bindResourceDecorator", "unbindResourceDecorator").setRequired(false))
 				.add(createServiceDependency().setService(EventAdmin.class)

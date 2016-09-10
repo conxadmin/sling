@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProvider">
-    <OCD id="org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory" name="%org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory.name" description="%org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory.description">
-        <AD id="optimize.oak" type="Boolean" default="true" name="%org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory.optimize.oak.name" description="%org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory.optimize.oak.description"/>
-        <AD id="oak.observation.queue-length" type="Integer" default="1000" name="%org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory.oak.observation.queue-length.name" description="%org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory.oak.observation.queue-length.description"/>
-    </OCD>
-    <Designate pid="org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory">
-        <Object ocdref="org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory"/>
-    </Designate>
-</metatype:MetaData>

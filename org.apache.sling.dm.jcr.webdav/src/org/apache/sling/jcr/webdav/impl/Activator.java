@@ -5,7 +5,6 @@ import java.util.Properties;
 
 import javax.jcr.Repository;
 import javax.servlet.Servlet;
-import javax.swing.plaf.basic.BasicColorChooserUI.PropertyHandler;
 
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
@@ -13,6 +12,7 @@ import org.apache.felix.webconsole.ConfigurationPrinter;
 import org.apache.jackrabbit.server.io.CopyMoveHandler;
 import org.apache.jackrabbit.server.io.DeleteHandler;
 import org.apache.jackrabbit.server.io.IOHandler;
+import org.apache.jackrabbit.server.io.PropertyHandler;
 import org.apache.sling.commons.mime.MimeTypeService;
 import org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter;
 import org.apache.sling.jcr.api.SlingRepository;
@@ -56,7 +56,7 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put(Constants.SERVICE_RANKING, 100);
 		component = dm.createComponent()
-				.setInterface(new String[]{ManagedService.class.getName(),IOHandler.class.getName(),PropertyHandler.class.getName(),CopyMoveHandler.class.getName(),DeleteHandler.class.getName()}, properties)
+				.setInterface(new String[]{ManagedService.class.getName()}, properties)
 				.setImplementation(DirListingExportHandlerService.class)
 				.add(createServiceDependency().setService(SlingRepository.class)
 						.setRequired(true))

@@ -28,6 +28,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.amdatu.multitenant.Tenant;
+import org.apache.felix.dm.Component;
+import org.apache.felix.dm.DependencyManager;
 import org.apache.jackrabbit.util.ISO9075;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.resource.LoginException;
@@ -93,12 +96,23 @@ public class JobManagerImpl
     private volatile QueueManager qManager;
 
     private volatile CleanUpTask maintenanceTask;
+    
 
+    
     /** Job Scheduler. */
     private org.apache.sling.event.impl.jobs.scheduling.JobSchedulerImpl jobScheduler;
 
 	private Dictionary<String,?> props;
 
+    private volatile DependencyManager dm;
+    
+    private volatile Tenant tenant;
+    
+	private Component component;
+	
+	protected void init(Component component) {
+		this.component = component;
+	}
     /**
      * Activate this component.
      * @param props Configuration properties

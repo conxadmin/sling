@@ -1,7 +1,0 @@
-#Tue Aug 23 12:07:35 EDT 2016
-org.apache.sling.scripting.core.impl.ScriptCacheImpl.org.apache.sling.scripting.cache.additional_extensions.name=Additional Extensions
-org.apache.sling.scripting.core.impl.ScriptCacheImpl.org.apache.sling.scripting.cache.size.description=The Cache Size defines the maximum number of compiled script references that will be stored in the cache's internal map.
-org.apache.sling.scripting.core.impl.ScriptCacheImpl.description=The Script Cache is useful for running previously compiled scripts.
-org.apache.sling.scripting.core.impl.ScriptCacheImpl.name=Apache Sling Script Cache
-org.apache.sling.scripting.core.impl.ScriptCacheImpl.org.apache.sling.scripting.cache.size.name=Cache Size
-org.apache.sling.scripting.core.impl.ScriptCacheImpl.org.apache.sling.scripting.cache.additional_extensions.description=Scripts from the search paths with these extensions will also be monitored so that changes to them will clean the cache if the cache contains them.

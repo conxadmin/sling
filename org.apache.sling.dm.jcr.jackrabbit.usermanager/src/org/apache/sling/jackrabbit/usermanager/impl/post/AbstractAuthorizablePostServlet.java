@@ -33,6 +33,7 @@ import javax.jcr.Value;
 import javax.jcr.ValueFactory;
 import javax.servlet.ServletException;
 
+import org.apache.felix.dm.Component;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.sling.api.SlingIOException;
 import org.apache.sling.api.request.RequestParameter;
@@ -60,14 +61,14 @@ public abstract class AbstractAuthorizablePostServlet extends
 
     // ---------- DM Integration ----------------------------------------------
 
-    protected void activate() {
-    	if (this.properties != null) {
-	        dateParser = new DateParser();
-	        String[] dateFormats = OsgiUtil.toStringArray(properties.get(PROP_DATE_FORMAT));
-	        for (String dateFormat : dateFormats) {
-	            dateParser.register(dateFormat);
-	        }
-    	}
+    protected void activate(Component component) {
+    	this.properties = component.getServiceProperties();
+
+    	dateParser = new DateParser();
+        String[] dateFormats = OsgiUtil.toStringArray(properties.get(PROP_DATE_FORMAT));
+        for (String dateFormat : dateFormats) {
+            dateParser.register(dateFormat);
+        }
     }
 
     protected void deactivate() {

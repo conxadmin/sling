@@ -20,7 +20,11 @@ package org.apache.sling.event.impl.jobs.notifications;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.Properties;
 
+import org.amdatu.multitenant.Tenant;
+import org.apache.felix.dm.Component;
+import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.event.impl.jobs.config.JobManagerConfiguration;
 import org.apache.sling.event.jobs.Job;
@@ -55,22 +59,33 @@ public class NewJobSender implements EventHandler {
     /** Service registration for the event handler. */
     private volatile ServiceRegistration eventHandlerRegistration;
 
-	private Hashtable<String,Object> properties;
+    private volatile DependencyManager dm;
+    
+    private volatile Tenant tenant;
+    
+	private Component component;
 
+	private Dictionary<Object, Object> properties;
+	
+	protected void init(Component component) {
+		this.component = component;
+	}
     /**
      * Activate this component.
      * Register an event handler.
      */
     protected void activate() {
     	if (this.properties == null)
-    		this.properties = new Hashtable<>();
-        properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Job Topic Manager Event Handler");
-        properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-        properties.put(EventConstants.EVENT_TOPIC, SlingConstants.TOPIC_RESOURCE_ADDED);
-        properties.put(EventConstants.EVENT_FILTER,
+    		this.properties = component.getServiceProperties();
+    	
+    	Dictionary<String, Object> props = new Hashtable<>();
+        props.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Job Topic Manager Event Handler");
+        props.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+        props.put(EventConstants.EVENT_TOPIC, SlingConstants.TOPIC_RESOURCE_ADDED);
+        props.put(EventConstants.EVENT_FILTER,
                 "(" + SlingConstants.PROPERTY_PATH + "=" +
                       this.configuration.getLocalJobsPath() + "/*)");
-        this.eventHandlerRegistration = bundleContext.registerService(EventHandler.class.getName(), this, properties);
+        this.eventHandlerRegistration = bundleContext.registerService(EventHandler.class.getName(), this, props);
     }
 
     /**
@@ -82,6 +97,7 @@ public class NewJobSender implements EventHandler {
             this.eventHandlerRegistration.unregister();
             this.eventHandlerRegistration = null;
         }
+        this.properties = null;
     }
 
     @Override

@@ -29,20 +29,17 @@ public class Activator extends DependencyActivatorBase {
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//SlingServletResolver
+		
 		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_PID,SlingServletResolver.class.getName());
 		properties.put(Constants.SERVICE_VENDOR,"The Apache Software Foundation");
 		properties.put("service.description","Sling Servlet Resolver and Error Handler");
-		properties.put("event.topics", new String[]{"org/apache/sling/api/resource/Resource/*",
-	                    "org/apache/sling/api/resource/ResourceProvider/*",
-	                    "javax/script/ScriptEngineFactory/*",
-	                    "org/apache/sling/api/adapter/AdapterFactory/*",
-	                    "org/apache/sling/scripting/core/BindingsValuesProvider/*"});
+		properties.put("event.topics", "org/apache/sling/api/resource/Resource/*,org/apache/sling/api/resource/ResourceProvider/*,javax/script/ScriptEngineFactory/*,org/apache/sling/api/adapter/AdapterFactory/*,org/apache/sling/scripting/core/BindingsValuesProvider/*");
 	    
 		Component component = dm.createComponent()
-				.setInterface(new String[]{ManagedService.class.getName(),ServletResolver.class.getName(), SlingScriptResolver.class.getName(), ErrorHandler.class.getName(), SlingRequestListener.class.getName()}, properties)
+				.setInterface(new String[]{/*ManagedService.class.getName(), */ServletResolver.class.getName(), SlingScriptResolver.class.getName(), ErrorHandler.class.getName(), SlingRequestListener.class.getName()}, properties)
 				.setImplementation(SlingServletResolver.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(Servlet.class)
 						.setCallbacks("bindServlet", "bindServlet")
 						.setRequired(false))

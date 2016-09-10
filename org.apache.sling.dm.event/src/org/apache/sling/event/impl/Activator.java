@@ -50,6 +50,7 @@ public class Activator extends DependencyActivatorBase {
 
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		
 		//EnvironmentComponent
 		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_PID,EnvironmentComponent.class.getName());
@@ -215,7 +216,7 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put("org.apache.sling.installer.configuration.persist",false);
 		properties.put("job.consumermanager.whitelist","*");
-	    properties.put("job.consumermanager.blacklist",null);
+	    properties.put("job.consumermanager.blacklist","");
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),JobConsumerManager.class.getName()}, properties)
 				.setImplementation(JobConsumerManager.class)
@@ -243,7 +244,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{JobManager.class.getName(),EventHandler.class.getName(),Runnable.class.getName()}, properties)
 				.setImplementation(JobManagerImpl.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(EventAdmin.class).setRequired(true))
 				.add(createServiceDependency().setService(Scheduler.class).setRequired(true))
 				.add(createServiceDependency().setService(JobConsumerManager.class).setRequired(true))
@@ -262,7 +263,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(NewJobSender.class.getName(), properties)
 				.setImplementation(NewJobSender.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(JobManagerConfiguration.class).setRequired(true))
 				.add(createServiceDependency().setService(EventAdmin.class).setRequired(true))
 	            ;
@@ -278,7 +279,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{Runnable.class.getName(), QueueManager.class.getName(), EventHandler.class.getName()}, properties)
 				.setImplementation(QueueManager.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(EventAdmin.class).setRequired(true))
 				.add(createServiceDependency().setService(Scheduler.class).setRequired(true))
 				.add(createServiceDependency().setService(JobConsumerManager.class).setRequired(true))

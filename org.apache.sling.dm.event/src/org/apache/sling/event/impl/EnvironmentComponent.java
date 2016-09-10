@@ -18,9 +18,13 @@
  */
 package org.apache.sling.event.impl;
 
+import java.util.Dictionary;
+
 import org.apache.sling.commons.threads.ThreadPool;
 import org.apache.sling.event.impl.support.Environment;
 import org.apache.sling.settings.SlingSettingsService;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 
 /**
  * Environment component. This component provides "global settings"
@@ -30,7 +34,7 @@ import org.apache.sling.settings.SlingSettingsService;
  * This component needs to be immediate to set the global variables
  * (application id and thread pool).
  */
-public class EnvironmentComponent {
+public class EnvironmentComponent implements ManagedService {
 
     /**
      * Our thread pool.
@@ -68,4 +72,10 @@ public class EnvironmentComponent {
             this.threadPool = null;
         }
     }
+
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
 }

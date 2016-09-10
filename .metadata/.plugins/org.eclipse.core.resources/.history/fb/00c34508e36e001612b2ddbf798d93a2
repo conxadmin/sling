@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
-    <OCD id="org.apache.sling.jcr.jackrabbit.server.JndiRegistrationSupport" name="%jndi.name" description="%jndi.description">
-        <AD id="java.naming.factory.initial" type="String" default="org.apache.jackrabbit.core.jndi.provider.DummyInitialContextFactory" name="%jndi.factory.name" description="%jndi.factory.description"/>
-        <AD id="java.naming.provider.url" type="String" default="http://sling.apache.org" name="%jndi.providerurl.name" description="%jndi.providerurl.description"/>
-    </OCD>
-    <Designate pid="org.apache.sling.jcr.jackrabbit.server.JndiRegistrationSupport">
-        <Object ocdref="org.apache.sling.jcr.jackrabbit.server.JndiRegistrationSupport"/>
-    </Designate>
-</metatype:MetaData>

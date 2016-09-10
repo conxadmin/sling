@@ -27,6 +27,7 @@ import java.util.Map;
 
 import org.apache.commons.collections.BidiMap;
 import org.apache.commons.collections.bidimap.TreeBidiMap;
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.resource.ResourceDecorator;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.resource.runtime.RuntimeService;
@@ -227,6 +228,8 @@ public class ResourceResolverFactoryActivator implements ManagedService {
 
 	private Dictionary<String, ?> properties;
 
+	private Component component;
+
     /**
      * Get the resource decorator tracker.
      */
@@ -316,11 +319,16 @@ public class ResourceResolverFactoryActivator implements ManagedService {
 		this.properties = properties;
 	}
     /**
-     * Activates this component (called by SCR before)
+     * Activates this component (called by DM before)
      */
+	protected void init(Component component) {
+		this.component = component;
+	}
+	
     protected void activate() {
     	if (this.properties == null)
-    		this.properties = new Hashtable<>();
+    		this.properties = component.getServiceProperties();
+    	
     	
         final BidiMap virtuals = new TreeBidiMap();
         final String[] virtualList = PropertiesUtil.toStringArray(properties.get(PROP_VIRTUAL));
@@ -548,8 +556,8 @@ public class ResourceResolverFactoryActivator implements ManagedService {
         if ( localContext != null ) {
             // activate and register factory
             final Dictionary<String, Object> serviceProps = new Hashtable<String, Object>();
-            serviceProps.put(Constants.SERVICE_VENDOR, localContext.getProperty(Constants.SERVICE_VENDOR));
-            serviceProps.put(Constants.SERVICE_DESCRIPTION,  localContext.getProperty(Constants.SERVICE_DESCRIPTION));
+            serviceProps.put(Constants.SERVICE_VENDOR, this.component.getServiceProperties().get(Constants.SERVICE_VENDOR));
+            serviceProps.put(Constants.SERVICE_DESCRIPTION,  this.component.getServiceProperties().get(Constants.SERVICE_DESCRIPTION));
 
             local.commonFactory = new CommonResourceResolverFactoryImpl(this);
             local.commonFactory.activate(localContext);

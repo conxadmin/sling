@@ -36,13 +36,13 @@ public class Activator extends DependencyActivatorBase {
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(SlingRepository.class)
 						.setCallbacks("bindRepository", "unbindRepository")
-						.setRequired(false))
+						.setRequired(true))
 				.add(createServiceDependency().setService(org.osgi.service.http.HttpService.class)
 						.setCallbacks("bindHttpService", "unbindHttpService")
-						.setRequired(false))
+						.setRequired(true))
 				.add(createServiceDependency().setService(org.apache.sling.auth.core.AuthenticationSupport.class)
 						.setCallbacks("bindAuthSupport", "unbindAuthSupport")
-						.setRequired(false))
+						.setRequired(true))
 	            ;
 		dm.add(component);
 	}

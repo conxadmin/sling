@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.commons.scheduler.impl.SchedulerServiceFactory" activate="activate">
-    <implementation class="org.apache.sling.commons.scheduler.impl.SchedulerServiceFactory"/>
-    <service servicefactory="true">
-        <provide interface="org.apache.sling.commons.scheduler.Scheduler"/>
-    </service>
-    <property name="service.vendor" value="The Apache Software Foundation"/>
-    <reference name="scheduler" interface="org.apache.sling.commons.scheduler.impl.QuartzScheduler" cardinality="1..1" policy="static" bind="bindScheduler" unbind="unbindScheduler"/>
-</scr:component>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.resourceresolver.impl.legacy.LegacyResourceProviderWhiteboard">
-    <implementation class="org.apache.sling.resourceresolver.impl.legacy.LegacyResourceProviderWhiteboard"/>
-    <property name="service.vendor" value="The Apache Software Foundation"/>
-    <reference name="ResourceProvider" interface="org.apache.sling.api.resource.ResourceProvider" cardinality="0..n" policy="dynamic" bind="bindResourceProvider" unbind="unbindResourceProvider"/>
-    <reference name="ResourceProviderFactory" interface="org.apache.sling.api.resource.ResourceProviderFactory" cardinality="0..n" policy="dynamic" bind="bindResourceProviderFactory" unbind="unbindResourceProviderFactory"/>
-</scr:component>

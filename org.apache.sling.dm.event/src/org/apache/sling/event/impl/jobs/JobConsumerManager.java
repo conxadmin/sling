@@ -41,13 +41,15 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * This component manages/keeps track of all job consumer services.
  */
-public class JobConsumerManager {
+public class JobConsumerManager implements ManagedService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -85,6 +87,11 @@ public class JobConsumerManager {
         }
         return serviceProps;
     }
+    
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		this.props = properties;
+	}
 
     protected void activate() {
     	if (this.props == null)
@@ -466,4 +473,5 @@ public class JobConsumerManager {
             return context.result().cancelled();
         }
     }
+
 }

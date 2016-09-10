@@ -63,7 +63,7 @@ public class JndiRegistrationSupport extends AbstractRegistrationSupport impleme
     		this.properties = new Hashtable<>();
     	
     	@SuppressWarnings("unchecked")
-        Dictionary<String, Object> props = this.getComponentContext().getProperties();
+        Dictionary<String, ?> props = this.properties;
         Properties env = new Properties();
         for (Enumeration<String> pe = props.keys(); pe.hasMoreElements();) {
             String key = pe.nextElement();

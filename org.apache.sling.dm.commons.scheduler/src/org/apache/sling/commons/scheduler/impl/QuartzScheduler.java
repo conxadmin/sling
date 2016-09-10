@@ -111,7 +111,7 @@ public class QuartzScheduler implements BundleListener, ManagedService {
      * @throws Exception
      */
     protected void activate() {
-    	if (this.props != null)
+    	if (this.props == null)
     		this.props = new Hashtable<>();
     	
     	

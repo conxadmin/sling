@@ -22,6 +22,7 @@ import java.util.Map;
 
 import javax.jcr.Repository;
 
+import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.component.ComponentConstants;
@@ -60,7 +61,7 @@ public abstract class AbstractRegistrationSupport {
     /**
      * The OSGi ComponentContext.
      */
-    private ComponentContext componentContext;
+    private volatile BundleContext componentContext;
 
     /**
      * The (possibly empty) map of repositories which have been bound to the
@@ -160,7 +161,7 @@ public abstract class AbstractRegistrationSupport {
      * called. That is, this method does not return <code>null</code> if it is
      * fully operational.
      */
-    protected ComponentContext getComponentContext() {
+    protected BundleContext getComponentContext() {
         return this.componentContext;
     }
 
@@ -226,10 +227,8 @@ public abstract class AbstractRegistrationSupport {
      * @param componentContext The OSGi <code>ComponentContext</code> of this
      *      component.
      */
-    protected void activate(ComponentContext componentContext) {
+    protected void activate() {
         synchronized (this.registryLock) {
-            this.componentContext = componentContext;
-
             if (this.doActivate()) {
                 // register all repositories in the tmp map
                 for (Iterator<Map.Entry<String, ServiceReference>> ri = this.repositoryRegistrationBacklog.entrySet().iterator(); ri.hasNext();) {
@@ -242,9 +241,9 @@ public abstract class AbstractRegistrationSupport {
                 }
             } else {
                 // disable this component
-                String name = (String) componentContext.getProperties().get(
+                String name = (String) componentContext.getProperty(
                     ComponentConstants.COMPONENT_NAME);
-                this.getComponentContext().disableComponent(name);
+                //TODO: this.getComponentContext().disableComponent(name);
             }
         }
     }
@@ -332,7 +331,7 @@ public abstract class AbstractRegistrationSupport {
 
                 // make sure we have no reference to the service
                 if (this.componentContext != null) {
-                    this.componentContext.getBundleContext().ungetService(reference);
+                    this.componentContext.ungetService(reference);
                 }
             }
         } else {
@@ -363,7 +362,7 @@ public abstract class AbstractRegistrationSupport {
      * {@link #bindRepository(String, Repository)} method.
      */
     private void bindRepositoryInternal(String name, ServiceReference reference) {
-        Repository repository = (Repository) this.getComponentContext().getBundleContext().getService(
+        Repository repository = (Repository) this.getComponentContext().getService(
             reference);
         Object data = this.bindRepository(name, repository);
         if (data != null) {

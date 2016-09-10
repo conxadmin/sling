@@ -52,6 +52,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.SlingException;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -105,12 +106,12 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class SlingServletResolver
-    implements ServletResolver,
+    implements ManagedService,
+    		   ServletResolver,
                SlingScriptResolver,
                SlingRequestListener,
                ErrorHandler,
-               EventHandler,
-               ManagedService{
+               EventHandler {
 
     /**
      * The default servlet root is the first search path (which is usally /apps)
@@ -498,6 +499,8 @@ public class SlingServletResolver
 
 	private Dictionary<String, ?> properties;
 
+	private Component component;
+
     /**
      * @see org.apache.sling.api.request.SlingRequestListener#onEvent(org.apache.sling.api.request.SlingRequestEvent)
      */
@@ -763,21 +766,29 @@ public class SlingServletResolver
         return authInfo;
     }
 
-    // ---------- DM Integration ----------------------------------------------
+    // ---------- ManagedService Integration ----------------------------------------------
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
+	
+	
+    // ---------- DM Integration ----------------------------------------------
+	public void init(Component component) {
+		this.component = component;
+		this.properties = properties;
+	}
+	
 	
     /**
      * Activate this component.
      */
     @SuppressWarnings("unchecked")
     protected void activate() throws LoginException {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
-    	
-        // from configuration if available
+    	if (this.component != null)
+    		this.properties = component.getServiceProperties();
+
+    	// from configuration if available
         final Dictionary<String, ?> properties = this.properties;
         Object servletRoot = properties.get(PROP_SERVLET_ROOT);
         if (servletRoot == null) {
@@ -857,7 +868,7 @@ public class SlingServletResolver
     /**
      * Deactivate this component.
      */
-    protected void deactivate(final ComponentContext context) {
+    protected void deactivate() {
         // stop registering of servlets immediately
         this.context = null;
 

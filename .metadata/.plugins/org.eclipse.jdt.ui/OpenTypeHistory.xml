@@ -2,4 +2,11 @@
 <typeInfoHistroy>
 <typeInfo handle="=maven-sling-plugin/\/Users\/mduduzikeswa\/.m2\/repository\/org\/apache\/sling\/adapter-annotations\/1.0.0\/adapter-annotations-1.0.0.jar&lt;org.apache.sling.adapter.annotations(Adaptable.class[Adaptable" modifiers="9729" timestamp="1455736209000"/>
 <typeInfo handle="=org.apache.sling.dm.servlets.resolver/src&lt;org.apache.sling.servlets.resolver.internal.helper{SlingServletConfig.java[SlingServletConfig" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.jcr.base/src&lt;org.apache.sling.jcr.base{AbstractSlingRepositoryManager.java[AbstractSlingRepositoryManager" modifiers="1025" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.servlets.post/src&lt;org.apache.sling.servlets.post.impl{SlingPostServlet.java[SlingPostServlet" modifiers="1" timestamp="1472505439000"/>
+<typeInfo handle="=org.apache.sling.dm.engine/src&lt;org.apache.sling.engine.impl.parameters{RequestParameterSupportConfigurer.java[RequestParameterSupportConfigurer" modifiers="1" timestamp="1472836997000"/>
+<typeInfo handle="=org.apache.sling.dm.engine/src&lt;org.apache.sling.engine.impl.log{RequestLoggerService.java[RequestLoggerService" modifiers="1" timestamp="1472836836000"/>
+<typeInfo handle="=org.apache.sling.engine/src\/main\/java&lt;org.apache.sling.engine.impl.log{RequestLoggerService.java[RequestLoggerService" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.jcr.jackrabbit.server/src&lt;org.apache.sling.dm.jcr.jackrabbit.server.plugins.security{PluggableDefaultLoginModule.java[PluggableDefaultLoginModule" modifiers="1" timestamp="1472749844000"/>
+<typeInfo handle="=org.apache.sling.dm.jcr.webdav/src&lt;org.apache.sling.jcr.webdav.impl.handler{DirListingExportHandlerService.java[DirListingExportHandlerService" modifiers="1" timestamp="1472950884000"/>
 </typeInfoHistroy>

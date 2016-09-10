@@ -21,6 +21,7 @@ package org.apache.sling.servlets.get.impl.impl.info;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,13 +33,15 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.commons.json.JSONException;
 import org.apache.sling.commons.json.io.JSONWriter;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.component.ComponentContext;
 
 /**
  * The <code>SlingInfoServlet</code> TODO
  */
 @SuppressWarnings("serial")
-public class SlingInfoServlet extends SlingSafeMethodsServlet {
+public class SlingInfoServlet extends SlingSafeMethodsServlet implements ManagedService {
     
     /**
      * 
@@ -190,4 +193,9 @@ public class SlingInfoServlet extends SlingSafeMethodsServlet {
         infoProviders.put(SessionInfoProvider.PROVIDER_LABEL,
             new SessionInfoProvider());
     }
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -40,6 +40,7 @@ import javax.jcr.Repository;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.apache.felix.dm.Component;
 import org.apache.jackrabbit.api.JackrabbitSession;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.jackrabbit.api.security.user.UserManager;
@@ -121,14 +122,21 @@ public class JcrResourceProvider extends ResourceProvider<JcrProviderState> impl
 
 	private Dictionary<String, ?> properties;
 
+	private Component component;
+
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
 	
+	//------------------ DM -----------------------
+	protected void init(Component component) throws RepositoryException {
+		this.component = component;
+	}
+	
     protected void activate() throws RepositoryException {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
+    	if (this.component != null)
+    		this.properties = component.getServiceProperties();
     	
         SlingRepository repository = (SlingRepository) context.getService(this.repositoryReference);
         if (repository == null) {

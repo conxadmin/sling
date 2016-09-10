@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1472962355694" name="org.apache.sling.dm.jcr.jackrabbit.usermanager" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1473529908980" name="org.apache.sling.dm.jcr.jackrabbit.usermanager" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.jcr.jackrabbit.usermanager.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="2.2.5.201609040412"/>
+      <attribute name="version" type="Version" value="2.2.5.201609101751"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="8725a773ed7b34ca92f3586de7aead1923195cc364ad245fd20c1ecc7a272b26"/>
+      <attribute name="osgi.content" value="a2ad6ece110b18409617190ded5bf576218d03fcf4042fbbf4b067ee6d72db3c"/>
       <attribute name="url" value="generated/org.apache.sling.dm.jcr.jackrabbit.usermanager.mt.jar"/>
-      <attribute name="size" type="Long" value="124248"/>
+      <attribute name="size" type="Long" value="124625"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.jcr.jackrabbit.usermanager.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.2.5.201609040412"/>
+      <attribute name="bundle-version" type="Version" value="2.2.5.201609101751"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.jcr.jackrabbit.usermanager.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.2.5.201609040412"/>
+      <attribute name="bundle-version" type="Version" value="2.2.5.201609101751"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.jackrabbit.usermanager"/>
       <attribute name="version" type="Version" value="2.2.1"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.jcr.jackrabbit.usermanager.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.2.5.201609040412"/>
+      <attribute name="bundle-version" type="Version" value="2.2.5.201609101751"/>
       <directive name="uses" value="javax.jcr,org.apache.jackrabbit.api.security.user,org.apache.sling.api.resource,org.apache.sling.servlets.post"/>
     </capability>
     <capability namespace="bndtools.workspace">

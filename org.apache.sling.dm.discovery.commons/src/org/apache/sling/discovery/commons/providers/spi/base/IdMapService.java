@@ -223,7 +223,7 @@ public class IdMapService extends AbstractServiceWithBackgroundCheck implements 
             notifyAll();
             return true;
         } catch(Exception e) {
-            logger.info("init: init failed: "+e);
+            logger.error("init: init failed: ",e);
             return false;
         } finally {
             if (resourceResolver!=null) {

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.commons.scheduler.impl.QuartzScheduler">
-    <OCD id="org.apache.sling.commons.scheduler.impl.QuartzScheduler" name="%org.apache.sling.commons.scheduler.impl.QuartzScheduler.name" description="%org.apache.sling.commons.scheduler.impl.QuartzScheduler.description">
-        <AD id="poolName" type="String" name="%org.apache.sling.commons.scheduler.impl.QuartzScheduler.poolName.name" description="%org.apache.sling.commons.scheduler.impl.QuartzScheduler.poolName.description"/>
-        <AD id="allowedPoolNames" type="String" name="%org.apache.sling.commons.scheduler.impl.QuartzScheduler.allowedPoolNames.name" description="%org.apache.sling.commons.scheduler.impl.QuartzScheduler.allowedPoolNames.description" cardinality="2147483647"/>
-    </OCD>
-    <Designate pid="org.apache.sling.commons.scheduler.impl.QuartzScheduler">
-        <Object ocdref="org.apache.sling.commons.scheduler.impl.QuartzScheduler"/>
-    </Designate>
-</metatype:MetaData>

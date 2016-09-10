@@ -19,6 +19,7 @@
 package org.apache.sling.engine.impl.log;
 
 import java.io.IOException;
+import java.util.Dictionary;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -31,6 +32,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.sling.engine.impl.SlingMainServlet;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
 import org.osgi.service.component.annotations.Reference;
@@ -48,13 +51,19 @@ import org.slf4j.LoggerFactory;
                    Constants.SERVICE_DESCRIPTION + "=Request Logger Filter",
                    Constants.SERVICE_VENDOR + "=The Apache Software Foundation"
            })
-public final class RequestLoggerFilter implements Filter {
+public final class RequestLoggerFilter implements Filter, ManagedService {
 
     private static final RequestLoggerService[] NONE = new RequestLoggerService[0];
 
     private RequestLoggerService[] requestEntry = NONE;
 
     private RequestLoggerService[] requestExit = NONE;
+    
+
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		//TODO:
+	}
 
     @Override
     public void init(FilterConfig filterConfig) {

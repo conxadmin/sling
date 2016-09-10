@@ -21,6 +21,7 @@ package org.apache.sling.jcr.resource.internal.helper.jcr;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
@@ -73,7 +74,7 @@ public class PathMapper implements ManagedService {
 
     private void activate() {
     	if (this.properties == null)
-    		this.properties = properties;
+    		this.properties = new Hashtable<>();
     	
         mappings.clear();
         final String[] config = PropertiesUtil.toStringArray(this.properties.get(PATH_MAPPING), null);

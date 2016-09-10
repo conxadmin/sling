@@ -1,9 +1,0 @@
-#Tue Aug 23 12:08:49 EDT 2016
-org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.description=This is the central service of the job handling.
-org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.job.consumermanager.disableDistribution.name=Disable Distribution
-org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.name=Apache Sling Job Manager
-org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.startup.delay.description=Specify amount in seconds that job manager waits on startup before starting with job handling. This can be used to allow enough time to restart a cluster before jobs are eventually reassigned.
-org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.job.log.deprecation.description=If this switch is enabled, deprecation warnings will be logged with the INFO level.
-org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.job.log.deprecation.name=Deprecation Warnings
-org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.startup.delay.name=Startup Delay
-org.apache.sling.event.impl.jobs.jcr.PersistenceHandler.job.consumermanager.disableDistribution.description=If the distribution is disabled, all jobs will be processed on the leader only\! Please use this switch with care.

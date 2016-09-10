@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl">
-    <OCD id="org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl" name="%org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.name" description="%org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.description">
-        <AD id="user.mapping" type="String" name="%org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.user.mapping.name" description="%org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.user.mapping.description" cardinality="2147483647"/>
-        <AD id="user.default" type="String" name="%org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.user.default.name" description="%org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.user.default.description"/>
-    </OCD>
-    <Designate pid="org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl">
-        <Object ocdref="org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl"/>
-    </Designate>
-</metatype:MetaData>

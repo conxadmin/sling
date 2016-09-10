@@ -3,25 +3,14 @@ package org.apache.sling.scripting.javascript.internal;
 
 import java.util.Properties;
 
-import javax.script.ScriptEngineFactory;
-import javax.servlet.Servlet;
-import javax.servlet.ServletRequestListener;
-
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
-import org.apache.sling.api.auth.Authenticator;
-import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.auth.core.AuthenticationSupport;
-import org.apache.sling.auth.core.impl.engine.EngineSlingAuthenticator;
-import org.apache.sling.auth.core.spi.BundleAuthenticationRequirement;
 import org.apache.sling.commons.classloader.DynamicClassLoaderManager;
-import org.apache.sling.scripting.core.impl.BindingsValuesProvidersByContextImpl;
 import org.apache.sling.scripting.javascript.RhinoHostObjectProvider;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.service.cm.ManagedService;
-import org.osgi.service.event.EventAdmin;
 
 public class Activator extends DependencyActivatorBase {
 
@@ -34,7 +23,7 @@ public class Activator extends DependencyActivatorBase {
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//RhinoJavaScriptEngineFactory
 		Properties properties = new Properties();
-		properties.put(Constants.SERVICE_PID,BindingsValuesProvidersByContextImpl.class.getName());
+		properties.put(Constants.SERVICE_PID,RhinoJavaScriptEngineFactory.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"Javascript engine based on Rhino");
 

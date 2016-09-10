@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
-    <OCD id="org.apache.sling.servlets.get.impl.RedirectServlet" name="%org.apache.sling.servlets.get.impl.RedirectServlet.name" description="%org.apache.sling.servlets.get.impl.RedirectServlet.description">
-        <AD id="json.maximumresults" type="Integer" default="200" name="%json.maximumresults.name" description="%json.maximumresults.description"/>
-    </OCD>
-    <Designate pid="org.apache.sling.servlets.get.impl.RedirectServlet">
-        <Object ocdref="org.apache.sling.servlets.get.impl.RedirectServlet"/>
-    </Designate>
-</metatype:MetaData>

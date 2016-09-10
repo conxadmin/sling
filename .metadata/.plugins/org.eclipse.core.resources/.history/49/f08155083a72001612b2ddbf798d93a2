@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
-    <OCD id="org.apache.sling.jcr.webdav.impl.handler.DirListingExportHandlerService" name="%dirlistingexporthandler.name" description="%dirlistingexporthandler.description">
-        <AD id="service.ranking" type="Integer" default="100" name="%service.ranking.name" description="%service.ranking.description"/>
-    </OCD>
-    <Designate pid="org.apache.sling.jcr.webdav.impl.handler.DirListingExportHandlerService">
-        <Object ocdref="org.apache.sling.jcr.webdav.impl.handler.DirListingExportHandlerService"/>
-    </Designate>
-</metatype:MetaData>

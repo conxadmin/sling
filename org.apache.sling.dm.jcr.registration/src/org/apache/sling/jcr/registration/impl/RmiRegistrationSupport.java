@@ -72,7 +72,7 @@ public class RmiRegistrationSupport extends AbstractRegistrationSupport implemen
     @Override
     protected boolean doActivate() {
 	    if (this.properties != null) {
-	        Object portProp = this.getComponentContext().getProperties().get(
+	        Object portProp = this.getComponentContext().getProperty(
 	            PROP_REGISTRY_PORT);
 	        if (portProp instanceof Number) {
 	            this.registryPort = ((Number) portProp).intValue();

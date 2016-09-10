@@ -1,9 +1,0 @@
-#Tue Aug 23 12:08:49 EDT 2016
-org.apache.sling.event.impl.jobs.JobConsumerManager.job.consumermanager.whitelist.name=Topic Whitelist
-org.apache.sling.event.impl.jobs.JobConsumerManager.org.apache.sling.installer.configuration.persist.description=If this is disabled, the configuration is not persisted on save in the cluster and is only used on the current instance. This option should always be disabled\!
-org.apache.sling.event.impl.jobs.JobConsumerManager.job.consumermanager.blacklist.description=This is a list of topics which currently shouldn't be processed by this instance. Leaving it empty, all job consumers are enabled. Putting a '*' as one entry, disables all job consumers. Adding separate topics disables job consumers for exactly this topic.
-org.apache.sling.event.impl.jobs.JobConsumerManager.job.consumermanager.whitelist.description=This is a list of topics which currently should be processed by this instance. Leaving it empty, all job consumers are disabled. Putting a '*' as one entry, enables all job consumers. Adding separate topics enables job consumers for exactly this topic.
-org.apache.sling.event.impl.jobs.JobConsumerManager.name=Apache Sling Job Consumer Manager
-org.apache.sling.event.impl.jobs.JobConsumerManager.job.consumermanager.blacklist.name=Topic Blacklist
-org.apache.sling.event.impl.jobs.JobConsumerManager.org.apache.sling.installer.configuration.persist.name=Distribute config
-org.apache.sling.event.impl.jobs.JobConsumerManager.description=The consumer manager controls the job consumer (\= processors). It can be used to temporarily disable job processing on the current instance. Other instances in a cluster are not affected.

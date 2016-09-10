@@ -25,10 +25,12 @@ import javax.sql.DataSource;
 
 import org.amdatu.multitenant.Tenant;
 import org.apache.commons.io.IOUtils;
+import org.apache.felix.dm.Component;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.jackrabbit.api.management.RepositoryManager;
 import org.apache.jackrabbit.core.RepositoryImpl;
 import org.apache.jackrabbit.core.config.RepositoryConfig;
+import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.jcr.api.NamespaceMapper;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.sling.jcr.base.AbstractSlingRepository2;
@@ -114,6 +116,12 @@ public class SlingServerRepositoryManager extends AbstractSlingRepositoryManager
 
 
 	private Dictionary<String, ?> properties;
+
+
+	private Component component;
+
+
+	private boolean startRepositoryInStandalone;
     
     
 	public SlingServerRepositoryManager() {
@@ -127,17 +135,26 @@ public class SlingServerRepositoryManager extends AbstractSlingRepositoryManager
 	}
 
 	// ----------------- DM methods/callbacks ------------------------------
-	private void init() {
-		String dsFilter = String.format("(name=%s)",this.properties.get(SlingServerRepositoryManagerConfiguration.REPOSITORY_JTA_DATASOURCE_PROPERTY_NAME));
-		dm.createServiceDependency().setService(DataSource.class,dsFilter).setRequired(true);
+	private void init(Component component) {
+    	if (this.properties == null) {
+    		this.properties = component.getServiceProperties();
+    		if (this.properties == null)
+    			this.properties = new Hashtable<>();
+    	}
+		final String dsName = PropertiesUtil.toString(properties.get(SlingServerRepositoryManagerConfiguration.DEFAULT_REPOSITORY_JTA_DATASOURCE_PROPERTY_NAME),SlingServerRepositoryManagerConfiguration.DEFAULT_REPOSITORY_JTA_DATASOURCE_PROPERTY_NAME);
+		final String dsFilter = String.format("(name=%s)",dsName);
+		component.add(dm.createServiceDependency().setService(DataSource.class,dsFilter).setRequired(true));
 	}
 	
 	/**
      * This method must be called if overwritten by implementations !!
      */
-    private void activate() throws Exception {
-        //Dictionary<String, Object> properties = componentContext.getProperties();
-        final String defaultWorkspace = null;//PropertiesUtil.toString(properties.get(PROPERTY_DEFAULT_WORKSPACE), null);
+    private void activate(Component component) throws Exception {
+    	if (this.properties == null)
+    		this.properties = component.getServiceProperties();
+    	this.startRepositoryInStandalone = PropertiesUtil.toBoolean(this.properties.get(SlingServerRepositoryManagerConfiguration.START_REPOSITORY_AS_STANDALONE), SlingServerRepositoryManagerConfiguration.DEFAULT_START_REPOSITORY_AS_STANDALONE);
+
+    	final String defaultWorkspace = null;//PropertiesUtil.toString(properties.get(PROPERTY_DEFAULT_WORKSPACE), null);
         final boolean disableLoginAdministrative = false;//!PropertiesUtil.toBoolean(properties.get(PROPERTY_LOGIN_ADMIN_ENABLED), DEFAULT_LOGIN_ADMIN_ENABLED);
 
         this.adminUserName = DEFAULT_ADMIN_USER;//PropertiesUtil.toString(properties.get(PROPERTY_ADMIN_USER), DEFAULT_ADMIN_USER);
@@ -207,7 +224,8 @@ public class SlingServerRepositoryManager extends AbstractSlingRepositoryManager
             else {
             	properties.put("TENANT_SCHEMA","tenant_"+tenant.getPID());
             }
-            properties.put("DATASOURCE_NAME",this.properties.get(SlingServerRepositoryManagerConfiguration.REPOSITORY_JTA_DATASOURCE_PROPERTY_NAME));
+			final String dsName = PropertiesUtil.toString(properties.get(SlingServerRepositoryManagerConfiguration.DEFAULT_REPOSITORY_JTA_DATASOURCE_PROPERTY_NAME),SlingServerRepositoryManagerConfiguration.DEFAULT_REPOSITORY_JTA_DATASOURCE_PROPERTY_NAME);
+            properties.put("DATASOURCE_NAME",dsName);
 			crc = RepositoryConfig.create(is,properties);
 			
 

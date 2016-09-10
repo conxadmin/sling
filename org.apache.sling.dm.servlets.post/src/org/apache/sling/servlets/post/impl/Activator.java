@@ -58,7 +58,7 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("service.vendor","The Apache Software Foundation");
 	    properties.put("scheduler.concurrent",false);
 		component = dm.createComponent()
-				.setInterface(new String[]{ManagedService.class.getName(),Runnable.class.getName()}, properties)
+				.setInterface(new String[]{/*ManagedService.class.getName(),*/Runnable.class.getName()}, properties)
 				.setImplementation(ChunkCleanUpTask.class)
 				.add(createServiceDependency().setService(SlingRepository.class).setRequired(true))
 	            ;

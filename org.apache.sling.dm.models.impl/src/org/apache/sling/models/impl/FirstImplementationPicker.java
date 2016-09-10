@@ -18,8 +18,12 @@
  */
 package org.apache.sling.models.impl;
 
+import java.util.Dictionary;
+
 import org.apache.sling.models.spi.ImplementationPicker;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
 
 /**
  * Picks first implementation.
@@ -28,12 +32,18 @@ import org.osgi.framework.Constants;
  * But at least it gives a consistent behavior.
  * It's service ranking is set to the highest value to allow more intelligent implementations to step in.
  */
-public class FirstImplementationPicker implements ImplementationPicker {
+public class FirstImplementationPicker implements ImplementationPicker, ManagedService {
 
     @Override
     public Class<?> pick(Class<?> adapterType, Class<?>[] implementationsTypes, Object adaptable) {
         // implementations is never null or empty
         return implementationsTypes[0];
     }
+
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

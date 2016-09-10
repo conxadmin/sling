@@ -1,9 +1,0 @@
-#Tue Aug 23 12:08:51 EDT 2016
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended.service.ranking.description=Amendments are processed in order of their ranking, an amendment with a higher ranking has precedence over a mapping with a lower ranking.
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended.description=An amendment mapping for the user mapping service.
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended.webconsole.configurationFactory.nameHint.description=Description for webconsole.configurationFactory.nameHint
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended.service.ranking.name=Ranking
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended.name=Apache Sling Service User Mapper Service Amendment
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended.user.mapping.name=Service Mappings
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended.user.mapping.description=Provides mappings from service name to user names. Each entry is of the form 'bundleId [ "\:" subServiceName ] "\=" userName' where bundleId and subServiceName identify the service and userName defines the name of the user to provide to the service. Invalid entries are logged and ignored.
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.amended.webconsole.configurationFactory.nameHint.name=Property webconsole.configurationFactory.nameHint

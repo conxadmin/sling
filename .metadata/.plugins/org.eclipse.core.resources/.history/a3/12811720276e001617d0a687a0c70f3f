@@ -1,7 +1,0 @@
-#Tue Aug 23 12:08:51 EDT 2016
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.user.default.description=The name of the user to use as the default if no service mappingapplies. If this property is missing or empty no default user is defined.
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.user.mapping.description=Provides mappings from service name to user names. Each entry is of the form 'bundleId [ "\:" subServiceName ] "\=" userName' where bundleId and subServiceName identify the service and userName defines the name of the user to provide to the service. Invalid entries are logged and ignored.
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.user.default.name=Default User
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.user.mapping.name=Service Mappings
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.description=Configuration for the service mapping service names to names of users.
-org.apache.sling.serviceusermapping.impl.ServiceUserMapperImpl.name=Apache Sling Service User Mapper Service

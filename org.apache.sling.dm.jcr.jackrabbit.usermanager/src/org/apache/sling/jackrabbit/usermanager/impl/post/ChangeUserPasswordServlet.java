@@ -27,6 +27,7 @@ import javax.jcr.Session;
 import javax.jcr.SimpleCredentials;
 import javax.servlet.Servlet;
 
+import org.apache.felix.dm.Component;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.jackrabbit.api.security.user.Group;
 import org.apache.jackrabbit.api.security.user.User;
@@ -122,10 +123,11 @@ public class ChangeUserPasswordServlet extends AbstractUserPostServlet implement
      *            component.
      */
     @Override
-    protected void activate() {
+    protected void activate(Component component) {
     	if (super.properties == null)
     		this.properties = new Hashtable<>();
-	        super.activate();
+	    
+    	super.activate(component);
         Dictionary<?, ?> props = this.properties;
 
         this.userAdminGroupName = OsgiUtil.toString(props.get(PAR_USER_ADMIN_GROUP_NAME),

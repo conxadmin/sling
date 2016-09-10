@@ -23,6 +23,7 @@ import java.util.Map;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.apache.felix.dm.Component;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.jackrabbit.api.security.user.Group;
 import org.apache.jackrabbit.api.security.user.User;
@@ -151,9 +152,9 @@ public class CreateUserServlet extends AbstractUserPostServlet implements Create
      *            component.
      */
     @Override
-    protected void activate() {
+    protected void activate(Component component) {
     	if (super.properties != null) {
-        super.activate();
+        super.activate(component);
         Object propValue = super.properties.get(PROP_SELF_REGISTRATION_ENABLED);
         if (propValue instanceof Boolean) {
             selfRegistrationEnabled = (Boolean)propValue;

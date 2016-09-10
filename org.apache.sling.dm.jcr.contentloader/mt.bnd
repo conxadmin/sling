@@ -9,7 +9,8 @@ Include-Resource: /=resources
 X-MultiTenant-Version: 1
 X-MultiTenant-Bundle-Activator:  org.apache.sling.jcr.contentloader.internal.Activator
 X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
-	(objectClass=org.osgi.service.log.LogService))
+	(objectClass=org.osgi.service.log.LogService)\
+	(objectClass=org.apache.sling.commons.mime.MimeTypeService))
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Bundle-Category: sling
 Embed-Dependency: kxml2

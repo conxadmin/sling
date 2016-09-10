@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="604" key="DIALOG_X_ORIGIN"/>
+		<item value="400" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="create" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="activate(" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="create"/>
-			<item value="addByPath"/>
-			<item value="SLING_SERVLET_PATHS"/>
-			<item value="this.properties"/>
-			<item value="0.5.0"/>
-			<item value="jackrabbit-jcr-commons"/>
-			<item value="updated("/>
-			<item value="update("/>
+			<item value="activate("/>
+			<item value="ScriptCache"/>
+			<item value="EventAdmin"/>
+			<item value="registerFactory"/>
+			<item value="resolverFactory"/>
+			<item value="import org.osgi.service.cm.ManagedService;"/>
+			<item value="DirListingExportHandlerService"/>
+			<item value="CopyMoveHandler"/>
 		</list>
 		<list key="replacehistory">
-			<item value=","/>
+			<item value="2.3.1."/>
+			<item value="2.3.1.1.${tstamp}"/>
+			<item value="org.apache.sling.dm.jcr.jackrabbit.server.extensions.db"/>
+			<item value="org.apache.sling.dm.jcr.jackrabbit.api"/>
+			<item value="org.apache.sling.dm.jcr.jackrabbit.server.plugins.security"/>
+			<item value=",\\\n"/>
+			<item value=",\\n"/>
 			<item value="properties.put("/>
-			<item value=",&quot;"/>
-			<item value=");"/>
-			<item value="this.properties"/>
-			<item value="&quot;,"/>
-			<item value="properties.put(&quot;"/>
-			<item value=",\n"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="663" key="DIALOG_WIDTH"/>
 		<item value="1|.SF NS Text|11.0|0|COCOA|1|.SFNSText-Regular" key="DIALOG_FONT_NAME"/>
 		<item value="455" key="DIALOG_HEIGHT"/>
-		<item value="1017" key="DIALOG_X_ORIGIN"/>
-		<item value="568" key="DIALOG_Y_ORIGIN"/>
+		<item value="786" key="DIALOG_X_ORIGIN"/>
+		<item value="552" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

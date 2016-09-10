@@ -1,9 +1,0 @@
-#Tue Aug 23 12:07:32 EDT 2016
-org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask.chunk.cleanup.age.name=chunk.cleanup.age
-org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask.scheduler.expression.name=Schedule
-org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask.scheduler.concurrent.description=Allow Chunk Cleanup Task to run concurrently (default\: false).
-org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask.name=Apache Sling Post Chunk Upload \: Cleanup Task
-org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask.scheduler.expression.description=Cron expression scheudling this job. Default is hourly 17m23s after the hour. See http\://www.docjar.com/docs/api/org/quartz/CronTrigger.html for a description of the format for this value.
-org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask.chunk.cleanup.age.description=The chunk's age in minutes before it is considered for clean up.
-org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask.scheduler.concurrent.name=scheduler.concurrent
-org.apache.sling.servlets.post.impl.helper.ChunkCleanUpTask.description=Task to regularly purge incomplete chunks from the repository

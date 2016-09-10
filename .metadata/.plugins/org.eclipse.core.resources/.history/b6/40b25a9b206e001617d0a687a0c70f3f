@@ -1,7 +1,0 @@
-#Tue Aug 23 12:06:44 EDT 2016
-org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.resource.paths.description=Description for resource.paths
-org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.resource.change.types.name=Property resource.change.types
-org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.description=Legacy bridge which converts resource change events to OSGi events
-org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.resource.change.types.description=Description for resource.change.types
-org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.name=Apache Sling OSGi Observation Bridge
-org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge.resource.paths.name=Property resource.paths

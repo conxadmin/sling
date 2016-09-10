@@ -30,6 +30,9 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.amdatu.multitenant.Tenant;
+import org.apache.felix.dm.Component;
+import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.commons.scheduler.Scheduler;
@@ -115,6 +118,15 @@ public class QueueManager
 
 	private Hashtable props;
 
+    private volatile DependencyManager dm;
+    
+    private volatile Tenant tenant;
+    
+	private Component component;
+	
+	protected void init(Component component) {
+		this.component = component;
+	}
     /**
      * Activate this component.
      * @param props Configuration properties

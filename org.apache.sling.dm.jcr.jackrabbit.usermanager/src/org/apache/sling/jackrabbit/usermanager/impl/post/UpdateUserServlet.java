@@ -24,6 +24,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.servlet.Servlet;
 
+import org.apache.felix.dm.Component;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.jackrabbit.api.security.user.User;
 import org.apache.jackrabbit.api.security.user.UserManager;
@@ -89,8 +90,8 @@ public class UpdateUserServlet extends AbstractUserPostServlet
 	}
 
     @Override
-    protected void activate() {
-        super.activate();
+    protected void activate(Component component) {
+        super.activate(component);
     }
 
     @Override

@@ -4,23 +4,13 @@ package org.apache.sling.auth.form.impl;
 import java.util.Properties;
 
 import javax.servlet.Servlet;
-import javax.servlet.ServletRequestListener;
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
-import org.apache.felix.jaas.LoginModuleFactory;
-import org.apache.sling.api.adapter.AdapterFactory;
-import org.apache.sling.api.adapter.AdapterManager;
-import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.service.cm.ManagedService;
-import org.osgi.service.event.EventAdmin;
-import org.osgi.service.packageadmin.PackageAdmin;
 
 public class Activator extends DependencyActivatorBase {
 

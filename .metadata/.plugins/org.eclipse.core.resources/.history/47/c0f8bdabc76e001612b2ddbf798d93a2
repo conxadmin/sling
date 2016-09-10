@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.jcr.base.internal.RepositoryPrinterProvider">
-    <implementation class="org.apache.sling.jcr.base.internal.RepositoryPrinterProvider"/>
-    <property name="service.vendor" value="The Apache Software Foundation"/>
-    <property name="service.pid" value="org.apache.sling.jcr.base.internal.RepositoryPrinterProvider"/>
-    <reference name="repository" interface="javax.jcr.Repository" cardinality="0..n" policy="dynamic" bind="bindRepository" unbind="unbindRepository"/>
-</scr:component>

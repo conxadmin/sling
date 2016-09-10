@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider">
-    <OCD id="org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider" name="%org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider.name" description="%org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider.description">
-        <AD id="users" type="String" default="admin" name="%org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider.users.name" description="%org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider.users.description" cardinality="20"/>
-        <AD id="groups" type="String" name="%org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider.groups.name" description="%org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider.groups.description" cardinality="20"/>
-    </OCD>
-    <Designate pid="org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider">
-        <Object ocdref="org.apache.sling.extensions.webconsolesecurityprovider.internal.SlingWebConsoleSecurityProvider"/>
-    </Designate>
-</metatype:MetaData>

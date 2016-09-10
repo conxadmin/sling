@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.event.impl.EventingThreadPool">
-    <OCD id="org.apache.sling.event.impl.EventingThreadPool" name="%org.apache.sling.event.impl.EventingThreadPool.name" description="%org.apache.sling.event.impl.EventingThreadPool.description">
-        <AD id="minPoolSize" type="Integer" default="35" name="%org.apache.sling.event.impl.EventingThreadPool.minPoolSize.name" description="%org.apache.sling.event.impl.EventingThreadPool.minPoolSize.description"/>
-    </OCD>
-    <Designate pid="org.apache.sling.event.impl.EventingThreadPool">
-        <Object ocdref="org.apache.sling.event.impl.EventingThreadPool"/>
-    </Designate>
-</metatype:MetaData>

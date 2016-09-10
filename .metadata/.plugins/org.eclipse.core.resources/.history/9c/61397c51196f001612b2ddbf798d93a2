@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/org.apache.sling.jcr.resource.internal.JcrSystemUserValidator">
-    <OCD id="org.apache.sling.jcr.resource.internal.JcrSystemUserValidator" name="%org.apache.sling.jcr.resource.internal.JcrSystemUserValidator.name" description="%org.apache.sling.jcr.resource.internal.JcrSystemUserValidator.description">
-        <AD id="allow.only.system.user" type="Boolean" default="true" name="%org.apache.sling.jcr.resource.internal.JcrSystemUserValidator.allow.only.system.user.name" description="%org.apache.sling.jcr.resource.internal.JcrSystemUserValidator.allow.only.system.user.description"/>
-    </OCD>
-    <Designate pid="org.apache.sling.jcr.resource.internal.JcrSystemUserValidator">
-        <Object ocdref="org.apache.sling.jcr.resource.internal.JcrSystemUserValidator"/>
-    </Designate>
-</metatype:MetaData>

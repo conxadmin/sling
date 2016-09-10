@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.apache.sling.scripting.core.impl.ScriptEngineManagerFactory">
-    <implementation class="org.apache.sling.scripting.core.impl.ScriptEngineManagerFactory"/>
-    <property name="service.vendor" value="The Apache Software Foundation"/>
-    <property name="service.pid" value="org.apache.sling.scripting.core.impl.ScriptEngineManagerFactory"/>
-    <reference name="ScriptEngineFactory" interface="javax.script.ScriptEngineFactory" cardinality="0..n" policy="dynamic" bind="bindScriptEngineFactory" unbind="unbindScriptEngineFactory"/>
-</scr:component>

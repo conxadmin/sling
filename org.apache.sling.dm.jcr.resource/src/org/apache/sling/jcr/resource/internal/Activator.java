@@ -19,6 +19,7 @@ import org.apache.sling.spi.resource.provider.ResourceProvider;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedService;
 
 public class Activator extends DependencyActivatorBase {
 
@@ -38,17 +39,17 @@ public class Activator extends DependencyActivatorBase {
         properties.put(ResourceProvider.PROPERTY_ROOT,"/");
         properties.put(ResourceProvider.PROPERTY_MODIFIABLE,true);
         properties.put(ResourceProvider.PROPERTY_ADAPTABLE,true);
-        properties.put(ResourceProvider.PROPERTY_AUTHENTICATE,true);
+        properties.put(ResourceProvider.PROPERTY_AUTHENTICATE,"required");
         properties.put(ResourceProvider.PROPERTY_ATTRIBUTABLE,true);
         properties.put(ResourceProvider.PROPERTY_REFRESHABLE,true);
 	    
 		Component component = dm.createComponent()
-				.setInterface(ResourceProvider.class.getName(), properties)
+				.setInterface(new String[]{ManagedService.class.getName(),ResourceProvider.class.getName()}, properties)
 				.setImplementation(JcrResourceProvider.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(Repository.class)
 						.setCallbacks("bindRepository", "unbindRepository")
-						.setRequired(false))
+						.setRequired(true))
 	            ;
 		dm.add(component);
 		
@@ -84,9 +85,11 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling JcrResourceResolverFactory Implementation");
 	    
 		component = dm.createComponent()
-				.setInterface(JcrResourceResolverFactory.class.getName(), properties)
+				.setInterface(org.apache.sling.jcr.resource.JcrResourceResolverFactory.class.getName(), properties)
 				.setImplementation(JcrResourceResolverFactoryImpl.class)
-				.add(createServiceDependency().setService(DynamicClassLoaderManager.class).setRequired(true))
+				.setCallbacks(null,"activate", null, null)//init, start, stop and destroy.
+				.add(createServiceDependency().setService(DynamicClassLoaderManager.class).setRequired(false))
+				.add(createServiceDependency().setService(org.apache.sling.api.resource.ResourceResolverFactory.class).setRequired(true))
 	            ;
 		dm.add(component);
 		
