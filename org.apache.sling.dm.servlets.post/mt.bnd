@@ -9,7 +9,9 @@ Include-Resource: /=resources
 X-MultiTenant-Version: 1
 X-MultiTenant-Bundle-Activator: org.apache.sling.servlets.post.impl.Activator
 X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
-	(objectClass=org.osgi.service.log.LogService))
+	(objectClass=org.osgi.service.log.LogService)\
+	(objectClass=org.apache.sling.commons.mime.MimeTypeService)\
+	(objectClass=org.apache.jackrabbit.commons.cnd.CndImporter))
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Bundle-Category: sling
 Embed-Dependency: jackrabbit-jcr-commons;inline=org/apache/jackrabbit/util/ISO8601.class|org/apache/jackrabbit/util/Text.class

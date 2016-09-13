@@ -9,7 +9,8 @@ Include-Resource: /=resources
 X-MultiTenant-Version: 1
 X-MultiTenant-Bundle-Activator: org.apache.sling.jcr.davex.impl.servlets.Activator
 X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
-	(objectClass=org.osgi.service.log.LogService))
+	(objectClass=org.osgi.service.log.LogService)\
+	(objectClass=org.osgi.service.http.HttpService))
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Bundle-Category: sling
 Embed-Dependency: jackrabbit-jcr-server;inline=org/apache/jackrabbit/server/io/IOUtil*.class,org.apache.sling.commons.osgi;inline=org/apache/sling/commons/osgi/OsgiUtil.class

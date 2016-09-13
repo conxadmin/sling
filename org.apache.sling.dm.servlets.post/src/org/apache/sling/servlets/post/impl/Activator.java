@@ -8,6 +8,7 @@ import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.jackrabbit.commons.cnd.CndImporter;
 import org.apache.sling.jcr.api.SlingRepository;
+import org.apache.sling.jcr.contentloader.ContentImporter;
 import org.apache.sling.servlets.post.NodeNameGenerator;
 import org.apache.sling.servlets.post.PostOperation;
 import org.apache.sling.servlets.post.PostResponseCreator;
@@ -40,15 +41,25 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(SlingPostServlet.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
-				.add(createServiceDependency().setService(SlingPostProcessor.class).setRequired(true))
-				.add(createServiceDependency().setService(PostOperation.class).setRequired(true))
-				.add(createServiceDependency().setService(NodeNameGenerator.class).setRequired(true))
-				.add(createServiceDependency().setService(PostResponseCreator.class).setRequired(true))
-				.add(createServiceDependency().setService(CndImporter.class).setRequired(true))
+				.add(createServiceDependency().setService(SlingPostProcessor.class)
+						.setCallbacks("bindPostProcessor", "unbindPostProcessor")
+						.setRequired(false))
+				.add(createServiceDependency().setService(PostOperation.class)
+						.setCallbacks("bindPostOperation", "unbindPostOperation")
+						.setRequired(false))
+				.add(createServiceDependency().setService(NodeNameGenerator.class)
+						.setCallbacks("bindNodeNameGenerator", "unbindNodeNameGenerator")
+						.setRequired(false))
+				.add(createServiceDependency().setService(PostResponseCreator.class)
+						.setCallbacks("bindPostResponseCreator", "unbindPostResponseCreator")
+						.setRequired(false))
+				.add(createServiceDependency().setService(ContentImporter.class)
+						.setCallbacks("bindContentImporter", "unbindContentImporter")
+						.setRequired(false))
 	            ;
 		 dm.add(component);
-		 
-		//ChunkCleanUpTask
+
+		 //ChunkCleanUpTask
 		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,ChunkCleanUpTask.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");

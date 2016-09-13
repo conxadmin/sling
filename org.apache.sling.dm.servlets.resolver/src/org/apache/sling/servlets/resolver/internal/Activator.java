@@ -8,6 +8,7 @@ import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.jackrabbit.commons.cnd.CndImporter;
 import org.apache.sling.api.request.SlingRequestListener;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.api.scripting.SlingScriptResolver;
 import org.apache.sling.api.servlets.ServletResolver;
 import org.apache.sling.engine.impl.SlingMainServlet;
@@ -29,7 +30,6 @@ public class Activator extends DependencyActivatorBase {
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//SlingServletResolver
-		
 		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_PID,SlingServletResolver.class.getName());
 		properties.put(Constants.SERVICE_VENDOR,"The Apache Software Foundation");
@@ -37,15 +37,18 @@ public class Activator extends DependencyActivatorBase {
 		properties.put("event.topics", "org/apache/sling/api/resource/Resource/*,org/apache/sling/api/resource/ResourceProvider/*,javax/script/ScriptEngineFactory/*,org/apache/sling/api/adapter/AdapterFactory/*,org/apache/sling/scripting/core/BindingsValuesProvider/*");
 	    
 		Component component = dm.createComponent()
-				.setInterface(new String[]{/*ManagedService.class.getName(), */ServletResolver.class.getName(), SlingScriptResolver.class.getName(), ErrorHandler.class.getName(), SlingRequestListener.class.getName()}, properties)
+				.setInterface(new String[]{/*ManagedService.class.getName(), */ServletResolver.class.getName(), org.apache.sling.api.scripting.SlingScriptResolver.class.getName(), ErrorHandler.class.getName(), SlingRequestListener.class.getName()}, properties)
 				.setImplementation(SlingServletResolver.class)
 				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(Servlet.class)
 						.setCallbacks("bindServlet", "bindServlet")
 						.setRequired(false))
+				.add(createServiceDependency().setService(ResourceResolverFactory.class).setRequired(true))
+				.add(createServiceDependency().setService(javax.servlet.ServletContext.class).setRequired(true))
 	            ;
 		 dm.add(component);
 		 
+
 		//DefaultErrorHandlerServlet
 		properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR,"The Apache Software Foundation");

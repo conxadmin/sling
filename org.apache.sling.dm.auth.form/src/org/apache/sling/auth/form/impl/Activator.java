@@ -7,6 +7,8 @@ import javax.servlet.Servlet;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler;
+import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -38,10 +40,28 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,FormAuthenticationHandler.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Form Based Authentication Handler");
+		
+		properties.put("path","/");
+	    properties.put("authtype","FORM");
+	    properties.put("service.ranking",0);
+	    properties.put("jaas.controlFlag","sufficient");
+	    properties.put("jaas.realmName","jackrabbit.oak");
+	    properties.put("jaas.ranking","1000");
+	    properties.put("form.login.form","/system/sling/form/login");
+	    properties.put("form.auth.storage","cookie");
+	    properties.put("form.auth.name","sling.formauth");
+	    properties.put("form.credentials.name","sling.formauth");
+	    properties.put("form.auth.timeout",30);
+	    properties.put("form.token.file","cookie-tokens.bin");
+	    properties.put("form.token.fastseed",false);
+	    properties.put("form.use.include",false);
+	    properties.put("form.onexpire.login",false);
+	    
+        
 		component = dm.createComponent()
-				.setInterface(new String[] {ManagedService.class.getName(),Servlet.class.getName()}, properties)
+				.setInterface(new String[] {AuthenticationHandler.class.getName(),AuthenticationFeedbackHandler.class.getName()}, properties)
 				.setImplementation(FormAuthenticationHandler.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency()
 	                	.setService(ResourceResolverFactory.class)
 	                	.setRequired(true))

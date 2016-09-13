@@ -18,6 +18,7 @@ import org.apache.sling.jackrabbit.usermanager.DeleteAuthorizables;
 import org.apache.sling.jackrabbit.usermanager.DeleteGroup;
 import org.apache.sling.jackrabbit.usermanager.DeleteUser;
 import org.apache.sling.jackrabbit.usermanager.UpdateGroup;
+import org.apache.sling.jackrabbit.usermanager.UpdateUser;
 import org.apache.sling.jackrabbit.usermanager.impl.post.ChangeUserPasswordServlet;
 import org.apache.sling.jackrabbit.usermanager.impl.post.CreateGroupServlet;
 import org.apache.sling.jackrabbit.usermanager.impl.post.CreateUserServlet;
@@ -130,7 +131,7 @@ public class Activator extends DependencyActivatorBase {
 	            ;
 		dm.add(component);
 		
-		//UpdateGroupServlet
+		//UpdateUserServlet
 		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,UpdateUserServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
@@ -139,7 +140,7 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("sling.servlet.selectors","update");
 	    properties.put("servlet.post.dateFormats","EEE MMM dd yyyy HH:mm:ss,'GMT'Z,yyyy-MM-dd'T'HH:mm:ss.SSSZ,yyyy-MM-dd'T'HH:mm:ss,yyyy-MM-dd,dd.MM.yyyy HH:mm:ss,dd.MM.yyyy");
 		component = dm.createComponent()
-				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName(),UpdateGroup.class.getName()}, properties)
+				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName(),UpdateUser.class.getName()}, properties)
 				.setImplementation(UpdateUserServlet.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(JcrResourceResolverFactory.class).setRequired(true))

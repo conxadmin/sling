@@ -36,11 +36,28 @@ public class Activator extends DependencyActivatorBase {
 
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
-		//RhinoJavaScriptEngineFactory
+		//JspScriptEngineFactory
 		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_PID,JspScriptEngineFactory.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"JSP Script Handler");
+		
+	    properties.put("jasper.compilerTargetVM","auto");
+	    properties.put("jasper.compilerSourceVM","auto");
+	    properties.put("jasper.classdebuginfo",true);
+	    properties.put("jasper.enablePooling",true);
+	    properties.put("jasper.ieClassId","clsid:8AD9C840-044E-11D1-B3E9-00805F499D93");
+	    properties.put("jasper.genStringAsCharArray",false);
+	    properties.put("jasper.keepgenerated",true);
+	    properties.put("jasper.mappedfile",true);
+	    properties.put("jasper.trimSpaces",false);
+	    properties.put("jasper.displaySourceFragments",false);
+	    properties.put("event.topics","org/apache/sling/api/resource/*");
+	    properties.put("felix.webconsole.label","slingjsp");
+	    properties.put("felix.webconsole.title","JSP");
+	    properties.put("felix.webconsole.category","Sling");
+	    properties.put("default.is.session",true);
+	    
 		Component component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),ScriptEngineFactory.class.getName(),EventHandler.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(JspScriptEngineFactory.class)

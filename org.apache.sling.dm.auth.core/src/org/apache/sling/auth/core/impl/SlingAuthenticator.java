@@ -41,6 +41,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.api.auth.NoAuthenticationHandlerException;
@@ -255,12 +256,19 @@ public class SlingAuthenticator implements Authenticator,
 
 	private Dictionary<String, ?> properties;
 
+	private Component component;
+
     // ---------- DM integration
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
 
+	private void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
+	}
+	
     @SuppressWarnings("unused")
     private void activate() {
     	if (this.properties != null) {

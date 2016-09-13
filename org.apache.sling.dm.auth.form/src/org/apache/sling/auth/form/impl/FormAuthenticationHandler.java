@@ -37,6 +37,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.felix.dm.Component;
 import org.apache.felix.jaas.LoginModuleFactory;
 import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.api.resource.LoginException;
@@ -277,6 +278,8 @@ public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHand
 	private Dictionary<String, ?> properties;
 	
 	private BundleContext componentContext;
+
+	private Component component;
 
     /**
      * Extracts cookie/session based credentials from the request. Returns
@@ -663,6 +666,11 @@ public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHand
 		this.properties = properties;
 	}
 	
+	private void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
+	}
+	
     /**
      * Called by SCR to activate the authentication handler.
      *
@@ -674,9 +682,6 @@ public class FormAuthenticationHandler extends DefaultAuthenticationFeedbackHand
     protected void activate()
             throws InvalidKeyException, NoSuchAlgorithmException,
             IllegalStateException, UnsupportedEncodingException {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
-    	
         this.jaasHelper = new JaasHelper(this, componentContext, properties);
         this.loginForm = OsgiUtil.toString(properties.get(PAR_LOGIN_FORM),
             AuthenticationFormServlet.SERVLET_PATH);

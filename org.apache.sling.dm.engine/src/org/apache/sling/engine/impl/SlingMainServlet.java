@@ -36,6 +36,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.adapter.AdapterManager;
 import org.apache.sling.api.request.SlingRequestEvent;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -158,6 +159,8 @@ public class SlingMainServlet extends GenericServlet implements ManagedService {
 	private Dictionary<String, ?> componentConfig;
 	
 	private volatile BundleContext bundleContext;
+
+	private Component component;
 
     // ---------- Servlet API -------------------------------------------------
 
@@ -316,10 +319,12 @@ public class SlingMainServlet extends GenericServlet implements ManagedService {
 		this.componentConfig = properties;
 	}
 	
+	protected void init(Component component) {
+		this.component = component;
+		this.componentConfig = this.component.getServiceProperties();
+	}
+	
     protected void activate() {
-    	if (this.componentConfig == null)
-    		this.componentConfig = new Hashtable<>();
-    	
         final String[] props = PropertiesUtil.toStringArray(componentConfig.get(PROP_ADDITIONAL_RESPONSE_HEADERS));
 
         final ArrayList<StaticResponseHeader> mappings = new ArrayList<StaticResponseHeader>(props.length);

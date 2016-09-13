@@ -56,20 +56,27 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,SlingMainServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Sling Servlet");
-
+		
+	    properties.put("sling.max.calls",1000);
+	    properties.put("sling.max.inclusions",50);
+	    properties.put("sling.trace.allow",false);
+	    properties.put("sling.max.record.requests",20);
+	    properties.put("sling.additional.response.headers","X-Content-Type-Options=nosniff,X-Frame-Options=SAMEORIGIN");
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),GenericServlet.class.getName()}, properties)
 				.setImplementation(SlingMainServlet.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(ErrorHandler.class)
-						 .setCallbacks("setErrorHandler", "unsetErrorHandler").setRequired(true))
+						 .setCallbacks("setErrorHandler", "unsetErrorHandler").setRequired(false))
 				.add(createServiceDependency().setService(ServletResolver.class)
-						 .setCallbacks("setServletResolver", "unsetServletResolver").setRequired(true))
+						 .setCallbacks("setServletResolver", "unsetServletResolver").setRequired(false))
 				.add(createServiceDependency().setService(MimeTypeService.class)
-						 .setCallbacks("setMimeTypeService", "unsetMimeTypeService").setRequired(true))
+						 .setCallbacks("setMimeTypeService", "unsetMimeTypeService").setRequired(false))
 				.add(createServiceDependency().setService(AuthenticationSupport.class)
-						 .setCallbacks("setAuthenticationSupport", "unsetAuthenticationSupport").setRequired(true))				
-	            ;
+						 .setCallbacks("setAuthenticationSupport", "unsetAuthenticationSupport").setRequired(false))				
+				.add(createServiceDependency().setService(org.apache.sling.api.adapter.AdapterManager.class)
+						 .setCallbacks("bindAdapterManager", "unbindAdapterManager").setRequired(false))
+				;
 		dm.add(component);
 
 
@@ -88,6 +95,15 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Request Logger");
 	    properties.put(RequestLogger.PROP_ACCESS_LOG_ENABLED, true);
+	    
+	    properties.put("request.log.output","logs/request.log");
+	    properties.put("request.log.outputtype",0);
+	    properties.put("request.log.enabled",true);
+	    properties.put("access.log.output","logs/access.log");
+	    properties.put("access.log.outputtype",0);
+	    properties.put("access.log.enabled",true);
+	    
+	    
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Object.class.getName()}, properties)
 				.setImplementation(RequestLogger.class)
@@ -100,6 +116,11 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,RequestLoggerService.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Factory for configuration based request/access loggers");
+		
+	    properties.put("request.log.service.output","request.log");
+	    properties.put("request.log.service.outputtype",0);
+	    properties.put("request.log.service.onentry",false);
+	    
 		component = dm.createComponent()
 				.setInterface(RequestLoggerService.class.getName(), properties)
 				.setImplementation(RequestLoggerService.class)
@@ -112,6 +133,14 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,RequestParameterSupportConfigurer.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Configures Sling's request parameter handling.");
+		
+	    properties.put("sling.default.parameter.encoding","ISO-8859-1");
+	    properties.put("sling.default.max.parameters",10000);
+	    properties.put("file.threshold",256000);
+	    properties.put("file.max",-1);
+	    properties.put("request.max",-1);
+	    properties.put("sling.default.parameter.checkForAdditionalContainerParameters",false);
+	    
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),RequestParameterSupportConfigurer.class.getName()}, properties)
 				.setImplementation(RequestParameterSupportConfigurer.class)

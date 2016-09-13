@@ -771,23 +771,16 @@ public class SlingServletResolver
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
-	
-	
     // ---------- DM Integration ----------------------------------------------
 	public void init(Component component) {
 		this.component = component;
-		this.properties = properties;
+		this.properties = component.getServiceProperties();;
 	}
-	
-	
     /**
      * Activate this component.
      */
     @SuppressWarnings("unchecked")
     protected void activate() throws LoginException {
-    	if (this.component != null)
-    		this.properties = component.getServiceProperties();
-
     	// from configuration if available
         final Dictionary<String, ?> properties = this.properties;
         Object servletRoot = properties.get(PROP_SERVLET_ROOT);

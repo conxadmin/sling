@@ -78,7 +78,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(), Authenticator.class.getName(), AuthenticationSupport.class.getName(), ServletRequestListener.class.getName()}, properties)
 				.setImplementation(SlingAuthenticator.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(ResourceResolverFactory.class).setRequired(true))
 				.add(createServiceDependency().setService(EventAdmin.class).setRequired(true));
 		dm.add(component);	

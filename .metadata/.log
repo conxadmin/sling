@@ -7459,3 +7459,39 @@ java.net.UnknownHostException: www.codetrails.com: unknown error
 
 !ENTRY org.testng.eclipse 1 0 2016-09-10 13:10:43.123
 !MESSAGE Could not resolve supertype of AuthType
+
+!ENTRY net.resheim.eclipse.launcher.core 1 0 2016-09-11 18:11:53.894
+!MESSAGE Launching new Eclipse instance with "open -n /Applications/devtools/EclipseMars.app --args -vm /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin/../jre/lib/server/libjvm.dylib -os macosx -ws cocoa -arch x86_64 -showsplash -launcher /Applications/devtools/EclipseMars.app/Contents/MacOS/eclipse -name Eclipse --launcher.library /Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.300.v20150602-1417/eclipse_1611.so -startup /Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar --launcher.appendVmargs -product org.eclipse.epp.package.jee.product -keyring /Users/mduduzikeswa/.eclipse_keyring -showlocation -data /Users/mduduzikeswa/Documents/dev/gitrepos/conx/conx-libraries -vmargs -Dosgi.requiredJavaVersion=1.7 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -XX:MaxPermSize=384m -Xms384m -Xmx1024m -Xdock:icon=../Resources/Eclipse.icns -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -Djava.class.path=/Applications/devtools/EclipseMars.app/Contents/MacOS//../Eclipse/plugins/org.eclipse.equinox.launcher_1.3.100.v20150511-1540.jar "
+
+!ENTRY org.eclipse.jdt.core 4 0 2016-09-13 19:01:28.109
+!MESSAGE Invalid ZIP archive: /org.apache.sling.dm.jcr.base/generated/org.apache.sling.dm.jcr.base.mt.jar [in org.apache.sling.dm.jcr.contentloader]
+
+!ENTRY org.eclipse.jdt.core 4 0 2016-09-13 19:01:28.111
+!MESSAGE Invalid ZIP archive: /org.apache.sling.dm.jcr.resource/generated/org.apache.sling.dm.jcr.resource.mt.jar [in org.apache.sling.dm.jcr.jackrabbit.accessmanager]
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.644
+!MESSAGE Could not resolve supertype of DecomposedURL
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.646
+!MESSAGE Could not resolve supertype of DecomposedURL
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.648
+!MESSAGE Could not resolve supertype of DecomposedURL
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.649
+!MESSAGE Could not resolve supertype of DecomposedURL
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.651
+!MESSAGE Could not resolve supertype of DecomposedURL
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.652
+!MESSAGE Could not resolve supertype of DecomposedURL
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.653
+!MESSAGE Could not resolve supertype of DecomposedURL
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.654
+!MESSAGE Could not resolve supertype of DecomposedURL
+
+!ENTRY org.testng.eclipse 1 0 2016-09-13 19:07:03.655
+!MESSAGE Could not resolve supertype of DecomposedURL

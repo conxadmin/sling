@@ -72,9 +72,9 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(Object.class.getName(), properties)
 				.setImplementation(LegacyResourceProviderWhiteboard.class)
 				.add(createServiceDependency().setService(ResourceProvider.class)
-						 .setCallbacks("bindResourceProvider", "unbindResourceProvider").setRequired(true))
+						 .setCallbacks("bindResourceProvider", "unbindResourceProvider").setRequired(false))
 				.add(createServiceDependency().setService(ResourceProviderFactory.class)
-						 .setCallbacks("bindResourceProviderFactory", "unbindResourceProviderFactory").setRequired(true))
+						 .setCallbacks("bindResourceProviderFactory", "unbindResourceProviderFactory").setRequired(false))
 	            ;
 		dm.add(component);		
 
