@@ -769,7 +769,8 @@ public class SlingServletResolver
     // ---------- ManagedService Integration ----------------------------------------------
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.properties = properties;
+		if (properties != null)
+			this.properties = properties;
 	}
     // ---------- DM Integration ----------------------------------------------
 	public void init(Component component) {

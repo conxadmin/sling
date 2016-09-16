@@ -1,13 +1,369 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="0" timestamp="-1" analysisTimestamp="1471975692626" release="">
-  <Project>
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1473960123457" analysisTimestamp="1473960117918" release="">
+  <Project projectName="org.apache.sling.scripting.sightly.compiler">
+    <Jar>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/target/test-classes</Jar>
+    <Jar>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/target/classes</Jar>
+    <AuxClasspathEntry>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/target/classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/target/test-classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/antlr/antlr4-runtime/4.1/antlr4-runtime-4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/slf4j/slf4j-api/1.5.2/slf4j-api-1.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/commons-lang/commons-lang/2.5/commons-lang-2.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/junit/junit/4.11/junit-4.11.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/powermock/powermock-api-mockito/1.5.5/powermock-api-mockito-1.5.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/powermock/powermock-api-support/1.5.5/powermock-api-support-1.5.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/powermock/powermock-core/1.5.5/powermock-core-1.5.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/powermock/powermock-reflect/1.5.5/powermock-reflect-1.5.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/slf4j/slf4j-simple/1.5.2/slf4j-simple-1.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/org/apache/felix/org.apache.felix.scr.annotations/1.9.12/org.apache.felix.scr.annotations-1.9.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/biz/aQute/bndlib/1.50.0/bndlib-1.50.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/rt.jar</AuxClasspathEntry>
+    <SrcDir>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/src/test/resources</SrcDir>
+    <SrcDir>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/src/test/java</SrcDir>
+    <SrcDir>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/target/generated-sources/antlr4</SrcDir>
+    <SrcDir>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/src/main/antlr4</SrcDir>
+    <SrcDir>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/compiler/src/main/java</SrcDir>
     <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
   </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" rank="19" abbrev="Dm" category="I18N" first="1">
+    <Class classname="org.apache.sling.scripting.sightly.impl.TestUtils">
+      <SourceLine classname="org.apache.sling.scripting.sightly.impl.TestUtils" sourcefile="TestUtils.java" sourcepath="org/apache/sling/scripting/sightly/impl/TestUtils.java"/>
+    </Class>
+    <Method classname="org.apache.sling.scripting.sightly.impl.TestUtils" name="readScriptFromClasspath" signature="(Ljava/lang/String;)Lorg/apache/sling/scripting/sightly/compiler/CompilationUnit;" isStatic="true">
+      <SourceLine classname="org.apache.sling.scripting.sightly.impl.TestUtils" start="33" end="35" startBytecode="0" endBytecode="95" sourcefile="TestUtils.java" sourcepath="org/apache/sling/scripting/sightly/impl/TestUtils.java"/>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="72" end="79" startBytecode="0" endBytecode="108" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+    </Method>
+    <SourceLine classname="org.apache.sling.scripting.sightly.impl.TestUtils" start="34" end="34" startBytecode="12" endBytecode="12" sourcefile="TestUtils.java" sourcepath="org/apache/sling/scripting/sightly/impl/TestUtils.java"/>
+    <SourceLine classname="org.apache.sling.scripting.sightly.impl.TestUtils" start="34" end="34" startBytecode="12" endBytecode="12" sourcefile="TestUtils.java" sourcepath="org/apache/sling/scripting/sightly/impl/TestUtils.java"/>
+  </BugInstance>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Tue, 23 Aug 2016 14:08:12 -0400" total_classes="0" referenced_classes="0" total_bugs="0" total_size="0" num_packages="0" java_version="1.8.0_25" vm_version="25.25-b02" cpu_seconds="0.00" clock_seconds="0.00" peak_mbytes="1425.75" alloc_mbytes="910.50" gc_seconds="0.00">
-    <FindBugsProfile></FindBugsProfile>
+  <FindBugsSummary timestamp="Thu, 15 Sep 2016 13:20:15 -0400" total_classes="225" referenced_classes="406" total_bugs="1" total_size="6301" num_packages="24" java_version="1.8.0_25" vm_version="25.25-b02" cpu_seconds="33.44" clock_seconds="5.54" peak_mbytes="1419.15" alloc_mbytes="910.50" gc_seconds="0.44" priority_1="1">
+    <PackageStats package="org.apache.sling.scripting.sightly.compiler" total_bugs="0" total_types="8" total_size="153">
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.CompilationResult" sourceFile="CompilationResult.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.CompilationUnit" sourceFile="CompilationUnit.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.CompilerMessage" sourceFile="CompilerMessage.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.RuntimeFunction" sourceFile="RuntimeFunction.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.SightlyCompiler" sourceFile="SightlyCompiler.java" interface="false" size="76" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.SightlyCompiler$ScriptError" sourceFile="SightlyCompiler.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.SightlyCompilerException" sourceFile="SightlyCompilerException.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.package-info" sourceFile="package-info.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.compiler.backend" total_bugs="0" total_types="2" total_size="3">
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.backend.BackendCompiler" sourceFile="BackendCompiler.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.backend.package-info" sourceFile="package-info.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.compiler.commands" total_bugs="0" total_types="25" total_size="339">
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.AbstractCommandVisitor" sourceFile="AbstractCommandVisitor.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Command" sourceFile="Command.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.CommandHandler" sourceFile="CommandHandler.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.CommandStream" sourceFile="CommandStream.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.CommandVisitor" sourceFile="CommandVisitor.java" interface="true" size="13" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Conditional" sourceFile="Conditional.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Conditional$End" sourceFile="Conditional.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Conditional$Start" sourceFile="Conditional.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Loop" sourceFile="Loop.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Loop$End" sourceFile="Loop.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Loop$Start" sourceFile="Loop.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.OutText" sourceFile="OutText.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.OutputVariable" sourceFile="OutputVariable.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Procedure" sourceFile="Procedure.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Procedure$Call" sourceFile="Procedure.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Procedure$End" sourceFile="Procedure.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.Procedure$Start" sourceFile="Procedure.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.StatefulVisitor" sourceFile="StatefulVisitor.java" interface="false" size="65" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.StatefulVisitor$InvalidState" sourceFile="StatefulVisitor.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.StatefulVisitor$StateControl" sourceFile="StatefulVisitor.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.VariableBinding" sourceFile="VariableBinding.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.VariableBinding$End" sourceFile="VariableBinding.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.VariableBinding$Global" sourceFile="VariableBinding.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.VariableBinding$Start" sourceFile="VariableBinding.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.commands.package-info" sourceFile="package-info.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.compiler.expression" total_bugs="0" total_types="6" total_size="158">
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.Expression" sourceFile="Expression.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.ExpressionNode" sourceFile="ExpressionNode.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.MarkupContext" sourceFile="MarkupContext.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.NodeVisitor" sourceFile="NodeVisitor.java" interface="true" size="13" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.SideEffectVisitor" sourceFile="SideEffectVisitor.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.package-info" sourceFile="package-info.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.compiler.expression.nodes" total_bugs="0" total_types="36" total_size="502">
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.ArrayLiteral" sourceFile="ArrayLiteral.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.Atom" sourceFile="Atom.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperation" sourceFile="BinaryOperation.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator" sourceFile="BinaryOperator.java" interface="false" size="100" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$1" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$10" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$11" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$12" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$13" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$14" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$15" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$16" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$17" sourceFile="BinaryOperator.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$2" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$3" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$4" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$5" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$6" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$7" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$8" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BinaryOperator$9" sourceFile="BinaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.BooleanConstant" sourceFile="BooleanConstant.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.Identifier" sourceFile="Identifier.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.MapLiteral" sourceFile="MapLiteral.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.NullLiteral" sourceFile="NullLiteral.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.NumericConstant" sourceFile="NumericConstant.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.PropertyAccess" sourceFile="PropertyAccess.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.RuntimeCall" sourceFile="RuntimeCall.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.StringConstant" sourceFile="StringConstant.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.TernaryOperator" sourceFile="TernaryOperator.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.UnaryOperation" sourceFile="UnaryOperation.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.UnaryOperator" sourceFile="UnaryOperator.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.UnaryOperator$1" sourceFile="UnaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.UnaryOperator$2" sourceFile="UnaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.UnaryOperator$3" sourceFile="UnaryOperator.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.expression.nodes.package-info" sourceFile="package-info.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.compiler.util" total_bugs="0" total_types="2" total_size="61">
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.util.VariableTracker" sourceFile="VariableTracker.java" interface="false" size="60" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.compiler.util.package-info" sourceFile="package-info.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl" total_bugs="1" total_types="2" total_size="17" priority_1="1">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.TestUtils" sourceFile="TestUtils.java" interface="false" size="7" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.TestUtils$1" sourceFile="TestUtils.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler" total_bugs="0" total_types="11" total_size="353">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.CompilationResultImpl" sourceFile="CompilationResultImpl.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.CompileTimeObjectModel" sourceFile="CompileTimeObjectModel.java" interface="false" size="172" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.CompileTimeObjectModel$1" sourceFile="CompileTimeObjectModel.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.CompilerFrontend" sourceFile="CompilerFrontend.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.CompilerMessageImpl" sourceFile="CompilerMessageImpl.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.MockPojo" sourceFile="MockPojo.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.Patterns" sourceFile="Patterns.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.PushStream" sourceFile="PushStream.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.PushStream$Warning" sourceFile="PushStream.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.SightlyCompilerTest" sourceFile="SightlyCompilerTest.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.Syntax" sourceFile="Syntax.java" interface="false" size="24" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler.debug" total_bugs="0" total_types="3" total_size="84">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.debug.LoggingHandler" sourceFile="LoggingHandler.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.debug.SanityChecker" sourceFile="SanityChecker.java" interface="false" size="54" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.debug.SanityChecker$NestedType" sourceFile="SanityChecker.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler.frontend" total_bugs="0" total_types="13" total_size="262">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.CompilerContext" sourceFile="CompilerContext.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.ElementContext" sourceFile="ElementContext.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.ElementContext$Attribute" sourceFile="ElementContext.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.ElementContext$PrioritizedInvoke" sourceFile="ElementContext.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.ExpressionParser" sourceFile="ExpressionParser.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.ExpressionWrapper" sourceFile="ExpressionWrapper.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.Fragment" sourceFile="Fragment.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.Fragment$Expr" sourceFile="Fragment.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.Fragment$Text" sourceFile="Fragment.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.Interpolation" sourceFile="Interpolation.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.ParserHelper" sourceFile="ParserHelper.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.SightlyParserErrorListener" sourceFile="SightlyParserErrorListener.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.frontend.SimpleFrontend" sourceFile="SimpleFrontend.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler.optimization" total_bugs="0" total_types="14" total_size="374">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.CoalescingWrites" sourceFile="CoalescingWrites.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.CoalescingWrites$1" sourceFile="CoalescingWrites.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.CommandVariableUsage" sourceFile="CommandVariableUsage.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.DeadCodeRemoval" sourceFile="DeadCodeRemoval.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.DeadCodeRemoval$1" sourceFile="DeadCodeRemoval.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.SequenceStreamTransformer" sourceFile="SequenceStreamTransformer.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.StreamTransformer" sourceFile="StreamTransformer.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.SyntheticMapRemoval" sourceFile="SyntheticMapRemoval.java" interface="false" size="58" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.SyntheticMapRemoval$1" sourceFile="SyntheticMapRemoval.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.SyntheticMapRemoval$PropertyAccessTransformer" sourceFile="SyntheticMapRemoval.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.UnusedVariableRemoval" sourceFile="UnusedVariableRemoval.java" interface="false" size="57" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.UnusedVariableRemoval$1" sourceFile="UnusedVariableRemoval.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.UnusedVariableRemoval$VariableActivity" sourceFile="UnusedVariableRemoval.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.VariableFinder" sourceFile="VariableFinder.java" interface="false" size="54" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler.optimization.reduce" total_bugs="0" total_types="4" total_size="200">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.reduce.ConstantFolding" sourceFile="ConstantFolding.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.reduce.ConstantFolding$1" sourceFile="ConstantFolding.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.reduce.EvalResult" sourceFile="EvalResult.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.optimization.reduce.ExpressionReducer" sourceFile="ExpressionReducer.java" interface="false" size="118" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler.util" total_bugs="0" total_types="1" total_size="17">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.util.SymbolGenerator" sourceFile="SymbolGenerator.java" interface="false" size="17" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler.util.expression" total_bugs="0" total_types="1" total_size="56">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.util.expression.NodeTransformer" sourceFile="NodeTransformer.java" interface="false" size="56" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler.util.stream" total_bugs="0" total_types="5" total_size="53">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.util.stream.BroadcastHandler" sourceFile="BroadcastHandler.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.util.stream.EmitterVisitor" sourceFile="EmitterVisitor.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.util.stream.Streams" sourceFile="Streams.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.util.stream.Streams$1" sourceFile="Streams.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.util.stream.VisitorHandler" sourceFile="VisitorHandler.java" interface="false" size="13" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler.visitor" total_bugs="0" total_types="4" total_size="93">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.visitor.IgnoreRange" sourceFile="IgnoreRange.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.visitor.StatefulRangeIgnore" sourceFile="StatefulRangeIgnore.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.visitor.TrackingVisitor" sourceFile="TrackingVisitor.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.visitor.UniformVisitor" sourceFile="UniformVisitor.java" interface="false" size="40" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.filter" total_bugs="0" total_types="13" total_size="225">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.AbstractFilter" sourceFile="AbstractFilter.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.ExpressionContext" sourceFile="ExpressionContext.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.Filter" sourceFile="Filter.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.FormatFilter" sourceFile="FormatFilter.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.FormatFilter$FormatFilterLoader" sourceFile="FormatFilter.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.I18nFilter" sourceFile="I18nFilter.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.I18nFilter$I18nFilterLoader" sourceFile="I18nFilter.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.JoinFilter" sourceFile="JoinFilter.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.JoinFilter$JoinFilterLoader" sourceFile="JoinFilter.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.URIManipulationFilter" sourceFile="URIManipulationFilter.java" interface="false" size="43" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.URIManipulationFilter$URIManipulationFilterLoader" sourceFile="URIManipulationFilter.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.XSSFilter" sourceFile="XSSFilter.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.filter.XSSFilter$XSSFilterLoader" sourceFile="XSSFilter.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.frontend" total_bugs="0" total_types="2" total_size="97">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.frontend.ExpressionWrapperTest" sourceFile="ExpressionWrapperTest.java" interface="false" size="89" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.frontend.ExpressionWrapperTest$1" sourceFile="ExpressionWrapperTest.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.html" total_bugs="0" total_types="1" total_size="8">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.MarkupUtils" sourceFile="MarkupUtils.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.html.dom" total_bugs="0" total_types="11" total_size="1071">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.AttributeList" sourceFile="AttributeList.java" interface="true" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.AttributeListImpl" sourceFile="TagTokenizer.java" interface="false" size="63" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.AttributeListImpl$Value" sourceFile="TagTokenizer.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.DocumentHandler" sourceFile="DocumentHandler.java" interface="true" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.DocumentParser" sourceFile="DocumentParser.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.HtmlParser" sourceFile="HtmlParser.java" interface="false" size="298" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.HtmlParser$PARSE_STATE" sourceFile="HtmlParser.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.HtmlParserTest" sourceFile="HtmlParserTest.java" interface="false" size="107" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.MarkupHandler" sourceFile="MarkupHandler.java" interface="false" size="286" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.TagTokenizer" sourceFile="TagTokenizer.java" interface="false" size="200" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.TreeTraverser" sourceFile="TreeTraverser.java" interface="false" size="52" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.html.dom.template" total_bugs="0" total_types="8" total_size="145">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.template.Template" sourceFile="Template.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.template.TemplateAttribute" sourceFile="TemplateAttribute.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.template.TemplateCommentNode" sourceFile="TemplateCommentNode.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.template.TemplateElementNode" sourceFile="TemplateElementNode.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.template.TemplateNode" sourceFile="TemplateNode.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.template.TemplateParser" sourceFile="TemplateParser.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.template.TemplateParser$TemplateParserContext" sourceFile="TemplateParser.java" interface="false" size="62" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.html.dom.template.TemplateTextNode" sourceFile="TemplateTextNode.java" interface="false" size="8" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.parser.expr.generated" total_bugs="0" total_types="21" total_size="1161">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyLexer" sourceFile="SightlyLexer.java" interface="false" size="99" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser" sourceFile="SightlyParser.java" interface="false" size="549" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$AtomContext" sourceFile="SightlyParser.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$BinaryOpContext" sourceFile="SightlyParser.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$ComparisonOpContext" sourceFile="SightlyParser.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$ComparisonTermContext" sourceFile="SightlyParser.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$ExprNodeContext" sourceFile="SightlyParser.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$ExpressionContext" sourceFile="SightlyParser.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$FactorContext" sourceFile="SightlyParser.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$FieldContext" sourceFile="SightlyParser.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$InterpolationContext" sourceFile="SightlyParser.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$OperatorContext" sourceFile="SightlyParser.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$OptionContext" sourceFile="SightlyParser.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$OptionListContext" sourceFile="SightlyParser.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$SimpleContext" sourceFile="SightlyParser.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$StringConstContext" sourceFile="SightlyParser.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$TermContext" sourceFile="SightlyParser.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$TextFragContext" sourceFile="SightlyParser.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParser$ValueListContext" sourceFile="SightlyParser.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParserBaseListener" sourceFile="SightlyParserBaseListener.java" interface="false" size="79" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.parser.expr.generated.SightlyParserListener" sourceFile="SightlyParserListener.java" interface="true" size="35" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.plugin" total_bugs="0" total_types="31" total_size="858">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.AbstractPlugin" sourceFile="AbstractPlugin.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.AggregatePluginInvoke" sourceFile="AggregatePluginInvoke.java" interface="false" size="73" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.AttributePlugin" sourceFile="AttributePlugin.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.AttributePlugin$MultiAttributeInvoke" sourceFile="AttributePlugin.java" interface="false" size="114" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.AttributePlugin$SingleAttributeInvoke" sourceFile="AttributePlugin.java" interface="false" size="90" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.CallPlugin" sourceFile="CallPlugin.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.CallPlugin$1" sourceFile="CallPlugin.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.DefaultPluginInvoke" sourceFile="DefaultPluginInvoke.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.ElementPlugin" sourceFile="ElementPlugin.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.ElementPlugin$1" sourceFile="ElementPlugin.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.IncludePlugin" sourceFile="IncludePlugin.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.IncludePlugin$1" sourceFile="IncludePlugin.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.ListPlugin" sourceFile="ListPlugin.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.ListPlugin$1" sourceFile="ListPlugin.java" interface="false" size="62" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.Plugin" sourceFile="Plugin.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.PluginCallInfo" sourceFile="PluginCallInfo.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.PluginInvoke" sourceFile="PluginInvoke.java" interface="true" size="16" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.RepeatPlugin" sourceFile="RepeatPlugin.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.RepeatPlugin$1" sourceFile="RepeatPlugin.java" interface="false" size="58" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.ResourcePlugin" sourceFile="ResourcePlugin.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.ResourcePlugin$1" sourceFile="ResourcePlugin.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.TemplatePlugin" sourceFile="TemplatePlugin.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.TemplatePlugin$1" sourceFile="TemplatePlugin.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.TestPlugin" sourceFile="TestPlugin.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.TestPlugin$1" sourceFile="TestPlugin.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.TextPlugin" sourceFile="TextPlugin.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.TextPlugin$1" sourceFile="TextPlugin.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.UnwrapPlugin" sourceFile="UnwrapPlugin.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.UnwrapPlugin$1" sourceFile="UnwrapPlugin.java" interface="false" size="43" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.UsePlugin" sourceFile="UsePlugin.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.plugin.UsePlugin$1" sourceFile="UsePlugin.java" interface="false" size="17" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.utils" total_bugs="0" total_types="1" total_size="11">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.utils.CompileTimeObjectModelTest" sourceFile="CompileTimeObjectModelTest.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="328" invocations="1201" avgMicrosecondsPerInvocation="273" maxMicrosecondsPerInvocation="23743" standardDeviationMircosecondsPerInvocation="842"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="307" invocations="1173" avgMicrosecondsPerInvocation="262" maxMicrosecondsPerInvocation="33992" standardDeviationMircosecondsPerInvocation="1541"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="304" invocations="1142" avgMicrosecondsPerInvocation="267" maxMicrosecondsPerInvocation="40684" standardDeviationMircosecondsPerInvocation="1281"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="303" invocations="1173" avgMicrosecondsPerInvocation="259" maxMicrosecondsPerInvocation="50923" standardDeviationMircosecondsPerInvocation="1760"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="291" invocations="2" avgMicrosecondsPerInvocation="145790" maxMicrosecondsPerInvocation="169789" standardDeviationMircosecondsPerInvocation="23999"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="246" invocations="1199" avgMicrosecondsPerInvocation="205" maxMicrosecondsPerInvocation="33151" standardDeviationMircosecondsPerInvocation="1159"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="218" invocations="1733" avgMicrosecondsPerInvocation="125" maxMicrosecondsPerInvocation="30815" standardDeviationMircosecondsPerInvocation="1057"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="206" invocations="1207" avgMicrosecondsPerInvocation="170" maxMicrosecondsPerInvocation="15099" standardDeviationMircosecondsPerInvocation="695"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="165" invocations="406" avgMicrosecondsPerInvocation="407" maxMicrosecondsPerInvocation="28195" standardDeviationMircosecondsPerInvocation="1572"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="148" invocations="406" avgMicrosecondsPerInvocation="365" maxMicrosecondsPerInvocation="7127" standardDeviationMircosecondsPerInvocation="823"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="144" invocations="1173" avgMicrosecondsPerInvocation="122" maxMicrosecondsPerInvocation="4190" standardDeviationMircosecondsPerInvocation="239"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="143" invocations="952" avgMicrosecondsPerInvocation="151" maxMicrosecondsPerInvocation="8082" standardDeviationMircosecondsPerInvocation="439"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindFloatEquality" totalMilliseconds="94" invocations="225" avgMicrosecondsPerInvocation="421" maxMicrosecondsPerInvocation="69900" standardDeviationMircosecondsPerInvocation="4650"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="87" invocations="1173" avgMicrosecondsPerInvocation="74" maxMicrosecondsPerInvocation="19475" standardDeviationMircosecondsPerInvocation="616"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="84" invocations="225" avgMicrosecondsPerInvocation="376" maxMicrosecondsPerInvocation="13099" standardDeviationMircosecondsPerInvocation="1446"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="79" invocations="225" avgMicrosecondsPerInvocation="354" maxMicrosecondsPerInvocation="31723" standardDeviationMircosecondsPerInvocation="2145"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="70" invocations="1205" avgMicrosecondsPerInvocation="58" maxMicrosecondsPerInvocation="1942" standardDeviationMircosecondsPerInvocation="75"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="64" invocations="225" avgMicrosecondsPerInvocation="287" maxMicrosecondsPerInvocation="9260" standardDeviationMircosecondsPerInvocation="813"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="59" invocations="225" avgMicrosecondsPerInvocation="263" maxMicrosecondsPerInvocation="12183" standardDeviationMircosecondsPerInvocation="890"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="58" invocations="1142" avgMicrosecondsPerInvocation="51" maxMicrosecondsPerInvocation="2931" standardDeviationMircosecondsPerInvocation="113"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="52" invocations="1308" avgMicrosecondsPerInvocation="40" maxMicrosecondsPerInvocation="10816" standardDeviationMircosecondsPerInvocation="408"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindBadCast2" totalMilliseconds="45" invocations="225" avgMicrosecondsPerInvocation="200" maxMicrosecondsPerInvocation="7980" standardDeviationMircosecondsPerInvocation="701"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="45" invocations="406" avgMicrosecondsPerInvocation="110" maxMicrosecondsPerInvocation="2109" standardDeviationMircosecondsPerInvocation="202"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="44" invocations="1107" avgMicrosecondsPerInvocation="40" maxMicrosecondsPerInvocation="5140" standardDeviationMircosecondsPerInvocation="200"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.Naming" totalMilliseconds="43" invocations="225" avgMicrosecondsPerInvocation="195" maxMicrosecondsPerInvocation="33322" standardDeviationMircosecondsPerInvocation="2215"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="41" invocations="406" avgMicrosecondsPerInvocation="101" maxMicrosecondsPerInvocation="1589" standardDeviationMircosecondsPerInvocation="193"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="40" invocations="225" avgMicrosecondsPerInvocation="181" maxMicrosecondsPerInvocation="7122" standardDeviationMircosecondsPerInvocation="514"/>
+      <ClassProfile name="edu.umd.cs.findbugs.DetectorToDetector2Adapter" totalMilliseconds="40" invocations="27318" avgMicrosecondsPerInvocation="1" maxMicrosecondsPerInvocation="148" standardDeviationMircosecondsPerInvocation="1"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DefaultEncodingDetector" totalMilliseconds="39" invocations="225" avgMicrosecondsPerInvocation="177" maxMicrosecondsPerInvocation="17723" standardDeviationMircosecondsPerInvocation="1258"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.InfiniteLoop" totalMilliseconds="39" invocations="225" avgMicrosecondsPerInvocation="173" maxMicrosecondsPerInvocation="12076" standardDeviationMircosecondsPerInvocation="839"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="37" invocations="463" avgMicrosecondsPerInvocation="81" maxMicrosecondsPerInvocation="800" standardDeviationMircosecondsPerInvocation="108"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="36" invocations="225" avgMicrosecondsPerInvocation="162" maxMicrosecondsPerInvocation="13252" standardDeviationMircosecondsPerInvocation="944"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SwitchFallthrough" totalMilliseconds="36" invocations="225" avgMicrosecondsPerInvocation="162" maxMicrosecondsPerInvocation="7832" standardDeviationMircosecondsPerInvocation="589"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="36" invocations="225" avgMicrosecondsPerInvocation="161" maxMicrosecondsPerInvocation="6648" standardDeviationMircosecondsPerInvocation="646"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.MethodReturnCheck" totalMilliseconds="33" invocations="225" avgMicrosecondsPerInvocation="150" maxMicrosecondsPerInvocation="5376" standardDeviationMircosecondsPerInvocation="406"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.RuntimeExceptionCapture" totalMilliseconds="33" invocations="225" avgMicrosecondsPerInvocation="149" maxMicrosecondsPerInvocation="6469" standardDeviationMircosecondsPerInvocation="460"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUselessObjects" totalMilliseconds="33" invocations="225" avgMicrosecondsPerInvocation="149" maxMicrosecondsPerInvocation="3096" standardDeviationMircosecondsPerInvocation="299"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="32" invocations="225" avgMicrosecondsPerInvocation="146" maxMicrosecondsPerInvocation="5434" standardDeviationMircosecondsPerInvocation="394"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="32" invocations="406" avgMicrosecondsPerInvocation="80" maxMicrosecondsPerInvocation="8440" standardDeviationMircosecondsPerInvocation="448"/>
+    </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>
-  <History></History>
+  <History>
+    <AppVersion sequence="0" timestamp="1473960123456" release="" codeSize="0" numClasses="0"/>
+  </History>
 </BugCollection>

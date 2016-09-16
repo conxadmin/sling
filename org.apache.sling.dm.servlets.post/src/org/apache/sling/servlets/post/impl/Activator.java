@@ -37,10 +37,18 @@ public class Activator extends DependencyActivatorBase {
 		properties.put("service.vendor","The Apache Software Foundation");
 		properties.put("sling.servlet.prefix", -1);
 		properties.put("sling.servlet.paths","sling/servlet/default/POST");
+	    properties.put("servlet.post.dateFormats","EEE MMM dd yyyy HH:mm:ss 'GMT'Z,ISO8601,yyyy-MM-dd'T'HH:mm:ss.SSSZ,yyyy-MM-dd'T'HH:mm:ss,yyyy-MM-dd,dd.MM.yyyy HH:mm:ss,dd.MM.yyyy");
+	    properties.put("servlet.post.nodeNameHints","title,jcr:title,name,description,jcr:description,abstract,text,jcr:text");
+	    properties.put("servlet.post.nodeNameMaxLength",20);
+	    properties.put("servlet.post.checkinNewVersionableNodes",true);
+	    properties.put("servlet.post.autoCheckout",false);
+	    properties.put("servlet.post.autoCheckin",true);
+	    properties.put("servlet.post.ignorePattern","j_.*");
+	    
 		Component component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(SlingPostServlet.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(SlingPostProcessor.class)
 						.setCallbacks("bindPostProcessor", "unbindPostProcessor")
 						.setRequired(false))

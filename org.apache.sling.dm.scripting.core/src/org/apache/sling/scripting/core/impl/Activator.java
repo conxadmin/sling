@@ -55,14 +55,13 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,ScriptCacheConsolePlugin.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put(Constants.SERVICE_DESCRIPTION,"Script Cache");
-	    properties.put("service.vendor","The Apache Software Foundation");
 	    properties.put("felix.webconsole.label","scriptcache");
 	    properties.put("felix.webconsole.title","Script Cache Status");
 	    properties.put("felix.webconsole.category","Sling");
 		component = dm.createComponent()
 				.setInterface(new String[]{Servlet.class.getName(),ServletConfig.class.getName(),Serializable.class.getName()}, properties)
 				.setImplementation(ScriptCacheConsolePlugin.class)
-				.add(createServiceDependency().setService(ScriptCacheConsolePlugin.class)
+				.add(createServiceDependency().setService(org.apache.sling.scripting.api.ScriptCache.class)
 						.setRequired(true))
 				.add(createServiceDependency().setService(ScriptCache.class)
 						.setRequired(true))
@@ -86,6 +85,7 @@ public class Activator extends DependencyActivatorBase {
 						.setRequired(true))
 	            ;
 		dm.add(component);
+
 
 		//ScriptEngineManagerFactory
 		properties = new Properties();

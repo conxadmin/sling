@@ -14,8 +14,9 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/sling-browser"/>
 			<item value="/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling"/>
+			<item value="/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/tooling/maven"/>
+			<item value="/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/sling-browser"/>
 			<item value="/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/parent/pom.xml"/>
 		</list>
 		<list key="projectNameTemplate">

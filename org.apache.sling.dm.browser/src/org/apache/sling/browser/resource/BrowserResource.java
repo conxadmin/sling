@@ -18,6 +18,7 @@
  */
 package org.apache.sling.browser.resource;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -39,7 +40,7 @@ public class BrowserResource extends AbstractResource {
 
 	private final Resource resource;
 	private Node node;
-	private List<BrowserResource> children = null;
+	private List<Resource> children = null;
 
 	/**
 	 * @param resource
@@ -148,14 +149,14 @@ public class BrowserResource extends AbstractResource {
 	public Iterable<Resource> getChildren() {
 		List<Resource> res = null;
 		try {
-			res = (List<Resource>) getChildren_().iterator();
+			res = getChildren_();
 		} catch (RepositoryException e) {
 			throw new RuntimeException(e);
 		}
-		return (Iterable<Resource>) res.iterator();
+		return res;
 	}
 	
-	private List<BrowserResource> getChildren_() throws RepositoryException {
+	private List<Resource> getChildren_() throws RepositoryException {
 		if (this.children != null) {
 			return this.children;
 		}

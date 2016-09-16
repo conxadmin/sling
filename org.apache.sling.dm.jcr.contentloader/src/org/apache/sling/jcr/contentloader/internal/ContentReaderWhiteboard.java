@@ -18,9 +18,12 @@ import java.util.Map;
 
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.jcr.contentloader.ContentReader;
+import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 public class ContentReaderWhiteboard {
+	
+	private volatile BundleContext context;
 
     private Map<String, ContentReader> readersByExtension = new LinkedHashMap<String, ContentReader>();
 
@@ -34,7 +37,8 @@ public class ContentReaderWhiteboard {
         return readersByType;
     }
 
-    protected void bindContentReader(final ContentReader operation, final ServiceReference<ContentReader> operationSR) {
+    protected void bindContentReader(final ServiceReference<ContentReader> operationSR) {
+    	final ContentReader operation = context.getService(operationSR);
         final String[] extensions = PropertiesUtil.toStringArray(operationSR.getProperty(ContentReader.PROPERTY_EXTENSIONS));
         final String[] types = PropertiesUtil.toStringArray(operationSR.getProperty(ContentReader.PROPERTY_TYPES));
         if (extensions != null) {
@@ -53,7 +57,8 @@ public class ContentReaderWhiteboard {
         }
     }
 
-    protected void unbindContentReader(final ContentReader operation, final ServiceReference<ContentReader> operationSR) {
+    protected void unbindContentReader(final ServiceReference<ContentReader> operationSR) {
+    	final ContentReader operation = context.getService(operationSR);
         final String[] extensions = PropertiesUtil.toStringArray(operationSR.getProperty(ContentReader.PROPERTY_EXTENSIONS));
         final String[] types = PropertiesUtil.toStringArray(operationSR.getProperty(ContentReader.PROPERTY_TYPES));
         if (readersByExtension != null && extensions != null) {

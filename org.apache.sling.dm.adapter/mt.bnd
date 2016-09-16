@@ -11,5 +11,6 @@ X-MultiTenant-Version: 1
 X-MultiTenant-Bundle-Activator: org.apache.sling.adapter.internal.Activator
 X-MultiTenant-Binding: BOTH
 X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
-	(objectClass=org.osgi.service.log.LogService))
+	(objectClass=org.osgi.service.log.LogService)\
+	(objectClass=org.osgi.service.packageadmin.PackageAdmin))
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator

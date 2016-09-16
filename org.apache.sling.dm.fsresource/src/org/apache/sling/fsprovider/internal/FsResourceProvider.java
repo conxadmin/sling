@@ -28,6 +28,7 @@ import java.util.NoSuchElementException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceProvider;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -81,6 +82,8 @@ public class FsResourceProvider implements ResourceProvider, ManagedService {
     private volatile EventAdmin eventAdmin;
 
 	private Dictionary<String, ?> properties;
+
+	private Component component;
 
     /**
      * Same as {@link #getResource(ResourceResolver, String)}, i.e. the
@@ -193,13 +196,16 @@ public class FsResourceProvider implements ResourceProvider, ManagedService {
     // ---------- DM Integration
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.properties = properties;
+		if (properties != null)
+			this.properties = properties;
+	}
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
 	}
 
     protected void activate() {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
-    	
         String providerRoot = (String) properties.get(ROOTS);
         if (providerRoot == null || providerRoot.length() == 0) {
             throw new IllegalArgumentException(ROOTS + " property must be set");

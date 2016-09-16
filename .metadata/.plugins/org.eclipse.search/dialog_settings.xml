@@ -21,24 +21,24 @@
 		<item value="false" key="SEARCH_DERIVED"/>
 		<section name="HISTORY6">
 			<item value="false" key="ignoreCase"/>
-			<item value="1" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="createConfig" key="textPattern"/>
+			<item value="" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*.cnd"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY7">
 			<item value="false" key="ignoreCase"/>
-			<item value="1" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="metatype" key="textPattern"/>
+			<item value="&quot;.html&quot;" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -47,7 +47,7 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="PropertyHandler" key="textPattern"/>
+			<item value="sling:" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -59,10 +59,10 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="ServletResourceProviderFactory" key="textPattern"/>
+			<item value="ROOTS" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -71,31 +71,35 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="" key="textPattern"/>
+			<item value="Sling-Nodetypes" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*libs.bnd*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="EXTENSIONS">
 			<item value="*.java" key="0"/>
-			<item value="*libs.bnd*" key="1"/>
-			<item value="org.apache.sling.launchpad*.jar" key="2"/>
+			<item value="*.cnd" key="1"/>
+			<item value="*.ncd" key="2"/>
 			<item value="*" key="3"/>
-			<item value="pom.xml" key="4"/>
-			<item value="*pom*" key="5"/>
-			<item value="*Activator*" key="6"/>
+			<item value="ResEditorResourceProvider.java" key="4"/>
+			<item value="org.apache.sling.fsprovider.internal.FsResourceProvider*" key="5"/>
+			<item value="ResourceProvider.java" key="6"/>
+			<item value="JcrResourceProvider.*" key="7"/>
+			<item value="SlingRequestPathInfo.java" key="8"/>
+			<item value="DecomposedURL.java" key="9"/>
+			<item value="SlingServletResolver.java" key="10"/>
 		</section>
 		<section name="HISTORY11">
 			<item value="false" key="ignoreCase"/>
-			<item value="1" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="SLING_SERVLET_PATHS" key="textPattern"/>
+			<item value="org.apache.sling.fsprovider.internal.FsResourceProvider" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -104,31 +108,31 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="jackrabbit-spi-commons" key="textPattern"/>
+			<item value="Sling-Initial-Content" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="pom.xml"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY9">
 			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="jackrabbit-webdav" key="textPattern"/>
+			<item value="LaunchpadConfigInstaller" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="pom.xml"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY2">
 			<item value="false" key="ignoreCase"/>
-			<item value="1" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="CopyMoveHandler" key="textPattern"/>
+			<item value="sling:target" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -140,7 +144,7 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="javax.swing.plaf.basic.BasicColorChooserUI" key="textPattern"/>
+			<item value="&quot;sling:" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -152,7 +156,7 @@
 			<item value="false" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="activate(Component" key="textPattern"/>
+			<item value="&quot;sling:target&quot;" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -162,9 +166,9 @@
 		</section>
 		<section name="HISTORY1">
 			<item value="false" key="ignoreCase"/>
-			<item value="1" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="ResourceResolverFactoryImpl" key="textPattern"/>
+			<item value="put(&quot;sling:target&quot;" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*.java"/>
@@ -199,7 +203,7 @@
 		</list>
 	</section>
 	<section name="SearchDialog">
-		<item value="org.eclipse.jdt.ui.JavaSearchPage" key="PREVIOUS_PAGE"/>
+		<item value="org.eclipse.search.internal.ui.text.TextSearchPage" key="PREVIOUS_PAGE"/>
 	</section>
 	<section name="org.eclipse.jdt.ui.JavaSearchResultPage">
 		<item value="1000" key="org.eclipse.jdt.search.resultpage.limit"/>

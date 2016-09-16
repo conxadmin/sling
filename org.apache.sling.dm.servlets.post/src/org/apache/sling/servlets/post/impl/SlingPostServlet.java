@@ -33,6 +33,7 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceNotFoundException;
@@ -152,6 +153,8 @@ public class SlingPostServlet extends SlingAllMethodsServlet implements ManagedS
     private volatile  BundleContext context;
 
 	private Dictionary<String, ?> properties;
+
+	private Component component;
 
     @Override
     protected void doPost(final SlingHttpServletRequest request,
@@ -372,7 +375,13 @@ public class SlingPostServlet extends SlingAllMethodsServlet implements ManagedS
     // ---------- DM Integration ----------------------------------------------
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.properties  = properties;
+		if (properties != null)
+			this.properties = properties;
+	}
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
 	}
     
     protected void activate() {

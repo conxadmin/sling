@@ -40,6 +40,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.SlingException;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -116,6 +117,8 @@ public class JspScriptEngineFactory
     private JspFactoryHandler jspFactoryHandler;
 
 	private Dictionary<String, ?> properties;
+
+	private Component component;
 
     public static final String[] SCRIPT_TYPE = { "jsp", "jspf", "jspx" };
 
@@ -306,14 +309,16 @@ public class JspScriptEngineFactory
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
+	}
 
     /**
      * Activate this component
      */
     protected void activate() {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
-    	
         this.defaultIsSession = PropertiesUtil.toBoolean(properties.get(PROP_DEFAULT_IS_SESSION), true);
 
         // set the current class loader as the thread context loader for

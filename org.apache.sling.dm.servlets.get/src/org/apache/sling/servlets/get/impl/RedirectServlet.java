@@ -26,6 +26,7 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -82,16 +83,20 @@ public class RedirectServlet extends SlingSafeMethodsServlet implements ManagedS
 
 	private Dictionary<String, ?> properties;
 
+	private Component component;
+
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.properties = properties;
+		if (properties != null)
+			this.properties = properties;
 	}
-
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
+	}
 	
     protected void activate() {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
-    	
       Dictionary<?, ?> props =this.properties;
       this.jsonMaximumResults = OsgiUtil.toInteger(props.get(JSON_RENDERER_MAXIMUM_RESULTS_PROPERTY),
           DEFAULT_JSON_RENDERER_MAXIMUM_RESULTS);

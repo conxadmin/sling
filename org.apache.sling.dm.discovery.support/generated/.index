@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1473807725654" name="org.apache.sling.dm.discovery.support" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1473969422120" name="org.apache.sling.dm.discovery.support" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.discovery.support.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.1.201609132302"/>
+      <attribute name="version" type="Version" value="1.0.1.201609151957"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="ffd1078f24808738e535e4e86321f4685b6d8a306fb6a05f8c673f81d6bae916"/>
+      <attribute name="osgi.content" value="95a94ac23144a1ac48d6466c1d5c616fb5544eb2baa9aca141e8e1a9b7d982a8"/>
       <attribute name="url" value="generated/org.apache.sling.dm.discovery.support.mt.jar"/>
       <attribute name="size" type="Long" value="11820"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.discovery.support.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.1.201609132302"/>
+      <attribute name="bundle-version" type="Version" value="1.0.1.201609151957"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.discovery.support.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.1.201609132302"/>
+      <attribute name="bundle-version" type="Version" value="1.0.1.201609151957"/>
     </capability>
     <capability namespace="bndtools.workspace">
       <attribute name="bndtools.workspace" value="file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling"/>

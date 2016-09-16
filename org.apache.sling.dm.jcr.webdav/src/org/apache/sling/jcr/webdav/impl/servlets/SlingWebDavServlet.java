@@ -28,6 +28,7 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.felix.dm.Component;
 import org.apache.jackrabbit.server.SessionProvider;
 import org.apache.jackrabbit.server.io.CopyMoveHandler;
 import org.apache.jackrabbit.server.io.DeleteHandler;
@@ -141,6 +142,8 @@ public class SlingWebDavServlet extends SimpleWebdavServlet implements ManagedSe
 	
 	private volatile BundleContext context;
 
+	private Component component;
+
     // ---------- SimpleWebdavServlet overwrites -------------------------------
 
     @Override
@@ -198,11 +201,14 @@ public class SlingWebDavServlet extends SimpleWebdavServlet implements ManagedSe
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
+	}
 
     protected void activate()
             throws NamespaceException, ServletException {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
     	
         this.ioManager.setComponentContext(context);
         this.propertyManager.setComponentContext(context);

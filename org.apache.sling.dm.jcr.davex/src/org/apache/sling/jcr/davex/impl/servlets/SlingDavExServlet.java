@@ -119,17 +119,21 @@ public class SlingDavExServlet extends JcrRemotingServlet implements ManagedServ
     private volatile BundleContext bundleContext;
 
 	private Dictionary<String, ?> properties;
+
+	private Component component;
     
 
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = component.getServiceProperties();
+	}
     
     protected void activate(Component component) {
-    	if (this.properties == null)
-    		this.properties = component.getServiceProperties();
-
         final String davRoot = OsgiUtil.toString(this.properties.get(PROP_DAV_ROOT), DEFAULT_DAV_ROOT);
         final boolean createAbsoluteUri = OsgiUtil.toBoolean(this.properties.get(PROP_CREATE_ABSOLUTE_URI), DEFAULT_CREATE_ABSOLUTE_URI);
         final String protectedHandlers = OsgiUtil.toString(this.properties.get(PROP_PROTECTED_HANDLERS), DEFAULT_PROTECTED_HANDLERS);

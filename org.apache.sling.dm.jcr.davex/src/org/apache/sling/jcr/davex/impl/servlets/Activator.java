@@ -33,15 +33,12 @@ public class Activator extends DependencyActivatorBase {
 		Component component = dm.createComponent()
 				.setInterface(SlingDavExServlet.class.getName(), properties)
 				.setImplementation(SlingDavExServlet.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(SlingRepository.class)
-						.setCallbacks("bindRepository", "unbindRepository")
 						.setRequired(true))
 				.add(createServiceDependency().setService(org.osgi.service.http.HttpService.class)
-						.setCallbacks("bindHttpService", "unbindHttpService")
 						.setRequired(true))
 				.add(createServiceDependency().setService(org.apache.sling.auth.core.AuthenticationSupport.class)
-						.setCallbacks("bindAuthSupport", "unbindAuthSupport")
 						.setRequired(true))
 	            ;
 		dm.add(component);

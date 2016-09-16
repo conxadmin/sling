@@ -50,9 +50,16 @@ public class Activator extends DependencyActivatorBase {
 				.add(createServiceDependency().setService(Repository.class)
 						.setCallbacks("bindRepository", "unbindRepository")
 						.setRequired(true))
+				.add(createServiceDependency().setService(org.apache.sling.jcr.resource.internal.helper.jcr.PathMapper.class)
+						.setRequired(true))
+				.add(createServiceDependency().setService(java.util.concurrent.Executor.class)
+						.setRequired(false))		
+				.add(createServiceDependency().setService(org.apache.sling.commons.classloader.DynamicClassLoaderManager.class)
+						.setCallbacks("bindDynamicClassLoaderManager", "unbindDynamicClassLoaderManager")
+						.setRequired(false))				
 	            ;
 		dm.add(component);
-		
+
 		//PathMapper
 		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,PathMapper.class.getName());

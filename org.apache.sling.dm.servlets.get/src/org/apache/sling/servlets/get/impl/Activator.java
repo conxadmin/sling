@@ -29,11 +29,18 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("service.description","Default GET Servlet");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
 	    properties.put("sling.servlet.prefix", -1);
-	    properties.put("sling.servlet.methods",new String[]{"GET", "HEAD"});
+	    properties.put("sling.servlet.methods",new String[]{"GET","HEAD"});
+	    properties.put("index",false);
+	    properties.put("index.files","index,index.html");
+	    properties.put("enable.html",true);
+	    properties.put("enable.txt",true);
+	    properties.put("enable.json",true);
+	    properties.put("enable.xml",true);
+	    properties.put("json.maximumresults",200);
 		Component component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(DefaultGetServlet.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 	            ;
 		 dm.add(component);
 		 
@@ -42,24 +49,24 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,RedirectServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("service.description","Default GET Servlet");
-	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
+	    properties.put("sling.servlet.resourceTypes","sling:redirect");
 	    properties.put("sling.servlet.prefix", -1);
 	    properties.put("sling.servlet.methods",new String[]{"GET"});
 	    properties.put("json.maximumresults",200);
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)
 				.setImplementation(RedirectServlet.class)
-				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
+				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
 	            ;
 		 dm.add(component);
 		 
-		//RedirectServlet
+		//VersionInfoServlet
 		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,VersionInfoServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put("sling.servlet.resourceTypes","sling/servlet/default");
 	    properties.put("sling.servlet.selectors","V");
-	    properties.put("sling.servlet.methods","GET");
+	    properties.put("sling.servlet.methods",new String[]{"GET"});
 	    properties.put("sling.servlet.extensions","json");
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)

@@ -50,7 +50,7 @@ public class Activator  extends DependencyActivatorBase {
 		Component component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),ResourceProvider.class.getName()}, properties)
 				.setImplementation(FsResourceProvider.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency()
 	                	.setService(EventAdmin.class)
 	                	.setRequired(true))

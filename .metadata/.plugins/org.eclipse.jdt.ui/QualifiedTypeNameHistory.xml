@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.apache.sling.jackrabbit.usermanager.impl.post.CreateGroupServlet"/>
-<fullyQualifiedTypeName name="org.apache.sling.jcr.resource.JcrResourceResolverFactory"/>
-<fullyQualifiedTypeName name="org.apache.sling.jackrabbit.usermanager.impl.post.CreateUserServlet"/>
-<fullyQualifiedTypeName name="org.apache.sling.jackrabbit.usermanager.impl.post.DeleteAuthorizableServlet"/>
-<fullyQualifiedTypeName name="org.apache.sling.jackrabbit.usermanager.impl.post.UpdateGroupServlet"/>
-<fullyQualifiedTypeName name="org.apache.sling.api.resource.ResourceProvider"/>
-<fullyQualifiedTypeName name="org.apache.sling.jackrabbit.usermanager.impl.resource.AuthorizableResourceProvider"/>
-<fullyQualifiedTypeName name="org.apache.sling.jcr.jackrabbit.accessmanager.post.DeleteAcesServlet"/>
-<fullyQualifiedTypeName name="org.apache.sling.jcr.jackrabbit.accessmanager.DeleteAces"/>
-<fullyQualifiedTypeName name="org.apache.sling.jcr.jackrabbit.accessmanager.post.GetAclServlet"/>
 <fullyQualifiedTypeName name="org.apache.sling.jcr.jackrabbit.accessmanager.post.GetEffectiveAclServlet"/>
 <fullyQualifiedTypeName name="org.apache.sling.jcr.jackrabbit.accessmanager.GetEffectiveAcl"/>
 <fullyQualifiedTypeName name="org.apache.sling.jcr.jackrabbit.accessmanager.GetAcl"/>
@@ -19,7 +9,6 @@
 <fullyQualifiedTypeName name="org.apache.sling.settings.SlingSettingsService"/>
 <fullyQualifiedTypeName name="org.osgi.framework.ServiceReference"/>
 <fullyQualifiedTypeName name="org.apache.sling.jcr.contentloader.ContentReader"/>
-<fullyQualifiedTypeName name="org.apache.sling.jcr.contentloader.ContentImporter"/>
 <fullyQualifiedTypeName name="org.apache.sling.jcr.contentloader.internal.readers.JsonReader"/>
 <fullyQualifiedTypeName name="org.apache.sling.jcr.contentloader.internal.readers.OrderedJsonReader"/>
 <fullyQualifiedTypeName name="org.apache.sling.jcr.contentloader.internal.readers.XmlReader"/>
@@ -39,7 +28,6 @@
 <fullyQualifiedTypeName name="org.apache.sling.event.impl.jobs.config.TopologyHandler"/>
 <fullyQualifiedTypeName name="org.apache.sling.dm.jcr.jackrabbit.server.impl.SlingServerRepository"/>
 <fullyQualifiedTypeName name="aQute.bnd.maven.support.Pom.Dependency"/>
-<fullyQualifiedTypeName name="org.apache.felix.dm.DependencyManager"/>
 <fullyQualifiedTypeName name="org.apache.sling.engine.SlingSettingsService"/>
 <fullyQualifiedTypeName name="org.apache.sling.scripting.javascript.internal.RhinoJavaScriptEngineFactory"/>
 <fullyQualifiedTypeName name="org.osgi.framework.Constants"/>
@@ -48,16 +36,28 @@
 <fullyQualifiedTypeName name="org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter.Config"/>
 <fullyQualifiedTypeName name="org.apache.sling.event.impl.jobs.jmx.QueuesMBeanImpl"/>
 <fullyQualifiedTypeName name="org.apache.sling.event.impl.jobs.JobManagerImpl"/>
-<fullyQualifiedTypeName name="java.util.Dictionary"/>
 <fullyQualifiedTypeName name="org.apache.sling.jackrabbit.usermanager.impl.post.UpdateUserServlet"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="org.quartz.management.ManagementRESTServiceConfiguration"/>
-<fullyQualifiedTypeName name="org.osgi.framework.BundleContext"/>
 <fullyQualifiedTypeName name="org.apache.sling.commons.osgi.PropertiesUtil"/>
 <fullyQualifiedTypeName name="org.apache.sling.dm.jcr.jackrabbit.server.impl.SlingServerRepositoryManagerConfiguration"/>
-<fullyQualifiedTypeName name="java.util.Hashtable"/>
 <fullyQualifiedTypeName name="org.apache.jackrabbit.server.io.PropertyHandler"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
-<fullyQualifiedTypeName name="org.apache.felix.dm.Component"/>
 <fullyQualifiedTypeName name="org.osgi.service.cm.ManagedService"/>
+<fullyQualifiedTypeName name="org.amdatu.multitenant.Constants"/>
+<fullyQualifiedTypeName name="org.amdatu.multitenant.Tenant"/>
+<fullyQualifiedTypeName name="org.apache.felix.dm.DependencyManager"/>
+<fullyQualifiedTypeName name="org.osgi.service.event.EventAdmin"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="java.util.Dictionary"/>
+<fullyQualifiedTypeName name="java.util.Hashtable"/>
+<fullyQualifiedTypeName name="org.apache.sling.jcr.contentloader.ContentImporter"/>
+<fullyQualifiedTypeName name="org.apache.sling.auth.core.spi.AuthenticationHandler"/>
+<fullyQualifiedTypeName name="org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler"/>
+<fullyQualifiedTypeName name="org.apache.sling.jackrabbit.usermanager.UpdateUser"/>
+<fullyQualifiedTypeName name="org.apache.sling.api.resource.ResourceResolverFactory"/>
+<fullyQualifiedTypeName name="org.apache.felix.dm.tracker.ServiceTrackerCustomizer"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="org.osgi.framework.BundleContext"/>
+<fullyQualifiedTypeName name="org.apache.felix.dm.Component"/>
 </qualifiedTypeNameHistroy>

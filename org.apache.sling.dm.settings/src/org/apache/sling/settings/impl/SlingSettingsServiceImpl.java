@@ -36,8 +36,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.felix.dm.tracker.ServiceTrackerCustomizer;
 import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +47,7 @@ import org.slf4j.LoggerFactory;
  * This is the basic implementation of the sling settings service.
  */
 public class SlingSettingsServiceImpl
-    implements SlingSettingsService {
+    implements SlingSettingsService, ServiceTrackerCustomizer {
 
     /** Property containing the sling name. */
     private static final String SLING_NAME = "sling.name";
@@ -358,4 +360,34 @@ public class SlingSettingsServiceImpl
             }
         }
     }
+
+	@Override
+	public void addedService(ServiceReference arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object addingService(ServiceReference arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void modifiedService(ServiceReference arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removedService(ServiceReference arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void swappedService(ServiceReference arg0, Object arg1, ServiceReference arg2, Object arg3) {
+		// TODO Auto-generated method stub
+		
+	}
 }

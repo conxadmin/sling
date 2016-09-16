@@ -35,7 +35,11 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_VENDOR,"The Apache Software Foundation");
 		properties.put("service.description","Sling Servlet Resolver and Error Handler");
 		properties.put("event.topics", "org/apache/sling/api/resource/Resource/*,org/apache/sling/api/resource/ResourceProvider/*,javax/script/ScriptEngineFactory/*,org/apache/sling/api/adapter/AdapterFactory/*,org/apache/sling/scripting/core/BindingsValuesProvider/*");
-	    
+	    properties.put("servletresolver.servletRoot",0);
+	    properties.put("servletresolver.cacheSize",200);
+	    properties.put("servletresolver.paths","/");
+	    properties.put("servletresolver.defaultExtensions","html");
+		
 		Component component = dm.createComponent()
 				.setInterface(new String[]{/*ManagedService.class.getName(), */ServletResolver.class.getName(), org.apache.sling.api.scripting.SlingScriptResolver.class.getName(), ErrorHandler.class.getName(), SlingRequestListener.class.getName()}, properties)
 				.setImplementation(SlingServletResolver.class)

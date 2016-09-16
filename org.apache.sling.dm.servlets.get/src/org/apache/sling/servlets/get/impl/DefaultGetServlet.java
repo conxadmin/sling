@@ -27,6 +27,7 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -108,16 +109,21 @@ public class DefaultGetServlet extends SlingSafeMethodsServlet implements Manage
     private volatile ComponentContext ctx;
 
 	private Dictionary<String, ?> properties;
+
+	private Component component;
     
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.properties = properties;
+		if (properties != null)
+			this.properties = properties;
+	}
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
 	}
 
     protected void activate() {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
-    	
         Dictionary<String, ?> props = this.properties;
         this.aliases = OsgiUtil.toStringArray(props.get(ALIAS_PROPERTY));
         this.index = OsgiUtil.toBoolean(props.get(INDEX_PROPERTY),

@@ -104,6 +104,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(ContentReader.class.getName(), properties)
 				.setImplementation(XmlReader.class)
+				.setCallbacks(null,"activate",null, null)//init, start, stop and destroy.
 	            ;
 		dm.add(component);
 		

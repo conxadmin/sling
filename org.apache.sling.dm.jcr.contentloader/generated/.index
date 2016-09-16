@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1473810839586" name="org.apache.sling.dm.jcr.contentloader" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1474028467434" name="org.apache.sling.dm.jcr.contentloader" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.jcr.contentloader.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="2.1.11.201609132353"/>
+      <attribute name="version" type="Version" value="2.1.11.201609161221"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="844acdd007ff05201ac41ba6711f4d1ff78ace4b7d8da2d9cfbd9c2760f45a4f"/>
+      <attribute name="osgi.content" value="bbdddf213a28be909bcb95bcf03b72eb5b51e45e0810b37a75c8f16a9f66827e"/>
       <attribute name="url" value="generated/org.apache.sling.dm.jcr.contentloader.mt.jar"/>
-      <attribute name="size" type="Long" value="204880"/>
+      <attribute name="size" type="Long" value="204998"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.jcr.contentloader.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.11.201609132353"/>
+      <attribute name="bundle-version" type="Version" value="2.1.11.201609161221"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.jcr.contentloader.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.11.201609132353"/>
+      <attribute name="bundle-version" type="Version" value="2.1.11.201609161221"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.jcr.contentloader"/>
       <attribute name="version" type="Version" value="0.2.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.jcr.contentloader.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.11.201609132353"/>
+      <attribute name="bundle-version" type="Version" value="2.1.11.201609161221"/>
       <directive name="uses" value="javax.jcr"/>
     </capability>
     <capability namespace="bndtools.workspace">

@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1473807721714" name="org.apache.sling.dm.auth.form" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1473969417967" name="org.apache.sling.dm.auth.form" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.auth.form.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.9.201609132302"/>
+      <attribute name="version" type="Version" value="1.0.9.201609151956"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="ced62d311b95c54509b35dcfc11d4c3a601dfb0e37ae9fa68343b02b511bf4cf"/>
+      <attribute name="osgi.content" value="930af50da28a29eb837a9955997055240786eca2598e1a0b35d038aea887ca1a"/>
       <attribute name="url" value="generated/org.apache.sling.dm.auth.form.mt.jar"/>
-      <attribute name="size" type="Long" value="61771"/>
+      <attribute name="size" type="Long" value="61772"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.auth.form.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201609132302"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201609151956"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.auth.form.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201609132302"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201609151956"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.form"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.form.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201609132302"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201609151956"/>
     </capability>
     <capability namespace="bndtools.workspace">
       <attribute name="bndtools.workspace" value="file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling"/>
