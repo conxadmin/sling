@@ -37,8 +37,8 @@ public class Activator extends DependencyActivatorBase {
 		properties.put("service.vendor","The Apache Software Foundation");
 		properties.put("sling.servlet.prefix", -1);
 		properties.put("sling.servlet.paths","sling/servlet/default/POST");
-	    properties.put("servlet.post.dateFormats","EEE MMM dd yyyy HH:mm:ss 'GMT'Z,ISO8601,yyyy-MM-dd'T'HH:mm:ss.SSSZ,yyyy-MM-dd'T'HH:mm:ss,yyyy-MM-dd,dd.MM.yyyy HH:mm:ss,dd.MM.yyyy");
-	    properties.put("servlet.post.nodeNameHints","title,jcr:title,name,description,jcr:description,abstract,text,jcr:text");
+	    properties.put("servlet.post.dateFormats",new String[]{"EEE MMM dd yyyy HH:mm:ss 'GMT'Z","ISO8601","yyyy-MM-dd'T'HH:mm:ss.SSSZ","yyyy-MM-dd'T'HH:mm:ss","yyyy-MM-dd","dd.MM.yyyy HH:mm:ss","dd.MM.yyyy"});
+	    properties.put("servlet.post.nodeNameHints",new String[]{"title","jcr:title","name","description","jcr:description","abstract","text","jcr:text"});
 	    properties.put("servlet.post.nodeNameMaxLength",20);
 	    properties.put("servlet.post.checkinNewVersionableNodes",true);
 	    properties.put("servlet.post.autoCheckout",false);

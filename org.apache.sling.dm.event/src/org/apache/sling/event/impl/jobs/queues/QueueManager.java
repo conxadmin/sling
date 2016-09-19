@@ -20,6 +20,7 @@ package org.apache.sling.event.impl.jobs.queues;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -116,25 +117,23 @@ public class QueueManager
     /** The queue services. */
     private volatile QueueServices queueServices;
 
-	private Hashtable props;
-
     private volatile DependencyManager dm;
     
     private volatile Tenant tenant;
     
 	private Component component;
+
+	private Dictionary<Object, Object> props;
 	
 	protected void init(Component component) {
 		this.component = component;
+		this.props = component.getServiceProperties();
 	}
     /**
      * Activate this component.
      * @param props Configuration properties
      */
     protected void activate() {
-    	if (this.props == null)
-    		this.props = new Hashtable<>();
-    	
         logger.info("Apache Sling Queue Manager started on instance {}", Environment.APPLICATION_ID);
         this.queueServices = new QueueServices();
         queueServices.configuration = this.configuration;

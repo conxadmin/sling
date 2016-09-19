@@ -32,16 +32,17 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.adapter.Adaption;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.adapter.AdapterFactory;
 import org.apache.sling.api.adapter.AdapterManager;
 import org.apache.sling.api.resource.SyntheticResource;
 import org.apache.sling.commons.osgi.PropertiesUtil;
+import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
-import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.service.packageadmin.PackageAdmin;
@@ -62,7 +63,7 @@ public class AdapterManagerImpl implements AdapterManager {
      * The OSGi <code>ComponentContext</code> to retrieve
      * {@link AdapterFactory} service instances.
      */
-    private volatile ComponentContext context;
+    private volatile BundleContext context;
 
     /**
      * A list of {@link AdapterFactory} services bound to this manager before
@@ -99,6 +100,8 @@ public class AdapterManagerImpl implements AdapterManager {
     private volatile EventAdmin eventAdmin;
 
     private volatile PackageAdmin packageAdmin;
+
+	private Component component;
 
     // ---------- AdapterManager interface -------------------------------------
 
@@ -142,16 +145,17 @@ public class AdapterManagerImpl implements AdapterManager {
         return null;
     }
 
-    // ----------- SCR integration ---------------------------------------------
+    // ----------- DM integration ---------------------------------------------
+    protected void init(Component component) {
+    	this.component = component;
+    }
 
     /**
      * Activate the manager.
      * Bind all already registered factories
      * @param context Component context
      */
-    protected void activate(final ComponentContext context) {
-        this.context = context;
-
+    protected void activate() {
         // register all adapter factories bound before activation
         final List<ServiceReference> refs;
         synchronized ( this.boundAdapterFactories ) {
@@ -159,7 +163,7 @@ public class AdapterManagerImpl implements AdapterManager {
             boundAdapterFactories.clear();
         }
         for (final ServiceReference reference : refs) {
-            registerAdapterFactory(context, reference);
+            registerAdapterFactory(reference);
         }
 
         // final "enable" this manager by setting the instance
@@ -170,7 +174,7 @@ public class AdapterManagerImpl implements AdapterManager {
      * Deactivate
      * @param context Not used
      */
-    protected void deactivate(final ComponentContext context) {
+    protected void deactivate() {
         SyntheticResource.unsetAdapterManager(this);
         this.context = null;
     }
@@ -189,7 +193,7 @@ public class AdapterManagerImpl implements AdapterManager {
             }
         }
         if ( create ) {
-            registerAdapterFactory(context, reference);
+            registerAdapterFactory(reference);
         }
     }
 
@@ -226,8 +230,7 @@ public class AdapterManagerImpl implements AdapterManager {
      * Unregisters the {@link AdapterFactory} referred to by the service
      * <code>reference</code> from the registry.
      */
-    private void registerAdapterFactory(final ComponentContext context,
-            final ServiceReference reference) {
+    private void registerAdapterFactory(final ServiceReference reference) {
         final String[] adaptables = PropertiesUtil.toStringArray(reference.getProperty(ADAPTABLE_CLASSES));
         final String[] adapters = PropertiesUtil.toStringArray(reference.getProperty(ADAPTER_CLASSES));
 
@@ -273,7 +276,7 @@ public class AdapterManagerImpl implements AdapterManager {
         props.put(SlingConstants.PROPERTY_ADAPTABLE_CLASSES, adaptables);
         props.put(SlingConstants.PROPERTY_ADAPTER_CLASSES, adapters);
 
-        ServiceRegistration adaptionRegistration = this.context.getBundleContext().registerService(
+        ServiceRegistration adaptionRegistration = this.context.registerService(
                 Adaption.class.getName(), AdaptionImpl.INSTANCE, props);
         if (log.isDebugEnabled()) {
             log.debug("Registered service {} with {} : {} and {} : {}", new Object[] { Adaption.class.getName(),

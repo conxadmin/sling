@@ -36,7 +36,7 @@ public class Activator extends DependencyActivatorBase {
 		Component component = dm.createComponent()
 				.setInterface(new String[] {ManagedService.class.getName(),AdapterManager.class.getName()}, properties)
 				.setImplementation(AdapterManagerImpl.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(AdapterFactory.class)
 						 .setCallbacks("bindAdapterFactory", "unbindAdapterFactory").setRequired(false))
 	            .add(createServiceDependency()

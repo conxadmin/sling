@@ -50,6 +50,22 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,ResourceResolverFactoryActivator.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION,"Apache Sling Resource Resolver Factory");
+	    properties.put("resource.resolver.searchpath",new String[]{"/apps","/libs"});
+	    properties.put("resource.resolver.manglenamespaces",true);
+	    properties.put("resource.resolver.allowDirect",true);
+	    properties.put("resource.resolver.required.providernames","JCR");
+	    properties.put("resource.resolver.virtual","/:/");
+	    properties.put("resource.resolver.mapping",new String[]{"/:/","/content/:/","/system/docroot/:/"});
+	    properties.put("resource.resolver.map.location","/etc/map");
+	    properties.put("resource.resolver.default.vanity.redirect.status",302);
+	    properties.put("resource.resolver.enable.vanitypath",true);
+	    properties.put("resource.resolver.vanitypath.maxEntries",-1);
+	    properties.put("resource.resolver.vanitypath.maxEntries.startup",true);
+	    properties.put(" resource.resolver.vanitypath.bloomfilter.maxBytes",1024000L);
+	    properties.put("resource.resolver.optimize.alias.resolution",true);
+	    properties.put("resource.resolver.vanity.precedence",false);
+	    properties.put("resource.resolver.providerhandling.paranoid",false);
+	    properties.put("resource.resolver.log.closing",false);
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Object.class.getName()}, properties)
 				.setImplementation(ResourceResolverFactoryActivator.class)
@@ -82,6 +98,8 @@ public class Activator extends DependencyActivatorBase {
 		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,OsgiObservationBridge.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put("resource.change.types",new String[]{"ADDED","CHANGED","REMOVED"});
+		properties.put("resource.paths","/");
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),ResourceChangeListener.class.getName()}, properties)
 				.setImplementation(OsgiObservationBridge.class)

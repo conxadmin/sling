@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1474049762000" name="SLING Release" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1474251185000" name="SLING Release" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.jackrabbit.jackrabbit-jcr-server"/>
@@ -1917,27 +1917,27 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.adapter.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="2.1.9.201609141941"/>
+      <attribute name="version" type="Version" value="2.1.9.201609190147"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="fd03a9bc3ce52bc7ec22c5ef496e8d1a84569a761450ea432b9fb4a9d0cb5ea9"/>
+      <attribute name="osgi.content" value="e0186e4cfac5ed97d4d602f264ecb1f5f8e5b2dedf12dbd40f6582a3159f64d2"/>
       <attribute name="url" value="org.apache.sling.dm.adapter.mt/org.apache.sling.dm.adapter.mt-2.1.9.jar"/>
-      <attribute name="size" type="Long" value="38991"/>
+      <attribute name="size" type="Long" value="40310"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.adapter.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.9.201609141941"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.201609190147"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.adapter.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.9.201609141941"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.201609190147"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.adapter"/>
       <attribute name="version" type="Version" value="2.1.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.adapter.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.9.201609141941"/>
+      <attribute name="bundle-version" type="Version" value="2.1.9.201609190147"/>
       <directive name="uses" value="org.apache.sling.api.adapter"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
@@ -3119,41 +3119,41 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.event.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="4.1.1.201609081524"/>
+      <attribute name="version" type="Version" value="4.1.1.201609162002"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="6aa835af8409f4e1cd52d1e68e6861623401de624d5ff064898d5f7ecf8d1f1e"/>
+      <attribute name="osgi.content" value="ae304d63ed1434775ae72d4d0fd74798b09ebcc0d9a7ebe567e5a26604df9f18"/>
       <attribute name="url" value="org.apache.sling.dm.event.mt/org.apache.sling.dm.event.mt-4.1.1.jar"/>
-      <attribute name="size" type="Long" value="449464"/>
+      <attribute name="size" type="Long" value="449498"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.event.mt"/>
-      <attribute name="bundle-version" type="Version" value="4.1.1.201609081524"/>
+      <attribute name="bundle-version" type="Version" value="4.1.1.201609162002"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.event.mt"/>
-      <attribute name="bundle-version" type="Version" value="4.1.1.201609081524"/>
+      <attribute name="bundle-version" type="Version" value="4.1.1.201609162002"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.event.jobs.consumer"/>
       <attribute name="version" type="Version" value="1.2.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.event.mt"/>
-      <attribute name="bundle-version" type="Version" value="4.1.1.201609081524"/>
+      <attribute name="bundle-version" type="Version" value="4.1.1.201609162002"/>
       <directive name="uses" value="org.apache.sling.event.jobs"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.event.jobs.jmx"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.event.mt"/>
-      <attribute name="bundle-version" type="Version" value="4.1.1.201609081524"/>
+      <attribute name="bundle-version" type="Version" value="4.1.1.201609162002"/>
       <directive name="uses" value="org.apache.sling.event.jobs"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.event.jobs"/>
       <attribute name="version" type="Version" value="2.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.event.mt"/>
-      <attribute name="bundle-version" type="Version" value="4.1.1.201609081524"/>
+      <attribute name="bundle-version" type="Version" value="4.1.1.201609162002"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=javax.servlet)(version&gt;=2.6.0)(!(version&gt;=3.0.0)))"/>
@@ -3574,21 +3574,21 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.installer.provider.jcr.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="3.1.19.201609040542"/>
+      <attribute name="version" type="Version" value="3.1.19.201609170323"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="a483b35b49c51253be6db12725b43a9195036b974ae1835b8a44aab2e8cf5aa1"/>
+      <attribute name="osgi.content" value="f2fcbce154502ab9ac4afb5fd012dccc51200baafb0d624dad84e4d87a384938"/>
       <attribute name="url" value="org.apache.sling.dm.installer.provider.jcr.mt/org.apache.sling.dm.installer.provider.jcr.mt-3.1.19.jar"/>
-      <attribute name="size" type="Long" value="80761"/>
+      <attribute name="size" type="Long" value="81257"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.installer.provider.jcr.mt"/>
-      <attribute name="bundle-version" type="Version" value="3.1.19.201609040542"/>
+      <attribute name="bundle-version" type="Version" value="3.1.19.201609170323"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.installer.provider.jcr.mt"/>
-      <attribute name="bundle-version" type="Version" value="3.1.19.201609040542"/>
+      <attribute name="bundle-version" type="Version" value="3.1.19.201609170323"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr)(version&gt;=1.0.0))"/>
@@ -5244,21 +5244,21 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.resourceresolver.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.4.17.201609132107"/>
+      <attribute name="version" type="Version" value="1.4.17.201609181929"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="faf2dd50f3d65c1d34be38bbc862cf84e67f25a63105e9295c528d0be4eac565"/>
+      <attribute name="osgi.content" value="dec43174a280fb106bcad3144de6ad0308169805921adca989edd63ac6f18573"/>
       <attribute name="url" value="org.apache.sling.dm.resourceresolver.mt/org.apache.sling.dm.resourceresolver.mt-1.4.17.jar"/>
-      <attribute name="size" type="Long" value="352787"/>
+      <attribute name="size" type="Long" value="353763"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.resourceresolver.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.4.17.201609132107"/>
+      <attribute name="bundle-version" type="Version" value="1.4.17.201609181929"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.resourceresolver.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.4.17.201609132107"/>
+      <attribute name="bundle-version" type="Version" value="1.4.17.201609181929"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=javax.annotation)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
@@ -5359,34 +5359,34 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.scripting.core.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="2.0.39.201609141903"/>
+      <attribute name="version" type="Version" value="2.0.39.201609190212"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="72934b92dda5e599f3716da395365d3abbd1050130dd88bb6291d68bf3cf7f13"/>
+      <attribute name="osgi.content" value="bcbfb42984396077e1a8a8ace81871716bdc9c6d28bab7aeb6831cd66c1b4574"/>
       <attribute name="url" value="org.apache.sling.dm.scripting.core.mt/org.apache.sling.dm.scripting.core.mt-2.0.39.jar"/>
-      <attribute name="size" type="Long" value="119381"/>
+      <attribute name="size" type="Long" value="119698"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.scripting.core.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.0.39.201609141903"/>
+      <attribute name="bundle-version" type="Version" value="2.0.39.201609190212"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.scripting.core.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.0.39.201609141903"/>
+      <attribute name="bundle-version" type="Version" value="2.0.39.201609190212"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.scripting.core"/>
       <attribute name="version" type="Version" value="2.1.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.scripting.core.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.0.39.201609141903"/>
+      <attribute name="bundle-version" type="Version" value="2.0.39.201609190212"/>
       <directive name="uses" value="org.apache.sling.api,org.apache.sling.api.request,org.apache.sling.api.resource,org.apache.sling.api.scripting,org.apache.sling.scripting.api,org.osgi.framework"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.scripting.core.servlet"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.scripting.core.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.0.39.201609141903"/>
+      <attribute name="bundle-version" type="Version" value="2.0.39.201609190212"/>
       <directive name="uses" value="javax.servlet,javax.servlet.http"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
@@ -5438,9 +5438,6 @@
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.event)(version&gt;=1.2.0)(!(version&gt;=2.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
@@ -5456,9 +5453,6 @@
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.felix.dm)(version&gt;=4.1.0)(!(version&gt;=5.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.felix.dm.tracker)(version&gt;=4.0.0)(!(version&gt;=5.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.osgi)(version&gt;=2.4.0)(!(version&gt;=3.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
@@ -5466,6 +5460,9 @@
     </requirement>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
@@ -5960,35 +5957,35 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.servlets.post.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="2.1.19.201609160126"/>
+      <attribute name="version" type="Version" value="2.1.19.201609170036"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="7dcfeead7c95f776a150b7866a1558cf55c6911f904c979564ee4c51d7c470d4"/>
+      <attribute name="osgi.content" value="ebb22e3867daaff25c97c1849848909fc40e70d870746b4b3dc0ca3752145adb"/>
       <attribute name="url" value="org.apache.sling.dm.servlets.post.mt/org.apache.sling.dm.servlets.post.mt-2.1.19.jar"/>
-      <attribute name="size" type="Long" value="258656"/>
+      <attribute name="size" type="Long" value="255717"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.servlets.post.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.19.201609160126"/>
+      <attribute name="bundle-version" type="Version" value="2.1.19.201609170036"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.servlets.post.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.19.201609160126"/>
+      <attribute name="bundle-version" type="Version" value="2.1.19.201609170036"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.servlets.post"/>
       <attribute name="version" type="Version" value="2.3.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.servlets.post.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.19.201609160126"/>
+      <attribute name="bundle-version" type="Version" value="2.1.19.201609170036"/>
       <directive name="uses" value="javax.jcr,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.resource,org.apache.sling.api.servlets,org.slf4j"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.servlets.post.impl.helper"/>
       <attribute name="version" type="Version" value="2.1.19"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.servlets.post.mt"/>
-      <attribute name="bundle-version" type="Version" value="2.1.19.201609160126"/>
-      <directive name="uses" value="javax.jcr,javax.servlet,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.request,org.apache.sling.api.resource,org.apache.sling.api.servlets,org.apache.sling.jcr.api,org.apache.sling.servlets.post,org.osgi.service.component"/>
+      <attribute name="bundle-version" type="Version" value="2.1.19.201609170036"/>
+      <directive name="uses" value="javax.jcr,javax.servlet,javax.servlet.http,org.apache.sling.api,org.apache.sling.api.request,org.apache.sling.api.resource,org.apache.sling.api.servlets,org.apache.sling.servlets.post,org.osgi.service.cm"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=javax.jcr)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
@@ -6042,9 +6039,6 @@
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.8.0)(!(version&gt;=2.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
@@ -6058,6 +6052,9 @@
     </requirement>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.cm)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.8))"/>
@@ -8885,6 +8882,139 @@
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="org.apache.sling.servlets.get"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="2.1.19.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="c36151edd1dde32353c5d3ce214bcb39aad92aa3e5fce3788b3c1ec21e739f36"/>
+      <attribute name="url" value="org.apache.sling.servlets.get/org.apache.sling.servlets.get-2.1.19.jar"/>
+      <attribute name="size" type="Long" value="55751"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="org.apache.sling.servlets.get"/>
+      <attribute name="bundle-version" type="Version" value="2.1.19.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="org.apache.sling.servlets.get"/>
+      <attribute name="bundle-version" type="Version" value="2.1.19.SNAPSHOT"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="javax.servlet.Servlet"/>
+      <attribute name="service.description" value="Version info servlet"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="sling.servlet.resourceTypes" value="sling/servlet/default"/>
+      <attribute name="sling.servlet.selectors" value="V"/>
+      <attribute name="sling.servlet.methods" value="GET"/>
+      <attribute name="sling.servlet.extensions" value="json"/>
+      <attribute name="service.pid" value="org.apache.sling.servlets.get.impl.version.VersionInfoServlet"/>
+      <directive name="uses" value="javax.servlet"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="javax.servlet.Servlet"/>
+      <attribute name="service.description" value="Request Redirect Servlet"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="sling.servlet.resourceTypes" value="sling:redirect"/>
+      <attribute name="sling.servlet.methods" value="GET"/>
+      <attribute name="sling.servlet.prefix" type="Long" value="-1"/>
+      <attribute name="json.maximumresults" type="Long" value="200"/>
+      <attribute name="service.pid" value="org.apache.sling.servlets.get.impl.RedirectServlet"/>
+      <directive name="uses" value="javax.servlet"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="javax.servlet.Servlet"/>
+      <attribute name="service.description" value="Sling Info Servlet"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="sling.servlet.paths" value="/system/sling/info"/>
+      <attribute name="service.pid" value="org.apache.sling.servlets.get.impl.impl.info.SlingInfoServlet"/>
+      <directive name="uses" value="javax.servlet"/>
+    </capability>
+    <capability namespace="osgi.service">
+      <attribute name="objectClass" type="List&lt;String&gt;" value="javax.servlet.Servlet"/>
+      <attribute name="service.description" value="Default GET Servlet"/>
+      <attribute name="service.vendor" value="The Apache Software Foundation"/>
+      <attribute name="sling.servlet.resourceTypes" value="sling/servlet/default"/>
+      <attribute name="sling.servlet.prefix" type="Long" value="-1"/>
+      <attribute name="sling.servlet.methods" type="List&lt;String&gt;" value="GET,HEAD"/>
+      <attribute name="aliases" type="List&lt;String&gt;" value=""/>
+      <attribute name="index" value="false"/>
+      <attribute name="index.files" type="List&lt;String&gt;" value="index,index.html"/>
+      <attribute name="enable.html" value="true"/>
+      <attribute name="enable.txt" value="true"/>
+      <attribute name="enable.json" value="true"/>
+      <attribute name="enable.xml" value="true"/>
+      <attribute name="json.maximumresults" type="Long" value="200"/>
+      <attribute name="service.pid" value="org.apache.sling.servlets.get.DefaultGetServlet"/>
+      <directive name="uses" value="javax.servlet"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.jcr)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.jcr.version)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.servlet)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.servlet.http)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.commons.lang)(version&gt;=2.4.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.request)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.resource)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.servlets)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.api.wrappers)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.json)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.json.io)(version&gt;=2.1.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.json.jcr)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.json.sling)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.apache.sling.commons.osgi)(version&gt;=2.0.0)(!(version&gt;=3.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.component)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax)"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+    <requirement namespace="osgi.extender">
+      <directive name="filter" value="(&amp;(osgi.extender=osgi.component)(version&gt;=1.1.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="effective" value="active"/>
     </requirement>
   </resource>
   <resource>

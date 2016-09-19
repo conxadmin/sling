@@ -6,30 +6,30 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Get" key="selection"/>
+		<item value="properties.put(&quot;" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Get"/>
+			<item value="properties.put&quot;"/>
 			<item value="&lt;property name="/>
-			<item value="ContentReader"/>
-			<item value="BaseImportLoader"/>
-			<item value="getTargetNode"/>
-			<item value="sling:"/>
-			<item value="sling"/>
-			<item value="TARGET_PROP"/>
+			<item value="adapt"/>
+			<item value="DefaultScript"/>
+			<item value="Default"/>
+			<item value="getAdapter"/>
+			<item value=","/>
+			<item value="OsgiUtil"/>
 		</list>
 		<list key="replacehistory">
+			<item value="properties.put(&quot;"/>
+			<item value="properties.put"/>
 			<item value="properties.put("/>
+			<item value="&quot;,&quot;"/>
 			<item value=");"/>
 			<item value=","/>
 			<item value="2.3.1."/>
 			<item value="2.3.1.1.${tstamp}"/>
-			<item value="org.apache.sling.dm.jcr.jackrabbit.server.extensions.db"/>
-			<item value="org.apache.sling.dm.jcr.jackrabbit.api"/>
-			<item value="org.apache.sling.dm.jcr.jackrabbit.server.plugins.security"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -33,6 +33,7 @@ import javax.script.CompiledScript;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.SlingConstants;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -47,7 +48,6 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
-import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
@@ -88,6 +88,8 @@ public class ScriptCacheImpl implements EventHandler, ScriptCache, ManagedServic
 	private Dictionary<String, ?> properties;
 
 	private volatile BundleContext componentContext;
+
+	private Component component;
 	
     public ScriptCacheImpl() {
         internalMap = new CachingMap<CachedScript>(DEFAULT_CACHE_SIZE);
@@ -182,14 +184,17 @@ public class ScriptCacheImpl implements EventHandler, ScriptCache, ManagedServic
 
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.properties = properties;
+		if (properties != null)
+			this.properties = properties;
+	}
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
 	}
 
     @SuppressWarnings("unused")
     protected void activate() {
-    	if (this.properties == null)
-    		this.properties = new Hashtable<>();
-    	
         threadPool = threadPoolManager.get("Script Cache Thread Pool");
         bundleContext = componentContext;
         additionalExtensions = PropertiesUtil.toStringArray(properties.get(PROP_ADDITIONAL_EXTENSIONS));

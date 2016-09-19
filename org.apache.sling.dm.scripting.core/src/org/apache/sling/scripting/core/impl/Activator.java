@@ -39,7 +39,7 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,BindingsValuesProvidersByContextImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		Component component = dm.createComponent()
-				.setInterface(new String[]{BindingsValuesProvidersByContext.class.getName(),ServiceTrackerCustomizer.class.getName()}, properties)
+				.setInterface(new String[]{org.apache.sling.scripting.api.BindingsValuesProvidersByContext.class.getName(),org.osgi.util.tracker.ServiceTrackerCustomizer.class.getName()}, properties)
 				.setImplementation(BindingsValuesProvidersByContextImpl.class)
 				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(SlingScriptEngineManager.class)
@@ -73,9 +73,12 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,ScriptCacheImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 	    properties.put(Constants.SERVICE_DESCRIPTION,"Script Cache");
+	    properties.put("org.apache.sling.scripting.cache.size",65536);
+	    properties.put("org.apache.sling.scripting.cache.additional_extensions","js");
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),ScriptCache.class.getName()}, properties)
 				.setImplementation(ScriptCacheImpl.class)
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(ScriptEngineFactory.class)
 						.setCallbacks("bindScriptEngineFactory", "unbindScriptEngineFactory")
 						.setRequired(false))
@@ -94,7 +97,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Object.class.getName()}, properties)
 				.setImplementation(ScriptEngineManagerFactory.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(ScriptEngineFactory.class)
 						.setCallbacks("bindScriptEngineFactory", "unbindScriptEngineFactory")
 						.setRequired(false))
@@ -106,16 +109,17 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Default SlingScriptResolver");
 		properties.put("adaptables","org.apache.sling.api.resource.Resource");
-		properties.put("adapters",new String[]{"org.apache.sling.api.scripting.SlingScript",
-	                                      "javax.servlet.Servlet"});
+		properties.put("adapters",new String[]{"org.apache.sling.api.scripting.SlingScript","javax.servlet.Servlet"});
 		properties.put("adapter.condition","If the resource's path ends in an extension registered by a script engine.");
 
 		component = dm.createComponent()
-				.setInterface(new String[]{AdapterFactory.class.getName(),MimeTypeProvider.class.getName()}, properties)
+				.setInterface(new String[]{org.apache.sling.api.adapter.AdapterFactory.class.getName(),org.apache.sling.commons.mime.MimeTypeProvider.class.getName()}, properties)
 				.setImplementation(SlingScriptAdapterFactory.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 				.add(createServiceDependency().setService(SlingScriptEngineManager.class).setRequired(true))
 				.add(createServiceDependency().setService(ScriptCache.class).setRequired(true))
+				.add(createServiceDependency().setService(org.apache.sling.scripting.api.BindingsValuesProvidersByContext.class).setRequired(true))
+
 	            ;
 		dm.add(component);
 

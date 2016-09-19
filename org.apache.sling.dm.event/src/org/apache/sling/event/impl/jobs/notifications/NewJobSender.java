@@ -69,15 +69,13 @@ public class NewJobSender implements EventHandler {
 	
 	protected void init(Component component) {
 		this.component = component;
+		this.properties = component.getServiceProperties();
 	}
     /**
      * Activate this component.
      * Register an event handler.
      */
     protected void activate() {
-    	if (this.properties == null)
-    		this.properties = component.getServiceProperties();
-    	
     	Dictionary<String, Object> props = new Hashtable<>();
         props.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Job Topic Manager Event Handler");
         props.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");

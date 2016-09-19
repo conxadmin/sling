@@ -39,7 +39,6 @@ import org.apache.sling.scripting.core.impl.helper.SlingScriptEngineManager;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.util.tracker.ServiceTracker;
@@ -67,8 +66,6 @@ public class BindingsValuesProvidersByContextImpl implements BindingsValuesProvi
 
     private volatile EventAdmin eventAdmin;
     
-    private volatile BundleContext ctx;
-
     private abstract class ContextLoop {
         Object apply(ServiceReference ref) {
             final Object service = bundleContext.getService(ref);
@@ -91,8 +88,6 @@ public class BindingsValuesProvidersByContextImpl implements BindingsValuesProvi
     };
 
     public void activate() {
-        bundleContext = ctx;
-
         synchronized (pendingRefs) {
             for(ServiceReference ref : pendingRefs) {
                 addingService(ref);

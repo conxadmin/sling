@@ -33,6 +33,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.scripting.SlingScriptConstants;
 import org.apache.sling.scripting.core.impl.helper.ProxyScriptEngineManager;
 import org.apache.sling.scripting.core.impl.helper.SlingScriptEngineManager;
@@ -43,7 +44,6 @@ import org.osgi.framework.BundleListener;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
-import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.util.tracker.ServiceTracker;
@@ -80,9 +80,9 @@ public class ScriptEngineManagerFactory implements BundleListener, ManagedServic
 
     private ServiceRegistration scriptEngineManagerRegistration;
     
-    private volatile BundleContext context;
-
 	private Dictionary<String, ?> properties;
+
+	private Component component;
 
     /**
      * Refresh the script engine manager.
@@ -170,11 +170,13 @@ public class ScriptEngineManagerFactory implements BundleListener, ManagedServic
         }
     }
 
-    // ---------- SCR integration ----------------------------------------------
+    // ---------- DM integration ----------------------------------------------
+    protected void init(Component component) {
+    	this.component = component;
+    	this.properties = this.component.getServiceProperties();
+    }
 
     protected void activate() {
-        this.bundleContext = context;
-
         // setup tracker first as this is used in the bind/unbind methods
         this.eventAdminTracker = new ServiceTracker(this.bundleContext, EventAdmin.class.getName(), null);
         this.eventAdminTracker.open();
@@ -199,13 +201,13 @@ public class ScriptEngineManagerFactory implements BundleListener, ManagedServic
                 SlingScriptEngineManager.class.getName() },
             scriptEngineManager, new Hashtable<String, Object>());
 
-        org.apache.sling.scripting.core.impl.ScriptEngineConsolePlugin.initPlugin(context, this);
+        org.apache.sling.scripting.core.impl.ScriptEngineConsolePlugin.initPlugin(this.bundleContext, this);
     }
 
-    protected void deactivate(ComponentContext context) {
+    protected void deactivate() {
         org.apache.sling.scripting.core.impl.ScriptEngineConsolePlugin.destroyPlugin();
 
-        context.getBundleContext().removeBundleListener(this);
+        this.bundleContext.removeBundleListener(this);
 
         if (scriptEngineManagerRegistration != null) {
             scriptEngineManagerRegistration.unregister();
@@ -294,6 +296,7 @@ public class ScriptEngineManagerFactory implements BundleListener, ManagedServic
 
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.properties = properties;
+		if (properties != null)
+			this.properties = properties;
 	}
 }

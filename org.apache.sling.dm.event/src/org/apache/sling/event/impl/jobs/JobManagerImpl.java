@@ -112,14 +112,13 @@ public class JobManagerImpl
 	
 	protected void init(Component component) {
 		this.component = component;
+		this.props = this.component.getServiceProperties();
 	}
     /**
      * Activate this component.
      * @param props Configuration properties
      */
     protected void activate() throws LoginException {
-    	if (this.props == null)
-    		this.props = new Hashtable<>();
         this.jobScheduler = new org.apache.sling.event.impl.jobs.scheduling.JobSchedulerImpl(this.configuration, this.scheduler, this);
         this.maintenanceTask = new CleanUpTask(this.configuration, this.jobScheduler);
 

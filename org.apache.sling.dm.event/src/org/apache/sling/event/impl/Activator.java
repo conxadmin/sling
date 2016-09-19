@@ -236,11 +236,7 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put("scheduler.period",60);
 		properties.put("scheduler.concurrent",false);
-	    properties.put("event.topics","org/apache/sling/api/resource/Resource/ADDED\n"
-	        +"org/apache/sling/api/resource/Resource/CHANGED\n"
-	        +"org/apache/sling/api/resource/Resource/REMOVED\n"
-	        +"org/osgi/framework/BundleEvent/STARTED\n"
-	        +"org/osgi/framework/BundleEvent/UPDATED");
+	    properties.put("event.topics",new String[]{"org/apache/sling/api/resource/Resource/ADDED","org/apache/sling/api/resource/Resource/CHANGED","org/apache/sling/api/resource/Resource/REMOVED","org/osgi/framework/BundleEvent/STARTED","org/osgi/framework/BundleEvent/UPDATED"});
 		component = dm.createComponent()
 				.setInterface(new String[]{JobManager.class.getName(),EventHandler.class.getName(),Runnable.class.getName()}, properties)
 				.setImplementation(JobManagerImpl.class)

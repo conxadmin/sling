@@ -31,7 +31,7 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("sling.servlet.prefix", -1);
 	    properties.put("sling.servlet.methods",new String[]{"GET","HEAD"});
 	    properties.put("index",false);
-	    properties.put("index.files","index,index.html");
+	    properties.put("index.files",new String[]{"index","index.html"});
 	    properties.put("enable.html",true);
 	    properties.put("enable.txt",true);
 	    properties.put("enable.json",true);
@@ -51,7 +51,7 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("service.description","Default GET Servlet");
 	    properties.put("sling.servlet.resourceTypes","sling:redirect");
 	    properties.put("sling.servlet.prefix", -1);
-	    properties.put("sling.servlet.methods",new String[]{"GET"});
+	    properties.put("sling.servlet.methods","GET");
 	    properties.put("json.maximumresults",200);
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Servlet.class.getName()}, properties)

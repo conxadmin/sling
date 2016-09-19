@@ -21,6 +21,7 @@ import java.util.List;
 
 import javax.script.ScriptEngine;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.adapter.AdapterFactory;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.commons.mime.MimeTypeProvider;
@@ -29,7 +30,6 @@ import org.apache.sling.scripting.api.BindingsValuesProvidersByContext;
 import org.apache.sling.scripting.api.ScriptCache;
 import org.apache.sling.scripting.core.impl.helper.SlingScriptEngineManager;
 import org.osgi.framework.BundleContext;
-import org.osgi.service.component.ComponentContext;
 
 /**
  * AdapterFactory that adapts Resources to the DefaultSlingScript servlet, which
@@ -37,7 +37,7 @@ import org.osgi.service.component.ComponentContext;
  */
 public class SlingScriptAdapterFactory implements AdapterFactory, MimeTypeProvider {
 
-    private BundleContext bundleContext;
+    private volatile BundleContext bundleContext;
 
     /** The context string to use to select BindingsValuesProviders */
     public static final String BINDINGS_CONTEXT = BindingsValuesProvider.DEFAULT_CONTEXT;
@@ -58,6 +58,8 @@ public class SlingScriptAdapterFactory implements AdapterFactory, MimeTypeProvid
     private volatile BindingsValuesProvidersByContext bindingsValuesProviderTracker;
 
     private volatile ScriptCache scriptCache;
+
+	private Component component;
 
     // ---------- AdapterFactory -----------------------------------------------
 
@@ -129,13 +131,16 @@ public class SlingScriptAdapterFactory implements AdapterFactory, MimeTypeProvid
     }
 
     // ---------- SCR integration ----------------------------------------------
+    
+    protected void init(Component component) {
+    	this.component = component;
+    }
 
-    protected void activate(ComponentContext context) {
-        bundleContext = context.getBundleContext();
+    protected void activate() {
         this.serviceCache = new ServiceCache(this.bundleContext);
     }
 
-    protected void deactivate(ComponentContext context) {
+    protected void deactivate() {
         this.serviceCache.dispose();
         this.serviceCache = null;
         this.bundleContext = null;

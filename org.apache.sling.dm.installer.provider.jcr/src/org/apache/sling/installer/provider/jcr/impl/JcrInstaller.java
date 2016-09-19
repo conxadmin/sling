@@ -41,6 +41,7 @@ import javax.jcr.observation.EventIterator;
 import javax.jcr.observation.EventListener;
 
 import org.apache.felix.cm.file.ConfigurationHandler;
+import org.apache.felix.dm.Component;
 import org.apache.sling.installer.api.InstallableResource;
 import org.apache.sling.installer.api.OsgiInstaller;
 import org.apache.sling.installer.api.UpdateHandler;
@@ -309,10 +310,38 @@ public class JcrInstaller implements UpdateHandler, ManagedService {
         }
     };
     private volatile StoppableThread backgroundThread;
+	private Component component;
+	
+    /**
+     * @see org.osgi.service.cm.ManagedService#updated(java.util.Dictionary)
+     */
+    public void updated(@SuppressWarnings("rawtypes") Dictionary properties)
+    throws ConfigurationException {
+        final boolean restart;
+        if ( this.oldConfiguration == null ) {
+            restart = properties != null;
+        } else {
+            restart = true;
+        }
+        this.oldConfiguration = properties;
+        if ( restart ) {
+            try {
+                this.stop();
+                this.start();
+            } catch (final Exception e) {
+                logger.error("Error restarting", e);
+            }
+        }
+    }
 
     /**
      * Activate this component.
      */
+    protected void init(Component component) {
+    	this.component = component;
+    	this.oldConfiguration = this.component.getServiceProperties();
+    }
+    
     protected void activate() {
         this.start();
         final Dictionary<String, Object> props = new Hashtable<String, Object>();
@@ -333,7 +362,7 @@ public class JcrInstaller implements UpdateHandler, ManagedService {
             logger.error("Repository exception during startup - deactivating installer!", re);
             final BundleContext ctx = componentContext;
             if ( ctx  != null ) {
-                final String name = (String) componentContext.getProperty(
+                final String name = (String) component.getServiceProperties().get(
                         ComponentConstants.COMPONENT_NAME);
                 //TODO ctx.disableComponent(name);
             }
@@ -367,28 +396,6 @@ public class JcrInstaller implements UpdateHandler, ManagedService {
     	}
     }
 
-
-    /**
-     * @see org.osgi.service.cm.ManagedService#updated(java.util.Dictionary)
-     */
-    public void updated(@SuppressWarnings("rawtypes") Dictionary properties)
-    throws ConfigurationException {
-        final boolean restart;
-        if ( this.oldConfiguration == null ) {
-            restart = properties != null;
-        } else {
-            restart = true;
-        }
-        this.oldConfiguration = properties;
-        if ( restart ) {
-            try {
-                this.stop();
-                this.start();
-            } catch (final Exception e) {
-                logger.error("Error restarting", e);
-            }
-        }
-    }
 
     /** Find the paths to watch under rootPath, according to our folderNameFilter,
      * 	and add them to result */

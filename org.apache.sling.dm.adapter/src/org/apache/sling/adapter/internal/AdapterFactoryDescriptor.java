@@ -18,7 +18,9 @@
  */
 package org.apache.sling.adapter.internal;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.adapter.AdapterFactory;
+import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.component.ComponentContext;
@@ -36,12 +38,12 @@ public class AdapterFactoryDescriptor {
 
     private final ServiceReference reference;
 
-    private final ComponentContext context;
+    private final BundleContext context;
 
     private ServiceRegistration adaption;
 
     public AdapterFactoryDescriptor(
-            final ComponentContext context,
+            final BundleContext context,
             final ServiceReference reference,
             final String[] adapters) {
         this.reference = reference;
@@ -51,8 +53,10 @@ public class AdapterFactoryDescriptor {
 
     public AdapterFactory getFactory() {
         if ( factory == null ) {
-            factory = (AdapterFactory) context.locateService(
-                    "AdapterFactory", reference);
+/*            factory = (AdapterFactory) context.locateService(
+                    "AdapterFactory", reference);*/
+        	//TODO:
+            factory = (AdapterFactory) context.getService(reference);
         }
         return factory;
     }

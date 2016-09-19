@@ -22,4 +22,11 @@
 <typeInfo handle="=org.apache.sling.dm.jcr.contentloader/src&lt;org.apache.sling.jcr.contentloader.internal{BundleContentLoader.java[BundleContentLoader" modifiers="1" timestamp="1471964573000"/>
 <typeInfo handle="=org.apache.sling.jcr.contentloader/src\/main\/java&lt;org.apache.sling.jcr.contentloader.internal{BaseImportLoader.java[BaseImportLoader" modifiers="1025" timestamp="1471964573000"/>
 <typeInfo handle="=org.apache.sling.dm.jcr.contentloader/src&lt;org.apache.sling.jcr.contentloader.internal.readers{XmlReader.java[XmlReader" modifiers="1" timestamp="1472610092000"/>
+<typeInfo handle="=org.apache.sling.servlets.get/src\/main\/java&lt;org.apache.sling.servlets.get.impl{DefaultGetServlet.java[DefaultGetServlet" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.resourceresolver/src\/main\/java&lt;org.apache.sling.resourceresolver.impl{ResourceResolverImpl.java[ResourceResolverImpl" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.engine/src\/main\/java&lt;org.apache.sling.engine.impl.request{RequestData.java[RequestData" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.engine/src\/main\/java&lt;org.apache.sling.engine{SlingRequestProcessor.java[SlingRequestProcessor" modifiers="513" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.engine/src\/main\/java&lt;org.apache.sling.engine.impl{SlingRequestProcessorImpl.java[SlingRequestProcessorImpl" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.servlets.resolver/src&lt;org.apache.sling.servlets.resolver.internal{SlingServletResolver.java[SlingServletResolver" modifiers="1" timestamp="1474037612000"/>
+<typeInfo handle="=org.apache.sling.scripting.core/src\/main\/java&lt;org.apache.sling.scripting.core.impl{DefaultSlingScript.java[DefaultSlingScript" modifiers="0" timestamp="1471964573000"/>
 </typeInfoHistroy>
