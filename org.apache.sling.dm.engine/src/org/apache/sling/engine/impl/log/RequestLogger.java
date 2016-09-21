@@ -24,6 +24,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.engine.impl.SlingRequestProcessorImpl;
 import org.osgi.framework.BundleContext;
@@ -82,6 +83,8 @@ public class RequestLogger implements ManagedService {
 	
 	private volatile BundleContext bundleContext;
 
+	private Component component;
+
     // ---------- DM Integration ----------------------------------------------
 
 	@Override
@@ -89,10 +92,12 @@ public class RequestLogger implements ManagedService {
 		this.props = properties;
 	}
     
+	protected void init(Component component) {
+		this.component = component;
+		this.props = this.component.getServiceProperties();
+	}
+	
     protected void activate() {
-    	if (this.props == null)
-    		this.props = new Hashtable<>();
-    	
     	// prepare the request loggers if a name is configured and the
         // request loggers are enabled
         final String requestLogName = PropertiesUtil.toString(props.get(PROP_REQUEST_LOG_OUTPUT), null);

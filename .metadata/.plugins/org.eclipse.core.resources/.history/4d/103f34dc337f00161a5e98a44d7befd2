@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.2.0" name="org.apache.sling.i18n.impl.I18NFilter">
+    <implementation class="org.apache.sling.i18n.impl.I18NFilter"/>
+    <service servicefactory="false">
+        <provide interface="javax.servlet.Filter"/>
+    </service>
+    <property name="service.ranking" type="Integer" value="700"/>
+    <property name="sling.filter.scope">
+        REQUEST
+        ERROR
+    </property>
+    <property name="osgi.http.whiteboard.filter.pattern" value="/"/>
+    <property name="osgi.http.whiteboard.context.select" value="(osgi.http.whiteboard.context.name=*)"/>
+    <property name="service.description" value="Internationalization Support Filter"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.i18n.impl.I18NFilter"/>
+    <reference name="localeResolver" interface="org.apache.sling.i18n.LocaleResolver" cardinality="0..1" policy="dynamic" bind="bindLocaleResolver" unbind="unbindLocaleResolver" policy-option="greedy"/>
+    <reference name="requestLocaleResolver" interface="org.apache.sling.i18n.RequestLocaleResolver" cardinality="0..1" policy="dynamic" bind="bindRequestLocaleResolver" unbind="unbindRequestLocaleResolver" policy-option="greedy"/>
+    <reference name="resourceBundleProvider" interface="org.apache.sling.i18n.ResourceBundleProvider" cardinality="0..n" policy="dynamic" bind="bindResourceBundleProvider" unbind="unbindResourceBundleProvider"/>
+</scr:component>

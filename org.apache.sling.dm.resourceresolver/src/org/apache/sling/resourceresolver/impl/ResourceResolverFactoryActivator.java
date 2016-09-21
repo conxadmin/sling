@@ -316,20 +316,19 @@ public class ResourceResolverFactoryActivator implements ManagedService {
 
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.properties = properties;
+		if (properties != null)
+			this.properties = properties;
 	}
+	
     /**
      * Activates this component (called by DM before)
      */
 	protected void init(Component component) {
 		this.component = component;
+		this.properties = component.getServiceProperties();
 	}
 	
     protected void activate() {
-    	if (this.properties == null)
-    		this.properties = component.getServiceProperties();
-    	
-    	
         final BidiMap virtuals = new TreeBidiMap();
         final String[] virtualList = PropertiesUtil.toStringArray(properties.get(PROP_VIRTUAL));
         for (int i = 0; virtualList != null && i < virtualList.length; i++) {
@@ -559,7 +558,7 @@ public class ResourceResolverFactoryActivator implements ManagedService {
             serviceProps.put(Constants.SERVICE_VENDOR, this.component.getServiceProperties().get(Constants.SERVICE_VENDOR));
             serviceProps.put(Constants.SERVICE_DESCRIPTION,  this.component.getServiceProperties().get(Constants.SERVICE_DESCRIPTION));
 
-            local.commonFactory = new CommonResourceResolverFactoryImpl(this);
+            local.commonFactory = new CommonResourceResolverFactoryImpl((String) this.properties.get("sling.tenant.pid"),this);
             local.commonFactory.activate(localContext);
             local.factoryRegistration = localContext.registerService(
                 ResourceResolverFactory.class.getName(), new ServiceFactory() {

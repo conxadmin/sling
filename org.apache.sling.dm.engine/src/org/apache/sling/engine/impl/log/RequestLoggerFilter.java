@@ -30,27 +30,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.sling.engine.impl.SlingMainServlet;
-import org.osgi.framework.Constants;
 import org.osgi.service.cm.ConfigurationException;
 import org.osgi.service.cm.ManagedService;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.ConfigurationPolicy;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
-import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 import org.slf4j.LoggerFactory;
 
-@Component(configurationPolicy = ConfigurationPolicy.IGNORE,
-           service = Filter.class,
-           property = {
-                   HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT+ "=(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + SlingMainServlet.SERVLET_CONTEXT_NAME + ")",
-                   HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN + "=/",
-                   Constants.SERVICE_RANKING + ":Integer=32768",
-                   Constants.SERVICE_DESCRIPTION + "=Request Logger Filter",
-                   Constants.SERVICE_VENDOR + "=The Apache Software Foundation"
-           })
 public final class RequestLoggerFilter implements Filter, ManagedService {
 
     private static final RequestLoggerService[] NONE = new RequestLoggerService[0];

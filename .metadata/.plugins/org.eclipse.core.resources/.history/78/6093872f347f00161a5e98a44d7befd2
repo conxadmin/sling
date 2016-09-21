@@ -1,0 +1,13 @@
+Bundle-Version:  2.4.5.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Sling Servlet Multitenant Filter
+Bundle-Description: Sling Servlet Multitenant Filter
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.servlets.filter.internal.Activator
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Bundle-Category: sling

@@ -10,6 +10,7 @@ import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.api.servlets.ServletResolver;
 import org.apache.sling.auth.core.AuthenticationSupport;
 import org.apache.sling.commons.mime.MimeTypeService;
+import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.engine.EngineConstants;
 import org.apache.sling.engine.SlingSettingsService;
 import org.apache.sling.engine.impl.debug.RequestProgressTrackerLogFilter;
@@ -18,9 +19,11 @@ import org.apache.sling.engine.impl.log.RequestLoggerFilter;
 import org.apache.sling.engine.impl.log.RequestLoggerService;
 import org.apache.sling.engine.impl.parameters.RequestParameterSupportConfigurer;
 import org.apache.sling.engine.servlets.ErrorHandler;
+import org.amdatu.multitenant.Tenant;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.framework.ServiceReference;
 import org.osgi.service.cm.ManagedService;
 import org.osgi.service.http.whiteboard.HttpWhiteboardConstants;
 
@@ -33,6 +36,11 @@ public class Activator extends DependencyActivatorBase {
 
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		final ServiceReference<Tenant> tenantSR = dm.getBundleContext().getServiceReference(Tenant.class);
+		String tenantPid = "";
+		if (tenantSR != null)
+			tenantPid = arg0.getService(tenantSR).getPID();
+		
 		//RequestProgressTrackerLogFilter
 		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_PID,RequestProgressTrackerLogFilter.Config.class.getName());
@@ -57,6 +65,7 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Sling Servlet");
 		
+		properties.put(SlingMainServlet.PROP_CONTEXT_PATH_PREFIX,tenantPid);
 	    properties.put("sling.max.calls",1000);
 	    properties.put("sling.max.inclusions",50);
 	    properties.put("sling.trace.allow",false);
@@ -107,7 +116,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Object.class.getName()}, properties)
 				.setImplementation(RequestLogger.class)
-				.setCallbacks(null,"activate","deactivate", null)//init, start, stop and destroy.
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
 	            ;
 		dm.add(component);		
 		
@@ -124,7 +133,7 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(RequestLoggerService.class.getName(), properties)
 				.setImplementation(RequestLoggerService.class)
-				.setCallbacks(null,"setup","shutdown", null)//init, start, stop and destroy.
+				.setCallbacks("init","setup","shutdown", null)//init, start, stop and destroy.
 	            ;
 		dm.add(component);	
 		
@@ -152,11 +161,12 @@ public class Activator extends DependencyActivatorBase {
 		dm.add(component);	
 		
 		//RequestLoggerFilter
+        final String contextName = SlingMainServlet.SERVLET_CONTEXT_NAME +" "+tenantPid;
 		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,RequestLoggerFilter.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(EngineConstants.SLING_FILTER_SCOPE, EngineConstants.FILTER_SCOPE_REQUEST);
-		properties.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,"(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + SlingMainServlet.SERVLET_CONTEXT_NAME + ")");
+		properties.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,"(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + contextName + ")");
 		properties.put(Constants.SERVICE_RANKING ,32768);
 		properties.put(Constants.SERVICE_DESCRIPTION,"Request Logger Filter");
 		component = dm.createComponent()

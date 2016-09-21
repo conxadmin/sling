@@ -7,7 +7,7 @@
 <!-- <div id="dock"></div> -->
 <div class="header">
 	<ul class="breadcrumb" id="currentPath"></ul>
-	<a href="/system/sling/logout" id="logout">Logout</a>
+	<a href="/${slingRequest.resourceResolver.tenantID}/system/sling/logout" id="logout">Logout</a>
 </div>
 <div class="content-main">
 	<div class="col-a">

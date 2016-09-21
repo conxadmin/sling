@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1473969427691" name="org.apache.sling.dm.installer.factory.configuration" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1474419350289" name="org.apache.sling.dm.installer.factory.configuration" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.installer.factory.configuration.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.1.3.201609151957"/>
+      <attribute name="version" type="Version" value="1.1.3.201609210055"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="e71a28a8afad532fcca2dc3151fda7e8764a7c81f9f896cfe4954bf2805fd118"/>
+      <attribute name="osgi.content" value="852f034ab2f8d0dfa6bf434d17c47f8938a88319f7c1f29d78bea23500572cbb"/>
       <attribute name="url" value="generated/org.apache.sling.dm.installer.factory.configuration.mt.jar"/>
       <attribute name="size" type="Long" value="40563"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.installer.factory.configuration.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.3.201609151957"/>
+      <attribute name="bundle-version" type="Version" value="1.1.3.201609210055"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.installer.factory.configuration.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.3.201609151957"/>
+      <attribute name="bundle-version" type="Version" value="1.1.3.201609210055"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.installer.factories.configuration"/>
       <attribute name="version" type="Version" value="1.1.2"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.installer.factory.configuration.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.3.201609151957"/>
+      <attribute name="bundle-version" type="Version" value="1.1.3.201609210055"/>
     </capability>
     <capability namespace="bndtools.workspace">
       <attribute name="bndtools.workspace" value="file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling"/>

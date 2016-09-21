@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;I18NFilter.java&apos; to &apos;org.apache.sling.dm.servlets.filter/src/org.apache.sling.servlets.filter.internal&apos;&#x0A;- Original project: &apos;org.apache.sling.i18n&apos;&#x0A;- Destination element: &apos;org.apache.sling.dm.servlets.filter/src/org.apache.sling.servlets.filter.internal&apos;&#x0A;- Original element: &apos;I18NFilter.java&apos;" description="Copy file" destination="=org.apache.sling.dm.servlets.filter/src&lt;org.apache.sling.servlets.filter.internal" element1="src/main/java/org/apache/sling/i18n/impl/I18NFilter.java" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1474329203437" units="0" version="1.0"/>
+</session>

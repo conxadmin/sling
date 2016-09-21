@@ -103,16 +103,28 @@ public class ResourceResolverImpl extends SlingAdaptable implements ResourceReso
 
     private volatile Exception closedResolverException;
 
+	private String tenantID;
+
     public ResourceResolverImpl(final CommonResourceResolverFactoryImpl factory, final boolean isAdmin, final Map<String, Object> authenticationInfo) throws LoginException {
         this(factory, isAdmin, authenticationInfo, factory.getResourceProviderTracker());
     }
 
+    public ResourceResolverImpl(final String tenantID, final CommonResourceResolverFactoryImpl factory, final boolean isAdmin, final Map<String, Object> authenticationInfo) throws LoginException {
+        this(factory, isAdmin, authenticationInfo);
+        this.tenantID = tenantID;
+    }
+    
     ResourceResolverImpl(final CommonResourceResolverFactoryImpl factory, final boolean isAdmin, final Map<String, Object> authenticationInfo, final ResourceProviderStorageProvider resourceProviderTracker) throws LoginException {
         this.factory = factory;
         this.context = new ResourceResolverContext(this, factory.getResourceAccessSecurityTracker());
         this.control = createControl(resourceProviderTracker, authenticationInfo, isAdmin);
         this.factory.register(this, control);
     }
+    
+    ResourceResolverImpl(final String tenantID, final CommonResourceResolverFactoryImpl factory, final boolean isAdmin, final Map<String, Object> authenticationInfo, final ResourceProviderStorageProvider resourceProviderTracker) throws LoginException {
+        this(factory,isAdmin,authenticationInfo,resourceProviderTracker);
+        this.tenantID = tenantID;
+    }    
 
     /**
      * Constructor for cloning the resource resolver
@@ -120,6 +132,11 @@ public class ResourceResolverImpl extends SlingAdaptable implements ResourceReso
      * @param authenticationInfo The auth info
      * @throws LoginException if auth to a required provider fails
      */
+    private ResourceResolverImpl(final String tenantID, final ResourceResolverImpl resolver, final Map<String, Object> authenticationInfo) throws LoginException {
+        this(resolver,authenticationInfo);
+        this.tenantID = tenantID;
+    }
+    
     private ResourceResolverImpl(final ResourceResolverImpl resolver, final Map<String, Object> authenticationInfo) throws LoginException {
         this.factory = resolver.factory;
         Map<String, Object> authInfo = new HashMap<String, Object>();
@@ -132,7 +149,7 @@ public class ResourceResolverImpl extends SlingAdaptable implements ResourceReso
         this.context = new ResourceResolverContext(this, factory.getResourceAccessSecurityTracker());
         this.control = createControl(factory.getResourceProviderTracker(), authInfo, resolver.control.isAdmin());
         this.factory.register(this, control);
-    }
+    }    
 
     /**
      * Create the resource resolver control
@@ -794,6 +811,14 @@ public class ResourceResolverImpl extends SlingAdaptable implements ResourceReso
         }
 
         return null;
+    }
+    
+    /**
+     * @see org.apache.sling.api.resource.ResourceResolver#getTenantID()
+     */
+    @Override
+    public String getTenantID() {
+    	return this.tenantID;
     }
 
     /** Cached session object, fetched on demand. */

@@ -81,10 +81,13 @@ public class CommonResourceResolverFactoryImpl implements ResourceResolverFactor
 
     private boolean logResourceResolverClosing = false;
 
+	private String tenantID;
+
     /**
      * Create a new common resource resolver factory.
      */
-    public CommonResourceResolverFactoryImpl(final ResourceResolverFactoryActivator activator) {
+    public CommonResourceResolverFactoryImpl(final String tenantID, final ResourceResolverFactoryActivator activator) {
+    	this.tenantID = tenantID;
         this.activator = activator;
         this.logResourceResolverClosing = activator.shouldLogResourceResolverClosing();
         this.refQueueThread = new Thread("Apache Sling Resource Resolver Finalizer Thread") {
@@ -255,7 +258,7 @@ public class CommonResourceResolverFactoryImpl implements ResourceResolverFactor
             throw new LoginException("ResourceResolverFactory is deactivated.");
         }
 
-        return new ResourceResolverImpl(this, isAdmin, authenticationInfo);
+        return new ResourceResolverImpl(this.tenantID, this, isAdmin, authenticationInfo);
     }
 
     public MapEntries getMapEntries() {

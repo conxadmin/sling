@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;prefix&apos; in &apos;org.apache.sling.engine.impl.SlingMainServlet.activate()&apos; to &apos;contextPrefix&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.engine&apos;&#x0A;- Original element: &apos;org.apache.sling.engine.impl.SlingMainServlet.activate().prefix&apos;&#x0A;- Renamed element: &apos;prefix&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;prefix&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;org.apache.sling.engine.impl{SlingMainServlet.java[SlingMainServlet~activate@prefix!15667!15844!15720!15725!QString;!67108880!false" name="contextPrefix" references="true" stamp="1474289535147" version="1.0"/>
+</session>

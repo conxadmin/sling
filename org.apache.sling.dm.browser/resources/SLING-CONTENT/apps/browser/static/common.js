@@ -216,7 +216,7 @@ function clearSessionStorage(key) {
 (function() {
 	if (window.top == window.self) {
 		setInterval(function () {
-			$.get('/system/sling/info.sessionInfo.json', function(data) {
+			$.get('/'+tenantID+'/system/sling/info.sessionInfo.json', function(data) {
 				if (slingUserId != data.userID) {
 					window.location.reload(true);
 				}

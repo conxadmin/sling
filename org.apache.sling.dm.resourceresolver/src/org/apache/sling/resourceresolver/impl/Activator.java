@@ -15,9 +15,11 @@ import org.apache.sling.resourceresolver.impl.legacy.LegacyResourceProviderWhite
 import org.apache.sling.resourceresolver.impl.observation.OsgiObservationBridge;
 import org.apache.sling.serviceusermapping.ServiceUserMapper;
 import org.apache.sling.settings.SlingSettingsService;
+import org.amdatu.multitenant.Tenant;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.framework.ServiceReference;
 import org.osgi.service.cm.ManagedService;
 import org.osgi.service.event.EventAdmin;
 
@@ -30,6 +32,11 @@ public class Activator extends DependencyActivatorBase {
 
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
+		final ServiceReference<Tenant> tenantSR = dm.getBundleContext().getServiceReference(Tenant.class);
+		String tenantPid = "";
+		if (tenantSR != null)
+			tenantPid = arg0.getService(tenantSR).getPID();
+	    
 		//ResourceAccessSecurityTracker
 		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
@@ -66,6 +73,7 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("resource.resolver.vanity.precedence",false);
 	    properties.put("resource.resolver.providerhandling.paranoid",false);
 	    properties.put("resource.resolver.log.closing",false);
+	    properties.put("sling.tenant.pid",tenantPid);
 		component = dm.createComponent()
 				.setInterface(new String[]{ManagedService.class.getName(),Object.class.getName()}, properties)
 				.setImplementation(ResourceResolverFactoryActivator.class)

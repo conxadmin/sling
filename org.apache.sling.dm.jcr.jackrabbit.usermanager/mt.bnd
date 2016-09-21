@@ -29,7 +29,7 @@ Import-Package: javax.jcr,\
 	org.apache.jackrabbit.util,\
 	org.apache.sling.api;version="[2.1,3)",\
 	org.apache.sling.api.request;version="[2.1,3)",\
-	org.apache.sling.api.resource;version="[2.1,3)",\
+	org.apache.sling.api.resource;version="[2.10,2.11)",\
 	org.apache.sling.api.servlets;version="[2.1,3)",\
 	org.apache.sling.api.wrappers;version="[2.1,3)",\
 	org.apache.sling.commons.osgi;version="[2.0,3)",\

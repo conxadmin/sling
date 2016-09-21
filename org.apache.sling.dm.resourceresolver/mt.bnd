@@ -13,7 +13,7 @@ X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Bundle-Category: sling
 Import-Package: javax.annotation;resolution:=optional,\
-	org.apache.sling.api.resource;version="[2.9,2.10)",\
+	org.apache.sling.api.resource;version="[2.10,2.11)",\
 	org.apache.sling.commons.osgi;version="2.2.0",\
 	javax.jcr;version="[2.0,3)",\
 	javax.servlet;version="[3.1,4)",\

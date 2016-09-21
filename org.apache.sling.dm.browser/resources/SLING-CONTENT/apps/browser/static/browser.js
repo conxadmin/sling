@@ -237,7 +237,7 @@ $(document).ready(function() {
 		tabProperties.tab('show');
 		// Need to do this instead of change the src attr as it will add the frame to the history */
 		if (!propertiesFrame[0].contentDocument.location.href.match(node.path+"$")) {
-			propertiesFrame[0].contentDocument.location.replace('/browser.edit.html'+node.path+'?editType=properties');
+			propertiesFrame[0].contentDocument.location.replace('/'+tenantID+'/browser.edit.html'+node.path+'?editType=properties');
 		}
 		currentNode = node;
 		updateNav(node.path);
@@ -250,7 +250,7 @@ $(document).ready(function() {
 	
 	// Push the browser history
 	function pushState(node) {
-		history.pushState(node.path, node.path, "/browser.html"+node.path);
+		history.pushState(node.path, node.path, "/"+tenantID+"/browser.html"+node.path);
 	}
 
 	// Adding a new tab when opening a file
@@ -273,7 +273,7 @@ $(document).ready(function() {
 					  if (node.openType == 'image') {
 						 tabContent.html('<img src="'+node.path+'"/>');
 					  } else {
-						 tabContent.html('<iframe style="border:0px;width:100%;height:100%" src="/browser.edit.html'+node.path+'?editType=file&supportedFileType='+node.supportedFileType+'"></iframe>');
+						 tabContent.html('<iframe style="border:0px;width:100%;height:100%" src="/'+tenantID+'/browser.edit.html'+node.path+'?editType=file&supportedFileType='+node.supportedFileType+'"></iframe>');
 					  }
 				  }
 			});
@@ -649,7 +649,7 @@ $(document).ready(function() {
 		var val = $('#searchField').val();
 		if (val.indexOf('/') == 0 && val.indexOf('//')==-1) {
 			currentPath = val;
-			history.replaceState(currentPath, currentPath, "/browser.html"+currentPath);
+			history.replaceState(currentPath, currentPath, "/"+tenantID+"/browser.html"+currentPath);
 			restoreState(buildPaths());
 			return false;
 		}
@@ -662,7 +662,7 @@ $(document).ready(function() {
 					"dataType": "html", 
 					"loadOnElement": "#loadMore", 
 					"maxScrollLimit": 10,
-					"ajaxUrl" : "/browser.search.html?query="+$('#searchField').val()
+					"ajaxUrl" : "/"+tenantID+"/browser.search.html?query="+$('#searchField').val()
 				}, 
 				loaderHandlers
 		);

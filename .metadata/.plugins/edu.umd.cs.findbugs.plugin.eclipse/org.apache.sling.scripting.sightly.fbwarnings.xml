@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1473960121674" analysisTimestamp="1473960118111" release="">
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1474413232593" analysisTimestamp="1474413219897" release="">
   <Project projectName="org.apache.sling.scripting.sightly">
     <Jar>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/engine/target/test-classes</Jar>
     <Jar>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/engine/target/classes</Jar>
@@ -41,6 +41,186 @@
     <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar</AuxClasspathEntry>
     <AuxClasspathEntry>/Users/mduduzikeswa/.m2/repository/com/google/code/findbugs/jsr305/3.0.0/jsr305-3.0.0.jar</AuxClasspathEntry>
     <AuxClasspathEntry>/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre/lib/rt.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.commons.httpclient_3.1.0.v201012070820.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime.slf4j.simple_1.7.0.20160603-1931</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime.slf4j.simple_1.7.0.20160603-1931/jars/slf4j-simple-1.7.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.validation_1.2.700.v201508251749.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ant.core_3.4.0.v20150428-1928.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.p2.metadata_2.3.0.v20150511-1532.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/archetype-common-2.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/archetype-catalog-2.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/archetype-descriptor-2.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/archetype-registry-2.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/maven-invoker-2.1.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/commons-collections-3.2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/commons-io-2.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/commons-lang-2.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/dom4j-1.6.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/jchardet-1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/jdom-1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/oro-2.0.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/plexus-velocity-1.1.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.archetype.common_1.7.0.20160603-1931/velocity-1.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.common.emfworkbench.integration_1.2.101.v201107081800.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.osgi.services_3.5.0.v20150519-2006.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/javax.servlet.jsp_2.2.0.v201112011158.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.app_1.3.300.v20150423-1356.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore.change_2.11.0.v20160208-0816.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.workbench.renderers.swt_0.13.0.v20150901-1347.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ltk.core.refactoring_3.6.201.v20150819-1034.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.p2.metadata.repository_1.2.200.v20150428-1613.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.databinding.observable_1.5.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-core-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-model-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-settings-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-settings-builder-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-builder-support-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-repository-metadata-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-artifact-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-plugin-api-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-model-builder-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-aether-provider-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/aether-api-1.0.2.v20150114.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/aether-util-1.0.2.v20150114.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/guice-4.0-no_aop.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/plexus-interpolation-1.21.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/plexus-utils-3.0.22.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/plexus-classworlds-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/plexus-component-annotations-1.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/plexus-sec-dispatcher-1.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/commons-lang3-3.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-embedder-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/plexus-cipher-1.7.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/commons-cli-1.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/maven-compat-3.3.9.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/wagon-provider-api-2.10.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/org.eclipse.sisu.plexus-0.3.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/cdi-api-1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/jsr250-api-1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/org.eclipse.sisu.inject-0.3.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/guava-18.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/plexus-build-api-0.0.7.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/aether-impl-1.0.2.v20150114.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/aether-spi-1.0.2.v20150114.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/aether-connector-okhttp-0.16.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/okhttp-2.5.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/okio-1.6.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/aether-connector-basic-1.0.2.v20150114.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/aether-transport-wagon-1.0.2.v20150114.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/wagon-file-2.10.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.7.0.20160603-1931/jars/commons-lang-2.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.registry_3.6.0.v20150318-1503.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.css.swt_0.12.0.v20150511-1003.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/javax.servlet_3.1.0.v201410161800.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/ch.qos.logback.classic_1.0.7.v20121108-1250.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.jface_3.11.1.v20160128-1644.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.batik.util.gui_1.7.0.v200903091627.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ui.workbench_3.107.1.v20160120-2131.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.jface.text_3.10.0.v20150603-1752.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.databinding_1.5.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.w3c.dom.events_3.0.0.draft20060413_v201105210656.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.log4j_1.2.15.v201012070815.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.p2.engine_2.4.0.v20150511-1532.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.emf.common_2.11.1.v20160208-0816.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.expressions_3.5.0.v20150421-2214.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore_2.11.2.v20160208-0816.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.event_1.3.100.v20140115-1647.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.bidi_0.10.0.v20130327-1442.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.core.di_1.5.0.v20150421-2214.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/javax.xml_1.3.4.v201005080400.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.common.emf_1.2.400.v201505132009.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.p2.repository_2.3.100.v20150428-1613.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/javax.el_2.2.0.v201303151357.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.commons.lang_2.6.0.v201404270220.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.resources_3.10.1.v20150725-1910.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.common.frameworks_1.2.200.v201304241450.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.common.core_1.2.0.v200908251833.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.contenttype_3.5.0.v20150421-2214.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.services_1.2.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.css.core_0.11.0.v20150511-1937.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.common.uriresolver_1.2.200.v201505132009.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.indexer_1.7.0.20160603-1931</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.indexer_1.7.0.20160603-1931/indexer-core-3.1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.indexer_1.7.0.20160603-1931/indexer-artifact-3.1.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.indexer_1.7.0.20160603-1931/lucene-core-2.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.indexer_1.7.0.20160603-1931/lucene-highlighter-2.4.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.osgi.util_3.3.100.v20150423-1351.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.xml.serializer_2.7.1.v201005080400.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.compare.core_3.5.500.v20150505-1058.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.xsd_2.11.0.v20160208-0841.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.core.di.extensions_0.13.0.v20150421-2214.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.help_3.6.0.v20130326-1254.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.model.edit_1.7.0.20160603-1933.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.runtime_3.11.1.v20150903-1804.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.security_1.2.100.v20150423-1356.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.tukaani.xz_1.3.0.v201308270617.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.slf4j.api_1.7.2.v20121108-1250.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.variables_3.2.800.v20130819-1716.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.common.environment_1.0.400.v200912181831.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ui.forms_3.6.200.v20150506-2029.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/javax.inject_1.0.0.v20091030.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.ds_1.4.300.v20150423-1356.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.widgets_1.1.0.v20150427-1751.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/com.google.guava_15.0.0.v201403281430.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.workbench_1.3.1.v20160203-0951.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.commons.codec_1.6.0.v201305230611.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.bindings_0.11.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore.xmi_2.11.1.v20160208-0816.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ui_3.107.0.v20150507-1945.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.core_1.7.0.20160603-1933.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.sse.core_1.1.901.v201510130005.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ui.views_3.8.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.commons.io_2.4.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ui.console_3.6.100.v20150822-1912.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.databinding.property_1.5.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.w3c.dom.svg_1.1.0.v201011041433.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.osgi_3.10.102.v20160118-1700.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.common.project.facet.core_1.4.300.v201111030423.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/javax.mail_1.4.0.v201005080615.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.text_3.5.400.v20150505-1044.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.core.commands_0.11.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore.edit_2.9.0.v20160208-0841.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.commons.collections_3.2.2.v201511171945.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.emf.xpath_0.1.100.v20150513-0856.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.di_1.1.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.batik.css_1.7.0.v201011041433.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.w3c.dom.smil_1.0.1.v200903091627.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.xerces_2.9.0.v201101211617.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.jem.util_2.1.200.v201404021757.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.filebuffers_3.5.500.v20140723-1040.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.p2.core_2.4.0.v20150527-1706.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.xml.resolver_1.2.0.v201005080400.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.core.contexts_1.4.0.v20150828-0818.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.core.di.annotations_1.4.0.v20150528-1451.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.workbench.addons.swt_1.2.0.v20150512-1414.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.util_1.0.500.v20130404-1337.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/com.ibm.icu_54.1.1.v201501272100.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.preferences_3.5.300.v20150408-1437.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.equinox.common_3.7.0.v20150402-1709.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/ch.qos.logback.core_1.0.7.v20121108-1250.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.swt_3.104.2.v20160212-1350.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/javax.annotation_1.2.0.v201401042248.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.core.ui_1.7.0.20160603-1933.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.m2e.workspace.cli_0.3.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.xsd.core_1.1.900.v201401141857.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.wst.xml.core_1.1.902.v201501211904.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.filesystem_1.5.0.v20150725-1910.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.batik.util_1.7.0.v201011041433.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.workbench3_0.13.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.commands_3.7.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.core.services_2.0.0.v20150403-1912.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.workbench.swt_0.13.0.v20150504-0621.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.css.swt.theme_0.10.0.v20150422-0725.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.emf.edit_2.11.1.v20160208-0841.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.w3c.css.sac_1.3.1.v200903091627.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ui.workbench.texteditor_3.9.100.v20141023-1946.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.apache.commons.jxpath_1.3.0.v200911051830.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.ui.ide_3.11.0.v20150825-2158.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.jface.databinding_1.7.0.v20150406-2148.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.core.jobs_3.7.0.v20150330-2103.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/devtools/EclipseMars.app/Contents/Eclipse/plugins/org.eclipse.e4.ui.model.workbench_1.1.100.v20150407-1430.jar</AuxClasspathEntry>
     <SrcDir>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/engine/src/test/java</SrcDir>
     <SrcDir>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/engine/src/main/java</SrcDir>
     <SrcDir>/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/engine/src/test/resources</SrcDir>
@@ -64,7 +244,7 @@
       <SourceLine classname="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactoryTest" sourcefile="SightlyScriptEngineFactoryTest.java" sourcepath="org/apache/sling/scripting/sightly/impl/engine/SightlyScriptEngineFactoryTest.java"/>
     </Class>
     <Method classname="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactoryTest" name="testActivateOverPreviousVersion" signature="()V" isStatic="false">
-      <SourceLine classname="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactoryTest" start="69" end="85" startBytecode="0" endBytecode="329" sourcefile="SightlyScriptEngineFactoryTest.java" sourcepath="org/apache/sling/scripting/sightly/impl/engine/SightlyScriptEngineFactoryTest.java"/>
+      <SourceLine classname="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactoryTest" start="69" end="85" startBytecode="0" endBytecode="333" sourcefile="SightlyScriptEngineFactoryTest.java" sourcepath="org/apache/sling/scripting/sightly/impl/engine/SightlyScriptEngineFactoryTest.java"/>
     </Method>
     <Method classname="java.io.ByteArrayOutputStream" name="toString" signature="()Ljava/lang/String;" isStatic="false" role="METHOD_CALLED">
       <SourceLine classname="java.io.ByteArrayOutputStream" start="208" end="208" startBytecode="0" endBytecode="40" sourcefile="ByteArrayOutputStream.java" sourcepath="java/io/ByteArrayOutputStream.java"/>
@@ -73,98 +253,96 @@
     <SourceLine classname="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactoryTest" start="84" end="84" startBytecode="149" endBytecode="149" sourcefile="SightlyScriptEngineFactoryTest.java" sourcepath="org/apache/sling/scripting/sightly/impl/engine/SightlyScriptEngineFactoryTest.java"/>
   </BugInstance>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Thu, 15 Sep 2016 13:20:16 -0400" total_classes="43" referenced_classes="321" total_bugs="2" total_size="2141" num_packages="8" java_version="1.8.0_25" vm_version="25.25-b02" cpu_seconds="23.64" clock_seconds="3.56" peak_mbytes="1417.18" alloc_mbytes="924.00" gc_seconds="0.36" priority_1="2">
-    <PackageStats package="org.apache.sling.scripting.sightly" total_bugs="0" total_types="3" total_size="90">
-      <ClassStats class="org.apache.sling.scripting.sightly.ResourceResolution" sourceFile="ResourceResolution.java" interface="false" size="76" bugs="0"/>
+  <FindBugsSummary timestamp="Sun, 18 Sep 2016 15:13:11 -0400" total_classes="45" referenced_classes="325" total_bugs="2" total_size="2135" num_packages="8" java_version="1.8.0_25" vm_version="25.25-b02" cpu_seconds="51.54" clock_seconds="12.71" peak_mbytes="1536.34" alloc_mbytes="928.50" gc_seconds="0.37" priority_1="2">
+    <PackageStats package="org.apache.sling.scripting.sightly" total_bugs="0" total_types="3" total_size="88">
+      <ClassStats class="org.apache.sling.scripting.sightly.ResourceResolution" sourceFile="ResourceResolution.java" interface="false" size="74" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.SightlyException" sourceFile="SightlyException.java" interface="false" size="13" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.package-info" sourceFile="package-info.java" interface="true" size="1" bugs="0"/>
     </PackageStats>
-    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler" total_bugs="0" total_types="4" total_size="75">
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.compiler" total_bugs="0" total_types="4" total_size="74">
       <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.MockPojo" sourceFile="MockPojo.java" interface="false" size="3" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.SightlyJavaCompilerServiceTest" sourceFile="SightlyJavaCompilerServiceTest.java" interface="false" size="59" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.SightlyJavaCompilerServiceTest$1" sourceFile="SightlyJavaCompilerServiceTest.java" interface="false" size="6" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.SightlyJavaCompilerServiceTest$2" sourceFile="SightlyJavaCompilerServiceTest.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.compiler.SightlyJavaCompilerServiceTest$2" sourceFile="SightlyJavaCompilerServiceTest.java" interface="false" size="6" bugs="0"/>
     </PackageStats>
-    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine" total_bugs="2" total_types="11" total_size="479" priority_1="2">
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.ExtensionRegistryService" sourceFile="ExtensionRegistryService.java" interface="false" size="34" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.ResourceBackedPojoChangeMonitor" sourceFile="ResourceBackedPojoChangeMonitor.java" interface="false" size="35" bugs="0"/>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine" total_bugs="2" total_types="12" total_size="476" priority_1="2">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.ExtensionRegistryService" sourceFile="ExtensionRegistryService.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.ResourceBackedPojoChangeMonitor" sourceFile="ResourceBackedPojoChangeMonitor.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.ResourceBackedPojoChangeMonitor$1" sourceFile="ResourceBackedPojoChangeMonitor.java" interface="false" size="4" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyBindingsValuesProvider" sourceFile="SightlyBindingsValuesProvider.java" interface="false" size="10" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyCompiledScript" sourceFile="SightlyCompiledScript.java" interface="false" size="20" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyEngineConfiguration" sourceFile="SightlyEngineConfiguration.java" interface="false" size="39" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyJavaCompilerService" sourceFile="SightlyJavaCompilerService.java" interface="false" size="116" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyCompiledScript" sourceFile="SightlyCompiledScript.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyEngineConfiguration" sourceFile="SightlyEngineConfiguration.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyJavaCompilerService" sourceFile="SightlyJavaCompilerService.java" interface="false" size="117" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyJavaCompilerService$SightlyCompilationUnit" sourceFile="SightlyJavaCompilerService.java" interface="false" size="14" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngine" sourceFile="SightlyScriptEngine.java" interface="false" size="78" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngine$1" sourceFile="SightlyScriptEngine.java" interface="false" size="11" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactory" sourceFile="SightlyScriptEngineFactory.java" interface="false" size="64" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactoryTest" sourceFile="SightlyScriptEngineFactoryTest.java" interface="false" size="58" bugs="2" priority_1="2"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngine" sourceFile="SightlyScriptEngine.java" interface="false" size="74" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngine$1" sourceFile="SightlyScriptEngine.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactory" sourceFile="SightlyScriptEngineFactory.java" interface="false" size="62" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.SightlyScriptEngineFactoryTest" sourceFile="SightlyScriptEngineFactoryTest.java" interface="false" size="61" bugs="2" priority_1="2"/>
     </PackageStats>
-    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine.compiled" total_bugs="0" total_types="3" total_size="182">
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.compiled.SourceIdentifier" sourceFile="SourceIdentifier.java" interface="false" size="103" bugs="0"/>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine.compiled" total_bugs="0" total_types="3" total_size="178">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.compiled.SourceIdentifier" sourceFile="SourceIdentifier.java" interface="false" size="99" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.compiled.SourceIdentifier$1" sourceFile="SourceIdentifier.java" interface="false" size="53" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.compiled.SourceIdentifierTest" sourceFile="SourceIdentifierTest.java" interface="false" size="26" bugs="0"/>
     </PackageStats>
-    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine.extension" total_bugs="0" total_types="11" total_size="833">
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine.extension" total_bugs="0" total_types="12" total_size="841">
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.ExtensionUtils" sourceFile="ExtensionUtils.java" interface="false" size="19" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.FormatFilterExtension" sourceFile="FormatFilterExtension.java" interface="false" size="37" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.I18nRuntimeExtension" sourceFile="I18nRuntimeExtension.java" interface="false" size="50" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.IncludeRuntimeExtension" sourceFile="IncludeRuntimeExtension.java" interface="false" size="54" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.JoinFilterExtension" sourceFile="JoinFilterExtension.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.FormatFilterExtension" sourceFile="FormatFilterExtension.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.I18nRuntimeExtension" sourceFile="I18nRuntimeExtension.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.IncludeRuntimeExtension" sourceFile="IncludeRuntimeExtension.java" interface="false" size="55" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.JoinFilterExtension" sourceFile="JoinFilterExtension.java" interface="false" size="20" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.PrintWriterResponseWrapper" sourceFile="PrintWriterResponseWrapper.java" interface="false" size="8" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.ResourceRuntimeExtension" sourceFile="ResourceRuntimeExtension.java" interface="false" size="191" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.ResourceRuntimeExtension$PathInfo" sourceFile="ResourceRuntimeExtension.java" interface="false" size="17" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.URIManipulationFilterExtension" sourceFile="URIManipulationFilterExtension.java" interface="false" size="202" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.URIManipulationFilterExtension$PathInfo" sourceFile="URIManipulationFilterExtension.java" interface="false" size="85" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.XSSRuntimeExtension" sourceFile="XSSRuntimeExtension.java" interface="false" size="151" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.ResourceRuntimeExtension$PathInfo" sourceFile="ResourceRuntimeExtension.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.URIManipulationFilterExtension" sourceFile="URIManipulationFilterExtension.java" interface="false" size="207" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.URIManipulationFilterExtension$PathInfo" sourceFile="URIManipulationFilterExtension.java" interface="false" size="84" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.XSSRuntimeExtension" sourceFile="XSSRuntimeExtension.java" interface="false" size="149" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.XSSRuntimeExtension$1" sourceFile="XSSRuntimeExtension.java" interface="false" size="4" bugs="0"/>
     </PackageStats>
-    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine.extension.use" total_bugs="0" total_types="6" total_size="220">
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.JavaUseProvider" sourceFile="JavaUseProvider.java" interface="false" size="83" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.RenderUnitProvider" sourceFile="RenderUnitProvider.java" interface="false" size="48" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.RenderUnitProvider$1" sourceFile="RenderUnitProvider.java" interface="false" size="11" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.ResourceUseProvider" sourceFile="ResourceUseProvider.java" interface="false" size="17" bugs="0"/>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine.extension.use" total_bugs="0" total_types="6" total_size="218">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.JavaUseProvider" sourceFile="JavaUseProvider.java" interface="false" size="81" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.RenderUnitProvider" sourceFile="RenderUnitProvider.java" interface="false" size="47" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.RenderUnitProvider$1" sourceFile="RenderUnitProvider.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.ResourceUseProvider" sourceFile="ResourceUseProvider.java" interface="false" size="18" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.ScriptUseProvider" sourceFile="ScriptUseProvider.java" interface="false" size="31" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.UseRuntimeExtension" sourceFile="UseRuntimeExtension.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.extension.use.UseRuntimeExtension" sourceFile="UseRuntimeExtension.java" interface="false" size="31" bugs="0"/>
     </PackageStats>
-    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine.runtime" total_bugs="0" total_types="2" total_size="58">
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.runtime.RenderContextImpl" sourceFile="RenderContextImpl.java" interface="false" size="37" bugs="0"/>
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.engine.runtime" total_bugs="0" total_types="2" total_size="57">
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.runtime.RenderContextImpl" sourceFile="RenderContextImpl.java" interface="false" size="36" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.engine.runtime.SlingRuntimeObjectModel" sourceFile="SlingRuntimeObjectModel.java" interface="false" size="21" bugs="0"/>
     </PackageStats>
-    <PackageStats package="org.apache.sling.scripting.sightly.impl.utils" total_bugs="0" total_types="3" total_size="204">
+    <PackageStats package="org.apache.sling.scripting.sightly.impl.utils" total_bugs="0" total_types="3" total_size="203">
       <ClassStats class="org.apache.sling.scripting.sightly.impl.utils.BindingsUtils" sourceFile="BindingsUtils.java" interface="false" size="16" bugs="0"/>
-      <ClassStats class="org.apache.sling.scripting.sightly.impl.utils.PathInfoTest" sourceFile="PathInfoTest.java" interface="false" size="182" bugs="0"/>
+      <ClassStats class="org.apache.sling.scripting.sightly.impl.utils.PathInfoTest" sourceFile="PathInfoTest.java" interface="false" size="181" bugs="0"/>
       <ClassStats class="org.apache.sling.scripting.sightly.impl.utils.PathInfoTest$1" sourceFile="PathInfoTest.java" interface="false" size="6" bugs="0"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="292" invocations="1196" avgMicrosecondsPerInvocation="244" maxMicrosecondsPerInvocation="6755" standardDeviationMircosecondsPerInvocation="474"/>
-      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="259" invocations="2" avgMicrosecondsPerInvocation="129521" maxMicrosecondsPerInvocation="165545" standardDeviationMircosecondsPerInvocation="36025"/>
-      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="191" invocations="906" avgMicrosecondsPerInvocation="211" maxMicrosecondsPerInvocation="31693" standardDeviationMircosecondsPerInvocation="1080"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="180" invocations="261" avgMicrosecondsPerInvocation="689" maxMicrosecondsPerInvocation="43249" standardDeviationMircosecondsPerInvocation="3138"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="167" invocations="321" avgMicrosecondsPerInvocation="521" maxMicrosecondsPerInvocation="7589" standardDeviationMircosecondsPerInvocation="1099"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="153" invocations="321" avgMicrosecondsPerInvocation="478" maxMicrosecondsPerInvocation="7325" standardDeviationMircosecondsPerInvocation="1046"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="146" invocations="1200" avgMicrosecondsPerInvocation="122" maxMicrosecondsPerInvocation="29675" standardDeviationMircosecondsPerInvocation="858"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="140" invocations="261" avgMicrosecondsPerInvocation="538" maxMicrosecondsPerInvocation="12197" standardDeviationMircosecondsPerInvocation="1044"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="119" invocations="272" avgMicrosecondsPerInvocation="439" maxMicrosecondsPerInvocation="31165" standardDeviationMircosecondsPerInvocation="2062"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="113" invocations="261" avgMicrosecondsPerInvocation="436" maxMicrosecondsPerInvocation="14423" standardDeviationMircosecondsPerInvocation="1097"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="99" invocations="269" avgMicrosecondsPerInvocation="370" maxMicrosecondsPerInvocation="9022" standardDeviationMircosecondsPerInvocation="911"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="72" invocations="218" avgMicrosecondsPerInvocation="333" maxMicrosecondsPerInvocation="8224" standardDeviationMircosecondsPerInvocation="824"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="70" invocations="321" avgMicrosecondsPerInvocation="218" maxMicrosecondsPerInvocation="33399" standardDeviationMircosecondsPerInvocation="1895"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="67" invocations="321" avgMicrosecondsPerInvocation="209" maxMicrosecondsPerInvocation="24822" standardDeviationMircosecondsPerInvocation="1395"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.AssertionMethodsFactory" totalMilliseconds="63" invocations="42" avgMicrosecondsPerInvocation="1522" maxMicrosecondsPerInvocation="62861" standardDeviationMircosecondsPerInvocation="9579"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="53" invocations="261" avgMicrosecondsPerInvocation="204" maxMicrosecondsPerInvocation="3078" standardDeviationMircosecondsPerInvocation="333"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="46" invocations="321" avgMicrosecondsPerInvocation="143" maxMicrosecondsPerInvocation="3288" standardDeviationMircosecondsPerInvocation="314"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUnrelatedTypesInGenericContainer" totalMilliseconds="43" invocations="43" avgMicrosecondsPerInvocation="1010" maxMicrosecondsPerInvocation="32703" standardDeviationMircosecondsPerInvocation="4902"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="39" invocations="401" avgMicrosecondsPerInvocation="98" maxMicrosecondsPerInvocation="1148" standardDeviationMircosecondsPerInvocation="152"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="38" invocations="261" avgMicrosecondsPerInvocation="148" maxMicrosecondsPerInvocation="4935" standardDeviationMircosecondsPerInvocation="497"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="31" invocations="321" avgMicrosecondsPerInvocation="96" maxMicrosecondsPerInvocation="2160" standardDeviationMircosecondsPerInvocation="224"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="29" invocations="321" avgMicrosecondsPerInvocation="90" maxMicrosecondsPerInvocation="1396" standardDeviationMircosecondsPerInvocation="191"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="28" invocations="321" avgMicrosecondsPerInvocation="88" maxMicrosecondsPerInvocation="1238" standardDeviationMircosecondsPerInvocation="170"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUselessObjects" totalMilliseconds="27" invocations="43" avgMicrosecondsPerInvocation="637" maxMicrosecondsPerInvocation="19379" standardDeviationMircosecondsPerInvocation="2900"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="25" invocations="321" avgMicrosecondsPerInvocation="79" maxMicrosecondsPerInvocation="8068" standardDeviationMircosecondsPerInvocation="565"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="25" invocations="43" avgMicrosecondsPerInvocation="585" maxMicrosecondsPerInvocation="2743" standardDeviationMircosecondsPerInvocation="695"/>
-      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="24" invocations="1153" avgMicrosecondsPerInvocation="21" maxMicrosecondsPerInvocation="1002" standardDeviationMircosecondsPerInvocation="44"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="855" invocations="2" avgMicrosecondsPerInvocation="427607" maxMicrosecondsPerInvocation="494563" standardDeviationMircosecondsPerInvocation="66953"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="738" invocations="1184" avgMicrosecondsPerInvocation="623" maxMicrosecondsPerInvocation="47635" standardDeviationMircosecondsPerInvocation="2727"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="581" invocations="325" avgMicrosecondsPerInvocation="1788" maxMicrosecondsPerInvocation="92688" standardDeviationMircosecondsPerInvocation="6781"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="526" invocations="906" avgMicrosecondsPerInvocation="581" maxMicrosecondsPerInvocation="34304" standardDeviationMircosecondsPerInvocation="1874"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="399" invocations="325" avgMicrosecondsPerInvocation="1230" maxMicrosecondsPerInvocation="69112" standardDeviationMircosecondsPerInvocation="4379"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="367" invocations="261" avgMicrosecondsPerInvocation="1407" maxMicrosecondsPerInvocation="27154" standardDeviationMircosecondsPerInvocation="3067"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="366" invocations="261" avgMicrosecondsPerInvocation="1404" maxMicrosecondsPerInvocation="22614" standardDeviationMircosecondsPerInvocation="3091"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="356" invocations="1188" avgMicrosecondsPerInvocation="299" maxMicrosecondsPerInvocation="34652" standardDeviationMircosecondsPerInvocation="1245"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="355" invocations="269" avgMicrosecondsPerInvocation="1320" maxMicrosecondsPerInvocation="35416" standardDeviationMircosecondsPerInvocation="3561"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="295" invocations="261" avgMicrosecondsPerInvocation="1131" maxMicrosecondsPerInvocation="39157" standardDeviationMircosecondsPerInvocation="3455"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="263" invocations="272" avgMicrosecondsPerInvocation="969" maxMicrosecondsPerInvocation="27583" standardDeviationMircosecondsPerInvocation="2450"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="215" invocations="218" avgMicrosecondsPerInvocation="988" maxMicrosecondsPerInvocation="16330" standardDeviationMircosecondsPerInvocation="2232"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="189" invocations="325" avgMicrosecondsPerInvocation="581" maxMicrosecondsPerInvocation="19634" standardDeviationMircosecondsPerInvocation="1793"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="181" invocations="261" avgMicrosecondsPerInvocation="696" maxMicrosecondsPerInvocation="28628" standardDeviationMircosecondsPerInvocation="1946"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="165" invocations="405" avgMicrosecondsPerInvocation="409" maxMicrosecondsPerInvocation="31592" standardDeviationMircosecondsPerInvocation="2170"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="156" invocations="261" avgMicrosecondsPerInvocation="598" maxMicrosecondsPerInvocation="71427" standardDeviationMircosecondsPerInvocation="4577"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="152" invocations="325" avgMicrosecondsPerInvocation="470" maxMicrosecondsPerInvocation="34654" standardDeviationMircosecondsPerInvocation="2586"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="130" invocations="325" avgMicrosecondsPerInvocation="400" maxMicrosecondsPerInvocation="31904" standardDeviationMircosecondsPerInvocation="1890"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="87" invocations="325" avgMicrosecondsPerInvocation="269" maxMicrosecondsPerInvocation="14366" standardDeviationMircosecondsPerInvocation="953"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="86" invocations="325" avgMicrosecondsPerInvocation="266" maxMicrosecondsPerInvocation="11015" standardDeviationMircosecondsPerInvocation="1005"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="86" invocations="261" avgMicrosecondsPerInvocation="331" maxMicrosecondsPerInvocation="9702" standardDeviationMircosecondsPerInvocation="944"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="82" invocations="325" avgMicrosecondsPerInvocation="252" maxMicrosecondsPerInvocation="10219" standardDeviationMircosecondsPerInvocation="797"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="72" invocations="98" avgMicrosecondsPerInvocation="742" maxMicrosecondsPerInvocation="4841" standardDeviationMircosecondsPerInvocation="1086"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>
   <History>
-    <AppVersion sequence="0" timestamp="1473960121674" release="" codeSize="0" numClasses="0"/>
+    <AppVersion sequence="0" timestamp="1474413232589" release="" codeSize="0" numClasses="0"/>
   </History>
 </BugCollection>

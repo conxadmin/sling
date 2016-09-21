@@ -24,6 +24,7 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Map;
 
+import org.apache.felix.dm.Component;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.engine.RequestLog;
 import org.osgi.framework.BundleContext;
@@ -60,6 +61,8 @@ public class RequestLoggerService implements ManagedService {
 	
 	private volatile BundleContext bundleContext;
 
+	private Component component;
+
     /**
      * Public default constructor for SCR integration
      */
@@ -71,6 +74,12 @@ public class RequestLoggerService implements ManagedService {
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
 		this.properties = properties;
 	}
+	
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
+	}
+	
 
     RequestLoggerService(BundleContext bundleContext, Map<String, Object> configuration) {
     	this.properties = new Hashtable<>();

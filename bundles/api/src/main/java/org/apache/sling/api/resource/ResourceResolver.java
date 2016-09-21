@@ -569,6 +569,8 @@ public interface ResourceResolver extends Adaptable, Closeable {
      * @since 2.1 (Sling API Bundle 2.1.0)
      */
     @CheckForNull String getUserID();
+    
+    @CheckForNull String getTenantID();
 
     /**
      * Returns an iterator of attribute names whose value can be retrieved

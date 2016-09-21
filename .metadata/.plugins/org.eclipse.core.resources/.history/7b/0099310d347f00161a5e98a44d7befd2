@@ -1,0 +1,41 @@
+Bundle-Version:  2.4.5.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling Servlet Resolver
+Bundle-Description: Bundle implementing the Sling API ServletResolver.
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Include-Resource: /=resources
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.servlets.resolver.internal.Activator
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Bundle-Category: sling
+Embed-Dependency: org.apache.sling.engine;inline="org/apache/sling/engine/impl/request/SlingRequestPathInfo*",
+Export-Package: org.apache.sling.servlets.resolver.jmx;version="2.3.6"
+Import-Package: javax.management,\
+	javax.servlet,\
+	javax.servlet.http,\
+	org.apache.commons.lang;version="[2.4,3)",\
+	org.apache.sling.api;version="[2.3,3)",\
+	org.apache.sling.api.request;version="[2.4,2.5)",\
+	org.apache.sling.api.resource;version="[2.9,3)",\
+	org.apache.sling.api.scripting;version="[2.3,2.4)",\
+	org.apache.sling.api.servlets;version="[2.1,2.2)",\
+	org.apache.sling.api.wrappers;version="[2.5,3)",\
+	org.apache.sling.commons.osgi;version="[2.0,3)",\
+	org.apache.sling.engine;version="[2.0,3)",\
+	org.apache.sling.engine.servlets;version="[2.0,3)",\
+	org.apache.sling.servlets.resolver.jmx;version="[2.3,3)",\
+	org.apache.sling.spi.resource.provider;version="[1.0,2)",\
+	org.osgi.framework;version="[1.4,2)",\
+	org.osgi.service.component;version="[1.0,2)",\
+	org.osgi.service.event;version="[1.1,2)",org.slf4j;version="[1.5,2)",\
+	!org.apache.sling.engine.impl.*,\
+	*
+Private-Package: \
+	org.apache.sling.servlets.filter.internal,\
+	org.apache.sling.servlets.resolver.internal.defaults,\
+	org.apache.sling.servlets.resolver.internal.helper,\
+	org.apache.sling.servlets.resolver.internal.resource

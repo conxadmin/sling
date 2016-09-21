@@ -87,6 +87,10 @@ public class SlingMainServlet extends GenericServlet implements ManagedService {
     public static final String PROP_SERVER_INFO = "sling.serverinfo";
     
     public static final String PROP_ADDITIONAL_RESPONSE_HEADERS = "sling.additional.response.headers";
+    
+    public static final String PROP_CONTEXT_PATH_PREFIX = "sling.context.prefix";
+    
+    public static final String DEFAULT_CONTEXT_PATH_PREFIX = "";
 
     private volatile AdapterManager adapterManager;
 
@@ -316,7 +320,8 @@ public class SlingMainServlet extends GenericServlet implements ManagedService {
 
 	@Override
 	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
-		this.componentConfig = properties;
+		if (properties != null)
+			this.componentConfig = properties;
 	}
 	
 	protected void init(Component component) {
@@ -377,8 +382,18 @@ public class SlingMainServlet extends GenericServlet implements ManagedService {
         }
 
         // register the servlet context
+        String contextPrefix = null;
+        String contextName = SERVLET_CONTEXT_NAME;
+        if (componentConfig.get(PROP_CONTEXT_PATH_PREFIX) != null) {
+        	//contextName = SERVLET_CONTEXT_NAME+"."+PropertiesUtil.toString(componentConfig.get(PROP_CONTEXT_PATH_PREFIX),DEFAULT_CONTEXT_PATH_PREFIX);
+        	contextPrefix = "/"+PropertiesUtil.toString(componentConfig.get(PROP_CONTEXT_PATH_PREFIX),DEFAULT_CONTEXT_PATH_PREFIX)+"/*";
+        }
+        else {
+        	//contextName = SERVLET_CONTEXT_NAME;
+        	contextPrefix = SLING_ROOT;
+        }
         final Dictionary<String, String> contextProperties = new Hashtable<>();
-        contextProperties.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME, SERVLET_CONTEXT_NAME);
+        contextProperties.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME, contextName);
         contextProperties.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_PATH, SLING_ROOT);
         contextProperties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Engine Servlet Context Helper");
         contextProperties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
@@ -388,8 +403,8 @@ public class SlingMainServlet extends GenericServlet implements ManagedService {
         // register the servlet
         final Dictionary<String, String> servletConfig = toStringConfig(configuration);
         servletConfig.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT,
-                "(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + SERVLET_CONTEXT_NAME + ")");
-        servletConfig.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN, SLING_ROOT);
+                "(" + HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME + "=" + contextName + ")");
+        servletConfig.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_SERVLET_PATTERN, contextPrefix);
         servletConfig.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Engine Main Servlet");
         servletConfig.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
         this.servletRegistration = bundleContext.registerService(Servlet.class, this, servletConfig);

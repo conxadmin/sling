@@ -5,10 +5,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <sling:defineObjects />
-<c:set var="staticRoot" value="/apps/browser/static" scope="request" />
+<c:set var="staticRoot" value="/${slingRequest.resourceResolver.tenantID}/apps/browser/static" scope="request" />
 
 <!DOCTYPE html>
 <html>
+<script type="text/javascript">
+    var tenantID = '${slingRequest.resourceResolver.tenantID}';
+</script>
 <c:choose>
 	<c:when test="${slingRequest.resourceResolver.userID != 'anonymous'}">
 		<head>
@@ -36,7 +39,7 @@
 			});
 			$('#login-form').on('submit', function(event) {
 				event.preventDefault();
-				$.post('/j_security_check', $(this).serialize(), function(data) {
+				$.post('${slingRequest.resourceResolver.tenantID}/j_security_check', $(this).serialize(), function(data) {
 					$('#login-form .alert').addClass('hide');
 					window.location.reload(true);
 				}).fail(function() {
