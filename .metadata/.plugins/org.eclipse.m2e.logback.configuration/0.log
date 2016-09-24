@@ -18589,3 +18589,7 @@ In the future this error will break the build.
 2016-09-20 19:14:02,180 [Worker-1508] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2016-09-20 19:14:02,185 [Worker-1508] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-09-20 19:14:02,185 [Worker-1508] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/api/src/test/resources
+2016-09-21 10:45:06,669 [Worker-1628] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-21 10:45:06,669 [Worker-1628] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling/bundles/scripting/sightly/engine/src/main/resources
+2016-09-21 10:45:06,807 [Worker-1628] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-21 10:45:06,808 [Worker-1628] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource

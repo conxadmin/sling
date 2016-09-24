@@ -6,22 +6,23 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="properties.put(&quot;" key="selection"/>
+		<item value="browser" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="properties.put&quot;"/>
-			<item value="&lt;property name="/>
-			<item value="adapt"/>
-			<item value="DefaultScript"/>
-			<item value="Default"/>
-			<item value="getAdapter"/>
-			<item value=","/>
-			<item value="OsgiUtil"/>
+			<item value="browser"/>
+			<item value="org.apache.sling.api.resource"/>
+			<item value="org.apache.sling.api"/>
+			<item value="tenantID"/>
+			<item value="ResourceResolver"/>
+			<item value="Comm"/>
+			<item value="Common"/>
+			<item value="new ResourceResolverIm"/>
 		</list>
 		<list key="replacehistory">
+			<item value=" properties.put("/>
 			<item value="properties.put(&quot;"/>
 			<item value="properties.put"/>
 			<item value="properties.put("/>
@@ -29,7 +30,6 @@
 			<item value=");"/>
 			<item value=","/>
 			<item value="2.3.1."/>
-			<item value="2.3.1.1.${tstamp}"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

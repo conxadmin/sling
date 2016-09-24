@@ -5,23 +5,23 @@
 	</section>
 	<section name="">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
-		<item value="1000" key="org.eclipse.jdt.search.resultpage.limit"/>
-		<item value="TRUE" key="org.eclipse.jdt.search.resultpage.limit_enabled"/>
 	</section>
 	<section name="">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
+		<item value="1000" key="org.eclipse.jdt.search.resultpage.limit"/>
+		<item value="TRUE" key="org.eclipse.jdt.search.resultpage.limit_enabled"/>
 	</section>
 	<section name="TextSearchPage">
 		<item value="12" key="HISTORY_SIZE"/>
-		<item value="true" key="CASE_SENSITIVE"/>
+		<item value="false" key="CASE_SENSITIVE"/>
 		<item value="false" key="REG_EX_SEARCH"/>
 		<item value="false" key="WHOLE_WORD"/>
 		<item value="false" key="SEARCH_DERIVED"/>
 		<section name="HISTORY6">
-			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="/libs/sling/servlet/default/explorer" key="textPattern"/>
+			<item value="&quot;/&quot;" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -30,10 +30,10 @@
 			</list>
 		</section>
 		<section name="HISTORY7">
-			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="org.apache.sling.scripting.cache.additional_extensions" key="textPattern"/>
+			<item value="browser" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -42,34 +42,34 @@
 			</list>
 		</section>
 		<section name="HISTORY4">
-			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="" key="textPattern"/>
+			<item value="/system" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="apps"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY10">
-			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="SLING_SERVLET_RESOURCE_TYPES" key="textPattern"/>
+			<item value="ResourceResolverImpl" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY5">
-			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="BrowserServlet" key="textPattern"/>
+			<item value="/services" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -78,23 +78,23 @@
 			</list>
 		</section>
 		<section name="EXTENSIONS">
-			<item value="*.java" key="0"/>
-			<item value="apps" key="1"/>
-			<item value="*.txt" key="2"/>
-			<item value="*" key="3"/>
-			<item value="DefaultSlingScript.java" key="4"/>
-			<item value="*Activator*.java" key="5"/>
-			<item value="sling.js" key="6"/>
-			<item value="*.cnd" key="7"/>
-			<item value="*.ncd" key="8"/>
-			<item value="ResEditorResourceProvider.java" key="9"/>
-			<item value="org.apache.sling.fsprovider.internal.FsResourceProvider*" key="10"/>
+			<item value="*" key="0"/>
+			<item value="*.java" key="1"/>
+			<item value="*Activator*" key="2"/>
+			<item value="apps" key="3"/>
+			<item value="*.txt" key="4"/>
+			<item value="DefaultSlingScript.java" key="5"/>
+			<item value="*Activator*.java" key="6"/>
+			<item value="sling.js" key="7"/>
+			<item value="*.cnd" key="8"/>
+			<item value="*.ncd" key="9"/>
+			<item value="ResEditorResourceProvider.java" key="10"/>
 		</section>
 		<section name="HISTORY11">
-			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="sling.servlet.resourceTypes" key="textPattern"/>
+			<item value="2.9.2" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -103,10 +103,10 @@
 			</list>
 		</section>
 		<section name="HISTORY8">
-			<item value="false" key="ignoreCase"/>
+			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="org.osgi.service.component.ComponentContext" key="textPattern"/>
+			<item value="browser.json" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -115,61 +115,61 @@
 			</list>
 		</section>
 		<section name="HISTORY9">
-			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="event.topics" key="textPattern"/>
+			<item value="&lt;%=slingRequest.getResourceResolver().getTenantID()%&gt;" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*Activator*.java"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY2">
-			<item value="false" key="ignoreCase"/>
+			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="DefaultScript" key="textPattern"/>
+			<item value="browser.edit" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY3">
-			<item value="false" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="/apps" key="textPattern"/>
+			<item value="common.js" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY0">
-			<item value="false" key="ignoreCase"/>
+			<item value="true" key="ignoreCase"/>
 			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="&quot;/apps&quot;" key="textPattern"/>
+			<item value="SingleSignOn" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY1">
-			<item value="false" key="ignoreCase"/>
-			<item value="1" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="DefaultSlingScript" key="textPattern"/>
+			<item value="sso" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*.java"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -198,6 +198,11 @@
 			<item value="org.eclipse.wst.jsdt.ui.JavaSearchPage"/>
 			<item value="org.eclipse.pde.internal.ui.search.SearchPage"/>
 			<item value="org.eclipse.wst.xml.search.ui.dialog.XMLSearchPage"/>
+		</list>
+	</section>
+	<section name="ReplaceDialog2">
+		<list key="replace_with">
+			<item value="${slingRequest.resourceResolver.tenantID}"/>
 		</list>
 	</section>
 	<section name="SearchDialog">
