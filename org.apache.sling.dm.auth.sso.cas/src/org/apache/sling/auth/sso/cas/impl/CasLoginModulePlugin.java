@@ -18,8 +18,6 @@ package org.apache.sling.auth.sso.cas.impl;
  * specific language governing permissions and limitations under the License.
  */
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.auth.sso.cas.impl.CasAuthenticationHandler.SsoPrincipal;
 import org.apache.sling.jcr.jackrabbit.server.security.AuthenticationPlugin;
 import org.apache.sling.jcr.jackrabbit.server.security.LoginModulePlugin;
@@ -39,8 +37,6 @@ import javax.security.auth.login.LoginException;
 /**
  * Plugin for interacting with the JCR authentication cycle.
  */
-@Component
-@Service
 public class CasLoginModulePlugin implements LoginModulePlugin {
 
   @SuppressWarnings("rawtypes")

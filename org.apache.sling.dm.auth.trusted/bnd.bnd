@@ -24,5 +24,6 @@
 	com.springsource.org.mortbay.util;version=6.1,\
 	org.apache.jackrabbit.jackrabbit-api;version=2.12,\
 	org.apache.sling.jcr.jackrabbit.server.libs;version=latest,\
-	org.apache.sling.jcr.api;version=2.4
+	org.apache.sling.jcr.api;version=2.4,\
+	org.apache.sling.dm.jcr.base.mt;version=latest
 -sub: *.bnd

@@ -5,14 +5,7 @@ import com.ctc.wstx.stax.WstxInputFactory;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.lang.StringUtils;
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Modified;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
-import org.apache.felix.scr.annotations.Services;
+import org.apache.felix.dm.Component;
 import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
@@ -42,6 +35,7 @@ import java.net.URLEncoder;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -53,22 +47,6 @@ import static org.apache.sling.jcr.resource.JcrResourceConstants.AUTHENTICATION_
  * The integration is needed only due to limitations on servlet filter
  * support in the OSGi / Sling environment.
  */
-@Component(metatype = true)
-@Services({
-    @Service(value = CasAuthenticationHandler.class),
-    @Service(value = AuthenticationHandler.class),
-    @Service(value = AuthenticationFeedbackHandler.class)
-})
-@Properties(value = {
-    @Property(name = Constants.SERVICE_RANKING, intValue = -5),
-    @Property(name = AuthenticationHandler.PATH_PROPERTY, value = "/"),
-    @Property(name = AuthenticationHandler.TYPE_PROPERTY, value = CasAuthenticationHandler.AUTH_TYPE, propertyPrivate = true),
-    @Property(name = CasAuthenticationHandler.LOGIN_URL, value = CasAuthenticationHandler.DEFAULT_LOGIN_URL),
-    @Property(name = CasAuthenticationHandler.LOGOUT_URL, value = CasAuthenticationHandler.DEFAULT_LOGOUT_URL),
-    @Property(name = CasAuthenticationHandler.SERVER_URL, value = CasAuthenticationHandler.DEFAULT_SERVER_URL),
-    @Property(name = CasAuthenticationHandler.RENEW, boolValue = CasAuthenticationHandler.DEFAULT_RENEW),
-    @Property(name = CasAuthenticationHandler.GATEWAY, boolValue = CasAuthenticationHandler.DEFAULT_GATEWAY)
-})
 public class CasAuthenticationHandler implements AuthenticationHandler,
     AuthenticationFeedbackHandler {
 
@@ -88,8 +66,7 @@ public class CasAuthenticationHandler implements AuthenticationHandler,
   static final String AUTHN_INFO = "org.sakaiproject.nakamura.auth.cas.SsoAuthnInfo";
 
   // needed for the automatic user creation.
-  @Reference
-  protected SlingRepository repository;
+  protected volatile SlingRepository repository;
 
   static final String LOGIN_URL = "sakai.auth.cas.url.login";
   private String loginUrl;
@@ -113,6 +90,10 @@ public class CasAuthenticationHandler implements AuthenticationHandler,
   Set<String> filteredQueryStrings = new HashSet<String>(Arrays.asList(
       REQUEST_LOGIN_PARAMETER, DEFAULT_ARTIFACT_NAME));
 
+private Component component;
+
+private Dictionary<Object, Object> properties;
+
   public CasAuthenticationHandler() {
   }
 
@@ -121,19 +102,23 @@ public class CasAuthenticationHandler implements AuthenticationHandler,
   }
 
   //----------- OSGi integration ----------------------------
-  @Activate
-  protected void activate(Map<?, ?> props) {
-    modified(props);
+  protected void init(Component component) {
+	  this.component = component;
+	  this.properties = this.component.getServiceProperties();
   }
 
-  @Modified
-  protected void modified(Map<?, ?> props) {
-    loginUrl = OsgiUtil.toString(props.get(LOGIN_URL), DEFAULT_LOGIN_URL);
-    logoutUrl = OsgiUtil.toString(props.get(LOGOUT_URL), DEFAULT_LOGOUT_URL);
-    serverUrl = OsgiUtil.toString(props.get(SERVER_URL), DEFAULT_SERVER_URL);
+  
+  protected void activate() {
+    modified();
+  }
 
-    renew = OsgiUtil.toBoolean(props.get(RENEW), DEFAULT_RENEW);
-    gateway = OsgiUtil.toBoolean(props.get(GATEWAY), DEFAULT_GATEWAY);
+  protected void modified() {
+    loginUrl = OsgiUtil.toString(this.properties.get(LOGIN_URL), DEFAULT_LOGIN_URL);
+    logoutUrl = OsgiUtil.toString(this.properties.get(LOGOUT_URL), DEFAULT_LOGOUT_URL);
+    serverUrl = OsgiUtil.toString(this.properties.get(SERVER_URL), DEFAULT_SERVER_URL);
+
+    renew = OsgiUtil.toBoolean(this.properties.get(RENEW), DEFAULT_RENEW);
+    gateway = OsgiUtil.toBoolean(this.properties.get(GATEWAY), DEFAULT_GATEWAY);
   }
 
   //----------- AuthenticationHandler interface ----------------------------

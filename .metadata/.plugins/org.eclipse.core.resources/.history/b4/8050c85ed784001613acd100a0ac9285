@@ -1,0 +1,30 @@
+Bundle-Version: 1.0.9.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling Form Based Authentication Handler
+Bundle-Description: Bundle implementing form based authentication with \
+	login and logout support. Authentication state is maintained in a \
+	Cookie or in an HTTP Session. The password is only submitted when \
+	first authenticating.
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.auth.form.impl.Activator
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Include-Resource: /=resources
+Export-Package: \
+	org.apache.sling.auth.trusted.token.api,\
+	org.apache.sling.auth.trusted.token.api.cluster,\
+	org.apache.sling.auth.trusted.token.api.cluster.cache,\
+	org.apache.sling.auth.trusted.token.api.http.cache,\
+	org.apache.sling.auth.trusted.token.api.http.usercontent,\
+	org.apache.sling.auth.trusted.token.api.memory,\
+	org.apache.sling.auth.trusted.token.api.servlet,\
+	org.apache.sling.auth.trusted.token.api.user,\
+	org.apache.sling.auth.trusted.token.internal,\
+	org.apache.sling.auth.trusted.token.internal.http.cache,\
+	org.apache.sling.auth.trusted.token.internal.memory,\
+	org.apache.sling.auth.trusted.token.util,\
+	org.apache.sling.auth.trusted.token.util.osgi

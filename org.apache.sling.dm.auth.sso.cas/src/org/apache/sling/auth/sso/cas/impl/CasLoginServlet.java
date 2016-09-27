@@ -18,8 +18,6 @@ package org.apache.sling.auth.sso.cas.impl;
  * specific language governing permissions and limitations under the License.
  */
 
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.auth.Authenticator;
@@ -47,18 +45,15 @@ import javax.servlet.http.HttpServletResponse;
  * (including sling.commons.auth's LoginServlet) by setting the
  * sling:authRequestLogin request parameter to "SSO".
  */
-@SlingServlet(paths = { "/system/sling/cas/login" }, methods = { "GET", "POST" })
 public class CasLoginServlet extends SlingAllMethodsServlet {
   private static final long serialVersionUID = -1894135945816269913L;
   private static final Logger LOGGER = LoggerFactory.getLogger(CasLoginServlet.class);
 
   public static final String TRY_LOGIN = "sakaiauth:login";
 
-  @Reference
-  private CasAuthenticationHandler ssoAuthnHandler;
+  private volatile CasAuthenticationHandler ssoAuthnHandler;
 
-  @Reference
-  private TrustedTokenService trustedTokenService;
+  private volatile TrustedTokenService trustedTokenService;
 
   public CasLoginServlet() {
   }

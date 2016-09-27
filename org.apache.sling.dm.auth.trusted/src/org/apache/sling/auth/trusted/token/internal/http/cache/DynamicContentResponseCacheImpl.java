@@ -18,20 +18,15 @@
 
 package org.apache.sling.auth.trusted.token.internal.http.cache;
 
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Properties;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.osgi.service.component.ComponentContext;
-import org.perf4j.aop.Profiled;
+import org.apache.felix.dm.Component;
+//import org.perf4j.aop.Profiled;
 import org.apache.sling.auth.trusted.token.api.http.cache.DynamicContentResponseCache;
 import org.apache.sling.auth.trusted.token.api.memory.Cache;
 import org.apache.sling.auth.trusted.token.api.memory.CacheManagerService;
 import org.apache.sling.auth.trusted.token.api.memory.CacheScope;
-import org.sakaiproject.nakamura.util.StringUtils;
+import org.apache.sling.auth.trusted.token.util.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -41,22 +36,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@Component(metatype = true, label = "%dynamiccontentresponsecache.name",
-    description = "%dynamiccontentresponsecache.description")
-@Properties(value = {
-    @Property(name = "service.description", value = "Nakamura Dynamic Response Cache"),
-    @Property(name = "service.vendor", value = "The Sakai Foundation")})
-@Service
 public class DynamicContentResponseCacheImpl implements DynamicContentResponseCache {
 
-  @Property(boolValue = false)
   static final String DISABLE_CACHE_FOR_UI_DEV = "disable.cache.for.dev.mode";
 
-  @Property(boolValue = true)
   static final String BYPASS_CACHE_FOR_LOCALHOST = "bypass.cache.for.localhost";
 
-  @Reference
-  protected CacheManagerService cacheManagerService;
+  protected volatile CacheManagerService cacheManagerService;
 
   private Cache<String> cache;
 
@@ -64,12 +50,18 @@ public class DynamicContentResponseCacheImpl implements DynamicContentResponseCa
 
   private boolean bypassForLocalhost;
 
-  @SuppressWarnings("UnusedParameters")
-  @Activate
-  protected void activate(ComponentContext componentContext) throws ServletException {
-    @SuppressWarnings("unchecked")
-    Dictionary<String, Object> properties = componentContext.getProperties();
+private Component component;
 
+private Dictionary<Object, Object> properties;
+
+  protected void init(Component component) {
+	  this.component = component;
+	  this.properties = this.component.getServiceProperties();
+  }
+
+
+  @SuppressWarnings("UnusedParameters")
+  protected void activate() throws ServletException {
     cache = cacheManagerService.getCache(DynamicContentResponseCache.class.getName() + "-cache",
         CacheScope.INSTANCE);
 
@@ -78,7 +70,7 @@ public class DynamicContentResponseCacheImpl implements DynamicContentResponseCa
   }
 
   @SuppressWarnings({"UnusedParameters", "UnusedDeclaration"})
-  public void deactivate(ComponentContext componentContext) {
+  public void deactivate() {
     cache.clear();
   }
 
@@ -150,17 +142,17 @@ public class DynamicContentResponseCacheImpl implements DynamicContentResponseCa
     return userID + ':' + cacheCategory;
   }
   
-  @Profiled(tag="http:DynamicContentResponseCache:save:{$0}", el=true)
+  //@Profiled(tag="http:DynamicContentResponseCache:save:{$0}", el=true)
   private void saveEntry(String cacheCategory, String key, String value) {
     cache.put(key, value);
   }
   
-  @Profiled(tag="http:DynamicResponseCache:invalidation:{$0}", el=true)
+  //@Profiled(tag="http:DynamicResponseCache:invalidation:{$0}", el=true)
   private void invalidateEntry(String cacheCategory, String key) {
     cache.remove(key);
   }
   
-  @Profiled(tag="http:DynamicResponseCache:hit:{$0}")
+  //@Profiled(tag="http:DynamicResponseCache:hit:{$0}")
   private void hitEntry(String cacheCategory, HttpServletResponse response) {
     response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
   }
