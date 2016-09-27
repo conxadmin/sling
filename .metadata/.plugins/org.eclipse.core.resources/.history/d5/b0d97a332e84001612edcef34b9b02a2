@@ -1,0 +1,5 @@
+package org.apache.sling.auth.sso.cas;
+
+public interface TrustedTokenService {
+
+}

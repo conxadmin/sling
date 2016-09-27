@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Activator.java&apos; to &apos;org.apache.sling.dm.auth.trusted/src/org.apache.sling.auth.trusted.token.internal&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.auth.form&apos;&#x0A;- Destination element: &apos;org.apache.sling.dm.auth.trusted/src/org.apache.sling.auth.trusted.token.internal&apos;&#x0A;- Original element: &apos;org.apache.sling.auth.form.impl.Activator.java&apos;" description="Copy compilation unit" destination="=org.apache.sling.dm.auth.trusted/src&lt;org.apache.sling.auth.trusted.token.internal" element1="/src&lt;org.apache.sling.auth.form.impl{Activator.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1474932321341" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,3 @@
+1474926885977	Rename Java project 'org.apache.sling.auth.trusted'
+1474926942163	Delete resource 'org.apache.sling.dm.auth.trusted/src/org'
+1474936063429	Delete resource 'org.apache.sling.dm.auth.sso.cas/src/org'

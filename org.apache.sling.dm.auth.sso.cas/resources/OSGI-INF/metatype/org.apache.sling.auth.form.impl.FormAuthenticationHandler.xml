@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="org.apache.sling.auth.form.FormAuthenticationHandler" name="%auth.form.name" description="%auth.form.description">
+        <AD id="path" type="String" default="/" name="%path.name" description="%path.description" cardinality="100"/>
+        <AD id="service.ranking" type="Integer" default="0" name="%service.ranking.name" description="%service.ranking.description"/>
+        <AD id="jaas.controlFlag" type="String" default="sufficient" name="%jaas.controlFlag.name" description="%jaas.controlFlag.description"/>
+        <AD id="jaas.realmName" type="String" default="jackrabbit.oak" name="%jaas.realmName.name" description="%jaas.realmName.description"/>
+        <AD id="jaas.ranking" type="Integer" default="1000" name="%jaas.ranking.name" description="%jaas.ranking.description"/>
+        <AD id="form.login.form" type="String" default="/system/sling/form/login" name="%form.login.form.name" description="%form.login.form.description"/>
+        <AD id="form.auth.storage" type="String" default="cookie" name="%form.auth.storage.name" description="%form.auth.storage.description">
+            <Option value="cookie" label="Cookie"/>
+            <Option value="session" label="Session Attribute"/>
+        </AD>
+        <AD id="form.auth.name" type="String" default="sling.formauth" name="%form.auth.name.name" description="%form.auth.name.description"/>
+        <AD id="form.credentials.name" type="String" default="sling.formauth" name="%form.credentials.name.name" description="%form.credentials.name.description"/>
+        <AD id="form.auth.timeout" type="Integer" default="30" name="%form.auth.timeout.name" description="%form.auth.timeout.description"/>
+        <AD id="form.token.file" type="String" default="cookie-tokens.bin" name="%form.token.file.name" description="%form.token.file.description"/>
+        <AD id="form.token.fastseed" type="Boolean" default="false" name="%form.token.fastseed.name" description="%form.token.fastseed.description"/>
+        <AD id="form.use.include" type="Boolean" default="false" name="%form.use.include.name" description="%form.use.include.description"/>
+        <AD id="form.onexpire.login" type="Boolean" default="false" name="%form.onexpire.login.name" description="%form.onexpire.login.description"/>
+        <AD id="form.default.cookie.domain" type="String" name="%form.default.cookie.domain.name" description="%form.default.cookie.domain.description"/>
+    </OCD>
+    <Designate pid="org.apache.sling.auth.form.FormAuthenticationHandler">
+        <Object ocdref="org.apache.sling.auth.form.FormAuthenticationHandler"/>
+    </Designate>
+</metatype:MetaData>

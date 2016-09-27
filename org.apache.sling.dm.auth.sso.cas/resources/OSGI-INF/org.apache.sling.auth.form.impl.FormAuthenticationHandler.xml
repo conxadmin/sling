@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.apache.sling.auth.form.FormAuthenticationHandler" deactivate="deactivate">
+    <implementation class="org.apache.sling.auth.form.impl.FormAuthenticationHandler"/>
+    <service servicefactory="false">
+        <provide interface="org.apache.sling.auth.core.spi.AuthenticationHandler"/>
+        <provide interface="org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler"/>
+    </service>
+    <property name="service.description" value="Apache Sling Form Based Authentication Handler"/>
+    <property name="path">
+        /
+    </property>
+    <property name="authtype" value="FORM"/>
+    <property name="service.ranking" type="Integer" value="0"/>
+    <property name="jaas.controlFlag" value="sufficient"/>
+    <property name="jaas.realmName" value="jackrabbit.oak"/>
+    <property name="jaas.ranking" type="Integer" value="1000"/>
+    <property name="form.login.form" value="/system/sling/form/login"/>
+    <property name="form.auth.storage" value="cookie"/>
+    <property name="form.auth.name" value="sling.formauth"/>
+    <property name="form.credentials.name" value="sling.formauth"/>
+    <property name="form.auth.timeout" type="Integer" value="30"/>
+    <property name="form.token.file" value="cookie-tokens.bin"/>
+    <property name="form.token.fastseed" type="Boolean" value="false"/>
+    <property name="form.use.include" type="Boolean" value="false"/>
+    <property name="form.onexpire.login" type="Boolean" value="false"/>
+    <property name="form.default.cookie.domain"/>
+    <property name="service.vendor" value="The Apache Software Foundation"/>
+    <property name="service.pid" value="org.apache.sling.auth.form.FormAuthenticationHandler"/>
+    <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="0..1" policy="dynamic" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory"/>
+</scr:component>

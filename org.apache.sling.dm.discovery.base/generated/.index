@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1474419343130" name="org.apache.sling.dm.discovery.base" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1474986613997" name="org.apache.sling.dm.discovery.base" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.discovery.base.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.1.5.201609210055"/>
+      <attribute name="version" type="Version" value="1.1.5.201609271430"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="48e0efece9142a1d6af61ceaa07f14fa527e9a605d7425b99c12e6571d67eb9a"/>
+      <attribute name="osgi.content" value="6326cb45f629d49249c42694b3b40e80b718b57fb12e16930b178fc07d2e8881"/>
       <attribute name="url" value="generated/org.apache.sling.dm.discovery.base.mt.jar"/>
-      <attribute name="size" type="Long" value="129667"/>
+      <attribute name="size" type="Long" value="129668"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.discovery.base.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.5.201609210055"/>
+      <attribute name="bundle-version" type="Version" value="1.1.5.201609271430"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.discovery.base.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.5.201609210055"/>
+      <attribute name="bundle-version" type="Version" value="1.1.5.201609271430"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.discovery.base.commons"/>
       <attribute name="version" type="Version" value="2.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.discovery.base.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.5.201609210055"/>
+      <attribute name="bundle-version" type="Version" value="1.1.5.201609271430"/>
       <directive name="uses" value="org.apache.sling.api.resource,org.apache.sling.commons.scheduler,org.apache.sling.discovery,org.apache.sling.discovery.base.connectors,org.apache.sling.discovery.base.connectors.announcement,org.apache.sling.discovery.base.connectors.ping,org.apache.sling.discovery.commons.providers,org.apache.sling.discovery.commons.providers.spi,org.apache.sling.settings,org.osgi.framework,org.osgi.service.component,org.slf4j"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.discovery.base.connectors.announcement"/>
       <attribute name="version" type="Version" value="1.1.2"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.discovery.base.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.5.201609210055"/>
+      <attribute name="bundle-version" type="Version" value="1.1.5.201609271430"/>
       <directive name="uses" value="org.apache.sling.api.resource,org.apache.sling.commons.json,org.apache.sling.discovery,org.apache.sling.discovery.base.connectors,org.apache.sling.settings"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.discovery.base.connectors"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.discovery.base.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.5.201609210055"/>
+      <attribute name="bundle-version" type="Version" value="1.1.5.201609271430"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.discovery.base.connectors.ping"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.discovery.base.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.5.201609210055"/>
+      <attribute name="bundle-version" type="Version" value="1.1.5.201609271430"/>
       <directive name="uses" value="javax.servlet,javax.servlet.http,org.apache.http,org.apache.http.client.methods,org.apache.sling.discovery.base.commons,org.apache.sling.discovery.base.connectors,org.apache.sling.discovery.base.connectors.announcement,org.osgi.service.component,org.osgi.service.http"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.discovery.base.connectors.ping.wl"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.discovery.base.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.1.5.201609210055"/>
+      <attribute name="bundle-version" type="Version" value="1.1.5.201609271430"/>
       <directive name="uses" value="javax.servlet"/>
     </capability>
     <capability namespace="bndtools.workspace">
