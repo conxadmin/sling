@@ -19,10 +19,6 @@ package org.apache.sling.auth.trusted.token.internal;
 
 import static org.apache.sling.jcr.resource.JcrResourceConstants.AUTHENTICATION_INFO_CREDENTIALS;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.sling.auth.core.spi.AuthenticationInfo;
 import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
@@ -43,8 +39,6 @@ import javax.servlet.http.HttpServletResponse;
  * authenticate users externally and eventually pass through this handler to establish a
  * trusted relationship continuing into the container.
  */
-@Component
-@Service
 public final class TrustedAuthenticationHandler implements AuthenticationHandler {
   /**
    * Authentication type name
@@ -72,7 +66,6 @@ public final class TrustedAuthenticationHandler implements AuthenticationHandler
 
   protected volatile TrustedTokenService trustedTokenService;
 
-  @Reference
   protected DynamicContentResponseCache dynamicContentResponseCache;
 
   // -------------------- AuthenticationHandler methods --------------------

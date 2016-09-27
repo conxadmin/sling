@@ -25,7 +25,6 @@ import net.sf.ehcache.config.CacheConfiguration;
 
 import org.apache.sling.auth.trusted.token.api.memory.Cache;
 import org.apache.sling.auth.trusted.token.api.memory.CacheScope;
-import org.perf4j.aop.Profiled;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -122,12 +121,10 @@ public class CacheImpl<V> implements Cache<V> {
     }
   }
   
-  @Profiled(tag="memory:Cache:misses")
   private void logMiss() {
     // just for profiling
   }
   
-  @Profiled(tag="memory:Cache:hits")
   private void logHit() {
     // just for profiling
   }

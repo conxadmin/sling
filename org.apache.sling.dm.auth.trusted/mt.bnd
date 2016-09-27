@@ -14,7 +14,19 @@ X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
 	(objectClass=org.osgi.service.log.LogService))
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Include-Resource: /=resources
-Export-Package: org.apache.sling.auth.form;version=1.0
+Export-Package: \
+	org.apache.sling.auth.trusted.token.api,\
+	org.apache.sling.auth.trusted.token.api.cluster,\
+	org.apache.sling.auth.trusted.token.api.cluster.cache,\
+	org.apache.sling.auth.trusted.token.api.http.cache,\
+	org.apache.sling.auth.trusted.token.api.http.usercontent,\
+	org.apache.sling.auth.trusted.token.api.memory,\
+	org.apache.sling.auth.trusted.token.api.resource,\
+	org.apache.sling.auth.trusted.token.api.resource.lite,\
+	org.apache.sling.auth.trusted.token.api.servlet,\
+	org.apache.sling.auth.trusted.token.api.user,\
+	org.apache.sling.auth.trusted.token.api.user.counts,\
+	org.apache.sling.auth.trusted.token.api.user.indexing
 Embed-Dependency: org.apache.sling.commons.osgi;inline="org/apache/sling/commons/osgi/OsgiUtil.*",\
 	commons-codec;inline="org/apache/commons/codec/binary/Base64.*|\
 	org/apache/commons/codec/binary/Hex*|org/apache/commons/codec/binary/StringUtils*|\
@@ -45,6 +57,3 @@ Import-Package: javax.security.auth.callback;resolution:=optional,\
 	org.osgi.service.event;version="[1.1,2)",\
 	org.slf4j;version="[1.5,2)",\
 	*  
-Private-Package: \
-	org.apache.sling.auth.form.impl,\
-	org.apache.sling.auth.form.impl.jaas

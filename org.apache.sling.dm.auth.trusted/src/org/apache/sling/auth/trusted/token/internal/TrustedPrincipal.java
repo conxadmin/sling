@@ -17,7 +17,7 @@
  */
 package org.apache.sling.auth.trusted.token.internal;
 
-import org.sakaiproject.nakamura.auth.trusted.TrustedTokenServiceImpl.TrustedUser;
+import org.apache.sling.auth.trusted.token.internal.TrustedTokenServiceImpl.TrustedUser;
 
 import java.security.Principal;
 

@@ -25,7 +25,7 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.apache.sling.auth.core.spi.AuthenticationInfo;
-import org.apache.sling.auth.sso.cas.api.TrustedTokenService;
+import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

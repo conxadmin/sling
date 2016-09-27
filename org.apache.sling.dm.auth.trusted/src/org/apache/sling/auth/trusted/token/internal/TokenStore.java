@@ -291,7 +291,7 @@ public class TokenStore {
    * @param ttl
    *          the ttl of cookies.
    */
-  @SuppressWarnings(value="IS2_INCONSISTENT_SYNC",justification="Server ID and TTL are set at initialization")
+  @SuppressWarnings(value="IS2_INCONSISTENT_SYNC")
   public void doInit(CacheManagerService cacheManager, String tokenFile, String serverId,
       long ttl) {
     this.tokenFile = new File(tokenFile);

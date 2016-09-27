@@ -18,11 +18,7 @@
 package org.apache.sling.auth.trusted.token.internal;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.ReferenceCardinality;
-import org.apache.felix.scr.annotations.Service;
+import org.apache.felix.dm.Component;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
@@ -62,58 +58,43 @@ import javax.servlet.http.HttpSession;
 /**
  *
  */
-@Component(metatype = true)
-@Service
 public final class TrustedTokenServiceImpl implements TrustedTokenService {
   private static final Logger LOG = LoggerFactory.getLogger(TrustedTokenServiceImpl.class);
 
   /** Property to invalidate if the session should be used. */
-  @Property(boolValue = false)
   public static final String USE_SESSION = "sakai.auth.trusted.token.usesession";
 
   /** Property to indicate if only cookies should be secure */
-  @Property(boolValue = false)
   public static final String SECURE_COOKIE = "sakai.auth.trusted.token.securecookie";
 
   /** Property to indicate the TTL on cookies */
-  @Property(longValue = 1200000)
   public static final String TTL = "sakai.auth.trusted.token.ttl";
 
   /** Property to indicate the name of the cookie. */
-  @Property(value = "sakai-trusted-authn")
   public static final String COOKIE_NAME = "sakai.auth.trusted.token.name";
 
   /** Property to point to keystore file */
-  @Property(value = "sling/cookie-keystore.bin")
   public static final String TOKEN_FILE_NAME = "sakai.auth.trusted.token.storefile";
 
   /** Property to contain the shared secret used by all trusted servers */
-  @Property(value = "default-setting-change-before-use")
   public static final String SERVER_TOKEN_SHARED_SECRET = "sakai.auth.trusted.server.secret";
 
   /** True if server tokens are enabled. */
-  @Property(boolValue=true)
   public static final String SERVER_TOKEN_ENABLED = "sakai.auth.trusted.server.enabled";
 
   /** A list of all the known safe hosts to trust as servers */
-  @Property(value ="localhost;127.0.0.1;0:0:0:0:0:0:0:1%0")
   public static final String SERVER_TOKEN_SAFE_HOSTS_ADDR = "sakai.auth.trusted.server.safe-hostsaddress";
                                                                                                                                                                                                                                                                                                                   
   private static final String DEFAULT_WRAPPERS = "org.sakaiproject.nakamura.formauth.FormAuthenticationTokenServiceWrapper;org.sakaiproject.nakamura.auth.saml.SamlAuthenticationTokenServiceWrapper;org.sakaiproject.nakamura.auth.rest.RestAuthenticationTokenServiceWrapper;org.sakaiproject.nakamura.auth.cas.CasAuthenticationTokenServiceWrapper;org.sakaiproject.nakamura.http.usercontent.UserContentAuthenticationTokenServiceWrapper";
-  @Property(value = DEFAULT_WRAPPERS)
   public static final String SERVER_TOKEN_SAFE_WRAPPERS = "sakai.auth.trusted.wrapper.class.names";
 
-  @Property(value="")
   public static final String TRUSTED_HEADER_NAME = "sakai.auth.trusted.header";
 
-  @Property(value="")
   public static final String TRUSTED_PARAMETER_NAME = "sakai.auth.trusted.request-parameter";
 
   /** A list of all the known safe hosts to trust for authentication purposes, ie front end proxies */
-  @Property(value ="")
   public static final String TRUSTED_PROXY_SERVER_ADDR = "sakai.auth.trusted.server.safe-authentication-addresses";
 
-  @Property(boolValue=false )
   public static final String DEBUG_COOKIES = "sakai.auth.trusted.token.debugcookies";
 
   /**
@@ -155,7 +136,6 @@ public final class TrustedTokenServiceImpl implements TrustedTokenService {
    * to the same host where they were authenticated as the cookie encode decode has
    * entropy associated with the instance of the server they are operating on.
    */
-  @Reference(cardinality = ReferenceCardinality.OPTIONAL_UNARY)
   private ClusterCookieServer clusterCookieServer;
 
   private TokenStore tokenStore;
@@ -163,13 +143,10 @@ public final class TrustedTokenServiceImpl implements TrustedTokenService {
   private Long ttl;
 
 
-  @Reference
   protected ClusterTrackingService clusterTrackingService;
 
-  @Reference
   protected CacheManagerService cacheManager;
 
-  @Reference
   protected EventAdmin eventAdmin;
 
   /**
@@ -195,6 +172,10 @@ public final class TrustedTokenServiceImpl implements TrustedTokenService {
 
   private Map<String, TokenTrustValidator> registeredTypes = new ConcurrentHashMap<String, TokenTrustValidator>();
 
+private Component component;
+
+private Dictionary<Object, Object> properties;
+
   /**
    * @throws NoSuchAlgorithmException
    * @throws InvalidKeyException
@@ -207,45 +188,49 @@ public final class TrustedTokenServiceImpl implements TrustedTokenService {
       tokenStore = new TokenStore();
     
   }
+  
+  protected void init(Component component) {
+	  this.component = component;
+	  this.properties = this.component.getServiceProperties();
+  }
 
 
   @SuppressWarnings("rawtypes")
-  protected void activate(ComponentContext context) {
-    Dictionary props = context.getProperties();
-    usingSession = PropertiesUtil.toBoolean(props.get(USE_SESSION), false);
-    secureCookie = PropertiesUtil.toBoolean(props.get(SECURE_COOKIE), false);
-    ttl = PropertiesUtil.toLong(props.get(TTL), 1200000);
-    trustedAuthCookieName = PropertiesUtil.toString(props.get(COOKIE_NAME), "");
-    sharedSecret = PropertiesUtil.toString(props.get(SERVER_TOKEN_SHARED_SECRET), "default-setting-change-before-use");
-    trustedTokenEnabled = PropertiesUtil.toBoolean(props.get(SERVER_TOKEN_ENABLED), true);
-    debugCookies = PropertiesUtil.toBoolean(props.get(DEBUG_COOKIES), false);
+  protected void activate() {
+    usingSession = PropertiesUtil.toBoolean(this.properties.get(USE_SESSION), false);
+    secureCookie = PropertiesUtil.toBoolean(this.properties.get(SECURE_COOKIE), false);
+    ttl = PropertiesUtil.toLong(this.properties.get(TTL), 1200000);
+    trustedAuthCookieName = PropertiesUtil.toString(this.properties.get(COOKIE_NAME), "");
+    sharedSecret = PropertiesUtil.toString(this.properties.get(SERVER_TOKEN_SHARED_SECRET), "default-setting-change-before-use");
+    trustedTokenEnabled = PropertiesUtil.toBoolean(this.properties.get(SERVER_TOKEN_ENABLED), true);
+    debugCookies = PropertiesUtil.toBoolean(this.properties.get(DEBUG_COOKIES), false);
     tokenStore.setDebugCookies(debugCookies);
-    String safeHostsAddr = PropertiesUtil.toString(props.get(SERVER_TOKEN_SAFE_HOSTS_ADDR), "");
+    String safeHostsAddr = PropertiesUtil.toString(this.properties.get(SERVER_TOKEN_SAFE_HOSTS_ADDR), "");
     safeHostAddrSet.clear();
     if ( safeHostsAddr != null) {
       for ( String address : StringUtils.split(safeHostsAddr,';')) {
         safeHostAddrSet.add(address);
       }
     }
-    String trustedProxyServerAddr = PropertiesUtil.toString(props.get(TRUSTED_PROXY_SERVER_ADDR), "");
+    String trustedProxyServerAddr = PropertiesUtil.toString(this.properties.get(TRUSTED_PROXY_SERVER_ADDR), "");
     trustedProxyServerAddrSet.clear();
     if ( trustedProxyServerAddr != null) {
       for ( String address : StringUtils.split(trustedProxyServerAddr,';')) {
         trustedProxyServerAddrSet.add(address);
       }
     }
-    String wrappers = PropertiesUtil.toString(props.get(SERVER_TOKEN_SAFE_WRAPPERS), "");
+    String wrappers = PropertiesUtil.toString(this.properties.get(SERVER_TOKEN_SAFE_WRAPPERS), "");
     if ( wrappers == null || wrappers.length() == 0 ) {
       wrappers = DEFAULT_WRAPPERS;
     }
     safeWrappers = StringUtils.split(wrappers, ";");
 
-    String tokenFile = PropertiesUtil.toString(props.get(TOKEN_FILE_NAME), "");
+    String tokenFile = PropertiesUtil.toString(this.properties.get(TOKEN_FILE_NAME), "");
     String serverId = clusterTrackingService.getCurrentServerId();
     tokenStore.doInit(cacheManager, tokenFile, serverId, ttl);
 
-    trustedHeaderName = PropertiesUtil.toString(props.get(TRUSTED_HEADER_NAME), "");
-    trustedParameterName = PropertiesUtil.toString(props.get(TRUSTED_PARAMETER_NAME), "");
+    trustedHeaderName = PropertiesUtil.toString(this.properties.get(TRUSTED_HEADER_NAME), "");
+    trustedParameterName = PropertiesUtil.toString(this.properties.get(TRUSTED_PARAMETER_NAME), "");
   }
 
   public void activateForTesting() {

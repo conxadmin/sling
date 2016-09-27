@@ -22,10 +22,7 @@ import net.sf.ehcache.management.ManagementService;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.felix.scr.annotations.Activate;
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Property;
-import org.apache.felix.scr.annotations.Service;
+import org.apache.felix.dm.Component;
 import org.apache.sling.auth.trusted.token.api.memory.Cache;
 import org.apache.sling.auth.trusted.token.api.memory.CacheManagerService;
 import org.apache.sling.auth.trusted.token.api.memory.CacheScope;
@@ -40,6 +37,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.management.ManagementFactory;
+import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -51,35 +49,30 @@ import javax.management.MBeanServer;
 /**
  * The <code>CacheManagerServiceImpl</code>
  */
-@Component(metatype=true)
-@Service(value=CacheManagerService.class)
 public class CacheManagerServiceImpl implements CacheManagerService {
 
   public static final String DEFAULT_CACHE_CONFIG = "sling/ehcacheConfig.xml";
   public static final String DEFAULT_BIND_ADDRESS = "127.0.0.1";
   public static final String DEFAULT_CACHE_STORE = "sling/ehcacheStore";
 
-  @Property( value = DEFAULT_CACHE_CONFIG)
   public static final String CACHE_CONFIG = "cache-config";
 
-  @Property( value = DEFAULT_BIND_ADDRESS)
   public static final String BIND_ADDRESS = "bind-address";
 
-  @Property( value = DEFAULT_CACHE_STORE)
   public static final String CACHE_STORE = "cache-store";
 
-  @Property(value = "The Sakai Foundation")
   static final String SERVICE_VENDOR = "service.vendor";
 
-  @Property(value = "Cache Manager Service Implementation")
   static final String SERVICE_DESCRIPTION = "service.description";
 
-  private static final String CONFIG_PATH = "res://org/sakaiproject/nakamura/memory/ehcacheConfig.xml";
+  private static final String CONFIG_PATH = "res://ehcacheConfig.xml";
   private static final Logger LOGGER = LoggerFactory.getLogger(CacheManagerServiceImpl.class);
   private CacheManager cacheManager;
   private Map<String, Cache<?>> caches = new HashMap<String, Cache<?>>();
   private ThreadLocalCacheMap requestCacheMapHolder = new ThreadLocalCacheMap();
   private ThreadLocalCacheMap threadCacheMapHolder = new ThreadLocalCacheMap();
+private Component component;
+private Dictionary<Object, Object> properties;
 
   public CacheManagerServiceImpl() throws IOException {
     create();
@@ -120,8 +113,14 @@ public class CacheManagerServiceImpl implements CacheManagerService {
 
   }
 
-   @Activate
-   protected void activate(Map<String, Object> properties) throws FileNotFoundException, IOException {
+  protected void init(Component component) {
+	  this.component = component;
+	  this.properties = this.component.getServiceProperties();
+  }
+
+
+  @SuppressWarnings("rawtypes")
+   protected void activate() throws FileNotFoundException, IOException {
 	  String config = PropertiesUtil.toString(properties.get(CACHE_CONFIG), DEFAULT_CACHE_CONFIG);
 	  File configFile = new File(config);
 	  ClassLoader cl = Thread.currentThread().getContextClassLoader();
@@ -154,7 +153,7 @@ public class CacheManagerServiceImpl implements CacheManagerService {
 	  }
    }
 
-  protected InputStream processConfig(InputStream configFile, Map<String,Object> properties) {
+  protected InputStream processConfig(InputStream configFile, Dictionary<Object, Object> properties2) {
     StringBuilder config = new StringBuilder();
     Pattern p = Pattern.compile("\\$\\{([\\S]+)}");
     Scanner scanner = new Scanner(configFile);
@@ -163,7 +162,7 @@ public class CacheManagerServiceImpl implements CacheManagerService {
       Matcher m = p.matcher(configLine);
       while (m.find()) {
         String propKey = m.group(1);
-        configLine = StringUtils.replace(configLine, m.group(), PropertiesUtil.toString(properties.get(propKey), ""));
+        configLine = StringUtils.replace(configLine, m.group(), PropertiesUtil.toString(properties2.get(propKey), ""));
       }
       config.append(configLine + "\n");
     }

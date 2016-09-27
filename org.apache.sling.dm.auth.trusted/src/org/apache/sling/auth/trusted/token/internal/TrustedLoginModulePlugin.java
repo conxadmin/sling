@@ -17,15 +17,12 @@
  */
 package org.apache.sling.auth.trusted.token.internal;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.jackrabbit.api.security.principal.ItemBasedPrincipal;
 import org.apache.jackrabbit.api.security.principal.PrincipalManager;
-import org.apache.sling.jcr.base.util.AccessControlUtil;
 import org.apache.sling.jcr.jackrabbit.server.security.AuthenticationPlugin;
 import org.apache.sling.jcr.jackrabbit.server.security.LoginModulePlugin;
 import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
-import org.sakaiproject.nakamura.auth.trusted.TrustedTokenServiceImpl.TrustedUser;
+import org.apache.sling.auth.trusted.token.internal.TrustedTokenServiceImpl.TrustedUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,8 +42,6 @@ import javax.security.auth.login.LoginException;
 /**
  *
  */
-@Component
-@Service
 public final class TrustedLoginModulePlugin implements LoginModulePlugin {
 
   private static final Logger LOGGER = LoggerFactory
@@ -75,9 +70,9 @@ public final class TrustedLoginModulePlugin implements LoginModulePlugin {
       // Unfortunately there is no doDestroy, so we have to use a WeakReference to ensure
       // that
       // the thread local cache does not prevent the session from being closed.
-      WeakReference<PrincipalManager> userManagerRef = new WeakReference<PrincipalManager>(
+/*      WeakReference<PrincipalManager> userManagerRef = new WeakReference<PrincipalManager>(
           AccessControlUtil.getPrincipalManager(session));
-      principalManagerHolder.set(userManagerRef);
+      principalManagerHolder.set(userManagerRef);*/
     } catch (Exception e) {
       throw new LoginException("Login Failed due to seconday exception " + e.getMessage());
     }

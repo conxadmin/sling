@@ -20,7 +20,8 @@ package org.apache.sling.auth.sso.cas.impl;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.auth.sso.cas.api.TrustedTokenService;
+import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
+import org.apache.sling.auth.trusted.token.internal.TrustedTokenServiceWrapper;
 
 class CasAuthenticationTokenServiceWrapper extends TrustedTokenServiceWrapper {
   /**

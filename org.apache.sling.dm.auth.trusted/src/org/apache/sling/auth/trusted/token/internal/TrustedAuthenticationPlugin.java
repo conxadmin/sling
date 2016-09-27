@@ -19,7 +19,7 @@ package org.apache.sling.auth.trusted.token.internal;
 
 import org.apache.sling.jcr.jackrabbit.server.security.AuthenticationPlugin;
 import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
-import org.sakaiproject.nakamura.auth.trusted.TrustedTokenServiceImpl.TrustedUser;
+import org.apache.sling.auth.trusted.token.internal.TrustedTokenServiceImpl.TrustedUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
