@@ -1,0 +1,22 @@
+Bundle-Version: 1.0.9.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling Trusted Auth Token Authentication Handler
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Activator: org.apache.sling.auth.trusted.token.internal.Activator
+Include-Resource: /=resources
+Export-Package: \
+	org.apache.sling.auth.trusted.token.api,\
+	org.apache.sling.auth.trusted.token.api.cluster,\
+	org.apache.sling.auth.trusted.token.api.cluster.cache,\
+	org.apache.sling.auth.trusted.token.api.http.cache,\
+	org.apache.sling.auth.trusted.token.api.http.usercontent,\
+	org.apache.sling.auth.trusted.token.api.memory,\
+	org.apache.sling.auth.trusted.token.api.servlet,\
+	org.apache.sling.auth.trusted.token.api.user,\
+	org.apache.sling.auth.trusted.token.internal,\
+	org.apache.sling.auth.trusted.token.internal.http.cache,\
+	org.apache.sling.auth.trusted.token.internal.memory,\
+	org.apache.sling.auth.trusted.token.util,\
+	org.apache.sling.auth.trusted.token.util.osgi,\
+	org.apache.sling.auth.trusted.token.internal.cluster

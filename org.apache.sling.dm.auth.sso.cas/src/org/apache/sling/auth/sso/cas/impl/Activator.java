@@ -8,20 +8,12 @@ import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
-import org.apache.sling.auth.form.impl.AuthenticationFormServlet;
 import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
-import org.apache.sling.auth.trusted.token.api.cluster.ClusterTrackingService;
-import org.apache.sling.auth.trusted.token.api.http.cache.DynamicContentResponseCache;
-import org.apache.sling.auth.trusted.token.api.memory.CacheManagerService;
-import org.apache.sling.auth.trusted.token.internal.http.cache.DynamicContentResponseCacheImpl;
-import org.apache.sling.auth.trusted.token.internal.memory.CacheManagerServiceImpl;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.sling.jcr.jackrabbit.server.security.LoginModulePlugin;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
-import org.osgi.service.event.EventAdmin;
-import org.osgi.service.http.HttpService;
 
 public class Activator extends DependencyActivatorBase {
 

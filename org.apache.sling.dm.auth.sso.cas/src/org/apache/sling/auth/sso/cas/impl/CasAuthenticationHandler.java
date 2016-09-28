@@ -2,18 +2,21 @@ package org.apache.sling.auth.sso.cas.impl;
 
 
 import com.ctc.wstx.stax.WstxInputFactory;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.lang.StringUtils;
 import org.apache.felix.dm.Component;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.sling.auth.core.spi.AuthenticationInfo;
 import org.apache.sling.auth.core.spi.DefaultAuthenticationFeedbackHandler;
 import org.apache.sling.commons.osgi.OsgiUtil;
+import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.jcr.api.SlingRepository;
-import org.osgi.framework.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,8 +40,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Dictionary;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
 
 import static org.apache.sling.jcr.resource.JcrResourceConstants.AUTHENTICATION_INFO_CREDENTIALS;
 
@@ -56,9 +61,9 @@ public class CasAuthenticationHandler implements AuthenticationHandler,
       .getLogger(CasAuthenticationHandler.class);
 
   static final String DEFAULT_ARTIFACT_NAME = "ticket";
-  static final String DEFAULT_LOGIN_URL = "http://localhost/cas/login";
-  static final String DEFAULT_LOGOUT_URL = "http://localhost/cas/logout";
-  static final String DEFAULT_SERVER_URL = "http://localhost/cas";
+  static final String DEFAULT_LOGIN_URL = "https://cas.myconxclouddev.com/cas/login";
+  static final String DEFAULT_LOGOUT_URL = "https://cas.myconxclouddev.com/cas/logout";
+  static final String DEFAULT_SERVER_URL = "https://cas.myconxclouddev.com/cas";
   static final boolean DEFAULT_RENEW = false;
   static final boolean DEFAULT_GATEWAY = false;
 
@@ -89,6 +94,8 @@ public class CasAuthenticationHandler implements AuthenticationHandler,
    */
   Set<String> filteredQueryStrings = new HashSet<String>(Arrays.asList(
       REQUEST_LOGIN_PARAMETER, DEFAULT_ARTIFACT_NAME));
+  
+  private org.apache.http.client.HttpClient client = null;
 
 private Component component;
 
@@ -105,6 +112,7 @@ private Dictionary<Object, Object> properties;
   protected void init(Component component) {
 	  this.component = component;
 	  this.properties = this.component.getServiceProperties();
+	  this.client = createHttpClient_AcceptsUntrustedCerts();
   }
 
   
@@ -113,17 +121,18 @@ private Dictionary<Object, Object> properties;
   }
 
   protected void modified() {
-    loginUrl = OsgiUtil.toString(this.properties.get(LOGIN_URL), DEFAULT_LOGIN_URL);
-    logoutUrl = OsgiUtil.toString(this.properties.get(LOGOUT_URL), DEFAULT_LOGOUT_URL);
-    serverUrl = OsgiUtil.toString(this.properties.get(SERVER_URL), DEFAULT_SERVER_URL);
+    loginUrl = PropertiesUtil.toString(this.properties.get(LOGIN_URL), DEFAULT_LOGIN_URL);
+    logoutUrl = PropertiesUtil.toString(this.properties.get(LOGOUT_URL), DEFAULT_LOGOUT_URL);
+    serverUrl = PropertiesUtil.toString(this.properties.get(SERVER_URL), DEFAULT_SERVER_URL);
 
-    renew = OsgiUtil.toBoolean(this.properties.get(RENEW), DEFAULT_RENEW);
-    gateway = OsgiUtil.toBoolean(this.properties.get(GATEWAY), DEFAULT_GATEWAY);
+    renew = PropertiesUtil.toBoolean(this.properties.get(RENEW), DEFAULT_RENEW);
+    gateway = PropertiesUtil.toBoolean(this.properties.get(GATEWAY), DEFAULT_GATEWAY);
   }
 
   //----------- AuthenticationHandler interface ----------------------------
 
-  public void dropCredentials(HttpServletRequest request, HttpServletResponse response)
+  @Override
+public void dropCredentials(HttpServletRequest request, HttpServletResponse response)
       throws IOException {
 
     String target = (String) request.getAttribute(Authenticator.LOGIN_RESOURCE);
@@ -141,7 +150,8 @@ private Dictionary<Object, Object> properties;
     request.setAttribute(Authenticator.LOGIN_RESOURCE, logoutUrl);
   }
 
-  public AuthenticationInfo extractCredentials(HttpServletRequest request,
+  @Override
+public AuthenticationInfo extractCredentials(HttpServletRequest request,
       HttpServletResponse response) {
     LOGGER.debug("extractCredentials called");
 
@@ -154,13 +164,13 @@ private Dictionary<Object, Object> properties;
         // make REST call to validate artifact
         String service = constructServiceParameter(request);
         String validateUrl = serverUrl + "/serviceValidate?service=" + service + "&ticket=" + artifact;
-        GetMethod get = new GetMethod(validateUrl);
-        HttpClient httpClient = new HttpClient();
-        int returnCode = httpClient.executeMethod(get);
+        HttpGet get = new HttpGet(validateUrl);
+        HttpResponse rsp = this.client.execute(get);
+        int returnCode = rsp.getStatusLine().getStatusCode();
 
         if (returnCode >= 200 && returnCode < 300) {
           // successful call; test for valid response
-          String body = get.getResponseBodyAsString();
+          String body = EntityUtils.toString(rsp.getEntity());
           String credentials = retrieveCredentials(body);
           if (credentials != null) {
             // found some credentials; proceed
@@ -182,6 +192,11 @@ private Dictionary<Object, Object> properties;
 
     return authnInfo;
   }
+  
+  public org.apache.http.client.HttpClient createHttpClient_AcceptsUntrustedCerts() {
+	  CloseableHttpClient httpClient = HttpClients.custom().setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE).build();
+	  return httpClient;
+	}
 
   /**
    * Called after extractCredentials has returne non-null but logging into the repository
@@ -192,7 +207,8 @@ private Dictionary<Object, Object> properties;
    * @see org.apache.sling.auth.core.spi.AuthenticationHandler#requestCredentials(javax.servlet.http.HttpServletRequest,
    *      javax.servlet.http.HttpServletResponse)
    */
-  public boolean requestCredentials(HttpServletRequest request,
+  @Override
+public boolean requestCredentials(HttpServletRequest request,
       HttpServletResponse response) throws IOException {
     LOGGER.debug("requestCredentials called");
 
@@ -238,7 +254,8 @@ private Dictionary<Object, Object> properties;
    *      javax.servlet.http.HttpServletResponse,
    *      org.apache.sling.auth.core.spi.AuthenticationInfo)
    */
-  public void authenticationFailed(HttpServletRequest request,
+  @Override
+public void authenticationFailed(HttpServletRequest request,
       HttpServletResponse response, AuthenticationInfo authInfo) {
 //    LOGGER.debug("authenticationFailed called");
 //    final HttpSession session = request.getSession(false);
@@ -273,7 +290,8 @@ private Dictionary<Object, Object> properties;
    *      javax.servlet.http.HttpServletResponse,
    *      org.apache.sling.auth.core.spi.AuthenticationInfo)
    */
-  public boolean authenticationSucceeded(HttpServletRequest request,
+  @Override
+public boolean authenticationSucceeded(HttpServletRequest request,
       HttpServletResponse response, AuthenticationInfo authInfo) {
     LOGGER.debug("authenticationSucceeded called");
     // Check for the default post-authentication redirect.
@@ -423,7 +441,8 @@ private Dictionary<Object, Object> properties;
      *
      * @see java.security.Principal#getName()
      */
-    public String getName() {
+    @Override
+	public String getName() {
       return principalName;
     }
   }

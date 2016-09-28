@@ -21,5 +21,8 @@
 	org.apache.sling.dm.servlets.post.mt;version=2.1,\
 	org.apache.sling.jcr.api;version=2.4,\
 	org.apache.sling.jcr.jackrabbit.server.libs;version=2.3,\
-	org.apache.sling.dm.auth.trusted.mt;version=latest
+	org.apache.sling.dm.auth.trusted.mt;version=latest,\
+	com.ctc.wstx;version=3.2,\
+	org.apache.httpcomponents.httpclient;version=4.5,\
+	org.apache.httpcomponents.httpcore;version=4.2
 -sub: *.bnd

@@ -3,6 +3,7 @@ package org.apache.sling.auth.trusted.token.internal;
 
 import java.util.Properties;
 
+import javax.servlet.Filter;
 import javax.servlet.Servlet;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
@@ -11,8 +12,11 @@ import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
 import org.apache.sling.auth.trusted.token.api.cluster.ClusterTrackingService;
 import org.apache.sling.auth.trusted.token.api.http.cache.DynamicContentResponseCache;
 import org.apache.sling.auth.trusted.token.api.memory.CacheManagerService;
+import org.apache.sling.auth.trusted.token.internal.cluster.ClusterTrackingFilter;
+import org.apache.sling.auth.trusted.token.internal.cluster.ClusterTrackingServiceImpl;
 import org.apache.sling.auth.trusted.token.internal.http.cache.DynamicContentResponseCacheImpl;
 import org.apache.sling.auth.trusted.token.internal.memory.CacheManagerServiceImpl;
+import org.apache.sling.commons.scheduler.Scheduler;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
@@ -74,7 +78,7 @@ public class Activator extends DependencyActivatorBase {
 	            ;
 		dm.add(component);
 		
-		//TrustedAuthenticationServlet
+		//TrustedTokenServiceImpl
 		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,TrustedTokenServiceImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
@@ -97,7 +101,7 @@ public class Activator extends DependencyActivatorBase {
 				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
 				.add(createServiceDependency()
 	                	.setService(ClusterCookieServer.class)
-	                	.setRequired(true))
+	                	.setRequired(false))
 	            .add(createServiceDependency()
 	                	.setService(TokenStore.class)
 	                	.setRequired(true))
@@ -158,9 +162,48 @@ public class Activator extends DependencyActivatorBase {
 				.setImplementation(DynamicContentResponseCacheImpl.class)
 				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
 				.add(createServiceDependency()
-	                	.setService(CacheManagerService.class))
+	                	.setService(CacheManagerService.class)
+	                	.setRequired(true))
+	            ;
+		dm.add(component);
+		
+		//=== Cluster
+		//ClusterTrackingFilter
+		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,DynamicContentResponseCacheImpl.class.getName());
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Custer Tracking Filter");
+		properties.put("filter.scope","request");
+		properties.put("filter.order",new Integer[]{10});
+		component = dm.createComponent()
+				.setInterface(new String[] {Filter.class.getName()}, properties)
+				.setImplementation(ClusterTrackingFilter.class)
+				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
+				.add(createServiceDependency()
+	                	.setService(ClusterTrackingService.class)
+	                	.setRequired(true))
+	            ;
+		dm.add(component);
+		
+		//ClusterTrackingFilter
+		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,DynamicContentResponseCacheImpl.class.getName());
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Cluster tracking, tracks app servers and users within the cluster");
+		properties.put(Scheduler.PROPERTY_SCHEDULER_CONCURRENT,false);
+		properties.put(Scheduler.PROPERTY_SCHEDULER_PERIOD,300L);
+		properties.put("secure-host-url","http://localhost:8081");
+		component = dm.createComponent()
+				.setInterface(new String[] {ClusterTrackingService.class.getName(),Runnable.class.getName()}, properties)
+				.setImplementation(ClusterTrackingServiceImpl.class)
+				.setCallbacks("init","activate","deactivate", null)//init, start, stop and destroy.
+				.add(createServiceDependency()
+	                	.setService(CacheManagerService.class)
+	                	.setRequired(true))
+				.add(createServiceDependency()
+	                	.setService(EventAdmin.class)
+	                	.setRequired(true))				
 	            ;
 		dm.add(component);
 	}
-
 }
