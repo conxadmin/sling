@@ -34,7 +34,7 @@ public class Activator extends DependencyActivatorBase {
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
 		//TrustedAuthenticationHandler
-		Properties properties = new Properties();
+/*		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_PID,TrustedAuthenticationHandler.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling TrustedAuthenticationHandler");
@@ -50,10 +50,10 @@ public class Activator extends DependencyActivatorBase {
 	                	.setService(DynamicContentResponseCache.class)
 	                	.setRequired(true))	            
 	            ;
-		 dm.add(component);
+		 dm.add(component);*/
 		 
 		//TrustedAuthenticationServlet
-		properties = new Properties();
+/*		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,TrustedAuthenticationServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Trusted Authentication Servlet");
@@ -76,10 +76,10 @@ public class Activator extends DependencyActivatorBase {
 	                	.setService(TrustedTokenService.class)
 	                	.setRequired(true))
 	            ;
-		dm.add(component);
+		dm.add(component);*/
 		
 		//TrustedTokenServiceImpl
-		properties = new Properties();
+		Properties properties = new Properties();
 		properties.put(Constants.SERVICE_PID,TrustedTokenServiceImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put("sakai.auth.trusted.token.usesession",false);
@@ -95,16 +95,13 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put("sakai.auth.trusted.request-parameter","");
 	    properties.put("sakai.auth.trusted.server.safe-authentication-addresses","");
 	    properties.put("sakai.auth.trusted.token.debugcookies",false);
-		component = dm.createComponent()
+		Component component = dm.createComponent()
 				.setInterface(new String[] {TrustedTokenService.class.getName()}, properties)
 				.setImplementation(TrustedTokenServiceImpl.class)
 				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
 				.add(createServiceDependency()
 	                	.setService(ClusterCookieServer.class)
 	                	.setRequired(false))
-	            .add(createServiceDependency()
-	                	.setService(TokenStore.class)
-	                	.setRequired(true))
 	            .add(createServiceDependency()
 	                	.setService(ClusterTrackingService.class)
 	                	.setRequired(false))
@@ -131,18 +128,6 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(new String[] {CacheManagerService.class.getName()}, properties)
 				.setImplementation(CacheManagerServiceImpl.class)
 				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
-				.add(createServiceDependency()
-	                	.setService(ClusterCookieServer.class)
-	                	.setRequired(true))
-	            .add(createServiceDependency()
-	                	.setService(TokenStore.class)
-	                	.setRequired(true))
-	            .add(createServiceDependency()
-	                	.setService(ClusterTrackingService.class)
-	                	.setRequired(false))
-	            .add(createServiceDependency()
-	                	.setService(CacheManagerService.class)
-	                	.setRequired(true))
 	            .add(createServiceDependency()
 	                	.setService(EventAdmin.class)
 	                	.setRequired(true))
@@ -152,13 +137,13 @@ public class Activator extends DependencyActivatorBase {
 		//=== Http cache
 		//DynamicContentResponseCacheImpl
 		properties = new Properties();
-		properties.put(Constants.SERVICE_PID,DynamicContentResponseCacheImpl.class.getName());
+		properties.put(Constants.SERVICE_PID,DynamicContentResponseCache.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Nakamura Dynamic Response Cache");
 		properties.put("disable.cache.for.dev.mode",false);
 		properties.put("bypass.cache.for.localhost",true);
 		component = dm.createComponent()
-				.setInterface(new String[] {CacheManagerService.class.getName()}, properties)
+				.setInterface(new String[] {DynamicContentResponseCache.class.getName()}, properties)
 				.setImplementation(DynamicContentResponseCacheImpl.class)
 				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
 				.add(createServiceDependency()
@@ -170,7 +155,7 @@ public class Activator extends DependencyActivatorBase {
 		//=== Cluster
 		//ClusterTrackingFilter
 		properties = new Properties();
-		properties.put(Constants.SERVICE_PID,DynamicContentResponseCacheImpl.class.getName());
+		properties.put(Constants.SERVICE_PID,ClusterTrackingFilter.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Custer Tracking Filter");
 		properties.put("filter.scope","request");
@@ -185,9 +170,9 @@ public class Activator extends DependencyActivatorBase {
 	            ;
 		dm.add(component);
 		
-		//ClusterTrackingFilter
+		//ClusterTrackingServiceImpl
 		properties = new Properties();
-		properties.put(Constants.SERVICE_PID,DynamicContentResponseCacheImpl.class.getName());
+		properties.put(Constants.SERVICE_PID,ClusterTrackingServiceImpl.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Cluster tracking, tracks app servers and users within the cluster");
 		properties.put(Scheduler.PROPERTY_SCHEDULER_CONCURRENT,false);

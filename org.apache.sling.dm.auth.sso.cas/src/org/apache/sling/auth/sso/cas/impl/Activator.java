@@ -9,7 +9,7 @@ import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
-import org.apache.sling.jcr.api.SlingRepository;
+//import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.sling.jcr.jackrabbit.server.security.LoginModulePlugin;
 import org.apache.felix.dm.Component;
 import org.osgi.framework.BundleContext;
@@ -24,8 +24,28 @@ public class Activator extends DependencyActivatorBase {
 
 	@Override
 	public void init(BundleContext arg0, DependencyManager dm) throws Exception {
-		//CasAuthenticationHandler
+		//CasLoginServlet
 		Properties properties = new Properties();
+		properties.put(Constants.SERVICE_PID,CasLoginServlet.class.getName());
+		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
+		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling CAS Based Authentication Handler");
+		properties.put("sling.servlet.paths","/system/sling/cas/login");
+		properties.put("sling.auth.requirements","/system/sling/cas/login");
+		properties.put("sling.servlet.methods",new String[]{"GET","POST"});
+		Component component = dm.createComponent()
+				.setInterface(Servlet.class.getName(), properties)
+				.setImplementation(CasLoginServlet.class)
+	            .add(createServiceDependency()
+	                	.setService(CasAuthenticationHandler.class)
+	                	.setRequired(true))
+	            .add(createServiceDependency()
+	                	.setService(TrustedTokenService.class)
+	                	.setRequired(true))	            
+	            ;
+		dm.add(component);
+		 
+		//CasAuthenticationHandler
+		properties = new Properties();
 		properties.put(Constants.SERVICE_PID,CasAuthenticationHandler.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "CasAuthenticationHandler");
@@ -38,13 +58,13 @@ public class Activator extends DependencyActivatorBase {
 	    properties.put(CasAuthenticationHandler.SERVER_URL,CasAuthenticationHandler.DEFAULT_SERVER_URL);
 	    properties.put(CasAuthenticationHandler.RENEW,CasAuthenticationHandler.DEFAULT_RENEW);
 	    properties.put(CasAuthenticationHandler.GATEWAY,CasAuthenticationHandler.DEFAULT_GATEWAY);
-		Component component = dm.createComponent()
+		component = dm.createComponent()
 				.setInterface(new String[]{CasAuthenticationHandler.class.getName(),AuthenticationHandler.class.getName(),AuthenticationFeedbackHandler.class.getName()}, properties)
 				.setImplementation(CasAuthenticationHandler.class)
 				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
-	            .add(createServiceDependency()
+/*	            .add(createServiceDependency()
 	                	.setService(SlingRepository.class)
-	                	.setRequired(true))
+	                	.setRequired(true))*/
 	            ;
 		 dm.add(component);
 		 
@@ -57,25 +77,6 @@ public class Activator extends DependencyActivatorBase {
 				.setImplementation(CasLoginModulePlugin.class)
 	            ;
 		dm.add(component);
-		
-		//CasLoginServlet
-		properties = new Properties();
-		properties.put(Constants.SERVICE_PID,CasLoginServlet.class.getName());
-		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
-		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling CAS Based Authentication Handler");
-		properties.put("sling.servlet.paths","/system/sling/cas/login");
-		properties.put("sling.servlet.methods",new String[]{"GET","POST"});
-		component = dm.createComponent()
-				.setInterface(Servlet.class.getName(), properties)
-				.setImplementation(CasLoginServlet.class)
-	            .add(createServiceDependency()
-	                	.setService(CasAuthenticationHandler.class)
-	                	.setRequired(true))
-	            .add(createServiceDependency()
-	                	.setService(TrustedTokenService.class)
-	                	.setRequired(true))	            
-		;
-		 dm.add(component);
 	}
 
 }

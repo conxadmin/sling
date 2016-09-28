@@ -28,7 +28,7 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_PID,AuthenticationFormServlet.class.getName());
 		properties.put(Constants.SERVICE_VENDOR, "The Apache Software Foundation");
 		properties.put(Constants.SERVICE_DESCRIPTION, "Apache Sling Form Based Authentication Handler");
-		properties.put("sling.servlet.paths","/system/sling/form/login");
+		properties.put("sling.servlet.paths",AuthenticationFormServlet.SERVLET_PATH);
 		properties.put("sling.auth.requirements","-" + AuthenticationFormServlet.SERVLET_PATH);
 		Component component = dm.createComponent()
 				.setInterface(Servlet.class.getName(), properties)

@@ -16,7 +16,7 @@ import org.apache.sling.auth.core.spi.AuthenticationInfo;
 import org.apache.sling.auth.core.spi.DefaultAuthenticationFeedbackHandler;
 import org.apache.sling.commons.osgi.OsgiUtil;
 import org.apache.sling.commons.osgi.PropertiesUtil;
-import org.apache.sling.jcr.api.SlingRepository;
+//import org.apache.sling.jcr.api.SlingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,7 +71,7 @@ public class CasAuthenticationHandler implements AuthenticationHandler,
   static final String AUTHN_INFO = "org.sakaiproject.nakamura.auth.cas.SsoAuthnInfo";
 
   // needed for the automatic user creation.
-  protected volatile SlingRepository repository;
+  //protected volatile SlingRepository repository;
 
   static final String LOGIN_URL = "sakai.auth.cas.url.login";
   private String loginUrl;
@@ -104,9 +104,9 @@ private Dictionary<Object, Object> properties;
   public CasAuthenticationHandler() {
   }
 
-  CasAuthenticationHandler(SlingRepository repository) {
+/*  CasAuthenticationHandler(SlingRepository repository) {
     this.repository = repository;
-  }
+  }*/
 
   //----------- OSGi integration ----------------------------
   protected void init(Component component) {
