@@ -65,61 +65,13 @@
 		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="3" key="pageIndex"/>
+		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="JavaSearchPage">
 		<item value="12" key="HISTORY_SIZE"/>
 		<item value="false" key="CASE_SENSITIVE"/>
 		<item value="15" key="INCLUDE_MASK"/>
 		<section name="HISTORY6">
-			<item value="false" key="isCaseSensitive"/>
-			<item value="" key="javaElement"/>
-			<item value="0" key="scope"/>
-			<item value="15" key="includeMask"/>
-			<item value="org.apache.sling.commons.compiler.JavaCompiler" key="pattern"/>
-			<item value="3" key="limitTo"/>
-			<item value="0" key="matchLocations"/>
-			<item value="0" key="searchFor"/>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY7">
-			<item value="false" key="isCaseSensitive"/>
-			<item value="" key="javaElement"/>
-			<item value="1" key="scope"/>
-			<item value="15" key="includeMask"/>
-			<item value="JavaCompiler" key="pattern"/>
-			<item value="1" key="limitTo"/>
-			<item value="0" key="matchLocations"/>
-			<item value="0" key="searchFor"/>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY4">
-			<item value="true" key="isCaseSensitive"/>
-			<item value="=org.apache.sling.dm.scripting.jsp/\/cnf\/releaserepo\/org.apache.sling.scripting.api\/org.apache.sling.scripting.api-2.1.9.jar&lt;org.apache.sling.scripting.api(ScriptCache.class[ScriptCache" key="javaElement"/>
-			<item value="0" key="scope"/>
-			<item value="15" key="includeMask"/>
-			<item value="org.apache.sling.scripting.api.ScriptCache" key="pattern"/>
-			<item value="1" key="limitTo"/>
-			<item value="0" key="matchLocations"/>
-			<item value="0" key="searchFor"/>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY10">
-			<item value="false" key="isCaseSensitive"/>
-			<item value="" key="javaElement"/>
-			<item value="0" key="scope"/>
-			<item value="15" key="includeMask"/>
-			<item value="org.osgi.service.http.HttpService" key="pattern"/>
-			<item value="1" key="limitTo"/>
-			<item value="0" key="matchLocations"/>
-			<item value="0" key="searchFor"/>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY5">
 			<item value="false" key="isCaseSensitive"/>
 			<item value="" key="javaElement"/>
 			<item value="0" key="scope"/>
@@ -131,55 +83,19 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY11">
+		<section name="HISTORY7">
 			<item value="false" key="isCaseSensitive"/>
 			<item value="" key="javaElement"/>
 			<item value="0" key="scope"/>
 			<item value="15" key="includeMask"/>
-			<item value="org.apache.sling.spi.resource.provider.ResourceProvider" key="pattern"/>
-			<item value="1" key="limitTo"/>
+			<item value="org.apache.sling.commons.compiler.JavaCompiler" key="pattern"/>
+			<item value="3" key="limitTo"/>
 			<item value="0" key="matchLocations"/>
 			<item value="0" key="searchFor"/>
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY8">
-			<item value="false" key="isCaseSensitive"/>
-			<item value="" key="javaElement"/>
-			<item value="1" key="scope"/>
-			<item value="15" key="includeMask"/>
-			<item value="org.apache.sling.servlets.post.NodeNameGenerator" key="pattern"/>
-			<item value="1" key="limitTo"/>
-			<item value="0" key="matchLocations"/>
-			<item value="0" key="searchFor"/>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY9">
-			<item value="true" key="isCaseSensitive"/>
-			<item value="=org.apache.sling.dm.servlets.post/src&lt;org.apache.sling.servlets.post{PostOperation.java[PostOperation" key="javaElement"/>
-			<item value="0" key="scope"/>
-			<item value="15" key="includeMask"/>
-			<item value="org.apache.sling.servlets.post.PostOperation" key="pattern"/>
-			<item value="1" key="limitTo"/>
-			<item value="0" key="matchLocations"/>
-			<item value="0" key="searchFor"/>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY2">
-			<item value="false" key="isCaseSensitive"/>
-			<item value="" key="javaElement"/>
-			<item value="0" key="scope"/>
-			<item value="15" key="includeMask"/>
-			<item value="javax.servlet.Filter" key="pattern"/>
-			<item value="1" key="limitTo"/>
-			<item value="0" key="matchLocations"/>
-			<item value="0" key="searchFor"/>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY3">
+		<section name="HISTORY4">
 			<item value="true" key="isCaseSensitive"/>
 			<item value="=org.apache.sling.dm.jcr.contentloader/src&lt;org.apache.sling.jcr.contentloader{ContentCreator.java[ContentCreator" key="javaElement"/>
 			<item value="0" key="scope"/>
@@ -191,12 +107,96 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY0">
+		<section name="HISTORY10">
+			<item value="true" key="isCaseSensitive"/>
+			<item value="=org.apache.sling.dm.servlets.post/src&lt;org.apache.sling.servlets.post{PostOperation.java[PostOperation" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="org.apache.sling.servlets.post.PostOperation" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY5">
+			<item value="true" key="isCaseSensitive"/>
+			<item value="=org.apache.sling.dm.scripting.jsp/\/cnf\/releaserepo\/org.apache.sling.scripting.api\/org.apache.sling.scripting.api-2.1.9.jar&lt;org.apache.sling.scripting.api(ScriptCache.class[ScriptCache" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="org.apache.sling.scripting.api.ScriptCache" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY11">
 			<item value="false" key="isCaseSensitive"/>
 			<item value="" key="javaElement"/>
 			<item value="0" key="scope"/>
 			<item value="15" key="includeMask"/>
-			<item value="org.apache.sling.api.resource.ResourceResolver" key="pattern"/>
+			<item value="org.osgi.service.http.HttpService" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY8">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="javaElement"/>
+			<item value="1" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="JavaCompiler" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY9">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="javaElement"/>
+			<item value="1" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="org.apache.sling.servlets.post.NodeNameGenerator" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY2">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="javaElement"/>
+			<item value="1" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="SlingHttpServletRequest" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="javax.servlet.Filter" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY0">
+			<item value="true" key="isCaseSensitive"/>
+			<item value="=org.apache.sling.dm.auth.trusted/src&lt;org.apache.sling.auth.trusted.token.api.cluster{ClusterTrackingService.java[ClusterTrackingService" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="15" key="includeMask"/>
+			<item value="org.apache.sling.auth.trusted.token.api.cluster.ClusterTrackingService" key="pattern"/>
 			<item value="1" key="limitTo"/>
 			<item value="0" key="matchLocations"/>
 			<item value="0" key="searchFor"/>
@@ -206,9 +206,9 @@
 		<section name="HISTORY1">
 			<item value="false" key="isCaseSensitive"/>
 			<item value="" key="javaElement"/>
-			<item value="1" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="15" key="includeMask"/>
-			<item value="SlingHttpServletRequest" key="pattern"/>
+			<item value="org.apache.sling.api.resource.ResourceResolver" key="pattern"/>
 			<item value="1" key="limitTo"/>
 			<item value="0" key="matchLocations"/>
 			<item value="0" key="searchFor"/>

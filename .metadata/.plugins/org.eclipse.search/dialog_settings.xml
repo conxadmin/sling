@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="SearchDialog.ScopePart">
-		<item value="0" key="scope"/>
+		<item value="1" key="scope"/>
 	</section>
 	<section name="">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
+		<item value="1000" key="org.eclipse.jdt.search.resultpage.limit"/>
+		<item value="TRUE" key="org.eclipse.jdt.search.resultpage.limit_enabled"/>
 	</section>
 	<section name="">
 		<item value="1000" key="org.eclipse.search.resultpage.limit"/>
@@ -13,7 +15,7 @@
 	</section>
 	<section name="TextSearchPage">
 		<item value="12" key="HISTORY_SIZE"/>
-		<item value="false" key="CASE_SENSITIVE"/>
+		<item value="true" key="CASE_SENSITIVE"/>
 		<item value="false" key="REG_EX_SEARCH"/>
 		<item value="false" key="WHOLE_WORD"/>
 		<item value="false" key="SEARCH_DERIVED"/>
@@ -21,10 +23,10 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="&quot;/&quot;" key="textPattern"/>
+			<item value="new ResourceResolverImpl" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -33,22 +35,22 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="browser" key="textPattern"/>
+			<item value="res://" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY4">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="/system" key="textPattern"/>
+			<item value="&quot;FORM&quot;" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -57,22 +59,22 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="ResourceResolverImpl" key="textPattern"/>
+			<item value="auth.form" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY5">
 			<item value="true" key="ignoreCase"/>
-			<item value="1" key="scope"/>
+			<item value="0" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="/services" key="textPattern"/>
+			<item value="ServiceTracker" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -80,11 +82,11 @@
 		<section name="EXTENSIONS">
 			<item value="*" key="0"/>
 			<item value="*.java" key="1"/>
-			<item value="*Activator*" key="2"/>
-			<item value="apps" key="3"/>
-			<item value="*.txt" key="4"/>
-			<item value="DefaultSlingScript.java" key="5"/>
-			<item value="*Activator*.java" key="6"/>
+			<item value="*Activator*.java" key="2"/>
+			<item value="*Activator*" key="3"/>
+			<item value="apps" key="4"/>
+			<item value="*.txt" key="5"/>
+			<item value="DefaultSlingScript.java" key="6"/>
 			<item value="sling.js" key="7"/>
 			<item value="*.cnd" key="8"/>
 			<item value="*.ncd" key="9"/>
@@ -94,10 +96,10 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="2.9.2" key="textPattern"/>
+			<item value="AUTHN_INFO" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -106,10 +108,10 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="browser.json" key="textPattern"/>
+			<item value="SlingRepository" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -118,19 +120,19 @@
 			<item value="true" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="&lt;%=slingRequest.getResourceResolver().getTenantID()%&gt;" key="textPattern"/>
+			<item value="TokenStore" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
-				<item value="*"/>
+				<item value="*.java"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY2">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="browser.edit" key="textPattern"/>
+			<item value="ticket=" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -139,10 +141,10 @@
 			</list>
 		</section>
 		<section name="HISTORY3">
-			<item value="true" key="ignoreCase"/>
+			<item value="false" key="ignoreCase"/>
 			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="common.js" key="textPattern"/>
+			<item value="&amp;&amp;" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -151,10 +153,10 @@
 			</list>
 		</section>
 		<section name="HISTORY0">
-			<item value="true" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="false" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="SingleSignOn" key="textPattern"/>
+			<item value="TRY_LOGIN" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -163,10 +165,10 @@
 			</list>
 		</section>
 		<section name="HISTORY1">
-			<item value="true" key="ignoreCase"/>
-			<item value="0" key="scope"/>
+			<item value="false" key="ignoreCase"/>
+			<item value="1" key="scope"/>
 			<item value="false" key="isWholeWord"/>
-			<item value="sso" key="textPattern"/>
+			<item value="sakaiauth:login" key="textPattern"/>
 			<item value="false" key="isRegExSearch"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>

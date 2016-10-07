@@ -75,7 +75,6 @@ private Component component;
 private Dictionary<Object, Object> properties;
 
   public CacheManagerServiceImpl() throws IOException {
-    create();
   }
 
   private void create() throws IOException {
@@ -121,7 +120,8 @@ private Dictionary<Object, Object> properties;
 
   @SuppressWarnings("rawtypes")
    protected void activate() throws FileNotFoundException, IOException {
-	  String config = PropertiesUtil.toString(properties.get(CACHE_CONFIG), DEFAULT_CACHE_CONFIG);
+	  create();
+/*	  String config = PropertiesUtil.toString(properties.get(CACHE_CONFIG), DEFAULT_CACHE_CONFIG);
 	  File configFile = new File(config);
 	  ClassLoader cl = Thread.currentThread().getContextClassLoader();
 	  try {
@@ -150,7 +150,7 @@ private Dictionary<Object, Object> properties;
 	  } finally {
 		  Thread.currentThread().setContextClassLoader(cl);
 		  LOGGER.info("Context Classloader reset was {} now {} ",this.getClass().getClassLoader(),cl);
-	  }
+	  }*/
    }
 
   protected InputStream processConfig(InputStream configFile, Dictionary<Object, Object> properties2) {

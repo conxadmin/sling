@@ -9,6 +9,8 @@ import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
+import org.apache.sling.contrib.ldap.api.LdapConnectionManager;
+import org.apache.sling.jcr.api.SlingRepository;
 //import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.sling.jcr.jackrabbit.server.security.LoginModulePlugin;
 import org.apache.felix.dm.Component;
@@ -62,9 +64,12 @@ public class Activator extends DependencyActivatorBase {
 				.setInterface(new String[]{CasAuthenticationHandler.class.getName(),AuthenticationHandler.class.getName(),AuthenticationFeedbackHandler.class.getName()}, properties)
 				.setImplementation(CasAuthenticationHandler.class)
 				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
-/*	            .add(createServiceDependency()
+	            .add(createServiceDependency()
 	                	.setService(SlingRepository.class)
-	                	.setRequired(true))*/
+	                	.setRequired(true))
+	            .add(createServiceDependency()
+	                	.setService(LdapConnectionManager.class)
+	                	.setRequired(true))
 	            ;
 		 dm.add(component);
 		 

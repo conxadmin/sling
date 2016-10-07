@@ -26,11 +26,11 @@
 	<c:otherwise>
 		<%-- Not login use CDN for styling --%>
 		<head>
-			<title>Sling Browser Login</title>
+			<title>Sling Browser SSON Login required</title>
 			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 		</head>
 		<body>
-			<sling:include replaceSelectors="components.login" />
+<%-- 			<sling:include replaceSelectors="components.login" />
 			<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 			<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 			<script>
@@ -48,7 +48,7 @@
 				})
 			});
 			$('#loginModal').modal('show');
-			</script>
+			</script> --%>
 		</body>
 	</c:otherwise>
 </c:choose>

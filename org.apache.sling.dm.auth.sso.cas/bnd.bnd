@@ -24,5 +24,11 @@
 	org.apache.sling.dm.auth.trusted.mt;version=latest,\
 	com.ctc.wstx;version=3.2,\
 	org.apache.httpcomponents.httpclient;version=4.5.2,\
-	org.apache.httpcomponents.httpcore;version=4.4.1
+	org.apache.httpcomponents.httpcore;version=4.4.1,\
+	org.ldaptive.ldapi;version=1.2,\
+	org.ldaptive.json;version=1.2,\
+	org.ldaptive;version=1.2,\
+	org.apache.sling.contrib.ldap.client;version=latest,\
+	org.apache.sling.dm.jcr.base.mt;version=latest,\
+	org.apache.jackrabbit.jackrabbit-api;version=2.12
 -sub: *.bnd

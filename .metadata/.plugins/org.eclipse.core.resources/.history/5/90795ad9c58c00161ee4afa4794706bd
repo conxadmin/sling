@@ -1,0 +1,123 @@
+package org.apache.sling.contrib.ldap.internal;
+
+import org.apache.sling.commons.osgi.PropertiesUtil;
+import org.apache.sling.contrib.ldap.api.LdapConnectionManager;
+import org.ldaptive.Connection;
+import org.ldaptive.DefaultConnectionFactory;
+import org.ldaptive.LdapException;
+import org.ldaptive.pool.PooledConnectionFactory;
+import org.ldaptive.pool.SoftLimitConnectionPool;
+import org.osgi.service.cm.ConfigurationException;
+import org.osgi.service.cm.ManagedService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Dictionary;
+
+/**
+ */
+public class PoolingLdapConnectionManager implements LdapConnectionManager, ManagedService {
+
+	/** Class-specific logger */
+	private static Logger log = LoggerFactory.getLogger(PoolingLdapConnectionManager.class);
+	
+	public final static String PID = PoolingLdapConnectionManager.class.getName();
+	
+	/** Whether to create secure connections. */
+	public final static String LDAP_CLIENT_PROP_SECURECONNECTION = "secureConnection";
+	public final static boolean DEFAULT_LDAP_CLIENT_PROP_SECURECONNECTION = false;
+	
+	/** Where to connect using TLS. */
+	public final static String LDAP_CLIENT_PROP_TLS = "tls";
+	public final static boolean DEFAULT_LDAP_CLIENT_PROP_TLS = false;
+	
+	/** The password to the keystore. */
+	public final static String LDAP_CLIENT_PROP_KEYSTORELOCATION = "keystoreLocation";
+	public final static String DEFAULT_LDAP_CLIENT_PROP_KEYSTORELOCATION = "";	
+
+	/** The password to the keystorePassword. */
+	public final static String LDAP_CLIENT_PROP_KEYSTOREPASSWORD = "keystorePassword";
+	public final static String DEFAULT_LDAP_CLIENT_PROP_KEYSTOREPASSWORD = "";	
+
+	/** The host to which to connect. */
+	public final static String LDAP_CLIENT_PROP_HOST= "host";
+	public final static String DEFAULT_LDAP_CLIENT_PROP_HOST = "";	
+	
+	/** The port to which to connect. */
+	public final static String LDAP_CLIENT_PROP_PORT = "port";
+	public final static int DEFAULT_LDAP_CLIENT_PROP_PORT = 1389;	
+	
+	/** The user/account to use for connections. */
+	public final static String LDAP_CLIENT_PROP_LOGINUSER = "loginuser";
+	public final static String DEFAULT_LDAP_CLIENT_PROP_LOGINUSER = "admin";	
+
+	/** The password to use for connections. */
+	public final static String LDAP_CLIENT_PROP_LOGINPASSWORD = "loginpassword";
+	public final static String DEFAULT_LDAP_CLIENT_PROP_LOGINPASSWORD = "admin";
+	
+
+	/** The password to use for connections. */
+	public final static String LDAP_CLIENT_PROP_POOLMAX = "poolmaxconns";
+	public final static int DEFAULT_LDAP_CLIENT_PROP_POOLMAX = 10;
+	
+	private PooledConnectionFactory connFactory;
+
+	private Dictionary<String, ?> properties;
+	
+	@Override
+	public void updated(Dictionary<String, ?> properties) throws ConfigurationException {
+		if (properties == null)
+			throw new ConfigurationException("NULL conf props","NULL conf props");
+		
+		this.properties = properties;
+		
+		init();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void init() {
+		log.debug("init()");
+		
+		boolean isSecure = PropertiesUtil.toBoolean(this.properties.get(LDAP_CLIENT_PROP_SECURECONNECTION), DEFAULT_LDAP_CLIENT_PROP_SECURECONNECTION);
+		String connectionString = isSecure?"ldaps://":"ldap://";
+		connectionString += PropertiesUtil.toString(this.properties.get(LDAP_CLIENT_PROP_HOST), DEFAULT_LDAP_CLIENT_PROP_HOST);
+		connectionString += ":"+PropertiesUtil.toInteger(this.properties.get(LDAP_CLIENT_PROP_PORT), DEFAULT_LDAP_CLIENT_PROP_PORT);
+		
+		SoftLimitConnectionPool pool = new SoftLimitConnectionPool(
+				new DefaultConnectionFactory(connectionString));
+		pool.initialize();
+		
+		this.connFactory = new PooledConnectionFactory(pool);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Connection getConnection() throws LdapException {
+		log.debug("getConnection()");
+
+		Connection conn = newConnection();
+
+		return conn;
+	}
+
+	protected Connection newConnection() throws LdapException {
+
+		return connFactory.getConnection();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void returnConnection(Connection conn) {
+		try {
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (Exception e) {
+			log.error("returnConnection(): failed on disconnect: ", e);
+		}
+	}
+}

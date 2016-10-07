@@ -1,0 +1,9 @@
+package org.apache.sling.contrib.ldap.api;
+
+import org.ldaptive.Connection;
+
+public interface LdapConnectionLivenessValidator {
+
+  boolean isConnectionAlive(Connection connectionToTest);
+
+}

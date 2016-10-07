@@ -13,7 +13,7 @@
 <typeInfo handle="=org.apache.sling.dm.jcr.jackrabbit.accessmanager/\/Users\/mduduzikeswa\/.bnd\/cache\/http\%3A\%2F\%2Faceobr.myconxclouddev.com\%2Fobr\%2Forg\%2Fapache\%2Fsling\/org.apache.sling.api-2.11.0.jar&lt;org.apache.sling.api.resource.runtime.dto(AuthType.class[AuthType" modifiers="16433" timestamp="1472585959000"/>
 <typeInfo handle="=org.apache.sling.dm.adapter/\/cnf\/releaserepo\/org.apache.sling.api\/org.apache.sling.api-2.14.1.jar&lt;org.apache.sling.api.resource.runtime.dto(AuthType.class[AuthType" modifiers="16401" timestamp="-1"/>
 <typeInfo handle="=org.apache.sling.dm.servlets.post/src&lt;org.apache.sling.servlets.post{PostOperation.java[PostOperation" modifiers="513" timestamp="1471964573000"/>
-<typeInfo handle="=org.apache.sling.dm.resourceresolver/src&lt;org.apache.sling.resourceresolver.impl{ResourceResolverFactoryActivator.java[ResourceResolverFactoryActivator" modifiers="1" timestamp="1474417948000"/>
+<typeInfo handle="=org.apache.sling.dm.resourceresolver/src&lt;org.apache.sling.resourceresolver.impl{ResourceResolverFactoryActivator.java[ResourceResolverFactoryActivator" modifiers="1" timestamp="1475153789000"/>
 <typeInfo handle="=org.apache.sling.dm.scripting.jsp/src&lt;org.apache.sling.scripting.jsp.jasper.servlet{JspServletWrapper.java[JspServletWrapper" modifiers="1" timestamp="1471964573000"/>
 <typeInfo handle="=org.apache.sling.dm.engine/src&lt;org.apache.sling.engine.impl{SlingMainServlet.java[SlingMainServlet" modifiers="1" timestamp="1474395459000"/>
 <typeInfo handle="=org.apache.sling.dm.scripting.core/src&lt;org.apache.sling.scripting.core.impl{ScriptCacheConsolePlugin.java[ScriptCacheConsolePlugin" modifiers="1" timestamp="1472477346000"/>
@@ -32,4 +32,6 @@
 <typeInfo handle="=org.apache.sling.adapter/src\/main\/java&lt;org.apache.sling.adapter{SlingAdaptable.java[SlingAdaptable" modifiers="1049601" timestamp="1471964573000"/>
 <typeInfo handle="=org.apache.sling.dm.engine/src&lt;org.apache.sling.engine.impl.log{RequestLoggerFilter.java[RequestLoggerFilter" modifiers="17" timestamp="1474257950000"/>
 <typeInfo handle="=org.apache.sling.resourceresolver/src\/main\/java&lt;org.apache.sling.resourceresolver.impl{ResourceResolverImpl.java[ResourceResolverImpl" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.auth.trusted.token/src\/main\/java&lt;org.apache.sling.auth.trusted.token.internal{TrustedTokenServiceImpl.java[TrustedTokenServiceImpl" modifiers="17" timestamp="1474979180000"/>
+<typeInfo handle="=org.apache.sling.dm.jcr.resource/src&lt;org.apache.sling.jcr.resource.api{JcrResourceConstants.java[JcrResourceConstants" modifiers="1" timestamp="1471964573000"/>
 </typeInfoHistroy>

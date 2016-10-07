@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Activator.java&apos; to &apos;org.apache.sling.contrib.ldap/src/org.apache.sling.contrib.ldap.osgi&apos;&#x0A;- Original project: &apos;org.apache.sling.dm.browser&apos;&#x0A;- Destination element: &apos;org.apache.sling.contrib.ldap/src/org.apache.sling.contrib.ldap.osgi&apos;&#x0A;- Original element: &apos;org.apache.sling.dm.browser.internal.Activator.java&apos;" description="Copy compilation unit" destination="=org.apache.sling.contrib.ldap/src&lt;org.apache.sling.contrib.ldap.osgi" element1="/src&lt;org.apache.sling.dm.browser.internal{Activator.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1475705421327" units="1" version="1.0"/>
+</session>

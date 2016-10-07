@@ -82,6 +82,7 @@ public class CommonResourceResolverFactoryImpl implements ResourceResolverFactor
     private boolean logResourceResolverClosing = false;
 
 	private String tenantID;
+	
 
     /**
      * Create a new common resource resolver factory.

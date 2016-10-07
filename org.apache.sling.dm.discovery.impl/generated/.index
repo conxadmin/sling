@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1474986614846" name="org.apache.sling.dm.discovery.impl" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1475864834780" name="org.apache.sling.dm.discovery.impl" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.discovery.impl.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.2.9.201609271430"/>
+      <attribute name="version" type="Version" value="1.2.9.201610071827"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="33f3ff476591b826dde4b7cbaa7c4dfc2fb724f11bf7b6f9757682adc06736d6"/>
+      <attribute name="osgi.content" value="603e9cd4c45920be59e790932fc77800b0727bdad1410c6fcdff0d41c1da7c36"/>
       <attribute name="url" value="generated/org.apache.sling.dm.discovery.impl.mt.jar"/>
-      <attribute name="size" type="Long" value="152976"/>
+      <attribute name="size" type="Long" value="152978"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.discovery.impl.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.2.9.201609271430"/>
+      <attribute name="bundle-version" type="Version" value="1.2.9.201610071827"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.discovery.impl.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.2.9.201609271430"/>
+      <attribute name="bundle-version" type="Version" value="1.2.9.201610071827"/>
     </capability>
     <capability namespace="bndtools.workspace">
       <attribute name="bndtools.workspace" value="file:/Users/mduduzikeswa/Documents/dev/conxsoft/conxworks/sling"/>
