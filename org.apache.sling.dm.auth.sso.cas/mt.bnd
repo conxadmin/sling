@@ -13,8 +13,8 @@ X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
 	(objectClass=org.apache.sling.auth.trusted.token.api.TrustedTokenService)\
 	(objectClass=org.apache.sling.auth.trusted.token.api.cluster.ClusterTrackingService)\
 	(objectClass=org.apache.sling.auth.trusted.token.api.http.cache.DynamicContentResponseCache)\
-	(objectClass=org.apache.sling.auth.trusted.token.api.memory.CacheManagerService)
-	(objectClass=org.apache.sling.auth.trusted.token.api.memory.CacheManagerService))
+	(objectClass=org.apache.sling.auth.trusted.token.api.memory.CacheManagerService)\
+	(objectClass=org.apache.sling.contrib.ldap.api.LdapConnectionManager))
 Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
 Include-Resource: /=resources
 Import-Package: javax.security.auth.callback;resolution:=optional,\

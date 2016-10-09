@@ -11,6 +11,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.jackrabbit.api.security.user.Authorizable;
+import org.apache.jackrabbit.api.security.user.AuthorizableExistsException;
 import org.apache.jackrabbit.api.security.user.User;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.auth.Authenticator;
@@ -37,8 +38,13 @@ import org.apache.sling.contrib.ldap.api.LdapConnectionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.jcr.AccessDeniedException;
+import javax.jcr.LoginException;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.SimpleCredentials;
+import javax.jcr.UnsupportedRepositoryOperationException;
+import javax.jcr.ValueFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.namespace.QName;
@@ -83,6 +89,12 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 	static final String DEFAULT_SERVER_URL = "https://cas.myconxclouddev.com/cas";
 	static final boolean DEFAULT_RENEW = false;
 	static final boolean DEFAULT_GATEWAY = false;
+
+	public static final String FIRST_NAME_PROP_DEFAULT = "firstName";
+
+	public static final String LAST_NAME_PROP_DEFAULT = "lastName";
+
+	public static final String EMAIL_PROP_DEFAULT = "email";
 
 	/**
 	 * Represents the constant for where the assertion will be located in
@@ -290,76 +302,75 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 	}
 
 	/**
-   * If a redirect is configured, this method will take care of the redirect.
-   * <p>
-   * If user auto-creation is configured, this method will check for an existing
-   * Authorizable that matches the principal. If not found, it creates a new Jackrabbit
-   * user with all properties blank except for the ID and a randomly generated password.
-   * WARNING: Currently this will not perform the extra work done by the Nakamura
-   * CreateUserServlet, and the resulting user will not be associated with a valid
-   * profile.
-   * <p>
-   * Note: do not try to inject the token here.  The request has not had the authenticated
-   * user added to it so request.getUserPrincipal() and request.getRemoteUser() both
-   * return null.
-   * <p>
-   * TODO This really needs to be dropped to allow for user pull, person directory
-   * integrations, etc. See SLING-1563 for the related issue of user population via
-   * OpenID.
-   *
-   * @see org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler#authenticationSucceeded(javax.servlet.http.HttpServletRequest,
-   *      javax.servlet.http.HttpServletResponse,
-   *      org.apache.sling.auth.core.spi.AuthenticationInfo)
-   */
-  @Override
-public boolean authenticationSucceeded(HttpServletRequest request,
-      HttpServletResponse response, AuthenticationInfo authInfo) {
-    LOGGER.debug("authenticationSucceeded called");
-    
-    Session session = repository.loginAdministrative(null);
+	 * If a redirect is configured, this method will take care of the redirect.
+	 * <p>
+	 * If user auto-creation is configured, this method will check for an
+	 * existing Authorizable that matches the principal. If not found, it
+	 * creates a new Jackrabbit user with all properties blank except for the ID
+	 * and a randomly generated password. WARNING: Currently this will not
+	 * perform the extra work done by the Nakamura CreateUserServlet, and the
+	 * resulting user will not be associated with a valid profile.
+	 * <p>
+	 * Note: do not try to inject the token here. The request has not had the
+	 * authenticated user added to it so request.getUserPrincipal() and
+	 * request.getRemoteUser() both return null.
+	 * <p>
+	 * TODO This really needs to be dropped to allow for user pull, person
+	 * directory integrations, etc. See SLING-1563 for the related issue of user
+	 * population via OpenID.
+	 *
+	 * @see org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler#authenticationSucceeded(javax.servlet.http.HttpServletRequest,
+	 *      javax.servlet.http.HttpServletResponse,
+	 *      org.apache.sling.auth.core.spi.AuthenticationInfo)
+	 */
+	@Override
+	public boolean authenticationSucceeded(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationInfo authInfo) {
+		LOGGER.debug("authenticationSucceeded called");
 
-    UserManager um = AccessControlUtil.getUserManager(session);
-    Authorizable auth = um.getAuthorizable(authInfo.getUser());
+		try {
+			Session session = repository.loginAdministrative(null);
 
-    if (auth == null) {
-      String password = RandomStringUtils.random(8);
-      User user = um.createUser(authInfo.getUser(), password);
+			UserManager um = AccessControlUtil.getUserManager(session);
+			Authorizable auth = um.getAuthorizable(authInfo.getUser());
 
-      if (decorateUser) {
-        decorateUser(session, user);
-      }
-    
-    // Check for the default post-authentication redirect.
-    return DefaultAuthenticationFeedbackHandler.handleRedirect(request, response);
-  }
-    
-    private void decorateUser(Session session, User user) {
-        try {
-          final SearchResult result = fetchUserFromLdap(user.getID());
+			if (auth == null) {
+				String password = RandomStringUtils.random(8);
+				User user = um.createUser(authInfo.getUser(), password);
 
-          // get a connection to LDAP
-          LDAPConnection conn = connMgr.getBoundConnection(null, null);
-          LDAPSearchResults results = conn.search(baseDn, LDAPConnection.SCOPE_SUB, userDn,
-              new String[] { firstNameProp, lastNameProp, emailProp }, true);
-          if (results.hasMore()) {
-            LDAPEntry entry = results.next();
-            ValueFactory vf = session.getValueFactory();
-            user.setProperty("firstName",
-                vf.createValue(entry.getAttribute(firstNameProp).toString()));
-            user.setProperty("lastName",
-                vf.createValue(entry.getAttribute(lastNameProp).toString()));
-            user.setProperty("email",
-                vf.createValue(entry.getAttribute(emailProp).toString()));
-          } else {
-            LOGGER.warn("Can't find user [" + userDn + "]");
-          }
-        } catch (LDAPException e) {
-          LOGGER.warn(e.getMessage(), e);
-        } catch (RepositoryException e) {
-          LOGGER.warn(e.getMessage(), e);
-        }
-      }
-  }
+				decorateUser(session, user);
+
+				// Check for the default post-authentication redirect.
+				return DefaultAuthenticationFeedbackHandler.handleRedirect(request, response);
+			}
+		} catch (Exception e) {
+	        LOGGER.warn(e.getMessage(), e);
+		}
+		
+		return false;
+	}
+
+	private void decorateUser(Session session, User user) {
+		try {
+			final SearchResult result = fetchUserFromLdap(user.getID());
+			final Iterator<LdapEntry> entries = result.getEntries().iterator();
+
+			if (entries.hasNext()) {
+				LdapEntry entry = entries.next();
+				ValueFactory vf = session.getValueFactory();
+				user.setProperty("firstName", vf.createValue(entry.getAttribute(FIRST_NAME_PROP_DEFAULT).toString()));
+				user.setProperty("lastName", vf.createValue(entry.getAttribute(LAST_NAME_PROP_DEFAULT).toString()));
+				user.setProperty("email", vf.createValue(entry.getAttribute(EMAIL_PROP_DEFAULT).toString()));
+			} else {
+				LOGGER.warn("Can't find user [" + user.getID() + "]");
+			}
+
+		} catch (LdapException e) {
+			LOGGER.warn(e.getMessage(), e);
+		} catch (RepositoryException e) {
+			LOGGER.warn(e.getMessage(), e);
+		}
+	}
 
 	private SearchResult fetchUserFromLdap(String user) throws LdapException {
 		LOGGER.debug("mp resolve user={}", user);
