@@ -11,40 +11,34 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.jackrabbit.api.security.user.Authorizable;
-import org.apache.jackrabbit.api.security.user.AuthorizableExistsException;
 import org.apache.jackrabbit.api.security.user.User;
 import org.apache.jackrabbit.api.security.user.UserManager;
+import org.apache.jackrabbit.core.security.authentication.CryptedSimpleCredentials;
 import org.apache.sling.api.auth.Authenticator;
 import org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
 import org.apache.sling.auth.core.spi.AuthenticationInfo;
 import org.apache.sling.auth.core.spi.DefaultAuthenticationFeedbackHandler;
-import org.apache.sling.commons.osgi.OsgiUtil;
+import org.apache.sling.auth.sso.cas.api.ILDAPLoginUserManager;
+import org.apache.sling.auth.sso.cas.api.SsoPrincipal;
+import org.apache.sling.auth.trusted.token.api.memory.Cache;
+import org.apache.sling.auth.trusted.token.api.memory.CacheManagerService;
+import org.apache.sling.auth.trusted.token.api.memory.CacheScope;
 import org.apache.sling.commons.osgi.PropertiesUtil;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.apache.sling.jcr.base.util.AccessControlUtil;
-import org.ldaptive.Connection;
-import org.ldaptive.DnParser;
 import org.ldaptive.LdapEntry;
 import org.ldaptive.LdapException;
-import org.ldaptive.ReturnAttributes;
 import org.ldaptive.SearchFilter;
-import org.ldaptive.SearchOperation;
-import org.ldaptive.SearchRequest;
 import org.ldaptive.SearchResult;
-import org.ldaptive.SearchScope;
-import org.apache.sling.contrib.ldap.api.DomainNotFoundException;
-import org.apache.sling.contrib.ldap.api.LdapConnectionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.AccessDeniedException;
-import javax.jcr.LoginException;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.SimpleCredentials;
-import javax.jcr.UnsupportedRepositoryOperationException;
 import javax.jcr.ValueFactory;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.namespace.QName;
@@ -59,15 +53,15 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 
 import static org.apache.sling.jcr.resource.JcrResourceConstants.AUTHENTICATION_INFO_CREDENTIALS;
@@ -77,7 +71,7 @@ import static org.apache.sling.jcr.resource.JcrResourceConstants.AUTHENTICATION_
  * integration is needed only due to limitations on servlet filter support in
  * the OSGi / Sling environment.
  */
-public class CasAuthenticationHandler implements AuthenticationHandler, AuthenticationFeedbackHandler {
+public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandler implements AuthenticationHandler, AuthenticationFeedbackHandler {
 
 	public static final String AUTH_TYPE = "CAS";
 
@@ -89,6 +83,9 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 	static final String DEFAULT_SERVER_URL = "https://cas.myconxclouddev.com/cas";
 	static final boolean DEFAULT_RENEW = false;
 	static final boolean DEFAULT_GATEWAY = false;
+	static final boolean DEFAULT_PROXY = false;	
+	
+	private static final int DEFAULT_MAX_COOKIE_SIZE = 4096;
 
 	public static final String FIRST_NAME_PROP_DEFAULT = "firstName";
 
@@ -101,12 +98,6 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 	 * memory.
 	 */
 	static final String AUTHN_INFO = "org.sakaiproject.nakamura.auth.cas.SsoAuthnInfo";
-
-	// needed for the automatic user population.
-	protected volatile LdapConnectionManager ldapConnecitonManager;
-
-	// needed for the automatic user creation.
-	protected volatile SlingRepository repository;
 
 	static final String LOGIN_URL = "sakai.auth.cas.url.login";
 	private String loginUrl;
@@ -123,6 +114,8 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 	static final String GATEWAY = "sakai.auth.cas.prop.gateway";
 	private boolean gateway;
 
+	static final String PROXY = "sakai.auth.cas.prop.proxy";
+	private boolean proxy;
 	/**
 	 * Define the set of authentication-related query parameters which should be
 	 * removed from the "service" URL sent to the SSO server.
@@ -135,6 +128,17 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 	private Component component;
 
 	private Dictionary<Object, Object> properties;
+	
+	  private Cache<String> pgtIOUs;
+	  private Cache<String> pgts;
+	
+	
+	//-- DM injected
+	private volatile CacheManagerService cacheManagerService;
+	
+	private volatile SlingRepository repository;
+	
+	private volatile ILDAPLoginUserManager ldapLoginUserManager;
 
 	public CasAuthenticationHandler() {
 	}
@@ -162,6 +166,12 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 
 		renew = PropertiesUtil.toBoolean(this.properties.get(RENEW), DEFAULT_RENEW);
 		gateway = PropertiesUtil.toBoolean(this.properties.get(GATEWAY), DEFAULT_GATEWAY);
+		proxy = PropertiesUtil.toBoolean(this.properties.get(PROXY), DEFAULT_PROXY);
+		
+	    pgtIOUs = cacheManagerService.getCache(CasAuthenticationHandler.class.getName()
+	            + "-iou-cache", CacheScope.CLUSTERREPLICATED);
+	        pgts = cacheManagerService.getCache(CasAuthenticationHandler.class.getName()
+	            + "-pgt-cache", CacheScope.CLUSTERREPLICATED);
 	}
 
 	// ----------- AuthenticationHandler interface ----------------------------
@@ -193,6 +203,23 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 
 		if (artifact != null) {
 			try {
+				// Check cookies
+		        final Cookie[] cookies = request.getCookies();
+		        if (cookies != null) {
+		            for (final Cookie cookie : cookies) {
+		                final String cookieName = cookie.getName();
+	                    String val = readCookieValue(cookie);
+	                    LOGGER.info("cookie found: {} value {}", cookieName, val);
+/*		                if (cookieName.equals(xingCookie)) {
+		                    hash = readCookieValue(cookie);
+		                    logger.debug("“Login with XING” cookie found: {}", hash);
+		                } else if (cookieName.equals(userCookie)) {
+		                    user = readCookieValue(cookie);
+		                } else if (cookieName.equals(userIdCookie)) {
+		                    userId = readCookieValue(cookie);
+		                }*/
+		            }
+		        }
 				// make REST call to validate artifact
 				String service = constructServiceParameter(request);
 				String validateUrl = serverUrl + "/serviceValidate?service=" + service + "&ticket=" + artifact;
@@ -205,8 +232,9 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 					String body = EntityUtils.toString(rsp.getEntity());
 					String credentials = retrieveCredentials(body);
 					if (credentials != null) {
+						String password = RandomStringUtils.random(8);
 						// found some credentials; proceed
-						authnInfo = createAuthnInfo(credentials);
+						authnInfo = createAuthnInfo(credentials,password.toCharArray());
 
 						request.setAttribute(AUTHN_INFO, authnInfo);
 					} else {
@@ -323,7 +351,7 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 	 *      javax.servlet.http.HttpServletResponse,
 	 *      org.apache.sling.auth.core.spi.AuthenticationInfo)
 	 */
-	@Override
+/*	@Override
 	public boolean authenticationSucceeded(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationInfo authInfo) {
 		LOGGER.debug("authenticationSucceeded called");
@@ -348,61 +376,29 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 		}
 		
 		return false;
-	}
+	}*/
 
-	private void decorateUser(Session session, User user) {
-		try {
-			final SearchResult result = fetchUserFromLdap(user.getID());
-			final Iterator<LdapEntry> entries = result.getEntries().iterator();
-
-			if (entries.hasNext()) {
-				LdapEntry entry = entries.next();
-				ValueFactory vf = session.getValueFactory();
-				user.setProperty("firstName", vf.createValue(entry.getAttribute(FIRST_NAME_PROP_DEFAULT).toString()));
-				user.setProperty("lastName", vf.createValue(entry.getAttribute(LAST_NAME_PROP_DEFAULT).toString()));
-				user.setProperty("email", vf.createValue(entry.getAttribute(EMAIL_PROP_DEFAULT).toString()));
-			} else {
-				LOGGER.warn("Can't find user [" + user.getID() + "]");
-			}
-
-		} catch (LdapException e) {
-			LOGGER.warn(e.getMessage(), e);
-		} catch (RepositoryException e) {
-			LOGGER.warn(e.getMessage(), e);
-		}
-	}
-
-	private SearchResult fetchUserFromLdap(String user) throws LdapException {
-		LOGGER.debug("mp resolve user={}", user);
-		SearchResult result = null;
-		if (user != null && !"".equals(user)) {
-			// create the search filter
-			final SearchFilter filter = ldapConnecitonManager.createSearchFilter(user);
-			final String userBaseDn = ldapConnecitonManager.lookupUserDomain(user);
-
-			if (filter.getFilter() != null) {
-				result = ldapConnecitonManager.performLdapSearch(filter, user, false, userBaseDn);
-				if (result == null) {
-					LOGGER.debug("user lookup failed", user, filter);
-					throw new LdapException("Failed to find user={}: " + user);
-				}
-			} else {
-				LOGGER.warn("DN resolution cannot occur, user input was empty or null");
-			}
-		}
-
-		return result;
-	}
 
 	// ----------- Internal ----------------------------
-	private AuthenticationInfo createAuthnInfo(final String username) {
-		final SsoPrincipal principal = new SsoPrincipal(username);
+	private AuthenticationInfo createAuthnInfo(final String username, final char[] password) {
+		final SimpleCredentials credentials = createCredentials(username, password);
 		AuthenticationInfo authnInfo = new AuthenticationInfo(AUTH_TYPE, username);
-		SimpleCredentials credentials = new SimpleCredentials(principal.getName(), new char[] {});
-		credentials.setAttribute(SsoPrincipal.class.getName(), principal);
 		authnInfo.put(AUTHENTICATION_INFO_CREDENTIALS, credentials);
 		return authnInfo;
 	}
+	
+	private SimpleCredentials createCredentials(final String username, final char[] password) {
+		final SsoPrincipal principal = new SsoPrincipal(username);
+		SimpleCredentials credentials = new SimpleCredentials(principal.getName(), password);
+		credentials.setAttribute(SsoPrincipal.class.getName(), principal);	
+		return credentials;
+	}
+	
+	private AuthenticationInfo createAuthnInfo(final String username, CryptedSimpleCredentials creds) {
+		AuthenticationInfo authnInfo = new AuthenticationInfo(AUTH_TYPE, username);
+		authnInfo.put(AUTHENTICATION_INFO_CREDENTIALS, creds);
+		return authnInfo;
+	}	
 
 	/**
 	 * @param request
@@ -445,6 +441,7 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 
 	private String retrieveCredentials(String responseBody) {
 		String username = null;
+		String pgtIou = null;
 		String failureCode = null;
 		String failureMessage = null;
 
@@ -492,24 +489,43 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 					 * </cas:authenticationSuccess> </cas:serviceResponse>
 					 */
 					if ("authenticationSuccess".equalsIgnoreCase(startElLocalName)) {
-						// skip to the user tag start
-						event = eventReader.nextTag();
-						assert event.isStartElement();
-						startEl = event.asStartElement();
-						startElName = startEl.getName();
-						startElLocalName = startElName.getLocalPart();
-						if (!"user".equals(startElLocalName)) {
-							LOGGER.error("Found unexpected element [" + startElName
-									+ "] while inside 'authenticationSuccess'");
-							break;
-						}
+				         // skip to the user tag start
+			            while (eventReader.hasNext()) {
+							event = eventReader.nextTag();
+							if (event.isEndElement()) {
+								if (eventReader.hasNext()) {
+									event = eventReader.nextTag();
+								} else {
+									break;
+								}
+							}
+							assert event.isStartElement();
+							startEl = event.asStartElement();
+							startElName = startEl.getName();
+							startElLocalName = startElName.getLocalPart();
+							if (proxy && "proxyGrantingTicket".equals(startElLocalName)) {
+								event = eventReader.nextEvent();
+								assert event.isCharacters();
+								Characters chars = event.asCharacters();
+								pgtIou = chars.getData();
+								LOGGER.debug("XML parser found pgt: {}", pgtIou);
+							} else if ("user".equals(startElLocalName)) {
+								// move on to the body of the user tag
+								event = eventReader.nextEvent();
+								assert event.isCharacters();
+								Characters chars = event.asCharacters();
+								username = chars.getData();
+								LOGGER.debug("XML parser found user: {}", username);
+							} else {
+								LOGGER.error("Found unexpected element [{}] while inside 'authenticationSuccess'",
+										startElName);
+								break;
+							}
 
-						// move on to the body of the user tag
-						event = eventReader.nextEvent();
-						assert event.isCharacters();
-						Characters chars = event.asCharacters();
-						username = chars.getData();
-						break;
+							if (username != null && (!proxy || pgtIou != null)) {
+								break;
+							}
+						}
 					}
 				}
 			}
@@ -520,24 +536,78 @@ public class CasAuthenticationHandler implements AuthenticationHandler, Authenti
 		if (failureCode != null || failureMessage != null) {
 			LOGGER.error("Error response from server [code=" + failureCode + ", message=" + failureMessage);
 		}
-		return username;
+		
+	    String pgt = pgts.get(pgtIou);
+	    if (pgt != null) {
+	      savePgt(username, pgt, pgtIou);
+	    } else {
+	      LOGGER.debug("Caching '{}' as the IOU for '{}'", pgtIou, username);
+	      pgtIOUs.put(pgtIou, username);
+	    }
+	    return username;
 	}
+	
+	  protected void savePgt(String username, String pgt, String pgtIou) {
+		    Map<String, Object> pgtId = new HashMap<String, Object>();
+		    pgtId.put("ticket", pgt);
+		    Session session = null;
+		    try {
+		    	final String password = RandomStringUtils.random(8);
+		    	final SimpleCredentials creds = createCredentials(username, password.toCharArray());
+		      final User user = ldapLoginUserManager.createUser(creds);
+		      final String savePath = user.getPath()+"/cas";
+		      LOGGER.debug("Saving pgt '{}' to '{}'", pgtId, savePath);
+		      ContentManager contentManager = session.getContentManager();
+		      if (contentManager.exists(LitePersonalUtils.getHomePath(username))) {
+		        String savePath = LitePersonalUtils.getPrivatePath(username) + "/cas";
+		        
+		        Content storedTicket = new Content(savePath, pgtId);
+		        contentManager.update(storedTicket);
+		        // remove the pgtIOU from cache
+		        pgts.remove(pgtIou);
+		        pgtIOUs.remove(pgtIou);
+		      } else {
+		        LOGGER.debug("User {} has no content home, not saving pgt", username);
+		      }
+		    } catch (StorageClientException e) {
+		      LOGGER.error("Couldn't save proxy granting ticket: ", e);
+		    } catch (AccessDeniedException e) {
+		      LOGGER.error("Permission error saving proxy granting ticket: ", e);
+		    } finally {
+		      if (session != null) {
+		        try {
+		          session.logout();
+		        } catch (ClientPoolException e) {
+		          throw new RuntimeException("Failed to logout session", e);
+		        }
+		      }
+		    }
+		  }
+	
+    protected String readCookieValue(final Cookie cookie) {
+        if (cookie.getValue() != null) {
+            if (cookie.getValue().length() > DEFAULT_MAX_COOKIE_SIZE) {
+            	LOGGER.warn("size of cookie value greater than configured max. cookie size of {}", DEFAULT_MAX_COOKIE_SIZE);
+            } else {
+                return cookie.getValue();
+            }
+        }
+        return null;
+    }
 
-	static final class SsoPrincipal implements Principal {
-		private String principalName;
-
-		public SsoPrincipal(String principalName) {
-			this.principalName = principalName;
-		}
-
-		/**
-		 * {@inheritDoc}
-		 *
-		 * @see java.security.Principal#getName()
-		 */
-		@Override
-		public String getName() {
-			return principalName;
-		}
-	}
+    protected void deleteCookies(final HttpServletRequest request, final HttpServletResponse response) {
+        final Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (final Cookie cookie : cookies) {
+                final String name = cookie.getName();
+                LOGGER.debug("cookie found: '{}'", name);
+/*                if (name.equals(xingCookie) || name.equals(userCookie) || name.equals(userIdCookie)) {
+                    logger.debug("deleting cookie '{}' with value '{}'", cookie.getName(), cookie.getValue());
+                    cookie.setValue(null);
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                }*/
+            }
+        }
+    }	
 }

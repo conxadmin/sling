@@ -1,0 +1,4 @@
+1476303582015	Rename type 'DefaultXingLoginUserManager'
+1476309567942	Rename type 'DefaultCASLoginUserManager'
+1476310702375	Rename type 'DefaultCASLDAPLoginUserManager'
+1476310724052	Rename type 'ICASLoginUserManager'

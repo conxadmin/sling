@@ -1,5 +1,9 @@
 package org.apache.sling.auth.sso.cas.impl;
 
+import org.apache.jackrabbit.api.security.user.User;
+import org.apache.sling.auth.sso.cas.api.ILDAPLoginUserManager;
+import org.apache.sling.auth.sso.cas.api.SsoPrincipal;
+
 /*
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
@@ -18,9 +22,10 @@ package org.apache.sling.auth.sso.cas.impl;
  * specific language governing permissions and limitations under the License.
  */
 
-import org.apache.sling.auth.sso.cas.impl.CasAuthenticationHandler.SsoPrincipal;
 import org.apache.sling.jcr.jackrabbit.server.security.AuthenticationPlugin;
 import org.apache.sling.jcr.jackrabbit.server.security.LoginModulePlugin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.security.Principal;
 import java.util.Map;
@@ -38,6 +43,10 @@ import javax.security.auth.login.LoginException;
  * Plugin for interacting with the JCR authentication cycle.
  */
 public class CasLoginModulePlugin implements LoginModulePlugin {
+	
+	private static final Logger logger = LoggerFactory.getLogger(CasLoginModulePlugin.class);
+	
+	private volatile ILDAPLoginUserManager ldapLoginUserManager;
 
   @SuppressWarnings("rawtypes")
   public void addPrincipals(Set principals) {
@@ -62,15 +71,19 @@ public class CasLoginModulePlugin implements LoginModulePlugin {
   }
 
   public Principal getPrincipal(Credentials credentials) {
-    SsoPrincipal ssoPrincipal = null;
-    if (credentials instanceof SimpleCredentials) {
-      SimpleCredentials simpleCredentials = (SimpleCredentials) credentials;
-      Object attribute = simpleCredentials.getAttribute(SsoPrincipal.class.getName());
-      if (attribute instanceof SsoPrincipal) {
-        ssoPrincipal = (SsoPrincipal) attribute;
+      logger.debug("getPrincipal({})", credentials);
+      try {
+          User user = ldapLoginUserManager.getUser(credentials);
+          if (user == null && ldapLoginUserManager.autoCreate()) {
+              user = ldapLoginUserManager.createUser(credentials);
+          }
+          if (user != null) {
+              return user.getPrincipal();
+          }
+      } catch (RepositoryException e) {
+          logger.error(e.getMessage(), e);
       }
-    }
-    return ssoPrincipal;
+      return null;
   }
 
   public int impersonate(Principal principal, Credentials credentials)

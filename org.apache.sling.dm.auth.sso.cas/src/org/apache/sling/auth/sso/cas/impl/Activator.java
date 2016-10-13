@@ -8,6 +8,7 @@ import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.apache.sling.auth.core.spi.AuthenticationFeedbackHandler;
 import org.apache.sling.auth.core.spi.AuthenticationHandler;
+import org.apache.sling.auth.sso.cas.api.ILDAPLoginUserManager;
 import org.apache.sling.auth.trusted.token.api.TrustedTokenService;
 import org.apache.sling.contrib.ldap.api.LdapConnectionManager;
 import org.apache.sling.jcr.api.SlingRepository;
@@ -68,7 +69,7 @@ public class Activator extends DependencyActivatorBase {
 	                	.setService(SlingRepository.class)
 	                	.setRequired(true))
 	            .add(createServiceDependency()
-	                	.setService(LdapConnectionManager.class)
+	                	.setService(ILDAPLoginUserManager.class)
 	                	.setRequired(true))
 	            ;
 		 dm.add(component);
@@ -80,8 +81,30 @@ public class Activator extends DependencyActivatorBase {
 		component = dm.createComponent()
 				.setInterface(new String[] {LoginModulePlugin.class.getName()}, properties)
 				.setImplementation(CasLoginModulePlugin.class)
+	            .add(createServiceDependency()
+	                	.setService(ILDAPLoginUserManager.class)
+	                	.setRequired(true))				
 	            ;
 		dm.add(component);
+		
+		
+		//DefaultLDAPLoginUserManager
+		properties = new Properties();
+		properties.put(Constants.SERVICE_PID,CasAuthenticationHandler.class.getName());
+		properties.put(Constants.SERVICE_VENDOR, "ConxWorks");
+		properties.put(Constants.SERVICE_DESCRIPTION, "CasAuthenticationHandler");
+		component = dm.createComponent()
+				.setInterface(ILDAPLoginUserManager.class.getName(), properties)
+				.setImplementation(DefaultLDAPLoginUserManager.class)
+				.setCallbacks("init","activate",null, null)//init, start, stop and destroy.
+	            .add(createServiceDependency()
+	                	.setService(SlingRepository.class)
+	                	.setRequired(true))
+	            .add(createServiceDependency()
+	                	.setService(LdapConnectionManager.class)
+	                	.setRequired(true))
+	            ;
+		 dm.add(component);
 	}
 
 }

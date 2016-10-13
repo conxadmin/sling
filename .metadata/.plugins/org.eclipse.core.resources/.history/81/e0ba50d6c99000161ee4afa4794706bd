@@ -1,0 +1,323 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.sling.auth.sso.cas.impl;
+
+import java.util.Dictionary;
+import java.util.Iterator;
+
+import javax.jcr.Credentials;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import javax.jcr.SimpleCredentials;
+import javax.jcr.Value;
+import javax.jcr.ValueFactory;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.felix.dm.Component;
+import org.apache.jackrabbit.api.JackrabbitSession;
+import org.apache.jackrabbit.api.security.user.Authorizable;
+import org.apache.jackrabbit.api.security.user.User;
+import org.apache.jackrabbit.api.security.user.UserManager;
+import org.apache.sling.auth.sso.cas.api.ICASLoginUserManager;
+import org.apache.sling.auth.sso.cas.api.SsoPrincipal;
+import org.apache.sling.auth.xing.api.AbstractXingUserManager;
+import org.apache.sling.auth.xing.api.XingUser;
+import org.apache.sling.auth.xing.login.XingLogin;
+import org.apache.sling.auth.xing.login.XingLoginUserManager;
+import org.apache.sling.auth.xing.login.XingLoginUtil;
+import org.apache.sling.commons.osgi.PropertiesUtil;
+import org.apache.sling.contrib.ldap.api.LdapConnectionManager;
+import org.apache.sling.jcr.api.SlingRepository;
+import org.ldaptive.LdapEntry;
+import org.ldaptive.LdapException;
+import org.ldaptive.SearchFilter;
+import org.ldaptive.SearchResult;
+import org.osgi.framework.Constants;
+import org.osgi.service.component.ComponentContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Component(
+    label = "Apache Sling Authentication CAS Login “Default User Manager”",
+    description = "Default User Manager for Sling Authentication CAS Login",
+    immediate = true,
+    metatype = true
+)
+@Service
+@Properties({
+    @Property(name = Constants.SERVICE_VENDOR, value = XingLogin.SERVICE_VENDOR),
+    @Property(name = Constants.SERVICE_DESCRIPTION, value = "Default User Manager for Sling Authentication XING Login"),
+    @Property(name = Constants.SERVICE_RANKING, intValue = 0, propertyPrivate = false)
+})
+public class DefaultLDAPLoginUserManager  implements ICASLoginUserManager {
+    private final Logger logger = LoggerFactory.getLogger(DefaultLDAPLoginUserManager.class);
+    
+    private String secretKey;
+
+    private String userDataProperty;
+
+    private String userHashProperty;
+    
+    //-- User manager
+    protected boolean autoCreateUser;
+
+    protected boolean autoUpdateUser;
+
+    protected Session session;
+
+    public static final boolean DEFAULT_AUTO_CREATE_USER = true;
+
+    public static final boolean DEFAULT_AUTO_UPDATE_USER = false;
+    
+	public static final String FIRST_NAME_PROP_DEFAULT = "firstName";
+
+	public static final String LAST_NAME_PROP_DEFAULT = "lastName";
+
+	public static final String EMAIL_PROP_DEFAULT = "email";    
+   
+
+    private static final String DEFAULT_USER_DATA_PROPERTY = "data";
+
+    private static final String DEFAULT_USER_HASH_PROPERTY = "hash";
+
+    private static final String SECRET_KEY_PARAMETER = "org.apache.sling.auth.sso.cas.impl.DefaultXingLoginUserManager.secretKey";
+
+    private static final String USER_DATA_PROPERTY_PARAMETER = "org.apache.sling.auth.sso.cas.impl.DefaultXingLoginUserManager.user.property.data";
+
+    private static final String USER_HASH_PROPERTY_PARAMETER = "org.apache.sling.auth.sso.cas.impl.DefaultXingLoginUserManager.user.property.hash";
+
+    private static final String AUTO_CREATE_USER_PARAMETER = "org.apache.sling.auth.sso.cas.impl.DefaultXingLoginUserManager.user.create.auto";
+
+    private static final String AUTO_UPDATE_USER_PARAMETER = "org.apache.sling.auth.sso.cas.impl.DefaultXingLoginUserManager.user.update.auto";
+
+    //-- DM injected
+    private volatile SlingRepository slingRepository;
+    
+    private volatile LdapConnectionManager ldapConnectionManager;
+    
+	private Component component;
+
+	private Dictionary<Object, Object> properties;
+
+    public DefaultLDAPLoginUserManager() {
+    }
+    
+    
+	protected void init(Component component) {
+		this.component = component;
+		this.properties = this.component.getServiceProperties();
+	}
+
+	protected void activate() {
+		logger.debug("activate");
+		modified();
+	}
+
+    protected void modified() {
+        logger.debug("modified");
+        configure();
+    }
+
+    protected void deactivate() {
+        logger.debug("deactivate");
+        if (session != null) {
+            session.logout();
+            session = null;
+        }
+    }
+
+    protected synchronized void configure() {
+        secretKey = PropertiesUtil.toString(properties.get(SECRET_KEY_PARAMETER), "").trim();
+        userDataProperty = PropertiesUtil.toString(properties.get(USER_DATA_PROPERTY_PARAMETER), DEFAULT_USER_DATA_PROPERTY).trim();
+        userHashProperty = PropertiesUtil.toString(properties.get(USER_HASH_PROPERTY_PARAMETER), DEFAULT_USER_HASH_PROPERTY).trim();
+        autoCreateUser = PropertiesUtil.toBoolean(properties.get(AUTO_CREATE_USER_PARAMETER), DEFAULT_AUTO_CREATE_USER);
+        autoUpdateUser = PropertiesUtil.toBoolean(properties.get(AUTO_UPDATE_USER_PARAMETER), DEFAULT_AUTO_UPDATE_USER);
+
+        if (StringUtils.isEmpty(secretKey)) {
+            logger.warn("configured secret key is empty");
+        }
+    }
+
+    @Override
+    public User createUser(final Credentials credentials) {
+        logger.debug("create user");
+        return storeUser(credentials);
+    }
+
+    @Override
+    public User updateUser(Credentials credentials) {
+        logger.debug("update user");
+        return storeUser(credentials);
+    }
+
+    protected User storeUser(Credentials credentials) {
+        SsoPrincipal ssoPrincipal = null;
+        if (credentials instanceof SimpleCredentials) {
+          SimpleCredentials simpleCredentials = (SimpleCredentials) credentials;
+          Object attribute = simpleCredentials.getAttribute(SsoPrincipal.class.getName());
+          if (attribute instanceof SsoPrincipal) {
+            ssoPrincipal = (SsoPrincipal) attribute;
+          }
+        }
+
+
+        try {
+            User user = getUser(ssoPrincipal.getName());
+            if (user == null) {
+                logger.debug("creating a new user with id '{}'", ssoPrincipal.getName());
+                final Session session = getSession();
+                final UserManager userManager = getUserManager(session);
+                user = userManager.createUser(ssoPrincipal.getName(), null);
+                decorateUser(session,user);
+            } else {
+                logger.debug("updating an existing user with id '{}'", ssoPrincipal.getName());
+            }
+
+            // TODO disable user on create?
+/*            final ValueFactory valueFactory = getSession().getValueFactory();
+            final Value dataValue = valueFactory.createValue(json);
+            final Value hashValue = valueFactory.createValue(givenHash);
+            user.setProperty(userDataProperty, dataValue);
+            user.setProperty(userHashProperty, hashValue);*/
+            session.save();
+            return user;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            return null;
+        }
+    }
+    
+	private void decorateUser(Session session, User user) {
+		try {
+			final SearchResult result = fetchUserFromLdap(user.getID());
+			final Iterator<LdapEntry> entries = result.getEntries().iterator();
+
+			if (entries.hasNext()) {
+				LdapEntry entry = entries.next();
+				ValueFactory vf = session.getValueFactory();
+				user.setProperty("firstName", vf.createValue(entry.getAttribute(FIRST_NAME_PROP_DEFAULT).toString()));
+				user.setProperty("lastName", vf.createValue(entry.getAttribute(LAST_NAME_PROP_DEFAULT).toString()));
+				user.setProperty("email", vf.createValue(entry.getAttribute(EMAIL_PROP_DEFAULT).toString()));
+			} else {
+				logger.warn("Can't find user [" + user.getID() + "]");
+			}
+
+		} catch (LdapException e) {
+			logger.warn(e.getMessage(), e);
+		} catch (RepositoryException e) {
+			logger.warn(e.getMessage(), e);
+		}
+	}
+
+	private SearchResult fetchUserFromLdap(String user) throws LdapException {
+		logger.debug("mp resolve user={}", user);
+		SearchResult result = null;
+		if (user != null && !"".equals(user)) {
+			// create the search filter
+			final SearchFilter filter = ldapConnectionManager.createSearchFilter(user);
+			final String userBaseDn = ldapConnectionManager.lookupUserDomain(user);
+
+			if (filter.getFilter() != null) {
+				result = ldapConnectionManager.performLdapSearch(filter, user, false, userBaseDn);
+				if (result == null) {
+					logger.debug("user lookup failed", user, filter);
+					throw new LdapException("Failed to find user={}: " + user);
+				}
+			} else {
+				logger.warn("DN resolution cannot occur, user input was empty or null");
+			}
+		}
+
+		return result;
+	}    
+
+    @Override
+    public String getHash(final User user) {
+        try {
+            final Value[] values = user.getProperty(userHashProperty);
+            if (values != null && values.length == 1) {
+                final Value value = values[0];
+                return value.getString();
+            }
+        } catch (RepositoryException e) {
+            logger.error(e.getMessage(), e);
+        }
+        return null;
+    }
+
+    
+    @Override
+    public boolean autoCreate() {
+        return autoCreateUser;
+    }
+
+    @Override
+    public boolean autoUpdate() {
+        return autoUpdateUser;
+    }
+
+    @Override
+    public User getUser(final Credentials credentials) {
+        if (credentials instanceof SimpleCredentials) {
+            final SimpleCredentials simpleCredentials = (SimpleCredentials) credentials;
+            final String userId = simpleCredentials.getUserID();
+            return getUser(userId);
+        }
+        return null;
+    }
+
+    protected User getUser(final String userId) {
+        logger.info("getting user with id '{}'", userId);
+        try {
+            final Session session = getSession();
+            final UserManager userManager = getUserManager(session);
+            final Authorizable authorizable = userManager.getAuthorizable(userId);
+            if (authorizable != null) {
+                if (authorizable instanceof User) {
+                    final User user = (User) authorizable;
+                    logger.debug("user for id '{}' found", userId);
+                    return user;
+                } else {
+                    logger.debug("found authorizable with id '{}' is not an user", authorizable.getID());
+                }
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+        return null;
+    }
+
+    protected synchronized Session getSession() throws RepositoryException {
+        if (session == null || !session.isLive()) {
+            session = this.slingRepository.loginService(null, null);
+        }
+        return session;
+    }
+
+    protected UserManager getUserManager(final Session session) throws RepositoryException {
+        if (session instanceof JackrabbitSession) {
+            final JackrabbitSession jackrabbitSession = (JackrabbitSession) session;
+            return jackrabbitSession.getUserManager();
+        } else {
+            logger.error("Cannot get UserManager from session: not a Jackrabbit session");
+            return null;
+        }
+    }    
+    
+}

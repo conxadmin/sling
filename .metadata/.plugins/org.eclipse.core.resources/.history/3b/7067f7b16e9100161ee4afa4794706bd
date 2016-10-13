@@ -1,0 +1,40 @@
+Bundle-Version: 1.0.9.${tstamp}
+Bundle-DocURL: http://sling.apache.org/site/authentication.html
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Name: Apache Sling CAS Based Authentication Handler
+Bundle-Description: Bundle implementing CAS based authentication with \
+	login and logout support.
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+X-MultiTenant-Version: 1
+X-MultiTenant-Bundle-Activator: org.apache.sling.auth.sso.cas.impl.Activator
+X-MultiTenant-Scope: (|(org.amdatu.tenant.pid=%TENANTPID%)\
+	(objectClass=org.osgi.service.log.LogService)\
+	(objectClass=org.apache.sling.auth.trusted.token.api.TrustedTokenService)\
+	(objectClass=org.apache.sling.auth.trusted.token.api.cluster.ClusterTrackingService)\
+	(objectClass=org.apache.sling.auth.trusted.token.api.http.cache.DynamicContentResponseCache)\
+	(objectClass=org.apache.sling.auth.trusted.token.api.memory.CacheManagerService)\
+	(objectClass=org.apache.sling.contrib.ldap.api.LdapConnectionManager))
+Bundle-Activator: org.amdatu.multitenant.adapter.MultiTenantBundleActivator
+Include-Resource: /=resources
+Import-Package: javax.security.auth.callback;resolution:=optional,\
+	javax.security.auth.login;resolution:=optional,\
+	org.apache.sling.jcr.jackrabbit.server.security;resolution:=optional;version="[2.0,3)",\
+	javax.crypto,\
+	javax.crypto.spec,\
+	javax.jcr,\
+	javax.security.auth.spi,\
+	javax.servlet,\
+	javax.servlet.http,\
+	org.apache.commons.lang;version="[2.4,3)",\
+	org.apache.felix.jaas;version="[1.0,2)";resolution:=optional,\
+	org.apache.jackrabbit.oak.spi.security.authentication;version="[1.0,2)";resolution:=optional,\
+	org.apache.sling.api.resource;version="[2.1,3)",\
+	org.apache.sling.auth.core;version="[1.1,2)",\
+	org.apache.sling.auth.core.spi;version="[1.0,2)",\
+	org.osgi.framework;version="[1.4,2)",\
+	org.osgi.service.component;version="[1.0,2)",\
+	org.osgi.service.event;version="[1.1,2)",\
+	org.slf4j;version="[1.5,2)",\
+	*  
+Private-Package: org.apache.sling.auth.sso.cas.impl

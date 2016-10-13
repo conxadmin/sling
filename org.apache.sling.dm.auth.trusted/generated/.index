@@ -1,119 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1475864848381" name="org.apache.sling.dm.auth.trusted" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1476208526394" name="org.apache.sling.dm.auth.trusted" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.auth.trusted.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="4c4f6ecf13a5df934593b1e98bb3836538d518aaa7a028ecbee3f355749afb5f"/>
+      <attribute name="osgi.content" value="9b78459142cd36f86c76aea8cebe4b9820d14ef50febf4cda65235d078e07f0d"/>
       <attribute name="url" value="generated/org.apache.sling.dm.auth.trusted.mt.jar"/>
       <attribute name="size" type="Long" value="273395"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet.http"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.cluster"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet.http"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.cluster.cache"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="org.apache.sling.auth.trusted.token.api.cluster"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.http.cache"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet.http"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.http.usercontent"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="org.apache.sling.api,org.apache.sling.api.resource"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.memory"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.servlet"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="org.mortbay.jetty"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.user"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.internal"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.crypto,javax.jcr,javax.security.auth.callback,javax.security.auth.login,javax.servlet,javax.servlet.http,org.apache.felix.dm,org.apache.sling.auth.core.spi,org.apache.sling.auth.trusted.token.api,org.apache.sling.auth.trusted.token.api.cluster,org.apache.sling.auth.trusted.token.api.http.cache,org.apache.sling.auth.trusted.token.api.memory,org.apache.sling.jcr.api,org.apache.sling.jcr.jackrabbit.server.security,org.osgi.framework,org.osgi.service.event,org.osgi.service.http,org.slf4j"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.internal.http.cache"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet,javax.servlet.http,org.apache.felix.dm,org.apache.sling.auth.trusted.token.api.http.cache,org.apache.sling.auth.trusted.token.api.memory"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.internal.memory"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="net.sf.ehcache,org.apache.felix.dm,org.apache.sling.auth.trusted.token.api.memory"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.util"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.jcr,javax.jcr.query,org.apache.jackrabbit.api.security.user,org.apache.sling.api,org.apache.sling.commons.json,org.slf4j"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.util.osgi"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="org.apache.sling.api.resource,org.osgi.service.event"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.internal.cluster"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.mt"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet,javax.servlet.http,org.apache.felix.dm,org.apache.sling.auth.trusted.token.api.cluster,org.apache.sling.auth.trusted.token.api.memory"/>
     </capability>
     <capability namespace="bndtools.workspace">
@@ -275,116 +275,116 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.auth.trusted.standard"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="d391594fb565970d8707dfd75e84feec5110f1f7a088c2e1fb487c696552d79d"/>
+      <attribute name="osgi.content" value="41eeda65e26f3b7cc42a227bd82d34aba794956e4620a915f63cd76393508372"/>
       <attribute name="url" value="generated/org.apache.sling.dm.auth.trusted.standard.jar"/>
       <attribute name="size" type="Long" value="273276"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet.http"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.cluster"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet.http"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.cluster.cache"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="org.apache.sling.auth.trusted.token.api.cluster"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.http.cache"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet.http"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.http.usercontent"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="org.apache.sling.api,org.apache.sling.api.resource"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.memory"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.servlet"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="org.mortbay.jetty"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.api.user"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.internal"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.crypto,javax.jcr,javax.security.auth.callback,javax.security.auth.login,javax.servlet,javax.servlet.http,org.apache.felix.dm,org.apache.sling.auth.core.spi,org.apache.sling.auth.trusted.token.api,org.apache.sling.auth.trusted.token.api.cluster,org.apache.sling.auth.trusted.token.api.http.cache,org.apache.sling.auth.trusted.token.api.memory,org.apache.sling.jcr.api,org.apache.sling.jcr.jackrabbit.server.security,org.osgi.framework,org.osgi.service.event,org.osgi.service.http,org.slf4j"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.internal.http.cache"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet,javax.servlet.http,org.apache.felix.dm,org.apache.sling.auth.trusted.token.api.http.cache,org.apache.sling.auth.trusted.token.api.memory"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.internal.memory"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="net.sf.ehcache,org.apache.felix.dm,org.apache.sling.auth.trusted.token.api.memory"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.util"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.jcr,javax.jcr.query,org.apache.jackrabbit.api.security.user,org.apache.sling.api,org.apache.sling.commons.json,org.slf4j"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.util.osgi"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="org.apache.sling.api.resource,org.osgi.service.event"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.auth.trusted.token.internal.cluster"/>
       <attribute name="version" type="Version" value="1.0.0"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.auth.trusted.standard"/>
-      <attribute name="bundle-version" type="Version" value="1.0.9.201610071827"/>
+      <attribute name="bundle-version" type="Version" value="1.0.9.201610111755"/>
       <directive name="uses" value="javax.servlet,javax.servlet.http,org.apache.felix.dm,org.apache.sling.auth.trusted.token.api.cluster,org.apache.sling.auth.trusted.token.api.memory"/>
     </capability>
     <capability namespace="bndtools.workspace">
