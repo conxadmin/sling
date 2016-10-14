@@ -75,7 +75,7 @@ public class Activator extends DependencyActivatorBase {
 		properties.put(Constants.SERVICE_DESCRIPTION, "org.apache.sling.engine.impl.auth.SlingAuthenticator");
 	    properties.put("auth.sudo.cookie","sling.sudo");
 	    properties.put("auth.sudo.parameter","sudo");
-	    properties.put("auth.annonymous",false);
+	    properties.put("auth.annonymous",true);
 	    properties.put("auth.http","preemptive");
 	    properties.put("auth.http.realm","Sling (Development)");
 	    properties.put("auth.uri.suffix","/j_security_check");

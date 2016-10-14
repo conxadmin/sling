@@ -2,3 +2,4 @@
 1476309567942	Rename type 'DefaultCASLoginUserManager'
 1476310702375	Rename type 'DefaultCASLDAPLoginUserManager'
 1476310724052	Rename type 'ICASLoginUserManager'
+1476471208335	Extract constant 'TARGET_SERVICE'

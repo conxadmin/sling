@@ -71,7 +71,10 @@ import static org.apache.sling.jcr.resource.JcrResourceConstants.AUTHENTICATION_
  * integration is needed only due to limitations on servlet filter support in
  * the OSGi / Sling environment.
  */
-public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandler implements AuthenticationHandler, AuthenticationFeedbackHandler {
+public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandler
+		implements AuthenticationHandler, AuthenticationFeedbackHandler {
+
+	private static final String TARGET_SERVICE = "targetService";
 
 	public static final String AUTH_TYPE = "CAS";
 
@@ -83,8 +86,8 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 	static final String DEFAULT_SERVER_URL = "https://cas.myconxclouddev.com/cas";
 	static final boolean DEFAULT_RENEW = false;
 	static final boolean DEFAULT_GATEWAY = false;
-	static final boolean DEFAULT_PROXY = false;	
-	
+	static final boolean DEFAULT_PROXY = false;
+
 	private static final int DEFAULT_MAX_COOKIE_SIZE = 4096;
 
 	public static final String FIRST_NAME_PROP_DEFAULT = "firstName";
@@ -128,16 +131,13 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 	private Component component;
 
 	private Dictionary<Object, Object> properties;
-	
-	  private Cache<String> pgtIOUs;
-	  private Cache<String> pgts;
-	
-	
-	//-- DM injected
-	private volatile CacheManagerService cacheManagerService;
-	
+
+	private Cache<String> pgtIOUs;
+	private Cache<String> pgts;
+
+	// -- DM injected
 	private volatile SlingRepository repository;
-	
+
 	private volatile ILDAPLoginUserManager ldapLoginUserManager;
 
 	public CasAuthenticationHandler() {
@@ -167,11 +167,14 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 		renew = PropertiesUtil.toBoolean(this.properties.get(RENEW), DEFAULT_RENEW);
 		gateway = PropertiesUtil.toBoolean(this.properties.get(GATEWAY), DEFAULT_GATEWAY);
 		proxy = PropertiesUtil.toBoolean(this.properties.get(PROXY), DEFAULT_PROXY);
-		
-	    pgtIOUs = cacheManagerService.getCache(CasAuthenticationHandler.class.getName()
-	            + "-iou-cache", CacheScope.CLUSTERREPLICATED);
-	        pgts = cacheManagerService.getCache(CasAuthenticationHandler.class.getName()
-	            + "-pgt-cache", CacheScope.CLUSTERREPLICATED);
+
+		/*
+		 * pgtIOUs =
+		 * cacheManagerService.getCache(CasAuthenticationHandler.class.getName()
+		 * + "-iou-cache", CacheScope.CLUSTERREPLICATED); pgts =
+		 * cacheManagerService.getCache(CasAuthenticationHandler.class.getName()
+		 * + "-pgt-cache", CacheScope.CLUSTERREPLICATED);
+		 */
 	}
 
 	// ----------- AuthenticationHandler interface ----------------------------
@@ -204,22 +207,23 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 		if (artifact != null) {
 			try {
 				// Check cookies
-		        final Cookie[] cookies = request.getCookies();
-		        if (cookies != null) {
-		            for (final Cookie cookie : cookies) {
-		                final String cookieName = cookie.getName();
-	                    String val = readCookieValue(cookie);
-	                    LOGGER.info("cookie found: {} value {}", cookieName, val);
-/*		                if (cookieName.equals(xingCookie)) {
-		                    hash = readCookieValue(cookie);
-		                    logger.debug("“Login with XING” cookie found: {}", hash);
-		                } else if (cookieName.equals(userCookie)) {
-		                    user = readCookieValue(cookie);
-		                } else if (cookieName.equals(userIdCookie)) {
-		                    userId = readCookieValue(cookie);
-		                }*/
-		            }
-		        }
+				final Cookie[] cookies = request.getCookies();
+				if (cookies != null) {
+					for (final Cookie cookie : cookies) {
+						final String cookieName = cookie.getName();
+						String val = readCookieValue(cookie);
+						LOGGER.info("cookie found: {} value {}", cookieName, val);
+						/*
+						 * if (cookieName.equals(xingCookie)) { hash =
+						 * readCookieValue(cookie); logger.debug(
+						 * "“Login with XING” cookie found: {}", hash); } else
+						 * if (cookieName.equals(userCookie)) { user =
+						 * readCookieValue(cookie); } else if
+						 * (cookieName.equals(userIdCookie)) { userId =
+						 * readCookieValue(cookie); }
+						 */
+					}
+				}
 				// make REST call to validate artifact
 				String service = constructServiceParameter(request);
 				String validateUrl = serverUrl + "/serviceValidate?service=" + service + "&ticket=" + artifact;
@@ -234,7 +238,7 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 					if (credentials != null) {
 						String password = RandomStringUtils.random(8);
 						// found some credentials; proceed
-						authnInfo = createAuthnInfo(credentials,password.toCharArray());
+						authnInfo = createAuthnInfo(credentials, password.toCharArray());
 
 						request.setAttribute(AUTHN_INFO, authnInfo);
 					} else {
@@ -271,6 +275,8 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 	@Override
 	public boolean requestCredentials(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		LOGGER.debug("requestCredentials called");
+		
+		//response.addHeader("Access-Control-Allow-Origin", "https://cas.myconxclouddev.com");
 
 		final String service = constructServiceParameter(request);
 		LOGGER.debug("Service URL = \"{}\"", service);
@@ -351,33 +357,27 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 	 *      javax.servlet.http.HttpServletResponse,
 	 *      org.apache.sling.auth.core.spi.AuthenticationInfo)
 	 */
-/*	@Override
-	public boolean authenticationSucceeded(HttpServletRequest request, HttpServletResponse response,
-			AuthenticationInfo authInfo) {
-		LOGGER.debug("authenticationSucceeded called");
-
-		try {
-			Session session = repository.loginAdministrative(null);
-
-			UserManager um = AccessControlUtil.getUserManager(session);
-			Authorizable auth = um.getAuthorizable(authInfo.getUser());
-
-			if (auth == null) {
-				String password = RandomStringUtils.random(8);
-				User user = um.createUser(authInfo.getUser(), password);
-
-				decorateUser(session, user);
-
-				// Check for the default post-authentication redirect.
-				return DefaultAuthenticationFeedbackHandler.handleRedirect(request, response);
-			}
-		} catch (Exception e) {
-	        LOGGER.warn(e.getMessage(), e);
-		}
-		
-		return false;
-	}*/
-
+	/*
+	 * @Override public boolean authenticationSucceeded(HttpServletRequest
+	 * request, HttpServletResponse response, AuthenticationInfo authInfo) {
+	 * LOGGER.debug("authenticationSucceeded called");
+	 * 
+	 * try { Session session = repository.loginAdministrative(null);
+	 * 
+	 * UserManager um = AccessControlUtil.getUserManager(session); Authorizable
+	 * auth = um.getAuthorizable(authInfo.getUser());
+	 * 
+	 * if (auth == null) { String password = RandomStringUtils.random(8); User
+	 * user = um.createUser(authInfo.getUser(), password);
+	 * 
+	 * decorateUser(session, user);
+	 * 
+	 * // Check for the default post-authentication redirect. return
+	 * DefaultAuthenticationFeedbackHandler.handleRedirect(request, response); }
+	 * } catch (Exception e) { LOGGER.warn(e.getMessage(), e); }
+	 * 
+	 * return false; }
+	 */
 
 	// ----------- Internal ----------------------------
 	private AuthenticationInfo createAuthnInfo(final String username, final char[] password) {
@@ -386,19 +386,19 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 		authnInfo.put(AUTHENTICATION_INFO_CREDENTIALS, credentials);
 		return authnInfo;
 	}
-	
+
 	private SimpleCredentials createCredentials(final String username, final char[] password) {
 		final SsoPrincipal principal = new SsoPrincipal(username);
 		SimpleCredentials credentials = new SimpleCredentials(principal.getName(), password);
-		credentials.setAttribute(SsoPrincipal.class.getName(), principal);	
+		credentials.setAttribute(SsoPrincipal.class.getName(), principal);
 		return credentials;
 	}
-	
+
 	private AuthenticationInfo createAuthnInfo(final String username, CryptedSimpleCredentials creds) {
 		AuthenticationInfo authnInfo = new AuthenticationInfo(AUTH_TYPE, username);
 		authnInfo.put(AUTHENTICATION_INFO_CREDENTIALS, creds);
 		return authnInfo;
-	}	
+	}
 
 	/**
 	 * @param request
@@ -409,9 +409,29 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 	 *         used to specify a different return path.
 	 */
 	protected String constructServiceParameter(HttpServletRequest request) throws UnsupportedEncodingException {
-		StringBuffer url = request.getRequestURL().append("?");
-
+		//Check for target service param
 		String queryString = request.getQueryString();
+		if (queryString != null && queryString.contains(TARGET_SERVICE)) {
+			String[] parameters = StringUtils.split(queryString, '&');
+			for (String parameter : parameters) {
+				String[] keyAndValue = StringUtils.split(parameter, "=", 2);
+				String key = keyAndValue[0];
+				if (TARGET_SERVICE.equals(key)) {
+					//Base URL
+					String scheme = request.getScheme();
+					String host = request.getHeader("Host");        // includes server name and server port
+					String contextPath = request.getContextPath();  // includes leading forward slash
+
+					String base = scheme + "://" + host + contextPath;
+					if (keyAndValue[1].contains(base))
+						return keyAndValue[1];
+					else
+						return base+keyAndValue[1];
+				}
+			}
+		}
+		
+		StringBuffer url = request.getRequestURL().append("?");
 		String tryLogin = CasLoginServlet.TRY_LOGIN + "=2";
 		if (queryString == null || queryString.indexOf(tryLogin) == -1) {
 			url.append(tryLogin).append("&");
@@ -489,8 +509,8 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 					 * </cas:authenticationSuccess> </cas:serviceResponse>
 					 */
 					if ("authenticationSuccess".equalsIgnoreCase(startElLocalName)) {
-				         // skip to the user tag start
-			            while (eventReader.hasNext()) {
+						// skip to the user tag start
+						while (eventReader.hasNext()) {
 							event = eventReader.nextTag();
 							if (event.isEndElement()) {
 								if (eventReader.hasNext()) {
@@ -536,78 +556,70 @@ public class CasAuthenticationHandler extends DefaultAuthenticationFeedbackHandl
 		if (failureCode != null || failureMessage != null) {
 			LOGGER.error("Error response from server [code=" + failureCode + ", message=" + failureMessage);
 		}
-		
-	    String pgt = pgts.get(pgtIou);
-	    if (pgt != null) {
-	      savePgt(username, pgt, pgtIou);
-	    } else {
-	      LOGGER.debug("Caching '{}' as the IOU for '{}'", pgtIou, username);
-	      pgtIOUs.put(pgtIou, username);
-	    }
-	    return username;
-	}
-	
-	  protected void savePgt(String username, String pgt, String pgtIou) {
-		    Map<String, Object> pgtId = new HashMap<String, Object>();
-		    pgtId.put("ticket", pgt);
-		    Session session = null;
-		    try {
-		    	final String password = RandomStringUtils.random(8);
-		    	final SimpleCredentials creds = createCredentials(username, password.toCharArray());
-		      final User user = ldapLoginUserManager.createUser(creds);
-		      final String savePath = user.getPath()+"/cas";
-		      LOGGER.debug("Saving pgt '{}' to '{}'", pgtId, savePath);
-		      ContentManager contentManager = session.getContentManager();
-		      if (contentManager.exists(LitePersonalUtils.getHomePath(username))) {
-		        String savePath = LitePersonalUtils.getPrivatePath(username) + "/cas";
-		        
-		        Content storedTicket = new Content(savePath, pgtId);
-		        contentManager.update(storedTicket);
-		        // remove the pgtIOU from cache
-		        pgts.remove(pgtIou);
-		        pgtIOUs.remove(pgtIou);
-		      } else {
-		        LOGGER.debug("User {} has no content home, not saving pgt", username);
-		      }
-		    } catch (StorageClientException e) {
-		      LOGGER.error("Couldn't save proxy granting ticket: ", e);
-		    } catch (AccessDeniedException e) {
-		      LOGGER.error("Permission error saving proxy granting ticket: ", e);
-		    } finally {
-		      if (session != null) {
-		        try {
-		          session.logout();
-		        } catch (ClientPoolException e) {
-		          throw new RuntimeException("Failed to logout session", e);
-		        }
-		      }
-		    }
-		  }
-	
-    protected String readCookieValue(final Cookie cookie) {
-        if (cookie.getValue() != null) {
-            if (cookie.getValue().length() > DEFAULT_MAX_COOKIE_SIZE) {
-            	LOGGER.warn("size of cookie value greater than configured max. cookie size of {}", DEFAULT_MAX_COOKIE_SIZE);
-            } else {
-                return cookie.getValue();
-            }
-        }
-        return null;
-    }
 
-    protected void deleteCookies(final HttpServletRequest request, final HttpServletResponse response) {
-        final Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (final Cookie cookie : cookies) {
-                final String name = cookie.getName();
-                LOGGER.debug("cookie found: '{}'", name);
-/*                if (name.equals(xingCookie) || name.equals(userCookie) || name.equals(userIdCookie)) {
-                    logger.debug("deleting cookie '{}' with value '{}'", cookie.getName(), cookie.getValue());
-                    cookie.setValue(null);
-                    cookie.setMaxAge(0);
-                    response.addCookie(cookie);
-                }*/
-            }
-        }
-    }	
+		LOGGER.debug("Caching '{}' as the IOU for '{}'", pgtIou, username);
+/*		String pgt = pgts.get(pgtIou);
+		if (pgt != null) {
+			savePgt(username, pgt, pgtIou);
+		} else {
+			LOGGER.debug("Caching '{}' as the IOU for '{}'", pgtIou, username);
+			pgtIOUs.put(pgtIou, username);
+		}*/
+		return username;
+	}
+
+	protected void savePgt(String username, String pgt, String pgtIou) {
+		Map<String, Object> pgtId = new HashMap<String, Object>();
+		pgtId.put("ticket", pgt);
+		try {
+			final String password = RandomStringUtils.random(8);
+			final SimpleCredentials creds = createCredentials(username, password.toCharArray());
+			final User user = ldapLoginUserManager.createUser(creds);
+			final String savePath = user.getPath() + "/cas";
+			LOGGER.debug("Saving pgt '{}' to '{}'", pgtId, savePath);
+			/*
+			 * ContentManager contentManager = session.getContentManager(); if
+			 * (contentManager.exists(LitePersonalUtils.getHomePath(username)))
+			 * { String savePath = LitePersonalUtils.getPrivatePath(username) +
+			 * "/cas";
+			 * 
+			 * Content storedTicket = new Content(savePath, pgtId);
+			 * contentManager.update(storedTicket); // remove the pgtIOU from
+			 * cache pgts.remove(pgtIou); pgtIOUs.remove(pgtIou); } else {
+			 * LOGGER.debug("User {} has no content home, not saving pgt",
+			 * username); }
+			 */
+		} catch (Exception e) {
+			LOGGER.error("Couldn't save proxy granting ticket: ", e);
+		}
+	}
+
+	protected String readCookieValue(final Cookie cookie) {
+		if (cookie.getValue() != null) {
+			if (cookie.getValue().length() > DEFAULT_MAX_COOKIE_SIZE) {
+				LOGGER.warn("size of cookie value greater than configured max. cookie size of {}",
+						DEFAULT_MAX_COOKIE_SIZE);
+			} else {
+				return cookie.getValue();
+			}
+		}
+		return null;
+	}
+
+	protected void deleteCookies(final HttpServletRequest request, final HttpServletResponse response) {
+		final Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (final Cookie cookie : cookies) {
+				final String name = cookie.getName();
+				LOGGER.debug("cookie found: '{}'", name);
+				/*
+				 * if (name.equals(xingCookie) || name.equals(userCookie) ||
+				 * name.equals(userIdCookie)) { logger.debug(
+				 * "deleting cookie '{}' with value '{}'", cookie.getName(),
+				 * cookie.getValue()); cookie.setValue(null);
+				 * cookie.setMaxAge(0); response.addCookie(cookie); }
+				 */
+			}
+		}
+	}
 }

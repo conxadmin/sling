@@ -34,6 +34,7 @@ import org.apache.jackrabbit.api.JackrabbitSession;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.jackrabbit.api.security.user.User;
 import org.apache.jackrabbit.api.security.user.UserManager;
+import org.apache.jackrabbit.core.security.user.UserImpl;
 import org.apache.sling.auth.sso.cas.api.ILDAPLoginUserManager;
 import org.apache.sling.auth.sso.cas.api.SsoPrincipal;
 import org.apache.sling.commons.osgi.PropertiesUtil;
@@ -154,6 +155,9 @@ public class DefaultLDAPLoginUserManager  implements ILDAPLoginUserManager {
           if (attribute instanceof SsoPrincipal) {
             ssoPrincipal = (SsoPrincipal) attribute;
           }
+        }
+        else {
+        	return null;
         }
 
 
