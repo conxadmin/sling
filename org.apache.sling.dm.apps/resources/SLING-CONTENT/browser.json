@@ -1,0 +1,8 @@
+{
+    "jcr:primaryType" : "sling:Folder",
+    "jcr:title" : "Sling Browser",
+    "sling:resourceType" : "browser",
+    "jcr:mixinTypes": [
+        "mix:lockable"
+    ]
+}

@@ -32,6 +32,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.felix.dm.Component;
 import org.apache.jackrabbit.api.JackrabbitSession;
 import org.apache.jackrabbit.api.security.user.Authorizable;
+import org.apache.jackrabbit.api.security.user.Group;
 import org.apache.jackrabbit.api.security.user.User;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.jackrabbit.core.security.user.UserImpl;
@@ -168,6 +169,10 @@ public class DefaultLDAPLoginUserManager  implements ILDAPLoginUserManager {
                 final Session session = getSession();
                 final UserManager userManager = getUserManager(session);
                 user = userManager.createUser(ssoPrincipal.getName(), null);
+                
+                Group adminGrp = getGroup("appadmins");
+                adminGrp.addMember(user);
+                
                 decorateUser(session,user);
             } else {
                 logger.debug("updating an existing user with id '{}'", ssoPrincipal.getName());
@@ -286,6 +291,27 @@ public class DefaultLDAPLoginUserManager  implements ILDAPLoginUserManager {
         }
         return null;
     }
+    
+    protected Group getGroup(final String grpId) {
+        logger.info("getting user with id '{}'", grpId);
+        try {
+            final Session session = getSession();
+            final UserManager userManager = getUserManager(session);
+            final Authorizable authorizable = userManager.getAuthorizable(grpId);
+            if (authorizable != null) {
+                if (authorizable instanceof Group) {
+                    final Group grp = (Group) authorizable;
+                    logger.debug("user for id '{}' found", grpId);
+                    return grp;
+                } else {
+                    logger.debug("found authorizable with id '{}' is not a group", authorizable.getID());
+                }
+            }
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+        return null;
+    }    
 
     protected synchronized Session getSession() throws RepositoryException {
         if (session == null || !session.isLive()) {

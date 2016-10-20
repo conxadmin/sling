@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.apache.sling.auth.core.impl.BundleAuthenticationRequirementImpl" activate="activate" deactivate="deactivate">
-  <implementation class="org.apache.sling.auth.core.impl.BundleAuthenticationRequirementImpl"/>
-  <service scope="bundle">
-    <provide interface="org.apache.sling.auth.core.spi.BundleAuthenticationRequirement"/>
-  </service>
-  <reference name="slingAuthenticator" interface="org.apache.sling.api.auth.Authenticator" field="slingAuthenticator"/>
-  <property name="service.vendor" type="String" value="The Apache Software Foundation"/>
-</scr:component>

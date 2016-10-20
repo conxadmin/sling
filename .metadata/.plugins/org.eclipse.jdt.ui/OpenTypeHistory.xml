@@ -34,4 +34,13 @@
 <typeInfo handle="=org.apache.sling.resourceresolver/src\/main\/java&lt;org.apache.sling.resourceresolver.impl{ResourceResolverImpl.java[ResourceResolverImpl" modifiers="1" timestamp="1471964573000"/>
 <typeInfo handle="=org.apache.sling.auth.trusted.token/src\/main\/java&lt;org.apache.sling.auth.trusted.token.internal{TrustedTokenServiceImpl.java[TrustedTokenServiceImpl" modifiers="17" timestamp="1474979180000"/>
 <typeInfo handle="=org.apache.sling.dm.jcr.resource/src&lt;org.apache.sling.jcr.resource.api{JcrResourceConstants.java[JcrResourceConstants" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.auth.core/src&lt;org.apache.sling.auth.core.spi{AuthenticationInfo.java[AuthenticationInfo" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.auth.core/src&lt;org.apache.sling.engine.auth{AuthenticationHandler.java[AuthenticationHandler" modifiers="1049089" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.auth.core/src&lt;org.apache.sling.auth.core.spi{AuthenticationHandler.java[AuthenticationHandler" modifiers="513" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.auth.core/src&lt;org.apache.sling.auth.core.spi{DefaultAuthenticationFeedbackHandler.java[DefaultAuthenticationFeedbackHandler" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=org.apache.sling.dm.jcr.base/src&lt;org.apache.sling.jcr.base.util{AccessControlUtil.java[AccessControlUtil" modifiers="1" timestamp="1471964573000"/>
+<typeInfo handle="=apache-sling-jar-resource-bundle/\/Library\/Java\/JavaVirtualMachines\/jdk1.8.0_25.jdk\/Contents\/Home\/jre\/lib\/rt.jar&lt;java.security(Permission.class[Permission" modifiers="1057" timestamp="1410998958000"/>
+<typeInfo handle="=org.apache.sling.dm.auth.sso.cas/\/Users\/mduduzikeswa\/.bnd\/cache\/http\%3A\%2F\%2Faceobr.myconxclouddev.com\%2Fobr\%2Forg\%2Fapache\%2Fsling\%2Fjcr\%2Fjackrabbit\%2Fserver\/org.apache.sling.jcr.jackrabbit.server.libs-2.3.1.201608211828.jar&lt;org.apache.jackrabbit.core.security.authorization(Permission.class[Permission" modifiers="49" timestamp="1471811387000"/>
+<typeInfo handle="=org.apache.sling.dm.auth.trusted/\/org.apache.sling\/generated\/org.apache.sling.jcr.jackrabbit.server.libs.jar&lt;org.apache.jackrabbit.core.security.authorization(AbstractCompiledPermissions.class[AbstractCompiledPermissions" modifiers="1025" timestamp="-1"/>
+<typeInfo handle="=org.apache.sling.dm.auth.trusted/\/org.apache.sling\/generated\/org.apache.sling.jcr.jackrabbit.server.libs.jar&lt;org.apache.jackrabbit.core.security.authorization.acl(ACLProvider.class[ACLProvider" modifiers="1" timestamp="-1"/>
 </typeInfoHistroy>

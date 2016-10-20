@@ -6,37 +6,37 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="AUTHENTICATION_INFO_CREDENTIALS" key="selection"/>
+		<item value="SECURITY_ACL" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="AUTHENTICATION_INFO_CREDENTIALS"/>
-			<item value="client"/>
-			<item value="TRY_LOGIN"/>
-			<item value="Authenticator"/>
-			<item value="tracker"/>
-			<item value="OsgiU"/>
-			<item value="ServiceTr"/>
-			<item value="ClusterTrackingService"/>
+			<item value="SECURITY_ACL"/>
+			<item value="addMember"/>
+			<item value="jcr:read"/>
+			<item value="*        "/>
+			<item value="grant"/>
+			<item value="&quot;path&quot;"/>
+			<item value="logoutUrl"/>
+			<item value="DEFAULT_LOGOUT_URL"/>
 		</list>
 		<list key="replacehistory">
+			<item value="  "/>
+			<item value="logger"/>
+			<item value="org.apache.sling.auth.sso.cas.impl"/>
+			<item value="LOGGER"/>
+			<item value="log"/>
 			<item value=""/>
 			<item value="this.properties."/>
 			<item value="properties.put("/>
-			<item value="properties."/>
-			<item value=" properties.put("/>
-			<item value="properties.put(&quot;"/>
-			<item value="properties.put"/>
-			<item value="&quot;,&quot;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="662" key="DIALOG_WIDTH"/>
 		<item value="1|.SF NS Text|11.0|0|COCOA|1|.SFNSText-Regular" key="DIALOG_FONT_NAME"/>
 		<item value="454" key="DIALOG_HEIGHT"/>
-		<item value="1018" key="DIALOG_X_ORIGIN"/>
+		<item value="992" key="DIALOG_X_ORIGIN"/>
 		<item value="498" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

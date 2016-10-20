@@ -1,7 +1,0 @@
-package org.conxworks.paas.naminganddirectory.ldaptive.resolver;
-
-public class UserNotFoundException extends Exception {
-	public UserNotFoundException(Exception e) {
-		super(e);
-	}
-}

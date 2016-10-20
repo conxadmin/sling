@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component name="org.apache.sling.browser.servlet.BrowserServlet">
+        <implementation class="org.apache.sling.browser.servlet.BrowserServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+            <provide interface="javax.servlet.ServletConfig"/>
+            <provide interface="java.io.Serializable"/>
+        </service>
+        <property name="service.description" value="JCR Browser Servlet"/>
+        <property name="service.vendor" value="JCR Browser"/>
+        <property name="sling.servlet.paths" value="/services/browser"/>
+        <property name="service.pid" value="org.apache.sling.browser.servlet.BrowserServlet"/>
+        <reference name="resolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResolverFactory" unbind="unbindResolverFactory"/>
+        <reference name="mimeTypeService" interface="org.apache.sling.commons.mime.MimeTypeService" cardinality="1..1" policy="static" bind="bindMimeTypeService" unbind="unbindMimeTypeService"/>
+    </scr:component>
+</components>

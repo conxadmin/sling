@@ -1,0 +1,26 @@
+{
+	"security:principals" : [
+       {
+          "name":"appusers",
+          "isgroup":"true",
+          "members":[],
+          "dynamic":"true"
+       },
+       {
+          "name":"appadmins",
+          "isgroup":"true",
+          "members":[],
+          "dynamic":"true"
+       }
+    ],
+    "security:acl" : [
+    	{	
+    		"principal" : "appusers",
+    		"granted" : ["jcr:read"]
+    	},
+    	{	
+    		"principal" : "appadmins",
+    		"granted" : ["jcr:all"]
+    	}
+    ]
+}

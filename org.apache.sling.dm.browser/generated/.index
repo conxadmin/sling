@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1476472268950" name="org.apache.sling.dm.browser" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1476965212369" name="org.apache.sling.dm.browser" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.apache.sling.dm.browser.mt"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="0.5.1.201610141911"/>
+      <attribute name="version" type="Version" value="0.5.1.201610201206"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="7ce4451a8aa1fa9696ddf6518612fa27b87e3b36f2608c931f3eb36c8745cc4b"/>
+      <attribute name="osgi.content" value="8fd2bd15fc8796a309ad443b120587bcb6472a9a769a95ad2c174981ba7f4f34"/>
       <attribute name="url" value="generated/org.apache.sling.dm.browser.mt.jar"/>
-      <attribute name="size" type="Long" value="2585480"/>
+      <attribute name="size" type="Long" value="2585742"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201610141911"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201610201206"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201610141911"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201610201206"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.browser.servlet"/>
       <attribute name="version" type="Version" value="0.5.1.SNAPSHOT"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201610141911"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201610201206"/>
       <directive name="uses" value="org.slf4j,org.apache.sling.commons.mime,org.apache.sling.api,org.apache.sling.api.request,org.apache.sling.api.servlets,javax.servlet,org.json,org.apache.sling.api.resource,org.apache.sling.browser.resource,javax.jcr"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.browser.util"/>
       <attribute name="version" type="Version" value="0.5.1.SNAPSHOT"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201610141911"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201610201206"/>
       <directive name="uses" value="org.apache.sling.api.adapter"/>
     </capability>
     <capability namespace="osgi.wiring.package">
       <attribute name="osgi.wiring.package" value="org.apache.sling.browser.resource"/>
       <attribute name="version" type="Version" value="0.5.1.SNAPSHOT"/>
       <attribute name="bundle-symbolic-name" value="org.apache.sling.dm.browser.mt"/>
-      <attribute name="bundle-version" type="Version" value="0.5.1.201610141911"/>
+      <attribute name="bundle-version" type="Version" value="0.5.1.201610201206"/>
       <directive name="uses" value="org.apache.jackrabbit,org.apache.sling.api.resource,org.apache.commons.codec.digest,javax.jcr"/>
     </capability>
     <capability namespace="bndtools.workspace">
@@ -77,6 +77,9 @@
     </requirement>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.slf4j)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.amdatu.multitenant)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
     </requirement>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.amdatu.multitenant.adapter)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
